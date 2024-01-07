@@ -1,44 +1,92 @@
-//
-//  ContentView.swift
-//  SpatialChess
-//
-//  Created by FULLNAME on 2024/01/07.
-//
-
 import SwiftUI
 import RealityKit
 import RealityKitContent
 
 struct ContentView: View {
-
-    @State var enlarge = false
-
     var body: some View {
-        VStack {
-            RealityView { content in
-                // Add the initial RealityKit content
-                if let scene = try? await Entity(named: "Scene", in: realityKitContentBundle) {
-                    content.add(scene)
-                }
-            } update: { content in
-                // Update the RealityKit content when SwiftUI state changes
-                if let scene = content.entities.first {
-                    let uniformScale: Float = enlarge ? 1.4 : 1.0
-                    scene.transform.scale = [uniformScale, uniformScale, uniformScale]
+        HStack(spacing: 0) {
+            ForEach(1...8, id: \.self) { column in
+                VStack(spacing: 0) {
+                    ForEach(0..<8, id: \.self) { row in
+                        let index = column + row * 8
+                        Color(white: (row + column) % 2 == 0 ? 0.2 : 0.7)
+                            .hoverEffect(isEnabled: true)
+                            .overlay {
+                                if index == 28 {
+                                    駒View()
+                                }
+                            }
+                            .frame(width: チェスボードのサイズ.マスの一辺の大きさ,
+                                   height: チェスボードのサイズ.マスの一辺の大きさ)
+                    }
                 }
             }
-            .gesture(TapGesture().targetedToAnyEntity().onEnded { _ in
-                enlarge.toggle()
-            })
-
-            VStack {
-                Toggle("Enlarge RealityView Content", isOn: $enlarge)
-                    .toggleStyle(.button)
-            }.padding().glassBackgroundEffect()
         }
+        .overlay {
+            ZStack {
+                HStack(spacing: 0) {
+                    ForEach(1...8, id: \.self) {
+                        Spacer()
+                        if $0 < 8 { Color.black.frame(width: 1) }
+                    }
+                }
+                VStack(spacing: 0) {
+                    ForEach(1...8, id: \.self) {
+                        Spacer()
+                        if $0 < 8 { Color.black.frame(height: 1) }
+                    }
+                }
+            }
+            .border(.black, width: 6)
+        }
+        .padding(チェスボードのサイズ.ボードの余白の大きさ)
+        .background {
+            Model3D(named: "シンプルボード") {
+                $0
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            } placeholder: {
+                Color.clear
+            }
+            .offset(z: -1)
+        }
+        .rotation3DEffect(.init(angle: .degrees(90), axis: .x))
+        .offset(y: チェスボードのサイズ.ボードの高さオフセット)
+        .frame(width: チェスボードのサイズ.ボードの一辺の大きさ,
+               height: チェスボードのサイズ.ボードの一辺の大きさ)
+        .frame(depth: チェスボードのサイズ.ボードの一辺の大きさ)
     }
 }
 
-#Preview(windowStyle: .volumetric) {
-    ContentView()
+enum チェスボードのサイズ {
+    static let マスの一辺の大きさ: CGFloat = 100
+    static var ボードの余白の大きさ: CGFloat = 48
+    static var ボードの一辺の大きさ: CGFloat { Self.マスの一辺の大きさ * 8 + Self.ボードの余白の大きさ * 2 }
+    static var ボードの高さオフセット: CGFloat { (Self.ボードの一辺の大きさ - 100) / 2 }
+}
+
+fileprivate
+struct 駒View: View {
+    @State private var opacity: Double = 0
+    @State private var floating: Bool = false
+    var body: some View {
+        Model3D(named: "駒") {
+            $0
+                .scaleEffect(1.6, anchor: .back)
+                .hoverEffect()
+                .offset(z: self.floating ? チェスボードのサイズ.マスの一辺の大きさ * 1.5 : 0)
+                .opacity(self.opacity)
+                .task {
+                    try? await Task.sleep(for: .seconds(0.1))
+                    withAnimation(.default.speed(2)) { self.opacity = 1 }
+                    try? await Task.sleep(for: .seconds(0.4))
+                    withAnimation { self.floating = false }
+                }
+                .onTapGesture {
+                    withAnimation { self.floating.toggle() }
+                }
+        } placeholder: {
+            Color.clear
+        }
+    }
 }
