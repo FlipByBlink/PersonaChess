@@ -59,10 +59,10 @@ struct ContentView: View {
 }
 
 enum チェスボードのサイズ {
-    static let マスの一辺の大きさ: CGFloat = 100
+    static let マスの一辺の大きさ: CGFloat = 150
     static var ボードの余白の大きさ: CGFloat = 48
     static var ボードの一辺の大きさ: CGFloat { Self.マスの一辺の大きさ * 8 + Self.ボードの余白の大きさ * 2 }
-    static var ボードの高さオフセット: CGFloat { (Self.ボードの一辺の大きさ - 100) / 2 }
+    static var ボードの高さオフセット: CGFloat { (Self.ボードの一辺の大きさ - 140) / 2 }
 }
 
 fileprivate
@@ -72,7 +72,7 @@ struct 駒View: View {
     var body: some View {
         Model3D(named: "駒") {
             $0
-                .scaleEffect(1.6, anchor: .back)
+                .scaleEffect(2.2, anchor: .back)
                 .hoverEffect()
                 .offset(z: self.floating ? チェスボードのサイズ.マスの一辺の大きさ * 1.5 : 0)
                 .opacity(self.opacity)
