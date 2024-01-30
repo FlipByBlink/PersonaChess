@@ -16,7 +16,7 @@ struct BoardView: View {
         .mask(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .overlay {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .stroke(lineWidth: 1.5)
+                .stroke(Color(white: 0.75), lineWidth: 3)
         }
         .frame(width: self.physicalMetrics.convert(FixedValue.boardSize, from: .meters),
                height: self.physicalMetrics.convert(FixedValue.boardSize, from: .meters))
