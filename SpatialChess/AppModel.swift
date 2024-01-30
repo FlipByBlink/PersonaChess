@@ -23,10 +23,15 @@ extension AppModel {
     func applyLatestAction(_ action: Action) {
         switch action {
             case .tapPiece(let id):
-                guard let entity = self.pieceEntity(id.uuidString) else {
-                    assertionFailure()
-                    return
+                if self.gameState.latestSituation.contains(where: { $0.picked }) {
+                    let entity = self.pickedPieceEntity()!
+                    let state = entity.components[PieceStateComponent.self]!
+                    entity.move(to: .init(translation: state.index.position),
+                                relativeTo: self.rootEntity,
+                                duration: 1)
+                    entity.components[PieceStateComponent.self]!.picked.toggle()
                 }
+                let entity = self.pieceEntity(id.uuidString)!
                 let state = entity.components[PieceStateComponent.self]!
                 var translation = state.index.position
                 translation.y = state.picked ? 0 : 0.1
