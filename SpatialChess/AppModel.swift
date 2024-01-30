@@ -33,27 +33,27 @@ extension AppModel {
                         tappedPieceEntity.move(to: .init(translation: translation),
                                                relativeTo: self.rootEntity,
                                                duration: 1)
-                        tappedPieceEntity.components[PieceStateComponent.self]!.picked.toggle()
+                        tappedPieceEntity.components[PieceStateComponent.self]!.picked = false
                     } else {
                         let pickedPieceState = pickedPieceEntity.components[PieceStateComponent.self]!
                         if tappedPieceState.side == pickedPieceState.side {
                             pickedPieceEntity.move(to: .init(translation: pickedPieceState.index.position),
                                                    relativeTo: self.rootEntity,
                                                    duration: 1)
-                            pickedPieceEntity.components[PieceStateComponent.self]!.picked.toggle()
+                            pickedPieceEntity.components[PieceStateComponent.self]!.picked = false
                             var translation = tappedPieceState.index.position
                             translation.y = 0.1
                             tappedPieceEntity.move(to: .init(translation: translation),
                                                    relativeTo: self.rootEntity,
                                                    duration: 1)
-                            tappedPieceEntity.components[PieceStateComponent.self]!.picked.toggle()
+                            tappedPieceEntity.components[PieceStateComponent.self]!.picked = true
                         } else {
                             self.rootEntity.removeChild(tappedPieceEntity)
                             pickedPieceEntity.move(to: .init(translation: tappedPieceState.index.position),
                                                    relativeTo: self.rootEntity,
                                                    duration: 1)
                             pickedPieceEntity.components[PieceStateComponent.self]!.index = tappedPieceState.index
-                            pickedPieceEntity.components[PieceStateComponent.self]!.picked.toggle()
+                            pickedPieceEntity.components[PieceStateComponent.self]!.picked = false
                         }
                     }
                 } else {
@@ -62,17 +62,17 @@ extension AppModel {
                     tappedPieceEntity.move(to: .init(translation: translation),
                                            relativeTo: self.rootEntity,
                                            duration: 1)
-                    tappedPieceEntity.components[PieceStateComponent.self]!.picked.toggle()
+                    tappedPieceEntity.components[PieceStateComponent.self]!.picked = true
                 }
             case .tapSquare(let index):
-                guard let entity = self.pickedPieceEntity() else {
+                guard let pickedPieceEntity = self.pickedPieceEntity() else {
                     return
                 }
-                entity.move(to: .init(translation: index.position),
-                            relativeTo: self.rootEntity,
-                            duration: 1)
-                entity.components[PieceStateComponent.self]?.index = index
-                entity.components[PieceStateComponent.self]?.picked.toggle()
+                pickedPieceEntity.move(to: .init(translation: index.position),
+                                       relativeTo: self.rootEntity,
+                                       duration: 1)
+                pickedPieceEntity.components[PieceStateComponent.self]?.index = index
+                pickedPieceEntity.components[PieceStateComponent.self]?.picked = false
         }
         self.updateGameState(with: action)
         self.send()
