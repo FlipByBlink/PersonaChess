@@ -5,10 +5,15 @@ struct SpatialChessApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .border(.pink, width: 3)
+                .overlay {
+                    Circle()
+                        .frame(width: 10, height: 10)
+                }
         }
         .windowStyle(.volumetric)
-        .defaultSize(width: チェスボードのサイズ.ボードの一辺の大きさ,
-                     height: チェスボードのサイズ.ボードの一辺の大きさ,
-                     depth: チェスボードのサイズ.ボードの一辺の大きさ)
+        .defaultSize(width: 1400,
+                     height: 500,
+                     depth: 1400)
     }
 }

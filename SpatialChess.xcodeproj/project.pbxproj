@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		1601FEF82B4AA42D0050457E /* シンプルボード.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF72B4AA42D0050457E /* シンプルボード.reality */; };
 		1601FEFA2B4AA43A0050457E /* 駒.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF92B4AA43A0050457E /* 駒.reality */; };
+		16780FF62B6881DB005A0244 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* ContentView.swift */; };
 		169C00252B4A9BE0001242F5 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 169C00242B4A9BE0001242F5 /* RealityKitContent */; };
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
-		169C00292B4A9BE0001242F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00282B4A9BE0001242F5 /* ContentView.swift */; };
+		169C00292B4A9BE0001242F5 /* ContentView(old).swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00282B4A9BE0001242F5 /* ContentView(old).swift */; };
 		169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169C002A2B4A9BE2001242F5 /* Assets.xcassets */; };
 		16EA6A712B6875CA00A3A740 /* rookW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A652B6875CA00A3A740 /* rookW.reality */; };
 		16EA6A722B6875CA00A3A740 /* rookB.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A662B6875CA00A3A740 /* rookB.reality */; };
@@ -32,10 +33,11 @@
 /* Begin PBXFileReference section */
 		1601FEF72B4AA42D0050457E /* シンプルボード.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "シンプルボード.reality"; sourceTree = "<group>"; };
 		1601FEF92B4AA43A0050457E /* 駒.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "駒.reality"; sourceTree = "<group>"; };
+		16780FF52B6881DB005A0244 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		169C001F2B4A9BE0001242F5 /* SpatialChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatialChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		169C00232B4A9BE0001242F5 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		169C00262B4A9BE0001242F5 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		169C00282B4A9BE0001242F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		169C00282B4A9BE0001242F5 /* ContentView(old).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView(old).swift"; sourceTree = "<group>"; };
 		169C002A2B4A9BE2001242F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		169C002F2B4A9BE2001242F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16EA6A652B6875CA00A3A740 /* rookW.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = rookW.reality; sourceTree = "<group>"; };
@@ -66,6 +68,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16780FF72B6887B9005A0244 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				169C00282B4A9BE0001242F5 /* ContentView(old).swift */,
+				1601FEF72B4AA42D0050457E /* シンプルボード.reality */,
+				1601FEF92B4AA43A0050457E /* 駒.reality */,
+			);
+			path = Archive;
+			sourceTree = "<group>";
+		};
 		169C00162B4A9BE0001242F5 = {
 			isa = PBXGroup;
 			children = (
@@ -87,13 +99,12 @@
 			isa = PBXGroup;
 			children = (
 				169C00262B4A9BE0001242F5 /* App.swift */,
-				169C00282B4A9BE0001242F5 /* ContentView.swift */,
-				1601FEF72B4AA42D0050457E /* シンプルボード.reality */,
-				1601FEF92B4AA43A0050457E /* 駒.reality */,
+				16780FF52B6881DB005A0244 /* ContentView.swift */,
 				16EA6A7D2B68761A00A3A740 /* Piece.swift */,
 				16EA6A7F2B68769C00A3A740 /* Side.swift */,
 				16EA6A642B6875CA00A3A740 /* piecesAssets */,
 				169C002A2B4A9BE2001242F5 /* Assets.xcassets */,
+				16780FF72B6887B9005A0244 /* Archive */,
 				169C002F2B4A9BE2001242F5 /* Info.plist */,
 			);
 			path = SpatialChess;
@@ -212,7 +223,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				169C00292B4A9BE0001242F5 /* ContentView.swift in Sources */,
+				169C00292B4A9BE0001242F5 /* ContentView(old).swift in Sources */,
+				16780FF62B6881DB005A0244 /* ContentView.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
 				16EA6A802B68769C00A3A740 /* Side.swift in Sources */,
 				16EA6A7E2B68761A00A3A740 /* Piece.swift in Sources */,
