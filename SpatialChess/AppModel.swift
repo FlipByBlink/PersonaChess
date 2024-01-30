@@ -28,9 +28,7 @@ extension AppModel {
                 if self.gameState.latestSituation.contains(where: { $0.picked }) {
                     let pickedPieceEntity = self.pickedPieceEntity()!
                     if tappedPieceEntity == pickedPieceEntity {
-                        var translation = tappedPieceState.index.position
-                        translation.y = 0
-                        tappedPieceEntity.move(to: .init(translation: translation),
+                        tappedPieceEntity.move(to: .init(translation: tappedPieceState.index.position),
                                                relativeTo: self.rootEntity,
                                                duration: 1)
                         tappedPieceEntity.components[PieceStateComponent.self]!.picked = false
@@ -65,9 +63,7 @@ extension AppModel {
                     tappedPieceEntity.components[PieceStateComponent.self]!.picked = true
                 }
             case .tapSquare(let index):
-                guard let pickedPieceEntity = self.pickedPieceEntity() else {
-                    return
-                }
+                guard let pickedPieceEntity = self.pickedPieceEntity() else { return }
                 pickedPieceEntity.move(to: .init(translation: index.position),
                                        relativeTo: self.rootEntity,
                                        duration: 1)
