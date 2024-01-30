@@ -25,31 +25,7 @@ struct ContentView: View {
             self.rootEntity.addChild(attachments.entity(for: "board")!)
             content.add(self.rootEntity)
         } attachments: {
-            Attachment(id: "board") {
-                ZStack {
-                    HStack(spacing: 0) {
-                        ForEach(1...8, id: \.self) {
-                            Spacer()
-                            if $0 < 8 { Color.primary.frame(width: 1) }
-                        }
-                    }
-                    VStack(spacing: 0) {
-                        ForEach(1...8, id: \.self) {
-                            Spacer()
-                            if $0 < 8 { Color.primary.frame(height: 1) }
-                        }
-                    }
-                }
-                .overlay {
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .stroke(lineWidth: 3)
-                }
-                .frame(width: self.physicalMetrics.convert(FixedValue.boardSize, from: .meters),
-                       height: self.physicalMetrics.convert(FixedValue.boardSize, from: .meters))
-                .padding(32)
-                .glassBackgroundEffect()
-                .rotation3DEffect(.degrees(90), axis: .x)
-            }
+            Attachment(id: "board") { BoardView() }
         }
         .gesture(
             TapGesture()
