@@ -23,22 +23,47 @@ extension AppModel {
     func applyLatestAction(_ action: Action) {
         switch action {
             case .tapPiece(let id):
+                let tappedPieceEntity = self.pieceEntity(id.uuidString)!
+                let tappedPieceState = tappedPieceEntity.components[PieceStateComponent.self]!
                 if self.gameState.latestSituation.contains(where: { $0.picked }) {
-                    let entity = self.pickedPieceEntity()!
-                    let state = entity.components[PieceStateComponent.self]!
-                    entity.move(to: .init(translation: state.index.position),
-                                relativeTo: self.rootEntity,
-                                duration: 1)
-                    entity.components[PieceStateComponent.self]!.picked.toggle()
+                    let pickedPieceEntity = self.pickedPieceEntity()!
+                    if tappedPieceEntity == pickedPieceEntity {
+                        var translation = tappedPieceState.index.position
+                        translation.y = 0
+                        tappedPieceEntity.move(to: .init(translation: translation),
+                                               relativeTo: self.rootEntity,
+                                               duration: 1)
+                        tappedPieceEntity.components[PieceStateComponent.self]!.picked.toggle()
+                    } else {
+                        let pickedPieceState = pickedPieceEntity.components[PieceStateComponent.self]!
+                        if tappedPieceState.side == pickedPieceState.side {
+                            pickedPieceEntity.move(to: .init(translation: pickedPieceState.index.position),
+                                                   relativeTo: self.rootEntity,
+                                                   duration: 1)
+                            pickedPieceEntity.components[PieceStateComponent.self]!.picked.toggle()
+                            var translation = tappedPieceState.index.position
+                            translation.y = 0.1
+                            tappedPieceEntity.move(to: .init(translation: translation),
+                                                   relativeTo: self.rootEntity,
+                                                   duration: 1)
+                            tappedPieceEntity.components[PieceStateComponent.self]!.picked.toggle()
+                        } else {
+                            self.rootEntity.removeChild(tappedPieceEntity)
+                            pickedPieceEntity.move(to: .init(translation: tappedPieceState.index.position),
+                                                   relativeTo: self.rootEntity,
+                                                   duration: 1)
+                            pickedPieceEntity.components[PieceStateComponent.self]!.index = tappedPieceState.index
+                            pickedPieceEntity.components[PieceStateComponent.self]!.picked.toggle()
+                        }
+                    }
+                } else {
+                    var translation = tappedPieceState.index.position
+                    translation.y = 0.1
+                    tappedPieceEntity.move(to: .init(translation: translation),
+                                           relativeTo: self.rootEntity,
+                                           duration: 1)
+                    tappedPieceEntity.components[PieceStateComponent.self]!.picked.toggle()
                 }
-                let entity = self.pieceEntity(id.uuidString)!
-                let state = entity.components[PieceStateComponent.self]!
-                var translation = state.index.position
-                translation.y = state.picked ? 0 : 0.1
-                entity.move(to: .init(translation: translation),
-                            relativeTo: self.rootEntity,
-                            duration: 1)
-                entity.components[PieceStateComponent.self]!.picked.toggle()
             case .tapSquare(let index):
                 guard let entity = self.pickedPieceEntity() else {
                     return
