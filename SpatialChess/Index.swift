@@ -7,7 +7,7 @@ struct Index {
     }
 }
 
-extension Index: Hashable {
+extension Index: Hashable, Codable {
     var position: SIMD3<Float> {
         let offset: Float = 0.07
         return .init(x: Float(self.column - 4) * offset + (offset / 2),

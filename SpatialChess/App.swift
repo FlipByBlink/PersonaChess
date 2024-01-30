@@ -7,4 +7,7 @@ struct SpatialChessApp: App {
             ContentView()
         }
     }
+    init() {
+        PieceStateComponent.registerComponent()
+    }
 }

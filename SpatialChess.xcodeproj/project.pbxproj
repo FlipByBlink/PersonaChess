@@ -31,6 +31,7 @@
 		16EA6A7C2B6875CA00A3A740 /* pawnW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A702B6875CA00A3A740 /* pawnW.reality */; };
 		16EA6A7E2B68761A00A3A740 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA6A7D2B68761A00A3A740 /* Piece.swift */; };
 		16EA6A802B68769C00A3A740 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA6A7F2B68769C00A3A740 /* Side.swift */; };
+		16F972752B68B77C00711C53 /* PieceStateComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* PieceStateComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		16EA6A702B6875CA00A3A740 /* pawnW.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = pawnW.reality; sourceTree = "<group>"; };
 		16EA6A7D2B68761A00A3A740 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		16EA6A7F2B68769C00A3A740 /* Side.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
+		16F972742B68B77C00711C53 /* PieceStateComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceStateComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				169C00262B4A9BE0001242F5 /* App.swift */,
 				16780FF52B6881DB005A0244 /* ContentView.swift */,
+				16F972742B68B77C00711C53 /* PieceStateComponent.swift */,
 				16780FFA2B689304005A0244 /* GameState.swift */,
 				16780FFC2B6893CF005A0244 /* Index.swift */,
 				16EA6A7D2B68761A00A3A740 /* Piece.swift */,
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16780FFB2B689304005A0244 /* GameState.swift in Sources */,
+				16F972752B68B77C00711C53 /* PieceStateComponent.swift in Sources */,
 				169C00292B4A9BE0001242F5 /* ContentView(old).swift in Sources */,
 				16780FF62B6881DB005A0244 /* ContentView.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,

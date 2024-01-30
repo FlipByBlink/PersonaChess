@@ -11,20 +11,29 @@ struct ContentView: View {
             GameState.preset.forEach { (key: Index, value: Piece) in
                 let entity = try! Entity.load(named: value.assetName)
                 entity.position = key.position
-                entity.generateCollisionShapes(recursive: true)
-                entity.components.set([HoverEffectComponent(),
-                                       InputTargetComponent()])
+                entity.components.set([
+                    HoverEffectComponent(),
+                    InputTargetComponent(),
+                    CollisionComponent(
+                        shapes: [.generateBox(size: entity.visualBounds(relativeTo: nil).extents)]
+                    ),
+                    PieceStateComponent(index: key)
+                ])
                 self.rootEntity.addChild(entity)
             }
             content.add(self.rootEntity)
         }
         .gesture(
             TapGesture()
-                .targetedToAnyEntity()
+                .targetedToEntity(where: .has(PieceStateComponent.self))
                 .onEnded { value in
-                    value.entity.move(to: .init(translation: .init(x: 0, y: 10, z: 0)),
+                    let state = value.entity.components[PieceStateComponent.self]!
+                    value.entity.move(to: .init(translation: .init(x: 0,
+                                                                   y: state.selected ? -0.1 : 0.1,
+                                                                   z: 0)),
                                       relativeTo: value.entity,
                                       duration: 1)
+                    value.entity.components[PieceStateComponent.self]!.selected.toggle()
                 }
         )
     }
