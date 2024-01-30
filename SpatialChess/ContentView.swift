@@ -7,7 +7,7 @@ struct ContentView: View {
         RealityView { content in
             self.rootEntity.position.y = 1.2
             self.rootEntity.position.z = -1
-            GameState.preset.forEach { (key: GameState.Position, value: Piece) in
+            GameState.preset.forEach { (key: Position, value: Piece) in
                 let entity = try! Entity.load(named: value.assetName)
                 entity.position = key.position
                 entity.generateCollisionShapes(recursive: true)
