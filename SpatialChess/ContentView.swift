@@ -10,9 +10,21 @@ struct ContentView: View {
             GameState.preset.forEach { (key: GameState.Position, value: Piece) in
                 let entity = try! Entity.load(named: value.assetName)
                 entity.position = key.position
+                entity.generateCollisionShapes(recursive: true)
+                entity.components.set([HoverEffectComponent(),
+                                       InputTargetComponent()])
                 self.rootEntity.addChild(entity)
             }
             content.add(self.rootEntity)
         }
+        .gesture(
+            TapGesture()
+                .targetedToAnyEntity()
+                .onEnded { value in
+                    value.entity.move(to: .init(translation: .init(x: 0, y: 3, z: 0)),
+                                      relativeTo: value.entity,
+                                      duration: 1)
+                }
+        )
     }
 }
