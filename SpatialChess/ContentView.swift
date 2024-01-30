@@ -8,7 +8,7 @@ struct ContentView: View {
         RealityView { content, attachments in
             self.model.rootEntity.position.y = 1.2
             self.model.rootEntity.position.z = -0.6
-            self.model.gameState.value.forEach { (key: Index, value: Piece) in
+            GameState.preset.value.forEach { (key: Index, value: Piece) in
                 let entity = try! Entity.load(named: value.assetName)
                 entity.position = key.position
                 entity.components.set([
@@ -20,6 +20,7 @@ struct ContentView: View {
                     PieceStateComponent(index: key)
                 ])
                 self.model.rootEntity.addChild(entity)
+                self.model.pieceEntities.append(entity)
             }
             self.model.rootEntity.addChild(attachments.entity(for: "board")!)
             content.add(self.model.rootEntity)
@@ -32,15 +33,7 @@ struct ContentView: View {
         .gesture(
             TapGesture()
                 .targetedToEntity(where: .has(PieceStateComponent.self))
-                .onEnded { value in
-                    let state = value.entity.components[PieceStateComponent.self]!
-                    value.entity.move(to: .init(translation: .init(x: 0,
-                                                                   y: state.picked ? -0.1 : 0.1,
-                                                                   z: 0)),
-                                      relativeTo: value.entity,
-                                      duration: 1)
-                    value.entity.components[PieceStateComponent.self]!.picked.toggle()
-                }
+                .onEnded { self.model.tapPiece($0.entity) }
         )
     }
 }

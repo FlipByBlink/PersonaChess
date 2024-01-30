@@ -19,7 +19,7 @@ struct BoardView: View {
                         }
                         .contentShape(.rect)
                         .hoverEffect()
-                        .onTapGesture { self.tapAction(.init(row, column)) }
+                        .onTapGesture { self.model.tapSquare(.init(row, column)) }
                     }
                 }
             }
@@ -34,16 +34,5 @@ struct BoardView: View {
         .padding(48)
         .glassBackgroundEffect()
         .rotation3DEffect(.degrees(90), axis: .x)
-    }
-    func tapAction(_ index: Index) {
-        guard let entity = self.model.rootEntity.children
-            .first(where: { $0.components[PieceStateComponent.self]?.picked == true }) else {
-            return
-        }
-        entity.move(to: .init(translation: index.position),
-                    relativeTo: self.model.rootEntity,
-                    duration: 1)
-        entity.components[PieceStateComponent.self]?.index = index
-        entity.components[PieceStateComponent.self]?.picked.toggle()
     }
 }
