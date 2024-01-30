@@ -4,8 +4,9 @@ import RealityKit
 struct ContentView: View {
     @State private var rootEntity: Entity = .init()
     @State private var selected: Index?
+    @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
-        RealityView { content in
+        RealityView { content, attachments in
             self.rootEntity.position.y = 1.2
             self.rootEntity.position.z = -1
             GameState.preset.forEach { (key: Index, value: Piece) in
@@ -21,7 +22,17 @@ struct ContentView: View {
                 ])
                 self.rootEntity.addChild(entity)
             }
+            self.rootEntity.addChild(attachments.entity(for: "board")!)
             content.add(self.rootEntity)
+        } attachments: {
+            Attachment(id: "board") {
+                Color.clear
+                    .frame(width: self.physicalMetrics.convert(FixedValue.boardSize, from: .meters),
+                           height: self.physicalMetrics.convert(FixedValue.boardSize, from: .meters))
+                    .padding()
+                    .glassBackgroundEffect()
+                    .rotation3DEffect(.degrees(90), axis: .x)
+            }
         }
         .gesture(
             TapGesture()
