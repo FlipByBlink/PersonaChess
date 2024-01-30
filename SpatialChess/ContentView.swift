@@ -22,7 +22,7 @@ struct ContentView: View {
             TapGesture()
                 .targetedToAnyEntity()
                 .onEnded { value in
-                    value.entity.move(to: .init(translation: .init(x: 0, y: 3, z: 0)),
+                    value.entity.move(to: .init(translation: .init(x: 0, y: 10, z: 0)),
                                       relativeTo: value.entity,
                                       duration: 1)
                 }
