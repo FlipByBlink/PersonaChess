@@ -1,9 +1,9 @@
 import Foundation
 
 struct GameState: Codable {
-    var previousSituation: [PieceStateComponent] = Self.preset
-//    var latestSituation: [PieceStateComponent] //TODO: 実装
+    var previousSituation: [PieceStateComponent] = []
     var latestAction: Action? = nil
+    var latestSituation: [PieceStateComponent] = Self.preset
 }
 
 private extension GameState {
