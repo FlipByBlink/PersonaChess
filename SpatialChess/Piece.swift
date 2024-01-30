@@ -16,6 +16,11 @@ struct Piece {
         self.chessmen = chessmen
         self.side = side
     }
+    var assetName: String {
+        "\(self.chessmen)" 
+        +
+        (self.side == .black ? "B" : "W")
+    }
 }
 
 struct GameState {

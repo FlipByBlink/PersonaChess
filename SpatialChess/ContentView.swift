@@ -5,15 +5,15 @@ import RealityKitContent
 struct ContentView: View {
     var body: some View {
         HStack(spacing: 0) {
-            ForEach(1...8, id: \.self) { column in
+            ForEach(0..<8, id: \.self) { column in
                 VStack(spacing: 0) {
                     ForEach(0..<8, id: \.self) { row in
                         let index = column + row * 8
                         Color(white: (row + column) % 2 == 0 ? 0.2 : 0.7)
                             .hoverEffect(isEnabled: true)
                             .overlay {
-                                if index == 28 {
-                                    駒View()
+                                if let piece = GameState.preset[.init(row, column)] {
+                                    駒View(assetName: piece.assetName)
                                 }
                             }
                             .frame(width: チェスボードのサイズ.マスの一辺の大きさ,
@@ -69,8 +69,9 @@ fileprivate
 struct 駒View: View {
     @State private var opacity: Double = 0
     @State private var floating: Bool = false
+    var assetName: String
     var body: some View {
-        Model3D(named: "駒") {
+        Model3D(named: self.assetName) {
             $0
                 .scaleEffect(2.2, anchor: .back)
                 .hoverEffect()
