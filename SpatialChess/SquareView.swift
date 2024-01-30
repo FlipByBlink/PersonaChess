@@ -4,7 +4,9 @@ struct SquareView: View {
     @EnvironmentObject var model: AppModel
     private var row: Int
     private var column: Int
-    private var active: Bool {
+    private var inputtable: Bool {
+        self.model.gameState.latestSituation.contains { $0.picked }
+        &&
         !self.model.gameState.latestSituation.contains { $0.index == .init(row, column) }
     }
     var body: some View {
@@ -18,9 +20,9 @@ struct SquareView: View {
             }
         }
         .contentShape(.rect)
-        .hoverEffect(isEnabled: self.active)
+        .hoverEffect(isEnabled: self.inputtable)
         .onTapGesture {
-            if self.active {
+            if self.inputtable {
                 self.model.applyLatestAction(.tapSquare(.init(self.row, self.column)))
             }
         }
