@@ -2,11 +2,12 @@ import Foundation
 
 struct GameState: Codable {
     var previousSituation: [PieceStateComponent] = Self.preset
+//    var latestSituation: [PieceStateComponent] //TODO: 実装
     var latestAction: Action? = nil
 }
 
-extension GameState {
-    static var preset: [PieceStateComponent] {
+private extension GameState {
+    private static var preset: [PieceStateComponent] {
         var value: [PieceStateComponent] = []
         [Chessmen.rook, .knight, .bishop, .queen, .king, .bishop, .knight, .rook].enumerated().forEach {
             value.append(.init(index: .init(0, $0.offset),

@@ -24,6 +24,8 @@ extension AppModel {
                                 relativeTo: self.rootEntity,
                                 duration: 1)
                     entity.components[PieceStateComponent.self]!.picked.toggle()
+                } else {
+                    assertionFailure()
                 }
             case .tapSquare(let index):
                 guard let entity = self.pickedPieceEntity() else {
