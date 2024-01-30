@@ -8,20 +8,7 @@ struct BoardView: View {
             ForEach(0..<8, id: \.self) { column in
                 VStack(spacing: 0) {
                     ForEach(0..<8, id: \.self) { row in
-                        Group {
-                            if (column + row) % 2 == 0 {
-                                Rectangle()
-                                    .fill(.background)
-                            } else {
-                                Color.clear
-                                    .glassBackgroundEffect(in: .rect)
-                            }
-                        }
-                        .contentShape(.rect)
-                        .hoverEffect()
-                        .onTapGesture {
-                            self.model.applyLatestAction(.tapSquare(.init(row, column)))
-                        }
+                        SquareView(row, column)
                     }
                 }
             }
