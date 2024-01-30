@@ -18,10 +18,10 @@ extension AppModel {
             case .tapPiece(let id):
                 if let entity = self.pieceEntity(id.uuidString) {
                     let state = entity.components[PieceStateComponent.self]!
-                    entity.move(to: .init(translation: .init(x: 0,
-                                                             y: state.picked ? -0.1 : 0.1,
-                                                             z: 0)),
-                                relativeTo: entity,
+                    var translation = state.index.position
+                    translation.y = state.picked ? 0 : 0.1
+                    entity.move(to: .init(translation: translation),
+                                relativeTo: self.rootEntity,
                                 duration: 1)
                     entity.components[PieceStateComponent.self]!.picked.toggle()
                 }
