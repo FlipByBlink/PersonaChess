@@ -7,33 +7,25 @@ struct BoardView: View {
             ForEach(0..<8, id: \.self) { column in
                 VStack(spacing: 0) {
                     ForEach(0..<8, id: \.self) { row in
-                        if (column + row) % 2 == 0 {
-                            Rectangle().fill(.background)
-                        } else {
-                            Color.clear
+                        Group {
+                            if (column + row) % 2 == 0 {
+                                Rectangle()
+                                    .fill(.background)
+                            } else {
+                                Color.clear
+                                    .glassBackgroundEffect(in: .rect)
+                            }
                         }
+                        .contentShape(.rect)
+                        .hoverEffect()
                     }
-                }
-            }
-        }
-        .overlay {
-            HStack(spacing: 0) {
-                ForEach(1...8, id: \.self) {
-                    Spacer()
-                    if $0 < 8 { Color.primary.frame(width: 0.5) }
-                }
-            }
-            VStack(spacing: 0) {
-                ForEach(1...8, id: \.self) {
-                    Spacer()
-                    if $0 < 8 { Color.primary.frame(height: 0.5) }
                 }
             }
         }
         .mask(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .overlay {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .stroke(lineWidth: 2)
+                .stroke(lineWidth: 1.5)
         }
         .frame(width: self.physicalMetrics.convert(FixedValue.boardSize, from: .meters),
                height: self.physicalMetrics.convert(FixedValue.boardSize, from: .meters))

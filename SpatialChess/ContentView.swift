@@ -8,7 +8,7 @@ struct ContentView: View {
     var body: some View {
         RealityView { content, attachments in
             self.rootEntity.position.y = 1.2
-            self.rootEntity.position.z = -1
+            self.rootEntity.position.z = -0.6
             GameState.preset.forEach { (key: Index, value: Piece) in
                 let entity = try! Entity.load(named: value.assetName)
                 entity.position = key.position
