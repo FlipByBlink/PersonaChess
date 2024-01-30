@@ -3,11 +3,12 @@ import RealityKit
 
 struct ContentView: View {
     @State private var rootEntity: Entity = .init()
+    @State private var selected: Index?
     var body: some View {
         RealityView { content in
             self.rootEntity.position.y = 1.2
             self.rootEntity.position.z = -1
-            GameState.preset.forEach { (key: Position, value: Piece) in
+            GameState.preset.forEach { (key: Index, value: Piece) in
                 let entity = try! Entity.load(named: value.assetName)
                 entity.position = key.position
                 entity.generateCollisionShapes(recursive: true)
