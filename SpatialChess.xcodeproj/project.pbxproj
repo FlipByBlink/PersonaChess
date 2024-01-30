@@ -104,8 +104,8 @@
 				16EA6A7F2B68769C00A3A740 /* Side.swift */,
 				16EA6A642B6875CA00A3A740 /* piecesAssets */,
 				169C002A2B4A9BE2001242F5 /* Assets.xcassets */,
-				16780FF72B6887B9005A0244 /* Archive */,
 				169C002F2B4A9BE2001242F5 /* Info.plist */,
+				16780FF72B6887B9005A0244 /* Archive */,
 			);
 			path = SpatialChess;
 			sourceTree = "<group>";
