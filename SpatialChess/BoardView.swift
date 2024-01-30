@@ -37,13 +37,13 @@ struct BoardView: View {
     }
     func tapAction(_ index: Index) {
         guard let entity = self.model.rootEntity.children
-            .first(where: { $0.components[PieceStateComponent.self]?.selected == true }) else {
+            .first(where: { $0.components[PieceStateComponent.self]?.picked == true }) else {
             return
         }
         entity.move(to: .init(translation: index.position),
                     relativeTo: self.model.rootEntity,
                     duration: 1)
         entity.components[PieceStateComponent.self]?.index = index
-        entity.components[PieceStateComponent.self]?.selected.toggle()
+        entity.components[PieceStateComponent.self]?.picked.toggle()
     }
 }

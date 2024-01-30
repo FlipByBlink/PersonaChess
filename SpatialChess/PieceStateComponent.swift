@@ -1,6 +1,6 @@
 import RealityKit
 
 struct PieceStateComponent: Component, Codable {
-    var selected: Bool = false
+    var picked: Bool = false
     var index: Index
 }

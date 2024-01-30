@@ -35,11 +35,11 @@ struct ContentView: View {
                 .onEnded { value in
                     let state = value.entity.components[PieceStateComponent.self]!
                     value.entity.move(to: .init(translation: .init(x: 0,
-                                                                   y: state.selected ? -0.1 : 0.1,
+                                                                   y: state.picked ? -0.1 : 0.1,
                                                                    z: 0)),
                                       relativeTo: value.entity,
                                       duration: 1)
-                    value.entity.components[PieceStateComponent.self]!.selected.toggle()
+                    value.entity.components[PieceStateComponent.self]!.picked.toggle()
                 }
         )
     }
