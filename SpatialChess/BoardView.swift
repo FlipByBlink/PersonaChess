@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct BoardView: View {
+    @EnvironmentObject var model: AppModel
     @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         HStack(spacing: 0) {
@@ -18,6 +19,7 @@ struct BoardView: View {
                         }
                         .contentShape(.rect)
                         .hoverEffect()
+                        .onTapGesture { self.tapAction(.init(row, column)) }
                     }
                 }
             }
@@ -32,5 +34,16 @@ struct BoardView: View {
         .padding(48)
         .glassBackgroundEffect()
         .rotation3DEffect(.degrees(90), axis: .x)
+    }
+    func tapAction(_ index: Index) {
+        guard let entity = self.model.rootEntity.children
+            .first(where: { $0.components[PieceStateComponent.self]?.selected == true }) else {
+            return
+        }
+        entity.move(to: .init(translation: index.position),
+                    relativeTo: self.model.rootEntity,
+                    duration: 1)
+        entity.components[PieceStateComponent.self]?.index = index
+        entity.components[PieceStateComponent.self]?.selected.toggle()
     }
 }

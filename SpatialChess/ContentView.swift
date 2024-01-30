@@ -2,14 +2,13 @@ import SwiftUI
 import RealityKit
 
 struct ContentView: View {
-    @State private var rootEntity: Entity = .init()
-    @State private var selected: Index?
+    @StateObject var model: AppModel = .init()
     @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         RealityView { content, attachments in
-            self.rootEntity.position.y = 1.2
-            self.rootEntity.position.z = -0.6
-            GameState.preset.forEach { (key: Index, value: Piece) in
+            self.model.rootEntity.position.y = 1.2
+            self.model.rootEntity.position.z = -0.6
+            self.model.gameState.value.forEach { (key: Index, value: Piece) in
                 let entity = try! Entity.load(named: value.assetName)
                 entity.position = key.position
                 entity.components.set([
@@ -20,12 +19,15 @@ struct ContentView: View {
                     ),
                     PieceStateComponent(index: key)
                 ])
-                self.rootEntity.addChild(entity)
+                self.model.rootEntity.addChild(entity)
             }
-            self.rootEntity.addChild(attachments.entity(for: "board")!)
-            content.add(self.rootEntity)
+            self.model.rootEntity.addChild(attachments.entity(for: "board")!)
+            content.add(self.model.rootEntity)
         } attachments: {
-            Attachment(id: "board") { BoardView() }
+            Attachment(id: "board") {
+                BoardView()
+                    .environmentObject(self.model)
+            }
         }
         .gesture(
             TapGesture()

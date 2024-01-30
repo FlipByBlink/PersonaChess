@@ -3,7 +3,7 @@ struct GameState {
 }
 
 extension GameState {
-    static var preset: [Index: Piece] {
+    static var preset: Self {
         var result: [Index: Piece] = [:]
         [Chessmen.rook, .knight, .bishop, .queen, .king, .bishop, .knight, .rook].enumerated().forEach {
             result[.init(0, $0.offset)] = .init($0.element, .black)
@@ -13,6 +13,6 @@ extension GameState {
         [Chessmen.rook, .knight, .bishop, .king, .queen, .bishop, .knight, .rook].enumerated().forEach {
             result[.init(7, $0.offset)] = .init($0.element, .white)
         }
-        return result
+        return Self.init(value: result)
     }
 }
