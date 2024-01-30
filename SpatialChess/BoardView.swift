@@ -19,7 +19,9 @@ struct BoardView: View {
                         }
                         .contentShape(.rect)
                         .hoverEffect()
-                        .onTapGesture { self.model.tapSquare(.init(row, column)) }
+                        .onTapGesture {
+                            self.model.applyLatestAction(.tapSquare(.init(row, column)))
+                        }
                     }
                 }
             }

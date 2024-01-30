@@ -1,18 +1,33 @@
-struct GameState {
-    var value: [Index: Piece]
+import Foundation
+
+struct GameState: Codable {
+    var previousSituation: [PieceStateComponent] = Self.preset
+    var latestAction: Action? = nil
 }
 
 extension GameState {
-    static var preset: Self {
-        var result: [Index: Piece] = [:]
+    static var preset: [PieceStateComponent] {
+        var value: [PieceStateComponent] = []
         [Chessmen.rook, .knight, .bishop, .queen, .king, .bishop, .knight, .rook].enumerated().forEach {
-            result[.init(0, $0.offset)] = .init($0.element, .black)
+            value.append(.init(index: .init(0, $0.offset),
+                               chessmen: $0.element,
+                               side: .black))
         }
-        (0..<8).forEach { result[.init(1, $0)] = .init(.pawn, .black) }
-        (0..<8).forEach { result[.init(6, $0)] = .init(.pawn, .white) }
+        (0..<8).forEach {
+            value.append(.init(index: .init(1, $0),
+                               chessmen: .pawn,
+                               side: .black))
+        }
+        (0..<8).forEach {
+            value.append(.init(index: .init(6, $0),
+                               chessmen: .pawn,
+                               side: .white))
+        }
         [Chessmen.rook, .knight, .bishop, .king, .queen, .bishop, .knight, .rook].enumerated().forEach {
-            result[.init(7, $0.offset)] = .init($0.element, .white)
+            value.append(.init(index: .init(7, $0.offset),
+                               chessmen: $0.element,
+                               side: .white))
         }
-        return Self.init(value: result)
+        return value
     }
 }

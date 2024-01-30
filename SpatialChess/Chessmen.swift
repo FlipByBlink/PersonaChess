@@ -1,4 +1,4 @@
-enum Chessmen {
+enum Chessmen: Codable {
     case pawn,
          rook,
          knight,

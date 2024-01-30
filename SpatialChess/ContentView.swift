@@ -8,20 +8,20 @@ struct ContentView: View {
         RealityView { content, attachments in
             self.model.rootEntity.position.y = 1.2
             self.model.rootEntity.position.z = -0.6
-            GameState.preset.value.forEach { (key: Index, value: Piece) in
-                let entity = try! Entity.load(named: value.assetName)
-                entity.position = key.position
+            self.model.gameState.previousSituation.forEach { pieceState in
+                let entity = try! Entity.load(named: pieceState.assetName)
+                entity.name = pieceState.id.uuidString
                 entity.components.set([
                     HoverEffectComponent(),
                     InputTargetComponent(),
                     CollisionComponent(
                         shapes: [.generateBox(size: entity.visualBounds(relativeTo: nil).extents)]
                     ),
-                    PieceStateComponent(index: key)
+                    pieceState
                 ])
                 self.model.rootEntity.addChild(entity)
-                self.model.pieceEntities.append(entity)
             }
+            self.model.updatePosition()
             self.model.rootEntity.addChild(attachments.entity(for: "board")!)
             content.add(self.model.rootEntity)
         } attachments: {
@@ -33,7 +33,13 @@ struct ContentView: View {
         .gesture(
             TapGesture()
                 .targetedToEntity(where: .has(PieceStateComponent.self))
-                .onEnded { self.model.tapPiece($0.entity) }
+                .onEnded {
+                    if let id = UUID(uuidString: $0.entity.name) {
+                        self.model.applyLatestAction(.tapPiece(id))
+                    } else {
+                        assertionFailure()
+                    }
+                }
         )
     }
 }

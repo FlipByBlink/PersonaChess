@@ -10,6 +10,7 @@
 		1601FEF82B4AA42D0050457E /* シンプルボード.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF72B4AA42D0050457E /* シンプルボード.reality */; };
 		1601FEFA2B4AA43A0050457E /* 駒.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF92B4AA43A0050457E /* 駒.reality */; };
 		165EC69E2B68C5E40005172B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
+		165EC6A02B6901670005172B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		16780FF62B6881DB005A0244 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* ContentView.swift */; };
 		16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
 		16780FFB2B689304005A0244 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* GameState.swift */; };
@@ -41,6 +42,7 @@
 		1601FEF72B4AA42D0050457E /* シンプルボード.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "シンプルボード.reality"; sourceTree = "<group>"; };
 		1601FEF92B4AA43A0050457E /* 駒.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "駒.reality"; sourceTree = "<group>"; };
 		165EC69D2B68C5E30005172B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		165EC69F2B6901670005172B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		16780FF52B6881DB005A0244 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16780FF82B6892E9005A0244 /* Chessmen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chessmen.swift; sourceTree = "<group>"; };
 		16780FFA2B689304005A0244 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				169B9E812B68BEA70025FCEB /* BoardView.swift */,
 				16F972742B68B77C00711C53 /* PieceStateComponent.swift */,
 				16780FFA2B689304005A0244 /* GameState.swift */,
+				165EC69F2B6901670005172B /* Action.swift */,
 				16780FFC2B6893CF005A0244 /* Index.swift */,
 				16EA6A7D2B68761A00A3A740 /* Piece.swift */,
 				16780FF82B6892E9005A0244 /* Chessmen.swift */,
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */,
+				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				16780FFB2B689304005A0244 /* GameState.swift in Sources */,
 				16F972752B68B77C00711C53 /* PieceStateComponent.swift in Sources */,
 				169C00292B4A9BE0001242F5 /* ContentView(old).swift in Sources */,

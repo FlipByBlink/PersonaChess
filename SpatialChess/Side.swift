@@ -1,4 +1,4 @@
-enum Side {
+enum Side: Codable {
     case white,
          black
 }
