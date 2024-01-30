@@ -4,11 +4,6 @@ struct SquareView: View {
     @EnvironmentObject var model: AppModel
     private var row: Int
     private var column: Int
-    private var inputtable: Bool {
-        self.model.gameState.latestSituation.contains { $0.picked }
-        &&
-        !self.model.gameState.latestSituation.contains { $0.index == .init(row, column) }
-    }
     var body: some View {
         Group {
             if (self.column + self.row) % 2 == 0 {
@@ -30,5 +25,13 @@ struct SquareView: View {
     init(_ row: Int, _ column: Int) {
         self.row = row
         self.column = column
+    }
+}
+
+private extension SquareView {
+    private var inputtable: Bool {
+        self.model.gameState.latestSituation.contains { $0.picked }
+        &&
+        !self.model.gameState.latestSituation.contains { $0.index == .init(row, column) }
     }
 }

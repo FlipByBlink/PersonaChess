@@ -7,10 +7,10 @@ class AppModel: ObservableObject {
     @Published var gameState: GameState = .init()
     var rootEntity: Entity = .init()
     
-    @Published var groupSession: GroupSession<👤GroupActivity>?
-    var messenger: GroupSessionMessenger?
-    var subscriptions = Set<AnyCancellable>()
-    var tasks = Set<Task<Void, Never>>()
+    @Published private(set) var groupSession: GroupSession<👤GroupActivity>?
+    private var messenger: GroupSessionMessenger?
+    private var subscriptions = Set<AnyCancellable>()
+    private var tasks = Set<Task<Void, Never>>()
 }
 
 extension AppModel {
@@ -60,7 +60,7 @@ extension AppModel {
             }
         }
     }
-    func updateGameState(with action: Action) {
+    private func updateGameState(with action: Action) {
         self.gameState = .init(
             previousSituation: self.gameState.latestSituation,
             latestAction: action,
@@ -78,12 +78,12 @@ extension AppModel {
 
 //MARK: ==== SharePlay ====
 extension AppModel {
-    func send() {
+    private func send() {
         Task {
             try? await self.messenger?.send(self.gameState)
         }
     }
-    func receive(_ gameState: GameState) {
+    private func receive(_ gameState: GameState) {
         self.gameState.previousSituation = gameState.previousSituation
         self.updatePosition()
         if let action = gameState.latestAction {

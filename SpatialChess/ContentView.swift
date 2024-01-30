@@ -3,7 +3,6 @@ import RealityKit
 
 struct ContentView: View {
     @StateObject var model: AppModel = .init()
-    @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         RealityView { content, attachments in
             self.model.rootEntity.position.y = 1.2
@@ -34,11 +33,7 @@ struct ContentView: View {
             TapGesture()
                 .targetedToEntity(where: .has(PieceStateComponent.self))
                 .onEnded {
-                    if let id = UUID(uuidString: $0.entity.name) {
-                        self.model.applyLatestAction(.tapPiece(id))
-                    } else {
-                        assertionFailure()
-                    }
+                    self.model.applyLatestAction(.tapPiece(.init(uuidString: $0.entity.name)!))
                 }
         )
     }
