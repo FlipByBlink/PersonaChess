@@ -7,6 +7,7 @@ struct ContentView: View {
         RealityView { content, attachments in
             self.model.rootEntity.position.y = 1.2
             self.model.rootEntity.position.z = -0.6
+            self.model.gameState.previousSituation = FixedValue.preset
             self.model.gameState.previousSituation.forEach { pieceState in
                 let entity = try! Entity.load(named: pieceState.assetName)
                 entity.name = pieceState.id.uuidString
