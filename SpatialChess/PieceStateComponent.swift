@@ -12,7 +12,7 @@ struct PieceStateComponent: Component {
 
 extension PieceStateComponent: Codable, Equatable {
     var assetName: String {
-        "\(self.chessmen)"
+        "\(self.chessmen.role)"
         +
         (self.side == .black ? "B" : "W")
     }

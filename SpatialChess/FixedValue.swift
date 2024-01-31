@@ -9,22 +9,22 @@ enum FixedValue {
     
     static var preset: [PieceStateComponent] {
         var value: [PieceStateComponent] = []
-        [Chessmen.rook, .knight, .bishop, .queen, .king, .bishop, .knight, .rook].enumerated().forEach {
+        [Chessmen.rook0, .knight0, .bishop0, .queen, .king, .bishop1, .knight1, .rook1].enumerated().forEach {
             value.append(.init(index: .init(0, $0.offset),
                                chessmen: $0.element,
                                side: .black))
         }
-        (0..<8).forEach {
+        [Chessmen.pawn0, .pawn1, .pawn2, .pawn3, .pawn4, .pawn5, .pawn6, .pawn7].enumerated().forEach {
             value.append(.init(index: .init(1, $0),
-                               chessmen: .pawn,
+                               chessmen: $1,
                                side: .black))
         }
-        (0..<8).forEach {
+        [Chessmen.pawn0, .pawn1, .pawn2, .pawn3, .pawn4, .pawn5, .pawn6, .pawn7].enumerated().forEach {
             value.append(.init(index: .init(6, $0),
-                               chessmen: .pawn,
+                               chessmen: $1,
                                side: .white))
         }
-        [Chessmen.rook, .knight, .bishop, .king, .queen, .bishop, .knight, .rook].enumerated().forEach {
+        [Chessmen.rook0, .knight0, .bishop0, .queen, .king, .bishop1, .knight1, .rook1].enumerated().forEach {
             value.append(.init(index: .init(7, $0.offset),
                                chessmen: $0.element,
                                side: .white))
