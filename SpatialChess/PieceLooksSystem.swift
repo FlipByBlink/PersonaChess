@@ -17,8 +17,8 @@ struct PieceLooksSystem: System {
     }
 }
 
-extension PieceLooksSystem {
-    func handleShadow(_ pieceEntity: Entity) {
+private extension PieceLooksSystem {
+    private func handleShadow(_ pieceEntity: Entity) {
         let shadowEntity: Entity
         if let value = pieceEntity.findEntity(named: "shadow") {
             shadowEntity = value
@@ -34,7 +34,7 @@ extension PieceLooksSystem {
         }
         shadowEntity.position.y = pieceEntity.parent!.position(relativeTo: pieceEntity).y
     }
-    func handleOpacity(_ pieceEntity: Entity) {
+    private func handleOpacity(_ pieceEntity: Entity) {
         if pieceEntity.components[PieceStateComponent.self]!.removed {
             pieceEntity.components[OpacityComponent.self]!.opacity -= 0.02
             if pieceEntity.components[OpacityComponent.self]!.opacity <= 0 {
