@@ -40,7 +40,7 @@ extension AppModel {
                                                    duration: 1)
                             pickedPieceEntity.components[PieceStateComponent.self]!.picked = false
                             var translation = tappedPieceState.index.position
-                            translation.y = 0.1
+                            translation.y = FixedValue.pickedOffset
                             tappedPieceEntity.move(to: .init(translation: translation),
                                                    relativeTo: self.rootEntity,
                                                    duration: 1)
@@ -56,7 +56,7 @@ extension AppModel {
                     }
                 } else {
                     var translation = tappedPieceState.index.position
-                    translation.y = 0.1
+                    translation.y = FixedValue.pickedOffset
                     tappedPieceEntity.move(to: .init(translation: translation),
                                            relativeTo: self.rootEntity,
                                            duration: 1)
@@ -79,7 +79,7 @@ extension AppModel {
         self.rootEntity.children.forEach {
             if let pieceState = $0.components[PieceStateComponent.self] {
                 $0.position = pieceState.index.position
-                if pieceState.picked { $0.position.y += 0.1 }
+                if pieceState.picked { $0.position.y = FixedValue.pickedOffset }
             }
         }
     }
