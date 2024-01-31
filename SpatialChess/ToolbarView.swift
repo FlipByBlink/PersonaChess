@@ -12,6 +12,7 @@ struct ToolbarView: View {
                 Image(systemName: "ellipsis")
             }
             .opacity(self.expanded ? 0 : 1)
+            .foregroundStyle(.secondary)
             HStack(spacing: 12) {
                 Button {
                     self.expanded = false
@@ -42,8 +43,8 @@ struct ToolbarView: View {
             .opacity(self.expanded ? 1 : 0)
         }
         .animation(.default, value: self.expanded)
-        .rotation3DEffect(.degrees(45), axis: .x, anchor: .top)
+        .rotation3DEffect(.degrees(45), axis: .x)
         .offset(z: (self.physicalMetrics.convert(FixedValue.boardSize, from: .meters) / 2) + 80)
-        .offset(y: 24)
+        .offset(y: 28)
     }
 }
