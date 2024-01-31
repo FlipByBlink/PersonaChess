@@ -5,7 +5,7 @@ import Combine
 
 class AppModel: ObservableObject {
     @Published var gameState: GameState = .init()
-    private var log: [GameState] = []
+    @Published private(set) var log: [GameState] = []
     var rootEntity: Entity = .init()
     
     @Published private(set) var groupSession: GroupSession<👤GroupActivity>?
@@ -23,7 +23,6 @@ extension AppModel {
             self.rootEntity.addChild(self.loadPieceEntity($0))
         }
         self.reloadSituation()
-        self.addLog()
     }
     func applyLatestAction(_ action: Action, animation: Bool = true) {
         switch action {

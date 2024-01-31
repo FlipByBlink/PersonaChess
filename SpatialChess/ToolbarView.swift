@@ -31,6 +31,7 @@ struct ToolbarView: View {
                 } label: {
                     Label("Back", systemImage: "arrow.uturn.backward")
                 }
+                .disabled(self.model.log.isEmpty)
                 Button {
                     self.model.reset()
                 } label: {
