@@ -16,8 +16,8 @@ struct ShadowSystem: System {
                 shadowEntity = value
             } else {
                 shadowEntity = ModelEntity(
-                    mesh: .generateCylinder(height: 0.003,
-                                            radius: pieceEntity.visualBounds(relativeTo: nil).extents.x / 2),
+                    mesh: .generateCylinder(height: 0.002,
+                                            radius: pieceEntity.visualBounds(relativeTo: nil).extents.x * (3/7)),
                     materials: [SimpleMaterial(color: .black, isMetallic: false)]
                 )
                 shadowEntity.components.set(OpacityComponent(opacity: 0.25))
