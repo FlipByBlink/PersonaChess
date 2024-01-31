@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1601FEF82B4AA42D0050457E /* シンプルボード.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF72B4AA42D0050457E /* シンプルボード.reality */; };
 		1601FEFA2B4AA43A0050457E /* 駒.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF92B4AA43A0050457E /* 駒.reality */; };
+		161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A740E2B6A4FC10057FD17 /* ToolbarView.swift */; };
 		165EC69E2B68C5E40005172B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
 		165EC6A02B6901670005172B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		165EC6A22B6913260005172B /* 👤GroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* 👤GroupActivity.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		1601FEF72B4AA42D0050457E /* シンプルボード.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "シンプルボード.reality"; sourceTree = "<group>"; };
 		1601FEF92B4AA43A0050457E /* 駒.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "駒.reality"; sourceTree = "<group>"; };
+		161A740E2B6A4FC10057FD17 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		165EC69D2B68C5E30005172B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		165EC69F2B6901670005172B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		165EC6A12B6913250005172B /* 👤GroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "👤GroupActivity.swift"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				16780FF52B6881DB005A0244 /* ContentView.swift */,
 				169B9E812B68BEA70025FCEB /* BoardView.swift */,
 				165EC6A42B69153B0005172B /* SquareView.swift */,
+				161A740E2B6A4FC10057FD17 /* ToolbarView.swift */,
 				16F972742B68B77C00711C53 /* PieceStateComponent.swift */,
 				1685BE3A2B69CAE6005E944B /* PieceLooksSystem.swift */,
 				16780FFA2B689304005A0244 /* GameState.swift */,
@@ -265,6 +268,7 @@
 				16780FF62B6881DB005A0244 /* ContentView.swift in Sources */,
 				1685BE3B2B69CAE6005E944B /* PieceLooksSystem.swift in Sources */,
 				16F972772B68B7FB00711C53 /* FixedValue.swift in Sources */,
+				161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,

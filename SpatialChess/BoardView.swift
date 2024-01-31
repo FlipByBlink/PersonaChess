@@ -21,14 +21,6 @@ struct BoardView: View {
         .frame(width: self.physicalMetrics.convert(FixedValue.boardSize, from: .meters),
                height: self.physicalMetrics.convert(FixedValue.boardSize, from: .meters))
         .padding(48)
-        .overlay(alignment: .bottomTrailing) {
-            Button {
-                self.model.reset()
-            } label: {
-                Image(systemName: "arrow.counterclockwise")
-            }
-            .padding()
-        }
         .glassBackgroundEffect()
         .rotation3DEffect(.degrees(90), axis: .x)
     }
