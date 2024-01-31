@@ -76,12 +76,14 @@ extension AppModel {
         }
     }
     func updatePosition() {
-        self.rootEntity.children.forEach {
-            if let pieceState = $0.components[PieceStateComponent.self] {
+        self.rootEntity
+            .children
+            .filter { $0.components.has(PieceStateComponent.self) }
+            .forEach {
+                let pieceState = $0.components[PieceStateComponent.self]!
                 $0.position = pieceState.index.position
                 if pieceState.picked { $0.position.y = FixedValue.pickedOffset }
             }
-        }
     }
     private func updateGameState(with action: Action) {
         self.gameState = .init(
