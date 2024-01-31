@@ -37,6 +37,10 @@ struct ToolbarView: View {
                 } label: {
                     Label("Reset", systemImage: "arrow.counterclockwise")
                 }
+                .disabled(
+                    self.model.gameState == .init(previousSituation: FixedValue.preset,
+                                                  latestAction: nil)
+                )
             }
             .padding(12)
             .padding(.horizontal, 12)
