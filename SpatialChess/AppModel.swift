@@ -14,11 +14,14 @@ class AppModel: ObservableObject {
 }
 
 extension AppModel {
-    func pieceEntity(_ name: String) -> Entity? {
-        self.rootEntity.findEntity(named: name)
-    }
-    func pickedPieceEntity() -> Entity? {
-        self.rootEntity.children.first { $0.components[PieceStateComponent.self]?.picked == true }
+    func setUpEntities() {
+        self.rootEntity.position.y = 1.2
+        self.rootEntity.position.z = -0.6
+        self.gameState.previousSituation = FixedValue.preset
+        self.gameState.previousSituation.forEach {
+            self.rootEntity.addChild(self.loadPieceEntity($0))
+        }
+        self.reloadSituation()
     }
     func applyLatestAction(_ action: Action) {
         switch action {
@@ -83,7 +86,30 @@ extension AppModel {
                 $0.append($1.components[PieceStateComponent.self]!)
             }
     }
-    func reloadSituation() {
+}
+
+private extension AppModel {
+    private func loadPieceEntity(_ pieceState: PieceStateComponent) -> Entity {
+        let value = try! Entity.load(named: pieceState.assetName)
+        value.name = pieceState.id.uuidString
+        value.components.set([
+            HoverEffectComponent(),
+            InputTargetComponent(),
+            OpacityComponent(),
+            CollisionComponent(
+                shapes: [.generateBox(size: value.visualBounds(relativeTo: nil).extents)]
+            ),
+            pieceState
+        ])
+        return value
+    }
+    private func pieceEntity(_ name: String) -> Entity? {
+        self.rootEntity.findEntity(named: name)
+    }
+    private func pickedPieceEntity() -> Entity? {
+        self.rootEntity.children.first { $0.components[PieceStateComponent.self]?.picked == true }
+    }
+    private func reloadSituation() {
         self.rootEntity
             .children
             .filter { $0.components.has(PieceStateComponent.self) }
