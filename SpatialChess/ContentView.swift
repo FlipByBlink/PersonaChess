@@ -18,7 +18,7 @@ struct ContentView: View {
             TapGesture()
                 .targetedToEntity(where: .has(PieceStateComponent.self))
                 .onEnded {
-                    let action: Action = .tapPiece(.init(uuidString: $0.entity.name)!)
+                    let action: Action = .tapPiece($0.entity.components[PieceStateComponent.self]!.id)
                     self.model.updateGameState(with: action)
                     self.model.applyLatestAction(action)
                     self.model.sendMessage()

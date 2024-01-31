@@ -1,6 +1,6 @@
 import Foundation
 
 enum Action: Codable, Equatable {
-    case tapPiece(UUID),
+    case tapPiece(PieceStateComponent.ID),
          tapSquare(Index)
 }

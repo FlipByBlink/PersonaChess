@@ -26,7 +26,7 @@ extension AppModel {
     func applyLatestAction(_ action: Action) {
         switch action {
             case .tapPiece(let id):
-                let tappedPieceEntity = self.pieceEntity(id.uuidString)!
+                let tappedPieceEntity = self.pieceEntity(id)!
                 let tappedPieceState = tappedPieceEntity.components[PieceStateComponent.self]!
                 if self.gameState.previousSituation.contains(where: { $0.picked }) {
                     let pickedPieceEntity = self.pickedPieceEntity()!
@@ -91,7 +91,6 @@ extension AppModel {
 private extension AppModel {
     private func loadPieceEntity(_ pieceState: PieceStateComponent) -> Entity {
         let value = try! Entity.load(named: pieceState.assetName)
-        value.name = pieceState.id.uuidString
         value.components.set([
             HoverEffectComponent(),
             InputTargetComponent(),
@@ -103,8 +102,11 @@ private extension AppModel {
         ])
         return value
     }
-    private func pieceEntity(_ name: String) -> Entity? {
-        self.rootEntity.findEntity(named: name)
+    private func pieceEntity(_ id: PieceStateComponent.ID) -> Entity? {
+        self.rootEntity
+            .children
+            .filter { $0.components.has(PieceStateComponent.self) }
+            .first { $0.components[PieceStateComponent.self]!.id == id }
     }
     private func pickedPieceEntity() -> Entity? {
         self.rootEntity.children.first { $0.components[PieceStateComponent.self]?.picked == true }
