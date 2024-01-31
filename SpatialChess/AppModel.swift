@@ -100,6 +100,7 @@ extension AppModel {
                 pieceEntity.components[PieceStateComponent.self]!.removed = false
             }
         self.reloadSituation()
+        self.sendMessage()
     }
 }
 
