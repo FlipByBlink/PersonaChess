@@ -115,13 +115,14 @@ private extension AppModel {
             .filter { $0.components.has(PieceStateComponent.self) }
             .forEach {
                 let pieceState = $0.components[PieceStateComponent.self]!
-                //MARK: update Position
+                //==== update Position ====
                 $0.position = pieceState.index.position
                 if pieceState.picked { $0.position.y = FixedValue.pickedOffset }
-                //MARK: update PieceStateComponent
+                //==== update PieceStateComponent ====
                 if let newPieceState = self.gameState.previousSituation.first(where: { $0.id == pieceState.id }) {
                     $0.components[PieceStateComponent.self] = newPieceState
                 }
+                //====================================
             }
     }
 }
