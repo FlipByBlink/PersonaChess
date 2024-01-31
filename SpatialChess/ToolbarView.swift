@@ -3,32 +3,47 @@ import SwiftUI
 struct ToolbarView: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.physicalMetrics) var physicalMetrics
+    @State private var expanded: Bool = false
     var body: some View {
-        HStack(spacing: 12) {
+        ZStack(alignment: .top) {
             Button {
+                self.expanded = true
             } label: {
-                Label("Exit", systemImage: "escape")
-                    .padding(8)
+                Image(systemName: "ellipsis")
             }
-            Button {
-            } label: {
-                Label("Back", systemImage: "arrow.uturn.backward")
-                    .padding(8)
+            .opacity(self.expanded ? 0 : 1)
+            HStack(spacing: 12) {
+                Button {
+                    self.expanded = false
+                } label: {
+                    Image(systemName: "arrow.down.right.and.arrow.up.left")
+                        .padding(8)
+                }
+                .buttonBorderShape(.circle)
+                .buttonStyle(.plain)
+                Button {
+                } label: {
+                    Label("Exit", systemImage: "escape")
+                }
+                Button {
+                } label: {
+                    Label("Back", systemImage: "arrow.uturn.backward")
+                }
+                Button {
+                    self.model.reset()
+                } label: {
+                    Label("Reset", systemImage: "arrow.counterclockwise")
+                }
             }
-            Button {
-                self.model.reset()
-            } label: {
-                Label("Reset", systemImage: "arrow.counterclockwise")
-                    .padding(8)
-            }
+            .padding(12)
+            .padding(.horizontal, 12)
+            .font(.subheadline)
+            .glassBackgroundEffect()
+            .opacity(self.expanded ? 1 : 0)
         }
-        .padding(12)
-        .padding(.horizontal, 12)
-        .buttonStyle(.plain)
-        .font(.subheadline)
-        .glassBackgroundEffect()
-        .rotation3DEffect(.degrees(45), axis: .x)
+        .animation(.default, value: self.expanded)
+        .rotation3DEffect(.degrees(45), axis: .x, anchor: .top)
         .offset(z: (self.physicalMetrics.convert(FixedValue.boardSize, from: .meters) / 2) + 80)
-        .offset(y: 35)
+        .offset(y: 24)
     }
 }
