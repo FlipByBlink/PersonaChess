@@ -1,9 +1,8 @@
 import Foundation
 
-struct GameState: Codable {
-    var previousSituation: [PieceStateComponent] = []
+struct GameState: Codable, Equatable {
+    var previousSituation: [PieceStateComponent] = Self.preset
     var latestAction: Action? = nil
-    var latestSituation: [PieceStateComponent] = Self.preset
 }
 
 private extension GameState {

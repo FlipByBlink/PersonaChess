@@ -4,6 +4,7 @@ struct SquareView: View {
     @EnvironmentObject var model: AppModel
     private var row: Int
     private var column: Int
+    @State private var inputtable: Bool = false
     var body: some View {
         Group {
             if (self.column + self.row) % 2 == 0 {
@@ -18,9 +19,13 @@ struct SquareView: View {
         .hoverEffect(isEnabled: self.inputtable)
         .onTapGesture {
             if self.inputtable {
-                self.model.applyLatestAction(.tapSquare(.init(self.row, self.column)))
+                let action: Action = .tapSquare(.init(self.row, self.column))
+                self.model.updateGameState(with: action)
+                self.model.applyLatestAction(action)
+                self.model.sendMessage()
             }
         }
+        .onChange(of: self.model.gameState) { self.updateInputtable() }
     }
     init(_ row: Int, _ column: Int) {
         self.row = row
@@ -29,9 +34,13 @@ struct SquareView: View {
 }
 
 private extension SquareView {
-    private var inputtable: Bool {
-        self.model.gameState.latestSituation.contains { $0.picked }
-        &&
-        !self.model.gameState.latestSituation.contains { $0.index == .init(row, column) }
+    private func updateInputtable() {
+        let latestSituation = self.model.getLatestSituation()
+        if latestSituation.contains(where: { $0.picked }),
+           !latestSituation.contains(where: { $0.index == .init(row, column) }) {
+            self.inputtable = true
+        } else {
+            self.inputtable = false
+        }
     }
 }

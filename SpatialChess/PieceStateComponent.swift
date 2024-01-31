@@ -10,7 +10,7 @@ struct PieceStateComponent: Component {
     var id: UUID = .init()
 }
 
-extension PieceStateComponent: Codable {
+extension PieceStateComponent: Codable, Equatable {
     var assetName: String {
         "\(self.chessmen)"
         +
