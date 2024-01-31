@@ -22,7 +22,7 @@ struct ContentView: View {
                 ])
                 self.model.rootEntity.addChild(entity)
             }
-            self.model.updatePosition()
+            self.model.reloadPiecesPosition()
             self.model.rootEntity.addChild(attachments.entity(for: "board")!)
             content.add(self.model.rootEntity)
         } attachments: {

@@ -71,7 +71,7 @@ extension AppModel {
                 pickedPieceEntity.components[PieceStateComponent.self]?.picked = false
         }
     }
-    func updatePosition() {
+    func reloadPiecesPosition() {
         self.rootEntity
             .children
             .filter { $0.components.has(PieceStateComponent.self) }
@@ -104,7 +104,7 @@ extension AppModel {
     }
     private func receive(_ gameState: GameState) {
         self.gameState = gameState
-        self.updatePosition()
+        self.reloadPiecesPosition()
         if let action = gameState.latestAction {
             self.applyLatestAction(action)
         }
