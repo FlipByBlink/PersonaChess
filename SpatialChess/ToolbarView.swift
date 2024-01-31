@@ -27,6 +27,7 @@ struct ToolbarView: View {
                     Label("Exit", systemImage: "escape")
                 }
                 Button {
+                    self.model.back()
                 } label: {
                     Label("Back", systemImage: "arrow.uturn.backward")
                 }

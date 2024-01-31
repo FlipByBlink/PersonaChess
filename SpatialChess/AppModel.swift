@@ -5,6 +5,7 @@ import Combine
 
 class AppModel: ObservableObject {
     @Published var gameState: GameState = .init()
+    private var log: [GameState] = []
     var rootEntity: Entity = .init()
     
     @Published private(set) var groupSession: GroupSession<👤GroupActivity>?
@@ -22,8 +23,9 @@ extension AppModel {
             self.rootEntity.addChild(self.loadPieceEntity($0))
         }
         self.reloadSituation()
+        self.addLog()
     }
-    func applyLatestAction(_ action: Action) {
+    func applyLatestAction(_ action: Action, animation: Bool = true) {
         switch action {
             case .tapPiece(let id):
                 let tappedPieceEntity = self.pieceEntity(id)!
@@ -33,26 +35,26 @@ extension AppModel {
                     if tappedPieceEntity == pickedPieceEntity {
                         tappedPieceEntity.move(to: .init(translation: tappedPieceState.index.position),
                                                relativeTo: self.rootEntity,
-                                               duration: 1)
+                                               duration: animation ? 1 : 0)
                         tappedPieceEntity.components[PieceStateComponent.self]!.picked = false
                     } else {
                         let pickedPieceState = pickedPieceEntity.components[PieceStateComponent.self]!
                         if tappedPieceState.side == pickedPieceState.side {
                             pickedPieceEntity.move(to: .init(translation: pickedPieceState.index.position),
                                                    relativeTo: self.rootEntity,
-                                                   duration: 1)
+                                                   duration: animation ? 1 : 0)
                             pickedPieceEntity.components[PieceStateComponent.self]!.picked = false
                             var translation = tappedPieceState.index.position
                             translation.y = FixedValue.pickedOffset
                             tappedPieceEntity.move(to: .init(translation: translation),
                                                    relativeTo: self.rootEntity,
-                                                   duration: 1)
+                                                   duration: animation ? 1 : 0)
                             tappedPieceEntity.components[PieceStateComponent.self]!.picked = true
                         } else {
                             tappedPieceEntity.components[PieceStateComponent.self]!.removed = true
                             pickedPieceEntity.move(to: .init(translation: tappedPieceState.index.position),
                                                    relativeTo: self.rootEntity,
-                                                   duration: 1)
+                                                   duration: animation ? 1 : 0)
                             pickedPieceEntity.components[PieceStateComponent.self]!.index = tappedPieceState.index
                             pickedPieceEntity.components[PieceStateComponent.self]!.picked = false
                         }
@@ -62,14 +64,14 @@ extension AppModel {
                     translation.y = FixedValue.pickedOffset
                     tappedPieceEntity.move(to: .init(translation: translation),
                                            relativeTo: self.rootEntity,
-                                           duration: 1)
+                                           duration: animation ? 1 : 0)
                     tappedPieceEntity.components[PieceStateComponent.self]!.picked = true
                 }
             case .tapSquare(let index):
                 guard let pickedPieceEntity = self.pickedPieceEntity() else { return }
                 pickedPieceEntity.move(to: .init(translation: index.position),
                                        relativeTo: self.rootEntity,
-                                       duration: 1)
+                                       duration: animation ? 1 : 0)
                 pickedPieceEntity.components[PieceStateComponent.self]?.index = index
                 pickedPieceEntity.components[PieceStateComponent.self]?.picked = false
         }
@@ -86,8 +88,21 @@ extension AppModel {
                 $0.append($1.components[PieceStateComponent.self]!)
             }
     }
+    func addLog() {
+        self.log.append(self.gameState)
+    }
+    func back() {
+        if let oldGameState = self.log.popLast() {
+            self.gameState = oldGameState
+            self.reloadSituation()
+            if let action = gameState.latestAction {
+                self.applyLatestAction(action, animation: false)
+            }
+        }
+    }
     func reset() {
         Task { @MainActor in
+            self.addLog()
             self.rootEntity
                 .children
                 .filter { $0.components.has(PieceStateComponent.self) }
@@ -136,20 +151,17 @@ private extension AppModel {
         self.rootEntity.children.first { $0.components[PieceStateComponent.self]?.picked == true }
     }
     private func reloadSituation() {
-        self.rootEntity
-            .children
-            .filter { $0.components.has(PieceStateComponent.self) }
-            .forEach {
-                let pieceState = $0.components[PieceStateComponent.self]!
+        for state in self.gameState.previousSituation {
+            let entity = self.rootEntity.children.first { $0.components[PieceStateComponent.self]?.id == state.id }
+            if let entity {
                 //==== update Position ====
-                $0.position = pieceState.index.position
-                if pieceState.picked { $0.position.y = FixedValue.pickedOffset }
+                entity.position = state.index.position
+                entity.position.y = state.picked ? FixedValue.pickedOffset : 0
                 //==== update PieceStateComponent ====
-                if let newPieceState = self.gameState.previousSituation.first(where: { $0.id == pieceState.id }) {
-                    $0.components[PieceStateComponent.self] = newPieceState
-                }
+                entity.components[PieceStateComponent.self]! = state
                 //====================================
             }
+        }
     }
 }
 
