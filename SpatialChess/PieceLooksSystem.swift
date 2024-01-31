@@ -40,6 +40,8 @@ private extension PieceLooksSystem {
             if pieceEntity.components[OpacityComponent.self]!.opacity <= 0 {
                 pieceEntity.removeFromParent()
             }
+        } else {
+            pieceEntity.components[OpacityComponent.self]!.opacity = 1
         }
     }
 }
