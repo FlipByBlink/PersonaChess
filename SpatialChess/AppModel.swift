@@ -86,6 +86,21 @@ extension AppModel {
                 $0.append($1.components[PieceStateComponent.self]!)
             }
     }
+    func reset() {
+        self.gameState = .init(previousSituation: FixedValue.preset, latestAction: nil)
+        self.rootEntity.children
+            .filter { $0.components.has(PieceStateComponent.self) }
+            .forEach { pieceEntity in
+                pieceEntity.components[PieceStateComponent.self]!.index = {
+                    FixedValue.preset
+                        .first { $0.id == pieceEntity.components[PieceStateComponent.self]!.id }!
+                        .index
+                }()
+                pieceEntity.components[PieceStateComponent.self]!.picked = false
+                pieceEntity.components[PieceStateComponent.self]!.removed = false
+            }
+        self.reloadSituation()
+    }
 }
 
 private extension AppModel {

@@ -36,9 +36,8 @@ private extension PieceLooksSystem {
     }
     private func handleOpacity(_ pieceEntity: Entity) {
         if pieceEntity.components[PieceStateComponent.self]!.removed {
-            pieceEntity.components[OpacityComponent.self]!.opacity -= 0.02
-            if pieceEntity.components[OpacityComponent.self]!.opacity <= 0 {
-                pieceEntity.removeFromParent()
+            if pieceEntity.components[OpacityComponent.self]!.opacity > 0 {
+                pieceEntity.components[OpacityComponent.self]!.opacity -= 0.02
             }
         } else {
             pieceEntity.components[OpacityComponent.self]!.opacity = 1
