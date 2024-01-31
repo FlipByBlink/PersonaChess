@@ -46,7 +46,7 @@ extension AppModel {
                                                    duration: 1)
                             tappedPieceEntity.components[PieceStateComponent.self]!.picked = true
                         } else {
-                            self.rootEntity.removeChild(tappedPieceEntity)
+                            tappedPieceEntity.components[PieceStateComponent.self]!.removed = true
                             pickedPieceEntity.move(to: .init(translation: tappedPieceState.index.position),
                                                    relativeTo: self.rootEntity,
                                                    duration: 1)

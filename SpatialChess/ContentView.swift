@@ -13,6 +13,7 @@ struct ContentView: View {
                 entity.components.set([
                     HoverEffectComponent(),
                     InputTargetComponent(),
+                    OpacityComponent(),
                     CollisionComponent(
                         shapes: [.generateBox(size: entity.visualBounds(relativeTo: nil).extents)]
                     ),

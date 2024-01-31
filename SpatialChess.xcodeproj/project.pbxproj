@@ -17,7 +17,7 @@
 		16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
 		16780FFB2B689304005A0244 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* GameState.swift */; };
 		16780FFD2B6893CF005A0244 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
-		1685BE3B2B69CAE6005E944B /* ShadowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* ShadowComponent.swift */; };
+		1685BE3B2B69CAE6005E944B /* PieceLooksSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceLooksSystem.swift */; };
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
 		169C00252B4A9BE0001242F5 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 169C00242B4A9BE0001242F5 /* RealityKitContent */; };
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
@@ -52,7 +52,7 @@
 		16780FF82B6892E9005A0244 /* Chessmen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chessmen.swift; sourceTree = "<group>"; };
 		16780FFA2B689304005A0244 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		16780FFC2B6893CF005A0244 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
-		1685BE3A2B69CAE6005E944B /* ShadowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowComponent.swift; sourceTree = "<group>"; };
+		1685BE3A2B69CAE6005E944B /* PieceLooksSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceLooksSystem.swift; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		169C001F2B4A9BE0001242F5 /* SpatialChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatialChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		169C00232B4A9BE0001242F5 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 				169B9E812B68BEA70025FCEB /* BoardView.swift */,
 				165EC6A42B69153B0005172B /* SquareView.swift */,
 				16F972742B68B77C00711C53 /* PieceStateComponent.swift */,
-				1685BE3A2B69CAE6005E944B /* ShadowComponent.swift */,
+				1685BE3A2B69CAE6005E944B /* PieceLooksSystem.swift */,
 				16780FFA2B689304005A0244 /* GameState.swift */,
 				165EC69F2B6901670005172B /* Action.swift */,
 				16780FFC2B6893CF005A0244 /* Index.swift */,
@@ -263,7 +263,7 @@
 				169C00292B4A9BE0001242F5 /* ContentView(old).swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				16780FF62B6881DB005A0244 /* ContentView.swift in Sources */,
-				1685BE3B2B69CAE6005E944B /* ShadowComponent.swift in Sources */,
+				1685BE3B2B69CAE6005E944B /* PieceLooksSystem.swift in Sources */,
 				16F972772B68B7FB00711C53 /* FixedValue.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,

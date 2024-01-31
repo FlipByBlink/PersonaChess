@@ -6,6 +6,7 @@ struct PieceStateComponent: Component {
     var chessmen: Chessmen
     var side: Side
     var picked: Bool = false
+    var removed: Bool = false
     var id: UUID = .init()
 }
 
