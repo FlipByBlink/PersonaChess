@@ -20,7 +20,7 @@ extension AppModel {
     func pickedPieceEntity() -> Entity? {
         self.rootEntity.children.first { $0.components[PieceStateComponent.self]?.picked == true }
     }
-    func applyLatestAction(_ action: Action) {
+    func applyLatestAction(_ action: Action, receivedMessage: Bool = false) {
         switch action {
             case .tapPiece(let id):
                 let tappedPieceEntity = self.pieceEntity(id.uuidString)!
@@ -70,8 +70,10 @@ extension AppModel {
                 pickedPieceEntity.components[PieceStateComponent.self]?.index = index
                 pickedPieceEntity.components[PieceStateComponent.self]?.picked = false
         }
-        self.updateGameState(with: action)
-        self.send()
+        if !receivedMessage {
+            self.updateGameState(with: action)
+            self.send()
+        }
     }
     func updatePosition() {
         self.rootEntity.children.forEach {
@@ -108,7 +110,7 @@ extension AppModel {
         self.gameState.previousSituation = gameState.previousSituation
         self.updatePosition()
         if let action = gameState.latestAction {
-            self.applyLatestAction(action)
+            self.applyLatestAction(action, receivedMessage: true)
         }
         self.gameState.latestSituation = gameState.latestSituation
     }
