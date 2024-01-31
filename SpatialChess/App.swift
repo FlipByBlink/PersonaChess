@@ -9,5 +9,6 @@ struct SpatialChessApp: App {
     }
     init() {
         PieceStateComponent.registerComponent()
+        ShadowSystem.registerSystem()
     }
 }
