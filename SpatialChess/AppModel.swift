@@ -71,16 +71,6 @@ extension AppModel {
                 pickedPieceEntity.components[PieceStateComponent.self]?.picked = false
         }
     }
-    func reloadPiecesPosition() {
-        self.rootEntity
-            .children
-            .filter { $0.components.has(PieceStateComponent.self) }
-            .forEach {
-                let pieceState = $0.components[PieceStateComponent.self]!
-                $0.position = pieceState.index.position
-                if pieceState.picked { $0.position.y = FixedValue.pickedOffset }
-            }
-    }
     func updateGameState(with action: Action) {
         self.gameState = .init(previousSituation: self.getLatestSituation(),
                                latestAction: action)
@@ -91,6 +81,21 @@ extension AppModel {
             .filter { $0.components.has(PieceStateComponent.self) }
             .reduce(into: []) {
                 $0.append($1.components[PieceStateComponent.self]!)
+            }
+    }
+    func reloadSituation() {
+        self.rootEntity
+            .children
+            .filter { $0.components.has(PieceStateComponent.self) }
+            .forEach {
+                let pieceState = $0.components[PieceStateComponent.self]!
+                //MARK: update Position
+                $0.position = pieceState.index.position
+                if pieceState.picked { $0.position.y = FixedValue.pickedOffset }
+                //MARK: update PieceStateComponent
+                if let newPieceState = self.gameState.previousSituation.first(where: { $0.id == pieceState.id }) {
+                    $0.components[PieceStateComponent.self] = newPieceState
+                }
             }
     }
 }
@@ -104,7 +109,7 @@ extension AppModel {
     }
     private func receive(_ gameState: GameState) {
         self.gameState = gameState
-        self.reloadPiecesPosition()
+        self.reloadSituation()
         if let action = gameState.latestAction {
             self.applyLatestAction(action)
         }
