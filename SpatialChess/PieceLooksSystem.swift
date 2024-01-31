@@ -40,7 +40,9 @@ private extension PieceLooksSystem {
                 pieceEntity.components[OpacityComponent.self]!.opacity -= 0.02
             }
         } else {
-            pieceEntity.components[OpacityComponent.self]!.opacity = 1
+            if pieceEntity.components[OpacityComponent.self]!.opacity < 1 {
+                pieceEntity.components[OpacityComponent.self]!.opacity += 0.02
+            }
         }
     }
 }

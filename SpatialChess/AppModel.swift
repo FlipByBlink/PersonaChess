@@ -87,20 +87,28 @@ extension AppModel {
             }
     }
     func reset() {
-        self.gameState = .init(previousSituation: FixedValue.preset, latestAction: nil)
-        self.rootEntity.children
-            .filter { $0.components.has(PieceStateComponent.self) }
-            .forEach { pieceEntity in
-                pieceEntity.components[PieceStateComponent.self]!.index = {
-                    FixedValue.preset
-                        .first { $0.id == pieceEntity.components[PieceStateComponent.self]!.id }!
-                        .index
-                }()
-                pieceEntity.components[PieceStateComponent.self]!.picked = false
-                pieceEntity.components[PieceStateComponent.self]!.removed = false
-            }
-        self.reloadSituation()
-        self.sendMessage()
+        Task { @MainActor in
+            self.rootEntity
+                .children
+                .filter { $0.components.has(PieceStateComponent.self) }
+                .forEach { $0.components[PieceStateComponent.self]!.removed = true }
+            try? await Task.sleep(for: .seconds(1))
+            self.gameState = .init(previousSituation: FixedValue.preset, latestAction: nil)
+            self.rootEntity
+                .children
+                .filter { $0.components.has(PieceStateComponent.self) }
+                .forEach { pieceEntity in
+                    pieceEntity.components[PieceStateComponent.self]!.index = {
+                        FixedValue.preset
+                            .first { $0.id == pieceEntity.components[PieceStateComponent.self]!.id }!
+                            .index
+                    }()
+                    pieceEntity.components[PieceStateComponent.self]!.picked = false
+                    pieceEntity.components[PieceStateComponent.self]!.removed = false
+                }
+            self.reloadSituation()
+            self.sendMessage()
+        }
     }
 }
 
