@@ -7,7 +7,7 @@ struct SquareView: View {
     @State private var inputtable: Bool = false
     var body: some View {
         Group {
-            if (self.column + self.row) % 2 == 0 {
+            if (self.column + self.row) % 2 == 1 {
                 Rectangle()
                     .fill(.background)
             } else {
