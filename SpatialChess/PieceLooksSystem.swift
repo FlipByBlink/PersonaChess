@@ -33,15 +33,16 @@ private extension PieceLooksSystem {
             pieceEntity.addChild(shadowEntity)
         }
         shadowEntity.position.y = pieceEntity.parent!.position(relativeTo: pieceEntity).y
+        shadowEntity.isEnabled = pieceEntity.components[PieceStateComponent.self]!.removed ? false : true
     }
     private func handleOpacity(_ pieceEntity: Entity) {
         if pieceEntity.components[PieceStateComponent.self]!.removed {
             if pieceEntity.components[OpacityComponent.self]!.opacity > 0 {
-                pieceEntity.components[OpacityComponent.self]!.opacity -= 0.02
+                pieceEntity.components[OpacityComponent.self]!.opacity -= 0.04
             }
         } else {
             if pieceEntity.components[OpacityComponent.self]!.opacity < 1 {
-                pieceEntity.components[OpacityComponent.self]!.opacity += 0.02
+                pieceEntity.components[OpacityComponent.self]!.opacity += 0.04
             }
         }
     }

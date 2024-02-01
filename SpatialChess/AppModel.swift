@@ -48,12 +48,14 @@ extension AppModel {
                                             animation)
                             tappedPieceEntity.components[PieceStateComponent.self]!.picked = true
                         } else {
-                            tappedPieceEntity.components[PieceStateComponent.self]!.removed = true
-                            self.movePiece(pickedPieceEntity,
-                                           tappedPieceState.index,
-                                           animation)
-                            pickedPieceEntity.components[PieceStateComponent.self]!.index = tappedPieceState.index
-                            pickedPieceEntity.components[PieceStateComponent.self]!.picked = false
+                            Task { @MainActor in
+                                await self.movePiece(pickedPieceEntity,
+                                                     tappedPieceState.index,
+                                                     animation)
+                                tappedPieceEntity.components[PieceStateComponent.self]!.removed = true
+                                pickedPieceEntity.components[PieceStateComponent.self]!.index = tappedPieceState.index
+                                pickedPieceEntity.components[PieceStateComponent.self]!.picked = false
+                            }
                         }
                     }
                 } else {
@@ -63,12 +65,14 @@ extension AppModel {
                     tappedPieceEntity.components[PieceStateComponent.self]!.picked = true
                 }
             case .tapSquare(let index):
-                guard let pickedPieceEntity = self.pickedPieceEntity() else { return }
-                self.movePiece(pickedPieceEntity,
-                               index,
-                               animation)
-                pickedPieceEntity.components[PieceStateComponent.self]?.index = index
-                pickedPieceEntity.components[PieceStateComponent.self]?.picked = false
+                Task { @MainActor in
+                    guard let pickedPieceEntity = self.pickedPieceEntity() else { return }
+                    await self.movePiece(pickedPieceEntity,
+                                         index,
+                                         animation)
+                    pickedPieceEntity.components[PieceStateComponent.self]!.index = index
+                    pickedPieceEntity.components[PieceStateComponent.self]!.picked = false
+                }
         }
     }
     func updateGameState(with action: Action) {
@@ -158,16 +162,14 @@ private extension AppModel {
             }
         }
     }
-    private func movePiece(_ entity: Entity, _ index: Index, _ animation: Bool) {
-        Task {
-            var translation = index.position
-            translation.y = FixedValue.pickedOffset
-            await entity.move(to: .init(translation: translation),
-                              relativeTo: self.rootEntity,
-                              duration: animation ? 1 : 0)
-            try? await Task.sleep(for: .seconds(1))
-            self.lowerPiece(entity, index, animation)
-        }
+    private func movePiece(_ entity: Entity, _ index: Index, _ animation: Bool) async {
+        var translation = index.position
+        translation.y = FixedValue.pickedOffset
+        await entity.move(to: .init(translation: translation),
+                          relativeTo: self.rootEntity,
+                          duration: animation ? 1 : 0)
+        try? await Task.sleep(for: .seconds(1))
+        self.lowerPiece(entity, index, animation)
     }
     private func raisePiece(_ entity: Entity, _ index: Index, _ animation: Bool) {
         var translation = index.position
