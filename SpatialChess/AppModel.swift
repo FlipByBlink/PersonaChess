@@ -32,28 +32,28 @@ extension AppModel {
                 if self.gameState.previousSituation.contains(where: { $0.picked }) {
                     let pickedPieceEntity = self.pickedPieceEntity()!
                     if tappedPieceEntity == pickedPieceEntity {
-                        tappedPieceEntity.move(to: .init(translation: tappedPieceState.index.position),
-                                               relativeTo: self.rootEntity,
-                                               duration: animation ? 1 : 0)
+                        self.movePiece(tappedPieceEntity,
+                                       tappedPieceState.index.position,
+                                       animation)
                         tappedPieceEntity.components[PieceStateComponent.self]!.picked = false
                     } else {
                         let pickedPieceState = pickedPieceEntity.components[PieceStateComponent.self]!
                         if tappedPieceState.side == pickedPieceState.side {
-                            pickedPieceEntity.move(to: .init(translation: pickedPieceState.index.position),
-                                                   relativeTo: self.rootEntity,
-                                                   duration: animation ? 1 : 0)
+                            self.movePiece(pickedPieceEntity, 
+                                           pickedPieceState.index.position,
+                                           animation)
                             pickedPieceEntity.components[PieceStateComponent.self]!.picked = false
                             var translation = tappedPieceState.index.position
                             translation.y = FixedValue.pickedOffset
-                            tappedPieceEntity.move(to: .init(translation: translation),
-                                                   relativeTo: self.rootEntity,
-                                                   duration: animation ? 1 : 0)
+                            self.movePiece(tappedPieceEntity,
+                                           translation,
+                                           animation)
                             tappedPieceEntity.components[PieceStateComponent.self]!.picked = true
                         } else {
                             tappedPieceEntity.components[PieceStateComponent.self]!.removed = true
-                            pickedPieceEntity.move(to: .init(translation: tappedPieceState.index.position),
-                                                   relativeTo: self.rootEntity,
-                                                   duration: animation ? 1 : 0)
+                            self.movePiece(pickedPieceEntity,
+                                           tappedPieceState.index.position,
+                                           animation)
                             pickedPieceEntity.components[PieceStateComponent.self]!.index = tappedPieceState.index
                             pickedPieceEntity.components[PieceStateComponent.self]!.picked = false
                         }
@@ -61,16 +61,16 @@ extension AppModel {
                 } else {
                     var translation = tappedPieceState.index.position
                     translation.y = FixedValue.pickedOffset
-                    tappedPieceEntity.move(to: .init(translation: translation),
-                                           relativeTo: self.rootEntity,
-                                           duration: animation ? 1 : 0)
+                    self.movePiece(tappedPieceEntity,
+                                   translation,
+                                   animation)
                     tappedPieceEntity.components[PieceStateComponent.self]!.picked = true
                 }
             case .tapSquare(let index):
                 guard let pickedPieceEntity = self.pickedPieceEntity() else { return }
-                pickedPieceEntity.move(to: .init(translation: index.position),
-                                       relativeTo: self.rootEntity,
-                                       duration: animation ? 1 : 0)
+                self.movePiece(pickedPieceEntity,
+                               index.position,
+                               animation)
                 pickedPieceEntity.components[PieceStateComponent.self]?.index = index
                 pickedPieceEntity.components[PieceStateComponent.self]?.picked = false
         }
@@ -161,6 +161,11 @@ private extension AppModel {
                 //====================================
             }
         }
+    }
+    private func movePiece(_ entity: Entity, _ translation: SIMD3<Float>, _ animation: Bool) {
+        entity.move(to: .init(translation: translation),
+                    relativeTo: self.rootEntity,
+                    duration: animation ? 1 : 0)
     }
 }
 
