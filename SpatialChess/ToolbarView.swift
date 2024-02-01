@@ -3,6 +3,7 @@ import SwiftUI
 struct ToolbarView: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.physicalMetrics) var physicalMetrics
+    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @State private var expanded: Bool = false
     var body: some View {
         ZStack(alignment: .top) {
@@ -23,6 +24,7 @@ struct ToolbarView: View {
                 .buttonBorderShape(.circle)
                 .buttonStyle(.plain)
                 Button {
+                    Task { await self.dismissImmersiveSpace() }
                 } label: {
                     Label("Exit", systemImage: "escape")
                 }
