@@ -28,7 +28,7 @@ private extension PieceLooksSystem {
                                         radius: pieceEntity.visualBounds(relativeTo: nil).extents.x * 0.48),
                 materials: [SimpleMaterial(color: .black, isMetallic: false)]
             )
-            shadowEntity.components.set(OpacityComponent(opacity: 0.25))
+            shadowEntity.components.set(OpacityComponent(opacity: 0.4))
             shadowEntity.name = "shadow"
             pieceEntity.addChild(shadowEntity)
         }
