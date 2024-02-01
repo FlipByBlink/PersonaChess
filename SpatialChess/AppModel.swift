@@ -84,9 +84,7 @@ extension AppModel {
             .children
             .filter { $0.components.has(PieceStateComponent.self) }
             .reduce(into: []) {
-                if $1.components[PieceStateComponent.self]!.removed == false {
-                    $0.append($1.components[PieceStateComponent.self]!)
-                }
+                $0.append($1.components[PieceStateComponent.self]!)
             }
     }
     func addLog() {

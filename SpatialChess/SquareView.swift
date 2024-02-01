@@ -36,9 +36,9 @@ struct SquareView: View {
 
 private extension SquareView {
     private func updateInputtable() {
-        let latestSituation = self.model.getLatestSituation()
-        if latestSituation.contains(where: { $0.picked }),
-           !latestSituation.contains(where: { $0.index == .init(row, column) }) {
+        let latestActivePiecesSituation = self.model.getLatestSituation().filter { !$0.removed }
+        if latestActivePiecesSituation.contains(where: { $0.picked }),
+           !latestActivePiecesSituation.contains(where: { $0.index == .init(self.row, self.column) }) {
             self.inputtable = true
         } else {
             self.inputtable = false
