@@ -171,7 +171,7 @@ private extension AppModel {
         await entity.move(to: .init(translation: translation),
                           relativeTo: self.rootEntity,
                           duration: animation ? 1 : 0)
-        try? await Task.sleep(for: .seconds(1))
+        if animation { try? await Task.sleep(for: .seconds(1)) }
         self.lowerPiece(entity, index, animation)
         if animation {
             Task {
