@@ -12,6 +12,8 @@ class AppModel: ObservableObject {
     private var messenger: GroupSessionMessenger?
     private var subscriptions = Set<AnyCancellable>()
     private var tasks = Set<Task<Void, Never>>()
+    
+    let soundEffect: 📢SoundEffect = .init()
 }
 
 extension AppModel {
@@ -106,6 +108,7 @@ extension AppModel {
                 .children
                 .filter { $0.components.has(PieceStateComponent.self) }
                 .forEach { $0.components[PieceStateComponent.self]!.removed = true }
+            self.soundEffect.secondAction()
             try? await Task.sleep(for: .seconds(1))
             self.gameState = .init(previousSituation: FixedValue.preset, latestAction: nil)
             self.rootEntity
@@ -170,6 +173,10 @@ private extension AppModel {
                           duration: animation ? 1 : 0)
         try? await Task.sleep(for: .seconds(1))
         self.lowerPiece(entity, index, animation)
+        Task {
+            try? await Task.sleep(for: .seconds(0.8))
+            self.soundEffect.execute()
+        }
     }
     private func raisePiece(_ entity: Entity, _ index: Index, _ animation: Bool) {
         var translation = index.position

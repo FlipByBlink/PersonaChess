@@ -30,5 +30,6 @@ struct ContentView: View {
                     self.model.sendMessage()
                 }
         )
+        .task { 📢SoundEffect.setCategory() }
     }
 }
