@@ -3,9 +3,10 @@ import RealityKit
 import GroupActivities
 import Combine
 
+@MainActor
 class AppModel: ObservableObject {
     @Published var gameState: GameState = .init()
-    var moving: Bool = false
+    private var moving: Bool = false
     var rootEntity: Entity = .init()
     
     @Published private(set) var groupSession: GroupSession<👤GroupActivity>?
@@ -34,7 +35,7 @@ extension AppModel {
                     $0.position.y = pieceState.picked ? FixedValue.pickedOffset : 0
                     //==== update PieceStateComponent ====
                     $0.components[PieceStateComponent.self]! = pieceState
-                    //====================================
+                    //=========================
                 }
         }
         self.applyLatestSituationToEntities(animation: false)
@@ -123,8 +124,7 @@ private extension AppModel {
                         self.moving = true
                         if entityPieceState.index != latestPieceState.index {
                             if !entityPieceState.picked {
-                                self.raisePiece(pieceEntity, entityPieceState.index, animation)
-                                if animation { try? await Task.sleep(for: .seconds(1)) }
+                                await self.raisePiece(pieceEntity, entityPieceState.index, animation)
                             }
                             var translation = latestPieceState.index.position
                             translation.y = FixedValue.pickedOffset
@@ -133,16 +133,12 @@ private extension AppModel {
                                              relativeTo: self.rootEntity,
                                              duration: duration)
                             try? await Task.sleep(for: .seconds(duration))
-                            self.lowerPiece(pieceEntity, latestPieceState.index, animation)
-                            if animation {
-                                try? await Task.sleep(for: .seconds(0.8))
-                                self.soundEffect.execute()
-                            }
+                            await self.lowerPiece(pieceEntity, latestPieceState.index, animation)
                         } else {
                             if entityPieceState.picked != latestPieceState.picked {
                                 var translation = entityPieceState.index.position
                                 translation.y = latestPieceState.picked ? FixedValue.pickedOffset : 0
-                                let duration: TimeInterval = animation ? 1 : 0
+                                let duration: TimeInterval = animation ? 0.6 : 0
                                 pieceEntity.move(to: .init(translation: translation),
                                                  relativeTo: self.rootEntity,
                                                  duration: duration)
@@ -155,17 +151,22 @@ private extension AppModel {
                 }
             }
     }
-    private func raisePiece(_ entity: Entity, _ index: Index, _ animation: Bool) {
+    private func raisePiece(_ entity: Entity, _ index: Index, _ animation: Bool) async {
         var translation = index.position
         translation.y = FixedValue.pickedOffset
+        let duration: TimeInterval = animation ? 0.6 : 0
         entity.move(to: .init(translation: translation),
                     relativeTo: self.rootEntity,
-                    duration: animation ? 1 : 0)
+                    duration: duration)
+        try? await Task.sleep(for: .seconds(duration))
     }
-    private func lowerPiece(_ entity: Entity, _ index: Index, _ animation: Bool) {
+    private func lowerPiece(_ entity: Entity, _ index: Index, _ animation: Bool) async {
+        let duration: TimeInterval = animation ? 0.7 : 0
         entity.move(to: .init(translation: index.position),
                     relativeTo: self.rootEntity,
-                    duration: animation ? 0.8 : 0)
+                    duration: duration)
+        try? await Task.sleep(for: .seconds(duration))
+        if animation { self.soundEffect.execute() }
     }
 }
 
