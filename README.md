@@ -1,12 +1,12 @@
-SpatialChess
-============
+SpatiallyChess
+==============
 __Platform: Apple Vision Pro__
 
 _My app template repository_
 
 <img src="SpatialChess/Supporting files/README assets/icon.png" width="64">
 
-<a href="https://apps.apple.com/app/id❓" target="blank">
+<a href="https://apps.apple.com/app/id6477424187" target="blank">
     <img src="SpatialChess/Supporting files/README assets/appstore_badge.svg">
 </a>
 
@@ -27,7 +27,7 @@ Option
 
 App Store link
 --------------
-[apps.apple.com/app/id????](https://apps.apple.com/app/id????)
+[apps.apple.com/app/id6477424187](https://apps.apple.com/app/id6477424187)
 
 
 Source code link

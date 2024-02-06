@@ -21,7 +21,6 @@
 		1685BE3B2B69CAE6005E944B /* PieceLooksSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceLooksSystem.swift */; };
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
-		169C00292B4A9BE0001242F5 /* ContentView(old).swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00282B4A9BE0001242F5 /* ContentView(old).swift */; };
 		169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169C002A2B4A9BE2001242F5 /* Assets.xcassets */; };
 		16AE50282B70FE3200D25197 /* 📢SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* 📢SoundEffect.swift */; };
 		16EA6A712B6875CA00A3A740 /* rookW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A652B6875CA00A3A740 /* rookW.reality */; };
@@ -256,7 +255,6 @@
 				16780FFB2B689304005A0244 /* GameState.swift in Sources */,
 				16F972752B68B77C00711C53 /* PieceStateComponent.swift in Sources */,
 				16AE50282B70FE3200D25197 /* 📢SoundEffect.swift in Sources */,
-				169C00292B4A9BE0001242F5 /* ContentView(old).swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				16780FF62B6881DB005A0244 /* ContentView.swift in Sources */,
 				1685BE3B2B69CAE6005E944B /* PieceLooksSystem.swift in Sources */,
