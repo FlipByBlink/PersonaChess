@@ -14,6 +14,7 @@
 		165EC6A02B6901670005172B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		165EC6A22B6913260005172B /* 👤GroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* 👤GroupActivity.swift */; };
 		165EC6A52B69153B0005172B /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A42B69153B0005172B /* SquareView.swift */; };
+		1671A15A2B720779009A87A6 /* 🌐RealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1592B720778009A87A6 /* 🌐RealityView.swift */; };
 		16780FF62B6881DB005A0244 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* ContentView.swift */; };
 		16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
 		16780FFB2B689304005A0244 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* GameState.swift */; };
@@ -51,6 +52,7 @@
 		165EC6A42B69153B0005172B /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
 		166D208C2B71F6560000EAF6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1671A1572B7206BD009A87A6 /* appstore_badge.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = appstore_badge.svg; sourceTree = "<group>"; };
+		1671A1592B720778009A87A6 /* 🌐RealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🌐RealityView.swift"; sourceTree = "<group>"; };
 		16780FF52B6881DB005A0244 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16780FF82B6892E9005A0244 /* Chessmen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chessmen.swift; sourceTree = "<group>"; };
 		16780FFA2B689304005A0244 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -112,6 +114,15 @@
 			path = "README assets";
 			sourceTree = "<group>";
 		};
+		1671A1582B720747009A87A6 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				16F972762B68B7FB00711C53 /* FixedValue.swift */,
+				16AE50272B70FE3100D25197 /* 📢SoundEffect.swift */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
 		16780FF72B6887B9005A0244 /* Archive */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +156,7 @@
 				169C00262B4A9BE0001242F5 /* App.swift */,
 				165EC69D2B68C5E30005172B /* AppModel.swift */,
 				16780FF52B6881DB005A0244 /* ContentView.swift */,
+				1671A1592B720778009A87A6 /* 🌐RealityView.swift */,
 				169B9E812B68BEA70025FCEB /* BoardView.swift */,
 				165EC6A42B69153B0005172B /* SquareView.swift */,
 				161A740E2B6A4FC10057FD17 /* ToolbarView.swift */,
@@ -155,9 +167,8 @@
 				16780FFC2B6893CF005A0244 /* Index.swift */,
 				16780FF82B6892E9005A0244 /* Chessmen.swift */,
 				16EA6A7F2B68769C00A3A740 /* Side.swift */,
-				16F972762B68B7FB00711C53 /* FixedValue.swift */,
 				165EC6A12B6913250005172B /* 👤GroupActivity.swift */,
-				16AE50272B70FE3100D25197 /* 📢SoundEffect.swift */,
+				1671A1582B720747009A87A6 /* Rest */,
 				1671A1552B720659009A87A6 /* Supporting files */,
 			);
 			path = SpatiallyChess;
@@ -267,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1671A15A2B720779009A87A6 /* 🌐RealityView.swift in Sources */,
 				169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */,
 				165EC6A22B6913260005172B /* 👤GroupActivity.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
