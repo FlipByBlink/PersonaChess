@@ -4,13 +4,13 @@ __Platform: Apple Vision Pro__
 
 _My app template repository_
 
-<img src="SpatialChess/Supporting files/README assets/icon.png" width="64">
+<img src="SpatiallyChess/Supporting files/README assets/icon.png" width="64">
 
 <a href="https://apps.apple.com/app/id6477424187" target="blank">
-    <img src="SpatialChess/Supporting files/README assets/appstore_badge.svg">
+    <img src="SpatiallyChess/Supporting files/README assets/appstore_badge.svg">
 </a>
 
-<img src="SpatialChess/Supporting files/README assets/screenshot1200w.png" width="600">
+<img src="SpatiallyChess/Supporting files/README assets/screenshot1200w.png" width="600">
 
 
 Description
@@ -32,10 +32,10 @@ App Store link
 
 Source code link
 -----------------
-https://github.com/FlipByBlink/SpatialChess
+https://github.com/FlipByBlink/SpatiallyChess
 
 ### Source code (Mirror) link
-https://gitlab.com/FlipByBlink/SpatialChess_Mirror
+https://gitlab.com/FlipByBlink/SpatiallyChess_Mirror
 
 
 Contact
@@ -69,6 +69,6 @@ This application don't collect user infomation.
 
 
 <!-- URL "Support page for App Store" -->
-<!-- https://flipbyblink.github.io/SpatialChess/ -->
+<!-- https://flipbyblink.github.io/SpatiallyChess/ -->
 <!-- URL "Privacy Policy for App Store" -->
-<!-- https://flipbyblink.github.io/SpatialChess/#privacy-policy-for-app-store -->
+<!-- https://flipbyblink.github.io/SpatiallyChess/#privacy-policy-for-app-store -->

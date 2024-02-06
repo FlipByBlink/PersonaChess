@@ -47,7 +47,7 @@
 		165EC69D2B68C5E30005172B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		165EC69F2B6901670005172B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		165EC6A12B6913250005172B /* 👤GroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "👤GroupActivity.swift"; sourceTree = "<group>"; };
-		165EC6A32B6914430005172B /* SpatialChess.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpatialChess.entitlements; sourceTree = "<group>"; };
+		165EC6A32B6914430005172B /* SpatiallyChess.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpatiallyChess.entitlements; sourceTree = "<group>"; };
 		165EC6A42B69153B0005172B /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
 		166D208C2B71F6560000EAF6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		16780FF52B6881DB005A0244 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		16780FFC2B6893CF005A0244 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
 		1685BE3A2B69CAE6005E944B /* PieceLooksSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceLooksSystem.swift; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
-		169C001F2B4A9BE0001242F5 /* SpatialChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatialChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		169C001F2B4A9BE0001242F5 /* SpatiallyChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatiallyChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		169C00262B4A9BE0001242F5 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		169C00282B4A9BE0001242F5 /* ContentView(old).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView(old).swift"; sourceTree = "<group>"; };
 		169C002A2B4A9BE2001242F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				166D208C2B71F6560000EAF6 /* README.md */,
-				169C00212B4A9BE0001242F5 /* SpatialChess */,
+				169C00212B4A9BE0001242F5 /* SpatiallyChess */,
 				169C00202B4A9BE0001242F5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,12 +112,12 @@
 		169C00202B4A9BE0001242F5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				169C001F2B4A9BE0001242F5 /* SpatialChess.app */,
+				169C001F2B4A9BE0001242F5 /* SpatiallyChess.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		169C00212B4A9BE0001242F5 /* SpatialChess */ = {
+		169C00212B4A9BE0001242F5 /* SpatiallyChess */ = {
 			isa = PBXGroup;
 			children = (
 				169C00262B4A9BE0001242F5 /* App.swift */,
@@ -139,10 +139,10 @@
 				16EA6A642B6875CA00A3A740 /* piecesAssets */,
 				169C002A2B4A9BE2001242F5 /* Assets.xcassets */,
 				169C002F2B4A9BE2001242F5 /* Info.plist */,
-				165EC6A32B6914430005172B /* SpatialChess.entitlements */,
+				165EC6A32B6914430005172B /* SpatiallyChess.entitlements */,
 				16780FF72B6887B9005A0244 /* Archive */,
 			);
-			path = SpatialChess;
+			path = SpatiallyChess;
 			sourceTree = "<group>";
 		};
 		16EA6A642B6875CA00A3A740 /* piecesAssets */ = {
@@ -167,9 +167,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		169C001E2B4A9BE0001242F5 /* SpatialChess */ = {
+		169C001E2B4A9BE0001242F5 /* SpatiallyChess */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 169C00322B4A9BE2001242F5 /* Build configuration list for PBXNativeTarget "SpatialChess" */;
+			buildConfigurationList = 169C00322B4A9BE2001242F5 /* Build configuration list for PBXNativeTarget "SpatiallyChess" */;
 			buildPhases = (
 				169C001B2B4A9BE0001242F5 /* Sources */,
 				169C001C2B4A9BE0001242F5 /* Frameworks */,
@@ -179,11 +179,11 @@
 			);
 			dependencies = (
 			);
-			name = SpatialChess;
+			name = SpatiallyChess;
 			packageProductDependencies = (
 			);
 			productName = SpatialChess;
-			productReference = 169C001F2B4A9BE0001242F5 /* SpatialChess.app */;
+			productReference = 169C001F2B4A9BE0001242F5 /* SpatiallyChess.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -201,7 +201,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 169C001A2B4A9BE0001242F5 /* Build configuration list for PBXProject "SpatialChess" */;
+			buildConfigurationList = 169C001A2B4A9BE0001242F5 /* Build configuration list for PBXProject "SpatiallyChess" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -214,7 +214,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				169C001E2B4A9BE0001242F5 /* SpatialChess */,
+				169C001E2B4A9BE0001242F5 /* SpatiallyChess */,
 			);
 		};
 /* End PBXProject section */
@@ -395,7 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SpatialChess/SpatialChess.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SpatiallyChess/SpatiallyChess.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -423,7 +423,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SpatialChess/SpatialChess.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SpatiallyChess/SpatiallyChess.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -449,7 +449,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		169C001A2B4A9BE0001242F5 /* Build configuration list for PBXProject "SpatialChess" */ = {
+		169C001A2B4A9BE0001242F5 /* Build configuration list for PBXProject "SpatiallyChess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				169C00302B4A9BE2001242F5 /* Debug */,
@@ -458,7 +458,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		169C00322B4A9BE2001242F5 /* Build configuration list for PBXNativeTarget "SpatialChess" */ = {
+		169C00322B4A9BE2001242F5 /* Build configuration list for PBXNativeTarget "SpatiallyChess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				169C00332B4A9BE2001242F5 /* Debug */,
