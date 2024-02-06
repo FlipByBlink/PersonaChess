@@ -33,7 +33,9 @@ extension AppModel {
             case .tapPiece(let tappedPieceEntity):
                 let tappedPieceState = tappedPieceEntity.components[PieceStateComponent.self]!
                 if self.gameState.latestSituation.contains(where: { $0.picked }) {
-                    let pickedPieceEntity = self.pickedPieceEntity()! //FIXME: クラッシュするケースがある
+                    guard let pickedPieceEntity = self.pickedPieceEntity() else {
+                        assertionFailure(); return
+                    }
                     if tappedPieceEntity == pickedPieceEntity {
                         self.gameState.unpick(tappedPieceState.id)
                     } else {
@@ -85,14 +87,7 @@ private extension AppModel {
             pieceState
         ])
         value.position = pieceState.index.position
-        //value.position.y = pieceState.picked ? FixedValue.pickedOffset : 0 TODO: 再検討
         return value
-    }
-    private func pieceEntity(_ id: PieceStateComponent.ID) -> Entity? {
-        self.rootEntity
-            .children
-            .filter { $0.components.has(PieceStateComponent.self) }
-            .first { $0.components[PieceStateComponent.self]!.id == id }
     }
     private func pickedPieceEntity() -> Entity? {
         self.rootEntity.children.first { $0.components[PieceStateComponent.self]?.picked == true }
@@ -166,8 +161,8 @@ extension AppModel {
             try? await self.messenger?.send(self.gameState)
         }
     }
-    private func receive(_ gameState: GameState) {
-        self.gameState = gameState
+    private func receive(_ newGameState: GameState) {
+        self.gameState = newGameState
         self.applyLatestSituationToEntities()
     }
 }
