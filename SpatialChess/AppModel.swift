@@ -23,24 +23,22 @@ extension AppModel {
         self.gameState.latestSituation.forEach {
             self.rootEntity.addChild(self.loadPieceEntity($0))
         }
-
-        for state in self.gameState.latestSituation {
-            let entity = {
-                self.rootEntity
-                    .children
-                    .first { $0.components[PieceStateComponent.self]?.id == state.id }
-            }()
-            if let entity {
-                //==== update Position ====
-                entity.position = state.index.position
-                entity.position.y = state.picked ? FixedValue.pickedOffset : 0
-                //==== update PieceStateComponent ====
-                entity.components[PieceStateComponent.self]! = state
-                //====================================
-            }
+        
+        for pieceState in self.gameState.latestSituation {
+            self.rootEntity
+                .children
+                .first { $0.components[PieceStateComponent.self]?.id == pieceState.id }
+                .map {
+                    //==== update Position ====
+                    $0.position = pieceState.index.position
+                    $0.position.y = pieceState.picked ? FixedValue.pickedOffset : 0
+                    //==== update PieceStateComponent ====
+                    $0.components[PieceStateComponent.self]! = pieceState
+                    //====================================
+                }
         }
         
-        self.applyLatestSituationToEntities(false)
+        self.applyLatestSituationToEntities(animation: false)
     }
     func applyLatestAction(_ action: Action, animation: Bool = true) {
         switch action {
@@ -85,7 +83,7 @@ extension AppModel {
     func back() {
         if let oldGameState = self.gameState.log.popLast() {
             self.gameState.latestSituation = oldGameState
-            self.applyLatestSituationToEntities()
+            self.applyLatestSituationToEntities(animation: false)
         }
     }
     func reset() {
@@ -122,7 +120,7 @@ private extension AppModel {
     private func pickedPieceEntity() -> Entity? {
         self.rootEntity.children.first { $0.components[PieceStateComponent.self]?.picked == true }
     }
-    private func applyLatestSituationToEntities(_ animation: Bool = true) {
+    private func applyLatestSituationToEntities(animation: Bool = true) {
         self.rootEntity
             .children
             .filter { $0.components.has(PieceStateComponent.self) }
