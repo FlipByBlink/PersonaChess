@@ -5,16 +5,16 @@ import Combine
 
 @MainActor
 class 🥽AppModel: ObservableObject {
-    @Published var gameState: GameState = .init()
+    @Published private(set) var gameState: GameState = .init()
+    private(set) var rootEntity: Entity = .init()
     private var moving: Bool = false
-    var rootEntity: Entity = .init()
     
     @Published private(set) var groupSession: GroupSession<👤GroupActivity>?
     private var messenger: GroupSessionMessenger?
     private var subscriptions = Set<AnyCancellable>()
     private var tasks = Set<Task<Void, Never>>()
     
-    let soundEffect: 📢SoundEffect = .init()
+    private let soundEffect: 📢SoundEffect = .init()
 }
 
 extension 🥽AppModel {
