@@ -92,34 +92,38 @@ private extension 🥽AppModel {
                         .first { $0.id == entityPieceState.id }!
                 }()
                 if entityPieceState != latestPieceState {
-                    Task { @MainActor in
-                        self.moving = true
-                        self.disablePieceHoverEffect()
-                        if entityPieceState.index != latestPieceState.index {
-                            if !entityPieceState.picked {
-                                await self.raisePiece(pieceEntity, entityPieceState.index, animation)
-                            }
-                            let duration: TimeInterval = animation ? 1 : 0
-                            pieceEntity.move(to: .init(translation: latestPieceState.index.position),
-                                             relativeTo: self.rootEntity,
-                                             duration: duration)
-                            try? await Task.sleep(for: .seconds(duration))
-                            await self.lowerPiece(pieceEntity, latestPieceState.index, animation)
-                        } else {
-                            if entityPieceState.picked != latestPieceState.picked {
-                                var translation = entityPieceState.index.position
-                                translation.y = latestPieceState.picked ? FixedValue.pickedOffset : 0
-                                let duration: TimeInterval = animation ? 0.6 : 0
-                                let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
-                                pieceBodyEntity.move(to: .init(translation: translation),
-                                                     relativeTo: self.rootEntity,
-                                                     duration: duration)
-                                try? await Task.sleep(for: .seconds(duration))
-                            }
-                        }
+                    if latestPieceState.removed {
                         pieceEntity.components[PieceStateComponent.self] = latestPieceState
-                        self.activatePieceHoverEffect()
-                        self.moving = false
+                    } else {
+                        Task { @MainActor in
+                            self.moving = true
+                            self.disablePieceHoverEffect()
+                            if entityPieceState.index != latestPieceState.index {
+                                if !entityPieceState.picked {
+                                    await self.raisePiece(pieceEntity, entityPieceState.index, animation)
+                                }
+                                let duration: TimeInterval = animation ? 1 : 0
+                                pieceEntity.move(to: .init(translation: latestPieceState.index.position),
+                                                 relativeTo: self.rootEntity,
+                                                 duration: duration)
+                                try? await Task.sleep(for: .seconds(duration))
+                                await self.lowerPiece(pieceEntity, latestPieceState.index, animation)
+                            } else {
+                                if entityPieceState.picked != latestPieceState.picked {
+                                    var translation = entityPieceState.index.position
+                                    translation.y = latestPieceState.picked ? FixedValue.pickedOffset : 0
+                                    let duration: TimeInterval = animation ? 0.6 : 0
+                                    let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
+                                    pieceBodyEntity.move(to: .init(translation: translation),
+                                                         relativeTo: self.rootEntity,
+                                                         duration: duration)
+                                    try? await Task.sleep(for: .seconds(duration))
+                                }
+                            }
+                            pieceEntity.components[PieceStateComponent.self] = latestPieceState
+                            self.activatePieceHoverEffect()
+                            self.moving = false
+                        }
                     }
                 }
             }
