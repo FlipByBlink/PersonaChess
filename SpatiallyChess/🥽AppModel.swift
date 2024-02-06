@@ -94,6 +94,7 @@ private extension 🥽AppModel {
                 if entityPieceState != latestPieceState {
                     Task { @MainActor in
                         self.moving = true
+                        self.disablePieceHoverEffect()
                         if entityPieceState.index != latestPieceState.index {
                             if !entityPieceState.picked {
                                 await self.raisePiece(pieceEntity, entityPieceState.index, animation)
@@ -117,6 +118,7 @@ private extension 🥽AppModel {
                             }
                         }
                         pieceEntity.components[PieceStateComponent.self] = latestPieceState
+                        self.activatePieceHoverEffect()
                         self.moving = false
                     }
                 }
@@ -140,6 +142,18 @@ private extension 🥽AppModel {
                              duration: duration)
         try? await Task.sleep(for: .seconds(duration))
         if animation { self.soundEffect.execute() }
+    }
+    private func disablePieceHoverEffect() {
+        self.rootEntity
+            .children
+            .filter { $0.components.has(PieceStateComponent.self) }
+            .forEach { $0.findEntity(named: "body")!.components.remove(HoverEffectComponent.self) }
+    }
+    private func activatePieceHoverEffect() {
+        self.rootEntity
+            .children
+            .filter { $0.components.has(PieceStateComponent.self) }
+            .forEach { $0.findEntity(named: "body")!.components.set(HoverEffectComponent()) }
     }
 }
 
