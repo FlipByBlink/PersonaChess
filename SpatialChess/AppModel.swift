@@ -5,6 +5,7 @@ import Combine
 
 class AppModel: ObservableObject {
     @Published var gameState: GameState = .init()
+    var moving: Bool = false
     var rootEntity: Entity = .init()
     
     @Published private(set) var groupSession: GroupSession<👤GroupActivity>?
@@ -39,6 +40,7 @@ extension AppModel {
         self.applyLatestSituationToEntities(animation: false)
     }
     func executeAction(_ action: Action) {
+        guard self.moving == false else { return }
         switch action {
             case .tapPiece(let tappedPieceEntity):
                 let tappedPieceState = tappedPieceEntity.components[PieceStateComponent.self]!
@@ -76,8 +78,6 @@ extension AppModel {
                 self.gameState.logPreviousSituation()
                 self.soundEffect.secondAction()
                 self.gameState.latestSituation = FixedValue.preset
-                self.applyLatestSituationToEntities()
-                self.sendMessage()
         }
         self.applyLatestSituationToEntities(animation: action != .back)
         self.sendMessage()
@@ -120,6 +120,7 @@ private extension AppModel {
                 }()
                 if entityPieceState != latestPieceState {
                     Task { @MainActor in
+                        self.moving = true
                         if entityPieceState.index != latestPieceState.index {
                             if !entityPieceState.picked {
                                 self.raisePiece(pieceEntity, entityPieceState.index, animation)
@@ -127,10 +128,11 @@ private extension AppModel {
                             }
                             var translation = latestPieceState.index.position
                             translation.y = FixedValue.pickedOffset
+                            let duration: TimeInterval = animation ? 1 : 0
                             pieceEntity.move(to: .init(translation: translation),
                                              relativeTo: self.rootEntity,
-                                             duration: animation ? 1 : 0)
-                            if animation { try? await Task.sleep(for: .seconds(1)) }
+                                             duration: duration)
+                            try? await Task.sleep(for: .seconds(duration))
                             self.lowerPiece(pieceEntity, latestPieceState.index, animation)
                             if animation {
                                 try? await Task.sleep(for: .seconds(0.8))
@@ -140,12 +142,15 @@ private extension AppModel {
                             if entityPieceState.picked != latestPieceState.picked {
                                 var translation = entityPieceState.index.position
                                 translation.y = latestPieceState.picked ? FixedValue.pickedOffset : 0
+                                let duration: TimeInterval = animation ? 1 : 0
                                 pieceEntity.move(to: .init(translation: translation),
                                                  relativeTo: self.rootEntity,
-                                                 duration: animation ? 1 : 0)
+                                                 duration: duration)
+                                try? await Task.sleep(for: .seconds(duration))
                             }
                         }
                         pieceEntity.components[PieceStateComponent.self] = latestPieceState
+                        self.moving = false
                     }
                 }
             }
