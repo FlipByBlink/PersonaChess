@@ -51,6 +51,7 @@
 		165EC6A12B6913250005172B /* 👤GroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "👤GroupActivity.swift"; sourceTree = "<group>"; };
 		165EC6A32B6914430005172B /* SpatialChess.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpatialChess.entitlements; sourceTree = "<group>"; };
 		165EC6A42B69153B0005172B /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
+		166D208C2B71F6560000EAF6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		16780FF52B6881DB005A0244 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16780FF82B6892E9005A0244 /* Chessmen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chessmen.swift; sourceTree = "<group>"; };
 		16780FFA2B689304005A0244 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 		169C00162B4A9BE0001242F5 = {
 			isa = PBXGroup;
 			children = (
+				166D208C2B71F6560000EAF6 /* README.md */,
 				169C00212B4A9BE0001242F5 /* SpatialChess */,
 				169C00222B4A9BE0001242F5 /* Packages */,
 				169C00202B4A9BE0001242F5 /* Products */,
