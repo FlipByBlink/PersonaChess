@@ -40,7 +40,7 @@ extension AppModel {
         
         self.applyLatestSituationToEntities(animation: false)
     }
-    func applyLatestAction(_ action: Action, animation: Bool = true) {
+    func applyLatestAction(_ action: Action) {
         switch action {
             case .tapPiece(let id):
                 let tappedPieceEntity = self.pieceEntity(id)!
@@ -71,6 +71,7 @@ extension AppModel {
                                to: index)
         }
         self.applyLatestSituationToEntities()
+        self.sendMessage()
     }
     func getLatestSituation() -> [PieceStateComponent] {
         self.rootEntity

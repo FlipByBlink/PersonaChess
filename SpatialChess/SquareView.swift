@@ -20,7 +20,6 @@ struct SquareView: View {
         .onTapGesture {
             if self.inputtable {
                 self.model.applyLatestAction(.tapSquare(.init(self.row, self.column)))
-                self.model.sendMessage()
             }
         }
         .onChange(of: self.model.gameState) { self.updateInputtable() }

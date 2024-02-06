@@ -24,7 +24,6 @@ struct ContentView: View {
                 .targetedToEntity(where: .has(PieceStateComponent.self))
                 .onEnded {
                     self.model.applyLatestAction(.tapPiece($0.entity.components[PieceStateComponent.self]!.id))
-                    self.model.sendMessage()
                 }
         )
         .task { 📢SoundEffect.setCategory() }
