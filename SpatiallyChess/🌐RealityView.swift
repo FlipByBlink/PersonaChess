@@ -21,7 +21,7 @@ struct 🌐RealityView: View {
         }
         .gesture(
             TapGesture()
-                .targetedToEntity(where: .has(PieceStateComponent.self))
+                .targetedToAnyEntity()
                 .onEnded { self.model.executeAction(.tapPiece($0.entity)) }
         )
     }

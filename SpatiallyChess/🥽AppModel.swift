@@ -23,7 +23,7 @@ extension 🥽AppModel {
         self.rootEntity.position.z = -0.6
         self.gameState.latestSituation = FixedValue.preset
         self.gameState.latestSituation.forEach {
-            self.rootEntity.addChild(self.loadPieceEntity($0))
+            self.rootEntity.addChild(🧩PieceEntity.load($0))
         }
         self.applyLatestSituationToEntities(animation: false)
     }
@@ -31,7 +31,9 @@ extension 🥽AppModel {
         guard self.moving == false else { return }
         switch action {
             case .tapPiece(let tappedPieceEntity):
-                let tappedPieceState = tappedPieceEntity.components[PieceStateComponent.self]!
+                guard let tappedPieceState = tappedPieceEntity.parent?.components[PieceStateComponent.self] else {
+                    return
+                }
                 if self.gameState.latestSituation.contains(where: { $0.picked }) {
                     guard let pickedPieceEntity = self.pickedPieceEntity() else {
                         assertionFailure(); return
@@ -75,20 +77,6 @@ extension 🥽AppModel {
 }
 
 private extension 🥽AppModel {
-    private func loadPieceEntity(_ pieceState: PieceStateComponent) -> Entity {
-        let value = try! Entity.load(named: pieceState.assetName)
-        value.components.set([
-            HoverEffectComponent(),
-            InputTargetComponent(),
-            OpacityComponent(),
-            CollisionComponent(
-                shapes: [.generateBox(size: value.visualBounds(relativeTo: nil).extents)]
-            ),
-            pieceState
-        ])
-        value.position = pieceState.index.position
-        return value
-    }
     private func pickedPieceEntity() -> Entity? {
         self.rootEntity.children.first { $0.components[PieceStateComponent.self]?.picked == true }
     }
@@ -110,10 +98,8 @@ private extension 🥽AppModel {
                             if !entityPieceState.picked {
                                 await self.raisePiece(pieceEntity, entityPieceState.index, animation)
                             }
-                            var translation = latestPieceState.index.position
-                            translation.y = FixedValue.pickedOffset
                             let duration: TimeInterval = animation ? 1 : 0
-                            pieceEntity.move(to: .init(translation: translation),
+                            pieceEntity.move(to: .init(translation: latestPieceState.index.position),
                                              relativeTo: self.rootEntity,
                                              duration: duration)
                             try? await Task.sleep(for: .seconds(duration))
@@ -123,9 +109,10 @@ private extension 🥽AppModel {
                                 var translation = entityPieceState.index.position
                                 translation.y = latestPieceState.picked ? FixedValue.pickedOffset : 0
                                 let duration: TimeInterval = animation ? 0.6 : 0
-                                pieceEntity.move(to: .init(translation: translation),
-                                                 relativeTo: self.rootEntity,
-                                                 duration: duration)
+                                let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
+                                pieceBodyEntity.move(to: .init(translation: translation),
+                                                     relativeTo: self.rootEntity,
+                                                     duration: duration)
                                 try? await Task.sleep(for: .seconds(duration))
                             }
                         }
@@ -139,16 +126,18 @@ private extension 🥽AppModel {
         var translation = index.position
         translation.y = FixedValue.pickedOffset
         let duration: TimeInterval = animation ? 0.6 : 0
-        entity.move(to: .init(translation: translation),
-                    relativeTo: self.rootEntity,
-                    duration: duration)
+        let pieceBodyEntity = entity.findEntity(named: "body")!
+        pieceBodyEntity.move(to: .init(translation: translation),
+                             relativeTo: self.rootEntity,
+                             duration: duration)
         try? await Task.sleep(for: .seconds(duration))
     }
     private func lowerPiece(_ entity: Entity, _ index: Index, _ animation: Bool) async {
         let duration: TimeInterval = animation ? 0.7 : 0
-        entity.move(to: .init(translation: index.position),
-                    relativeTo: self.rootEntity,
-                    duration: duration)
+        let pieceBodyEntity = entity.findEntity(named: "body")!
+        pieceBodyEntity.move(to: .init(translation: index.position),
+                             relativeTo: self.rootEntity,
+                             duration: duration)
         try? await Task.sleep(for: .seconds(duration))
         if animation { self.soundEffect.execute() }
     }

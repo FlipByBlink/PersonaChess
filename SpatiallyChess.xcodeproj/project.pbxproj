@@ -15,6 +15,7 @@
 		165EC6A22B6913260005172B /* 👤GroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* 👤GroupActivity.swift */; };
 		165EC6A52B69153B0005172B /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A42B69153B0005172B /* SquareView.swift */; };
 		1671A15A2B720779009A87A6 /* 🌐RealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1592B720778009A87A6 /* 🌐RealityView.swift */; };
+		1671A1612B723550009A87A6 /* 🧩PieceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1602B72354F009A87A6 /* 🧩PieceEntity.swift */; };
 		16780FF62B6881DB005A0244 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* ContentView.swift */; };
 		16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
 		16780FFB2B689304005A0244 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* GameState.swift */; };
@@ -53,6 +54,7 @@
 		166D208C2B71F6560000EAF6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1671A1572B7206BD009A87A6 /* appstore_badge.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = appstore_badge.svg; sourceTree = "<group>"; };
 		1671A1592B720778009A87A6 /* 🌐RealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🌐RealityView.swift"; sourceTree = "<group>"; };
+		1671A1602B72354F009A87A6 /* 🧩PieceEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🧩PieceEntity.swift"; sourceTree = "<group>"; };
 		16780FF52B6881DB005A0244 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16780FF82B6892E9005A0244 /* Chessmen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chessmen.swift; sourceTree = "<group>"; };
 		16780FFA2B689304005A0244 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				16780FFC2B6893CF005A0244 /* Index.swift */,
 				16780FF82B6892E9005A0244 /* Chessmen.swift */,
 				16EA6A7F2B68769C00A3A740 /* Side.swift */,
+				1671A1602B72354F009A87A6 /* 🧩PieceEntity.swift */,
 				165EC6A12B6913250005172B /* 👤GroupActivity.swift */,
 				1671A1582B720747009A87A6 /* Rest */,
 				1671A1552B720659009A87A6 /* Supporting files */,
@@ -282,6 +285,7 @@
 				169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */,
 				165EC6A22B6913260005172B /* 👤GroupActivity.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
+				1671A1612B723550009A87A6 /* 🧩PieceEntity.swift in Sources */,
 				16780FFB2B689304005A0244 /* GameState.swift in Sources */,
 				16F972752B68B77C00711C53 /* PieceStateComponent.swift in Sources */,
 				16AE50282B70FE3200D25197 /* 📢SoundEffect.swift in Sources */,
