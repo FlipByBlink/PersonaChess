@@ -44,13 +44,13 @@ private extension ToolbarView {
                         Label("Exit", systemImage: "escape")
                     }
                     Button {
-                        self.model.back()
+                        self.model.executeAction(.back)
                     } label: {
                         Label("Back", systemImage: "arrow.uturn.backward")
                     }
                     .disabled(self.model.gameState.log.isEmpty)
                     Button {
-                        self.model.reset()
+                        self.model.executeAction(.reset)
                     } label: {
                         Label("Reset", systemImage: "arrow.counterclockwise")
                     }

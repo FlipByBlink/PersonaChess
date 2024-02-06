@@ -22,9 +22,7 @@ struct ContentView: View {
         .gesture(
             TapGesture()
                 .targetedToEntity(where: .has(PieceStateComponent.self))
-                .onEnded {
-                    self.model.applyLatestAction(.tapPiece($0.entity.components[PieceStateComponent.self]!.id))
-                }
+                .onEnded { self.model.executeAction(.tapPiece($0.entity)) }
         )
         .task { 📢SoundEffect.setCategory() }
     }

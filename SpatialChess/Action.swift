@@ -1,6 +1,8 @@
-import Foundation
+import RealityKit
 
-enum Action: Codable, Equatable {
-    case tapPiece(PieceStateComponent.ID),
-         tapSquare(Index)
+enum Action: Equatable {
+    case tapPiece(Entity),
+         tapSquare(Index),
+         back,
+         reset
 }

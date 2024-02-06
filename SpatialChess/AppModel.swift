@@ -38,10 +38,9 @@ extension AppModel {
         }
         self.applyLatestSituationToEntities(animation: false)
     }
-    func applyLatestAction(_ action: Action) {
+    func executeAction(_ action: Action) {
         switch action {
-            case .tapPiece(let id):
-                let tappedPieceEntity = self.pieceEntity(id)!
+            case .tapPiece(let tappedPieceEntity):
                 let tappedPieceState = tappedPieceEntity.components[PieceStateComponent.self]!
                 if self.gameState.latestSituation.contains(where: { $0.picked }) {
                     let pickedPieceEntity = self.pickedPieceEntity()! //FIXME: クラッシュするケースがある
@@ -67,32 +66,21 @@ extension AppModel {
                 self.gameState
                     .movePiece(self.pickedPieceEntity()!.components[PieceStateComponent.self]!.id,
                                to: index)
+            case .back:
+                if let oldGameState = self.gameState.log.popLast() {
+                    self.gameState.latestSituation = oldGameState
+                } else {
+                    assertionFailure()
+                }
+            case .reset:
+                self.gameState.logPreviousSituation()
+                self.soundEffect.secondAction()
+                self.gameState.latestSituation = FixedValue.preset
+                self.applyLatestSituationToEntities()
+                self.sendMessage()
         }
-        self.applyLatestSituationToEntities()
+        self.applyLatestSituationToEntities(animation: action != .back)
         self.sendMessage()
-    }
-    func getLatestSituation() -> [PieceStateComponent] {
-        self.rootEntity
-            .children
-            .filter { $0.components.has(PieceStateComponent.self) }
-            .reduce(into: []) {
-                $0.append($1.components[PieceStateComponent.self]!)
-            }
-    }
-    func back() {
-        if let oldGameState = self.gameState.log.popLast() {
-            self.gameState.latestSituation = oldGameState
-            self.applyLatestSituationToEntities(animation: false)
-        }
-    }
-    func reset() {
-        Task { @MainActor in
-            self.gameState.logPreviousSituation()
-            self.soundEffect.secondAction()
-            self.gameState.latestSituation = FixedValue.preset
-            self.applyLatestSituationToEntities()
-            self.sendMessage()
-        }
     }
 }
 
