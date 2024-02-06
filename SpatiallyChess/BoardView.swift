@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct BoardView: View {
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject var model: 🥽AppModel
     @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         HStack(spacing: 0) {

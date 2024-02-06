@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SquareView: View {
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject var model: 🥽AppModel
     private var row: Int
     private var column: Int
     @State private var inputtable: Bool = false

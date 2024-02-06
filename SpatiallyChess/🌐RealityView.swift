@@ -2,7 +2,7 @@ import SwiftUI
 import RealityKit
 
 struct 🌐RealityView: View {
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         RealityView { content, attachments in
             self.model.setUpEntities()

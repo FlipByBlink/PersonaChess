@@ -4,7 +4,7 @@ import GroupActivities
 import Combine
 
 @MainActor
-class AppModel: ObservableObject {
+class 🥽AppModel: ObservableObject {
     @Published var gameState: GameState = .init()
     private var moving: Bool = false
     var rootEntity: Entity = .init()
@@ -17,7 +17,7 @@ class AppModel: ObservableObject {
     let soundEffect: 📢SoundEffect = .init()
 }
 
-extension AppModel {
+extension 🥽AppModel {
     func setUpEntities() {
         self.rootEntity.position.y = 1.2
         self.rootEntity.position.z = -0.6
@@ -74,7 +74,7 @@ extension AppModel {
     }
 }
 
-private extension AppModel {
+private extension 🥽AppModel {
     private func loadPieceEntity(_ pieceState: PieceStateComponent) -> Entity {
         let value = try! Entity.load(named: pieceState.assetName)
         value.components.set([
@@ -155,7 +155,7 @@ private extension AppModel {
 }
 
 //MARK: ==== SharePlay ====
-extension AppModel {
+extension 🥽AppModel {
     func sendMessage() {
         Task {
             try? await self.messenger?.send(self.gameState)

@@ -16,7 +16,7 @@ private extension ToolbarView {
     }
     private struct ContentView: View {
         var position: ToolbarView.Position
-        @EnvironmentObject var model: AppModel
+        @EnvironmentObject var model: 🥽AppModel
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
         @Environment(\.physicalMetrics) var physicalMetrics
         @State private var expanded: Bool = false
