@@ -19,10 +19,7 @@ struct SquareView: View {
         .hoverEffect(isEnabled: self.inputtable)
         .onTapGesture {
             if self.inputtable {
-                self.model.addLog()
-                let action: Action = .tapSquare(.init(self.row, self.column))
-                self.model.updateGameState(with: action)
-                self.model.applyLatestAction(action)
+                self.model.applyLatestAction(.tapSquare(.init(self.row, self.column)))
                 self.model.sendMessage()
             }
         }
@@ -36,7 +33,7 @@ struct SquareView: View {
 
 private extension SquareView {
     private func updateInputtable() {
-        let latestActivePiecesSituation = self.model.getLatestSituation().filter { !$0.removed }
+        let latestActivePiecesSituation = self.model.gameState.latestSituation.filter { !$0.removed }
         if latestActivePiecesSituation.contains(where: { $0.picked }),
            !latestActivePiecesSituation.contains(where: { $0.index == .init(self.row, self.column) }) {
             self.inputtable = true

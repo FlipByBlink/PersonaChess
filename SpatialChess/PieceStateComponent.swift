@@ -3,19 +3,14 @@ import RealityKit
 
 struct PieceStateComponent: Component {
     var index: Index
-    var chessmen: Chessmen
-    var side: Side
+    let chessmen: Chessmen
+    let side: Side
     var picked: Bool = false
     var removed: Bool = false
     var id: Self.ID { .init(self.chessmen, self.side) }
 }
 
 extension PieceStateComponent: Codable, Equatable {
-    var assetName: String {
-        "\(self.chessmen.role)"
-        +
-        (self.side == .black ? "B" : "W")
-    }
     struct ID: Codable, Equatable {
         var chessmen: Chessmen
         var side: Side
@@ -23,5 +18,10 @@ extension PieceStateComponent: Codable, Equatable {
             self.chessmen = chessmen
             self.side = side
         }
+    }
+    var assetName: String {
+        "\(self.chessmen.role)"
+        +
+        (self.side == .black ? "B" : "W")
     }
 }

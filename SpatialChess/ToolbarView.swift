@@ -48,16 +48,13 @@ private extension ToolbarView {
                     } label: {
                         Label("Back", systemImage: "arrow.uturn.backward")
                     }
-                    .disabled(self.model.log.isEmpty)
+                    .disabled(self.model.gameState.log.isEmpty)
                     Button {
                         self.model.reset()
                     } label: {
                         Label("Reset", systemImage: "arrow.counterclockwise")
                     }
-                    .disabled(
-                        self.model.gameState == .init(previousSituation: FixedValue.preset,
-                                                      latestAction: nil)
-                    )
+                    .disabled(self.model.gameState.latestSituation == FixedValue.preset)
                 }
                 .padding(12)
                 .padding(.horizontal, 12)

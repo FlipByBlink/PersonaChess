@@ -7,7 +7,7 @@ enum Chessmen {
          king
 }
 
-extension Chessmen: Codable {
+extension Chessmen: Codable, CaseIterable {
     var role: Self.Role {
         switch self {
             case .pawn0, .pawn1, .pawn2, .pawn3, .pawn4, .pawn5, .pawn6, .pawn7: .pawn
