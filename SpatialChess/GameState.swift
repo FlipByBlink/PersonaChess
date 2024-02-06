@@ -23,12 +23,12 @@ extension GameState: Codable, Equatable {
         self.latestSituation[self.arrayIndex(id)]
             .picked = false
     }
-    mutating func addPlainLog() {
+    mutating func logPreviousSituation() {
         self.log.append(
             self.latestSituation.reduce(into: []) {
-                var plainValue = $1
-                plainValue.picked = false
-                $0.append(plainValue)
+                var pieceState = $1
+                pieceState.picked = false
+                $0.append(pieceState)
             }
         )
     }

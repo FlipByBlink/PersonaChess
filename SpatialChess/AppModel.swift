@@ -55,7 +55,7 @@ extension AppModel {
                             self.gameState.pick(tappedPieceState.id)
                             self.gameState.unpick(pickedPieceState.id)
                         } else {
-                            self.gameState.addPlainLog()
+                            self.gameState.logPreviousSituation()
                             self.gameState.movePiece(pickedPieceState.id,
                                                      to: tappedPieceState.index)
                             self.gameState.removePiece(tappedPieceState.id)
@@ -65,7 +65,7 @@ extension AppModel {
                     self.gameState.pick(tappedPieceState.id)
                 }
             case .tapSquare(let index):
-                self.gameState.addPlainLog()
+                self.gameState.logPreviousSituation()
                 self.gameState
                     .movePiece(self.pickedPieceEntity()!.components[PieceStateComponent.self]!.id,
                                to: index)
@@ -88,7 +88,7 @@ extension AppModel {
     }
     func reset() {
         Task { @MainActor in
-            self.gameState.addPlainLog()
+            self.gameState.logPreviousSituation()
             self.soundEffect.secondAction()
             self.gameState.latestSituation = FixedValue.preset
             self.applyLatestSituationToEntities()
