@@ -24,7 +24,7 @@ private extension PieceLooksSystem {
             shadowEntity = value
         } else {
             shadowEntity = ModelEntity(
-                mesh: .generateCylinder(height: 0.002,
+                mesh: .generateCylinder(height: 0.0025,
                                         radius: pieceEntity.visualBounds(relativeTo: nil).extents.x * 0.48),
                 materials: [SimpleMaterial(color: .black, isMetallic: false)]
             )
