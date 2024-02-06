@@ -20,7 +20,6 @@
 		16780FFD2B6893CF005A0244 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
 		1685BE3B2B69CAE6005E944B /* PieceLooksSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceLooksSystem.swift */; };
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
-		169C00252B4A9BE0001242F5 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 169C00242B4A9BE0001242F5 /* RealityKitContent */; };
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
 		169C00292B4A9BE0001242F5 /* ContentView(old).swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00282B4A9BE0001242F5 /* ContentView(old).swift */; };
 		169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169C002A2B4A9BE2001242F5 /* Assets.xcassets */; };
@@ -59,7 +58,6 @@
 		1685BE3A2B69CAE6005E944B /* PieceLooksSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceLooksSystem.swift; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		169C001F2B4A9BE0001242F5 /* SpatialChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatialChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		169C00232B4A9BE0001242F5 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		169C00262B4A9BE0001242F5 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		169C00282B4A9BE0001242F5 /* ContentView(old).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView(old).swift"; sourceTree = "<group>"; };
 		169C002A2B4A9BE2001242F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				169C00252B4A9BE0001242F5 /* RealityKitContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +106,6 @@
 			children = (
 				166D208C2B71F6560000EAF6 /* README.md */,
 				169C00212B4A9BE0001242F5 /* SpatialChess */,
-				169C00222B4A9BE0001242F5 /* Packages */,
 				169C00202B4A9BE0001242F5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -150,14 +146,6 @@
 			path = SpatialChess;
 			sourceTree = "<group>";
 		};
-		169C00222B4A9BE0001242F5 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				169C00232B4A9BE0001242F5 /* RealityKitContent */,
-			);
-			path = Packages;
-			sourceTree = "<group>";
-		};
 		16EA6A642B6875CA00A3A740 /* piecesAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +182,6 @@
 			);
 			name = SpatialChess;
 			packageProductDependencies = (
-				169C00242B4A9BE0001242F5 /* RealityKitContent */,
 			);
 			productName = SpatialChess;
 			productReference = 169C001F2B4A9BE0001242F5 /* SpatialChess.app */;
@@ -483,13 +470,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		169C00242B4A9BE0001242F5 /* RealityKitContent */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RealityKitContent;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 169C00172B4A9BE0001242F5 /* Project object */;
 }
