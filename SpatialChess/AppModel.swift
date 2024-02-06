@@ -25,19 +25,6 @@ extension AppModel {
         self.gameState.latestSituation.forEach {
             self.rootEntity.addChild(self.loadPieceEntity($0))
         }
-        for pieceState in self.gameState.latestSituation {
-            self.rootEntity
-                .children
-                .first { $0.components[PieceStateComponent.self]?.id == pieceState.id }
-                .map {
-                    //==== update Position ====
-                    $0.position = pieceState.index.position
-                    $0.position.y = pieceState.picked ? FixedValue.pickedOffset : 0
-                    //==== update PieceStateComponent ====
-                    $0.components[PieceStateComponent.self]! = pieceState
-                    //=========================
-                }
-        }
         self.applyLatestSituationToEntities(animation: false)
     }
     func executeAction(_ action: Action) {
@@ -97,6 +84,8 @@ private extension AppModel {
             ),
             pieceState
         ])
+        value.position = pieceState.index.position
+        //value.position.y = pieceState.picked ? FixedValue.pickedOffset : 0 TODO: 再検討
         return value
     }
     private func pieceEntity(_ id: PieceStateComponent.ID) -> Entity? {
