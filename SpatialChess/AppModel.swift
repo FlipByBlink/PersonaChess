@@ -23,7 +23,6 @@ extension AppModel {
         self.gameState.latestSituation.forEach {
             self.rootEntity.addChild(self.loadPieceEntity($0))
         }
-        
         for pieceState in self.gameState.latestSituation {
             self.rootEntity
                 .children
@@ -37,7 +36,6 @@ extension AppModel {
                     //====================================
                 }
         }
-        
         self.applyLatestSituationToEntities(animation: false)
     }
     func applyLatestAction(_ action: Action) {

@@ -1,4 +1,3 @@
-import Foundation
 import RealityKit
 
 struct PieceStateComponent: Component {

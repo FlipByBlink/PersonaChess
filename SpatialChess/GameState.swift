@@ -32,6 +32,9 @@ extension GameState: Codable, Equatable {
             }
         )
     }
+}
+
+private extension GameState {
     private func arrayIndex(_ id: PieceStateComponent.ID) -> Int {
         self.latestSituation.firstIndex { $0.id == id }!
     }
