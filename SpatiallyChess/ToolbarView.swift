@@ -29,36 +29,72 @@ private extension ToolbarView {
                 }
                 .opacity(self.expanded ? 0 : 1)
                 .foregroundStyle(.secondary)
-                HStack(spacing: 12) {
+                HStack(spacing: 24) {
                     Button {
                         self.expanded = false
                     } label: {
-                        Image(systemName: "arrow.down.right.and.arrow.up.left")
-                            .padding(8)
+                        Image(systemName: "arrow.down.right.and.arrow.up.left.circle")
+                            .imageScale(.large)
+                            .padding(4)
                     }
                     .buttonBorderShape(.circle)
-                    .buttonStyle(.plain)
                     Button {
                         Task { await self.dismissImmersiveSpace() }
                     } label: {
                         Label("Exit", systemImage: "escape")
+                            .padding(8)
                     }
                     Button {
                         self.model.executeAction(.back)
                     } label: {
                         Label("Back", systemImage: "arrow.uturn.backward")
+                            .padding(8)
                     }
                     .disabled(self.model.gameState.log.isEmpty)
                     Button {
                         self.model.executeAction(.reset)
                     } label: {
                         Label("Reset", systemImage: "arrow.counterclockwise")
+                            .padding(8)
                     }
                     .disabled(self.model.gameState.latestSituation == FixedValue.preset)
+                    Group {
+                        HStack(spacing: 4) {
+                            Button {
+                            } label: {
+                                Image(systemName: "plus")
+                                    .padding(8)
+                            }
+                            Button {
+                            } label: {
+                                Image(systemName: "minus")
+                                    .padding(8)
+                            }
+                        }
+                        HStack(spacing: 4) {
+                            Button {
+                            } label: {
+                                Image(systemName: "chevron.up")
+                                    .padding(8)
+                            }
+                            Button {
+                            } label: {
+                                Image(systemName: "chevron.down")
+                                    .padding(8)
+                            }
+                        }
+                        Button {
+                        } label: {
+                            Image(systemName: "arrow.turn.right.up")
+                                .padding(8)
+                        }
+                    }
+                    .buttonBorderShape(.circle)
                 }
+                .buttonStyle(.plain)
+                .font(.subheadline)
                 .padding(12)
                 .padding(.horizontal, 12)
-                .font(.subheadline)
                 .glassBackgroundEffect()
                 .opacity(self.expanded ? 1 : 0)
             }
