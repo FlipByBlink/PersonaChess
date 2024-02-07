@@ -74,6 +74,16 @@ extension 🥽AppModel {
         self.applyLatestSituationToEntities(animation: action != .back)
         self.sendMessage()
     }
+    func raiseBoard() {
+        var transform = self.rootEntity.transform
+        transform.translation.y += 0.05
+        self.rootEntity.move(to: transform, relativeTo: nil, duration: 0.6)
+    }
+    func lowerBoard() {
+        var transform = self.rootEntity.transform
+        transform.translation.y -= 0.05
+        self.rootEntity.move(to: transform, relativeTo: nil, duration: 0.6)
+    }
 }
 
 private extension 🥽AppModel {

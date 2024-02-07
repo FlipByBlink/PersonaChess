@@ -19,7 +19,8 @@ private extension ToolbarView {
         @EnvironmentObject var model: 🥽AppModel
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
         @Environment(\.physicalMetrics) var physicalMetrics
-        @State private var expanded: Bool = false
+        @State private var expanded: Bool = true
+//        @State private var expanded: Bool = false
         var body: some View {
             ZStack(alignment: .top) {
                 Button {
@@ -73,11 +74,13 @@ private extension ToolbarView {
                         }
                         HStack(spacing: 4) {
                             Button {
+                                self.model.raiseBoard()
                             } label: {
                                 Image(systemName: "chevron.up")
                                     .padding(8)
                             }
                             Button {
+                                self.model.lowerBoard()
                             } label: {
                                 Image(systemName: "chevron.down")
                                     .padding(8)
