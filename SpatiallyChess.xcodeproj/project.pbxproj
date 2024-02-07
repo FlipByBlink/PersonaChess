@@ -56,6 +56,7 @@
 		1671A1592B720778009A87A6 /* 🌐RealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🌐RealityView.swift"; sourceTree = "<group>"; };
 		1671A1602B72354F009A87A6 /* 🧩PieceEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🧩PieceEntity.swift"; sourceTree = "<group>"; };
 		1671A1622B7323C2009A87A6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		1671A1632B7324CA009A87A6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		16780FF52B6881DB005A0244 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16780FF82B6892E9005A0244 /* Chessmen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chessmen.swift; sourceTree = "<group>"; };
 		16780FFA2B689304005A0244 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -99,7 +100,7 @@
 		1671A1552B720659009A87A6 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				16EA6A642B6875CA00A3A740 /* piecesAssets */,
+				16EA6A642B6875CA00A3A740 /* Piece assets */,
 				169C002A2B4A9BE2001242F5 /* Assets.xcassets */,
 				169C002F2B4A9BE2001242F5 /* Info.plist */,
 				165EC6A32B6914430005172B /* SpatiallyChess.entitlements */,
@@ -179,9 +180,10 @@
 			path = SpatiallyChess;
 			sourceTree = "<group>";
 		};
-		16EA6A642B6875CA00A3A740 /* piecesAssets */ = {
+		16EA6A642B6875CA00A3A740 /* Piece assets */ = {
 			isa = PBXGroup;
 			children = (
+				1671A1632B7324CA009A87A6 /* README.md */,
 				16EA6A652B6875CA00A3A740 /* rookW.reality */,
 				16EA6A662B6875CA00A3A740 /* rookB.reality */,
 				16EA6A672B6875CA00A3A740 /* bishopW.reality */,
@@ -195,7 +197,7 @@
 				16EA6A6F2B6875CA00A3A740 /* pawnB.reality */,
 				16EA6A702B6875CA00A3A740 /* pawnW.reality */,
 			);
-			path = piecesAssets;
+			path = "Piece assets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
