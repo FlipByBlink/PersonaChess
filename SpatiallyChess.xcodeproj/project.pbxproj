@@ -55,6 +55,7 @@
 		1671A1572B7206BD009A87A6 /* appstore_badge.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = appstore_badge.svg; sourceTree = "<group>"; };
 		1671A1592B720778009A87A6 /* 🌐RealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🌐RealityView.swift"; sourceTree = "<group>"; };
 		1671A1602B72354F009A87A6 /* 🧩PieceEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🧩PieceEntity.swift"; sourceTree = "<group>"; };
+		1671A1622B7323C2009A87A6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		16780FF52B6881DB005A0244 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16780FF82B6892E9005A0244 /* Chessmen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chessmen.swift; sourceTree = "<group>"; };
 		16780FFA2B689304005A0244 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		1671A1562B72069F009A87A6 /* README assets */ = {
 			isa = PBXGroup;
 			children = (
+				1671A1622B7323C2009A87A6 /* icon.png */,
 				1671A1572B7206BD009A87A6 /* appstore_badge.svg */,
 			);
 			path = "README assets";
