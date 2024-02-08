@@ -46,7 +46,7 @@ extension AppModel {
                         if tappedPiece.side == pickedPiece.side {
                             self.chessState.pick(tappedPiece.id)
                             self.chessState.unpick(pickedPiece.id)
-                            self.soundFeedback.select()
+                            self.soundFeedback.select(tappedPieceEntity)
                         } else {
                             self.chessState.logPreviousSituation()
                             self.chessState.movePiece(pickedPiece.id,
@@ -56,7 +56,7 @@ extension AppModel {
                     }
                 } else {
                     self.chessState.pick(tappedPiece.id)
-                    self.soundFeedback.select()
+                    self.soundFeedback.select(tappedPieceEntity)
                 }
             case .tapSquare(let index):
                 self.chessState.logPreviousSituation()
@@ -70,7 +70,7 @@ extension AppModel {
                 }
             case .reset:
                 self.chessState.logPreviousSituation()
-                self.soundFeedback.reset()
+                self.soundFeedback.reset(self.rootEntity)
                 self.chessState.latestSituation = FixedValue.preset
         }
         self.applyLatestSituationToEntities(animation: action != .back)
@@ -154,7 +154,7 @@ private extension AppModel {
                              relativeTo: self.rootEntity,
                              duration: duration)
         try? await Task.sleep(for: .seconds(duration))
-        if animation { self.soundFeedback.put() }
+        if animation { self.soundFeedback.put(entity) }
     }
     private func disablePieceHoverEffect() {
         self.rootEntity

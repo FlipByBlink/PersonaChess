@@ -1,58 +1,27 @@
-import SwiftUI
 import AVFAudio
+import RealityKit
 
 class SoundFeedback {
-    private var putSoundPlayers: [AVAudioPlayer] = []
-    private var resetSoundPlayer: AVAudioPlayer?
-    private var selectSoundPlayer: AVAudioPlayer?
-    init() {
-        Task(priority: .background) {
-            self.putSoundPlayers = (1...6).compactMap {
-                if let ⓓata = NSDataAsset(name: "sound\($0)")?.data,
-                   let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
-                    ⓟlayer.volume = 0.18
-                    ⓟlayer.prepareToPlay()
-                    return ⓟlayer
-                } else {
-                    assertionFailure()
-                    return nil
-                }
-            }
-            if let ⓓata = NSDataAsset(name: "resetSound")?.data,
-               let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
-                self.resetSoundPlayer = ⓟlayer
-                self.resetSoundPlayer?.volume = 0.15
-                self.resetSoundPlayer?.prepareToPlay()
-            } else {
-                assertionFailure()
-            }
-            if let ⓓata = NSDataAsset(name: "selectSound")?.data,
-               let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
-                self.selectSoundPlayer = ⓟlayer
-                self.selectSoundPlayer?.volume = 0.09
-                self.selectSoundPlayer?.prepareToPlay()
-            } else {
-                assertionFailure()
-            }
-        }
-    }
+    private let putSound: [AudioFileResource] = (1...6).map { try! .load(named: "sound\($0)") }
+    private let resetSound: AudioFileResource = try! .load(named: "resetSound")
+    private let selectSound: AudioFileResource = try! .load(named: "selectSound")
 }
 
 extension SoundFeedback {
-    func put() {
-        Task(priority: .background) {
-            self.putSoundPlayers.randomElement()?.play()
-        }
+    func put(_ entity: Entity) {
+        let player = entity.prepareAudio(self.putSound.randomElement()!)
+        player.gain = -8
+        player.play()
     }
-    func reset() {
-        Task(priority: .background) {
-            self.resetSoundPlayer?.play()
-        }
+    func reset(_ entity: Entity) {
+        let player = entity.prepareAudio(self.resetSound)
+        player.gain = -8
+        player.play()
     }
-    func select() {
-        Task(priority: .background) {
-            self.selectSoundPlayer?.play()
-        }
+    func select(_ entity: Entity) {
+        let player = entity.prepareAudio(self.selectSound)
+        player.gain = -8
+        player.play()
     }
     static func setCategory() {
         do {
