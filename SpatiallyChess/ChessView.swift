@@ -1,7 +1,7 @@
 import SwiftUI
 import RealityKit
 
-struct 🌐RealityView: View {
+struct ChessView: View {
     @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         VStack(spacing: 2) {
@@ -25,8 +25,7 @@ struct 🌐RealityView: View {
                               axis: .y)
             .frame(width: FixedValue.boardSize, height: FixedValue.boardSize)
             .frame(depth: FixedValue.boardSize)
-            ToolbarView()
-                .environmentObject(self.model)
+            🛠️ToolbarsView()
         }
         .scaleEffect(self.model.scale, anchor: .bottom)
         .offset(z: -1000)
