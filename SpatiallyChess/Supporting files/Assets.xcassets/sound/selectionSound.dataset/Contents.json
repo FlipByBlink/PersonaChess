@@ -2,7 +2,8 @@
   "data" : [
     {
       "filename" : "selectionSound.m4a",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "universal-type-identifier" : "com.apple.m4a-audio"
     }
   ],
   "info" : {
