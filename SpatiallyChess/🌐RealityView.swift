@@ -4,7 +4,7 @@ import RealityKit
 struct 🌐RealityView: View {
     @EnvironmentObject var model: 🥽AppModel
     var body: some View {
-        VStack {
+        VStack(spacing: 2) {
             RealityView { content, attachments in
                 self.model.setUpEntities()
                 attachments.entity(for: "board")!.name = "board"
