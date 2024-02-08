@@ -12,7 +12,7 @@ struct ContentView: View {
         .offset(y: -self.model.viewHeight)
         .animation(.default, value: self.model.scale)
         .animation(.default, value: self.model.viewHeight)
-        .task { SoundEffect.setCategory() }
+        .task { SoundFeedback.setCategory() }
         .environmentObject(self.model)
     }
 }

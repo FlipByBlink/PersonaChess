@@ -1,10 +1,10 @@
 import SwiftUI
 import AVFAudio
 
-class SoundEffect {
+class SoundFeedback {
     private var putSoundPlayers: [AVAudioPlayer] = []
     private var resetSoundPlayer: AVAudioPlayer?
-    private var selectionSoundPlayer: AVAudioPlayer?
+    private var selectSoundPlayer: AVAudioPlayer?
     init() {
         Task(priority: .background) {
             self.putSoundPlayers = (1...6).compactMap {
@@ -26,29 +26,32 @@ class SoundEffect {
             } else {
                 assertionFailure()
             }
-            if let ⓓata = NSDataAsset(name: "selectionSound")?.data,
+            if let ⓓata = NSDataAsset(name: "selectSound")?.data,
                let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
-                self.selectionSoundPlayer = ⓟlayer
-                self.selectionSoundPlayer?.volume = 0.07
-                self.selectionSoundPlayer?.prepareToPlay()
+                self.selectSoundPlayer = ⓟlayer
+                self.selectSoundPlayer?.volume = 0.09
+                self.selectSoundPlayer?.prepareToPlay()
             } else {
                 assertionFailure()
             }
         }
     }
-    func putAction() {
+}
+
+extension SoundFeedback {
+    func put() {
         Task(priority: .background) {
             self.putSoundPlayers.randomElement()?.play()
         }
     }
-    func resetAction() {
+    func reset() {
         Task(priority: .background) {
             self.resetSoundPlayer?.play()
         }
     }
-    func selectionAction() {
+    func select() {
         Task(priority: .background) {
-            self.selectionSoundPlayer?.play()
+            self.selectSoundPlayer?.play()
         }
     }
     static func setCategory() {

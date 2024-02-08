@@ -26,7 +26,7 @@
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
 		169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169C002A2B4A9BE2001242F5 /* Assets.xcassets */; };
-		16AE50282B70FE3200D25197 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundEffect.swift */; };
+		16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
 		16EA6A712B6875CA00A3A740 /* rookW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A652B6875CA00A3A740 /* rookW.reality */; };
 		16EA6A722B6875CA00A3A740 /* rookB.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A662B6875CA00A3A740 /* rookB.reality */; };
 		16EA6A732B6875CA00A3A740 /* bishopW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A672B6875CA00A3A740 /* bishopW.reality */; };
@@ -72,7 +72,7 @@
 		169C00282B4A9BE0001242F5 /* ContentView(old).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView(old).swift"; sourceTree = "<group>"; };
 		169C002A2B4A9BE2001242F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		169C002F2B4A9BE2001242F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16AE50272B70FE3100D25197 /* SoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
+		16AE50272B70FE3100D25197 /* SoundFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundFeedback.swift; sourceTree = "<group>"; };
 		16EA6A652B6875CA00A3A740 /* rookW.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = rookW.reality; sourceTree = "<group>"; };
 		16EA6A662B6875CA00A3A740 /* rookB.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = rookB.reality; sourceTree = "<group>"; };
 		16EA6A672B6875CA00A3A740 /* bishopW.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = bishopW.reality; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				16F972762B68B7FB00711C53 /* FixedValue.swift */,
-				16AE50272B70FE3100D25197 /* SoundEffect.swift */,
+				16AE50272B70FE3100D25197 /* SoundFeedback.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -339,7 +339,7 @@
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
 				16780FFB2B689304005A0244 /* ChessState.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
-				16AE50282B70FE3200D25197 /* SoundEffect.swift in Sources */,
+				16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */,
 				1671A1682B74A040009A87A6 /* ToolbarsView.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				16780FF62B6881DB005A0244 /* ContentView.swift in Sources */,

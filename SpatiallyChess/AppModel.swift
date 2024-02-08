@@ -17,7 +17,7 @@ class AppModel: ObservableObject {
     private var subscriptions = Set<AnyCancellable>()
     private var tasks = Set<Task<Void, Never>>()
     
-    private let soundEffect: SoundEffect = .init()
+    private let soundFeedback: SoundFeedback = .init()
 }
 
 extension AppModel {
@@ -46,7 +46,7 @@ extension AppModel {
                         if tappedPiece.side == pickedPiece.side {
                             self.chessState.pick(tappedPiece.id)
                             self.chessState.unpick(pickedPiece.id)
-                            self.soundEffect.selectionAction()
+                            self.soundFeedback.select()
                         } else {
                             self.chessState.logPreviousSituation()
                             self.chessState.movePiece(pickedPiece.id,
@@ -56,7 +56,7 @@ extension AppModel {
                     }
                 } else {
                     self.chessState.pick(tappedPiece.id)
-                    self.soundEffect.selectionAction()
+                    self.soundFeedback.select()
                 }
             case .tapSquare(let index):
                 self.chessState.logPreviousSituation()
@@ -70,7 +70,7 @@ extension AppModel {
                 }
             case .reset:
                 self.chessState.logPreviousSituation()
-                self.soundEffect.resetAction()
+                self.soundFeedback.reset()
                 self.chessState.latestSituation = FixedValue.preset
         }
         self.applyLatestSituationToEntities(animation: action != .back)
@@ -158,7 +158,7 @@ private extension AppModel {
                              relativeTo: self.rootEntity,
                              duration: duration)
         try? await Task.sleep(for: .seconds(duration))
-        if animation { self.soundEffect.putAction() }
+        if animation { self.soundFeedback.put() }
     }
     private func disablePieceHoverEffect() {
         self.rootEntity
