@@ -20,7 +20,7 @@ private extension ToolbarView {
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
         @Environment(\.physicalMetrics) var physicalMetrics
         @State private var expanded: Bool = true
-//        @State private var expanded: Bool = false
+//        @State private var expanded: Bool = false MARK: 戻す
         var body: some View {
             ZStack(alignment: .top) {
                 Button {
@@ -87,6 +87,7 @@ private extension ToolbarView {
                             }
                         }
                         Button {
+                            self.model.rotateBoard()
                         } label: {
                             Image(systemName: "arrow.turn.right.up")
                                 .padding(8)
@@ -102,7 +103,7 @@ private extension ToolbarView {
                 .opacity(self.expanded ? 1 : 0)
             }
             .animation(.default, value: self.expanded)
-            .rotation3DEffect(.degrees(45), axis: .x)
+            .rotation3DEffect(.degrees(30), axis: .x)
             .offset(z: (self.physicalMetrics.convert(FixedValue.boardSize, from: .meters) / 2) + 80)
             .rotation3DEffect(
                 .degrees({
@@ -115,7 +116,6 @@ private extension ToolbarView {
                 }()),
                 axis: .y
             )
-            .offset(y: 28)
         }
     }
 }

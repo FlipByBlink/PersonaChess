@@ -8,6 +8,8 @@ class 🥽AppModel: ObservableObject {
     @Published private(set) var gameState: GameState = .init()
     private(set) var rootEntity: Entity = .init()
     private var moving: Bool = false
+    @Published private(set) var boardAngle: Double = 0
+    @Published private(set) var viewHeight: Double = 0
     
     @Published private(set) var groupSession: GroupSession<👤GroupActivity>?
     private var messenger: GroupSessionMessenger?
@@ -19,8 +21,6 @@ class 🥽AppModel: ObservableObject {
 
 extension 🥽AppModel {
     func setUpEntities() {
-        self.rootEntity.position.y = 1.2
-        self.rootEntity.position.z = -0.6
         self.gameState.latestSituation = FixedValue.preset
         self.gameState.latestSituation.forEach {
             self.rootEntity.addChild(🧩PieceEntity.load($0))
@@ -75,14 +75,13 @@ extension 🥽AppModel {
         self.sendMessage()
     }
     func raiseBoard() {
-        var transform = self.rootEntity.transform
-        transform.translation.y += 0.05
-        self.rootEntity.move(to: transform, relativeTo: nil, duration: 0.6)
+        self.viewHeight += 50
     }
     func lowerBoard() {
-        var transform = self.rootEntity.transform
-        transform.translation.y -= 0.05
-        self.rootEntity.move(to: transform, relativeTo: nil, duration: 0.6)
+        self.viewHeight -= 50
+    }
+    func rotateBoard() {
+        self.boardAngle += 90
     }
 }
 
