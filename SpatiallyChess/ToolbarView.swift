@@ -60,40 +60,45 @@ private extension ToolbarView {
                     }
                     .disabled(self.model.gameState.latestSituation == FixedValue.preset)
                     Group {
-                        HStack(spacing: 4) {
+                        HStack(spacing: 8) {
                             Button {
-                                self.model.scale += 0.05
+                                self.model.upScale()
                             } label: {
                                 Image(systemName: "plus")
-                                    .padding(8)
+                                    .frame(width: Self.circleButtonSize,
+                                           height: Self.circleButtonSize)
                             }
                             Button {
-                                self.model.scale -= 0.05
+                                self.model.downScale()
                             } label: {
                                 Image(systemName: "minus")
-                                    .padding(8)
+                                    .frame(width: Self.circleButtonSize,
+                                           height: Self.circleButtonSize)
                             }
                             .disabled(self.model.scale < 0.6)
                         }
-                        HStack(spacing: 4) {
+                        HStack(spacing: 8) {
                             Button {
                                 self.model.raiseBoard()
                             } label: {
                                 Image(systemName: "chevron.up")
-                                    .padding(8)
+                                    .frame(width: Self.circleButtonSize,
+                                           height: Self.circleButtonSize)
                             }
                             Button {
                                 self.model.lowerBoard()
                             } label: {
                                 Image(systemName: "chevron.down")
-                                    .padding(8)
+                                    .frame(width: Self.circleButtonSize,
+                                           height: Self.circleButtonSize)
                             }
                         }
                         Button {
                             self.model.rotateBoard()
                         } label: {
                             Image(systemName: "arrow.turn.right.up")
-                                .padding(8)
+                                .frame(width: Self.circleButtonSize,
+                                       height: Self.circleButtonSize)
                         }
                     }
                     .buttonBorderShape(.circle)
@@ -120,5 +125,6 @@ private extension ToolbarView {
                 axis: .y
             )
         }
+        private static let circleButtonSize = 32.0
     }
 }

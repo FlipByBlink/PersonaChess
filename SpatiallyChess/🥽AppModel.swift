@@ -10,7 +10,7 @@ class 🥽AppModel: ObservableObject {
     private var moving: Bool = false
     @Published private(set) var boardAngle: Double = 0
     @Published private(set) var viewHeight: Double = 1000
-    @Published var scale: Double = 1
+    @Published private(set) var scale: Double = 1
     
     @Published private(set) var groupSession: GroupSession<👤GroupActivity>?
     private var messenger: GroupSessionMessenger?
@@ -74,6 +74,12 @@ extension 🥽AppModel {
         }
         self.applyLatestSituationToEntities(animation: action != .back)
         self.sendMessage()
+    }
+    func upScale() {
+        self.scale += 0.07
+    }
+    func downScale() {
+        self.scale -= 0.07
     }
     func raiseBoard() {
         self.viewHeight += 50
