@@ -30,7 +30,7 @@ struct 🌐RealityView: View {
                 .environmentObject(self.model)
         }
         .offset(z: -1000)
-        .offset(y: -(1000 + self.model.viewHeight))
+        .offset(y: -self.model.viewHeight)
         .animation(.default, value: self.model.viewHeight)
     }
 }
