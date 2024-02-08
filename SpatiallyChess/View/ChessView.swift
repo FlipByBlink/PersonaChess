@@ -18,10 +18,9 @@ struct ChessView: View {
         .gesture(
             TapGesture()
                 .targetedToAnyEntity()
-                .onEnded { self.model.executeAction(.tapPiece($0.entity)) }
+                .onEnded { self.model.execute(.tapPiece($0.entity)) }
         )
-        .rotation3DEffect(.degrees(self.model.boardAngle),
-                          axis: .y)
+        .rotation3DEffect(.degrees(self.model.boardAngle), axis: .y)
         .animation(.default, value: self.model.boardAngle)
         .frame(width: FixedValue.boardSize, height: FixedValue.boardSize)
         .frame(depth: FixedValue.boardSize)

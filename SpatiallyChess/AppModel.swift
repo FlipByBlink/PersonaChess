@@ -28,7 +28,7 @@ extension AppModel {
         }
         self.applyLatestSituationToEntities(animation: false)
     }
-    func executeAction(_ action: Action) {
+    func execute(_ action: Action) {
         guard self.moving == false else { return }
         switch action {
             case .tapPiece(let tappedPieceEntity):

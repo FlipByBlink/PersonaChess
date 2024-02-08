@@ -70,14 +70,14 @@ struct ToolbarView: View {
                 }
                 .buttonBorderShape(.circle)
                 Button {
-                    self.model.executeAction(.back)
+                    self.model.execute(.back)
                 } label: {
                     Label("Back", systemImage: "arrow.uturn.backward")
                         .padding(8)
                 }
                 .disabled(self.model.chessState.log.isEmpty)
                 Button {
-                    self.model.executeAction(.reset)
+                    self.model.execute(.reset)
                 } label: {
                     Label("Reset", systemImage: "arrow.counterclockwise")
                         .padding(8)
