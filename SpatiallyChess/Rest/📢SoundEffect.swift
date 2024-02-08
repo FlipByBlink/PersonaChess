@@ -4,6 +4,7 @@ import AVFAudio
 class 📢SoundEffect {
     private var actionPlayers: [AVAudioPlayer] = []
     private var secondEffectPlayer: AVAudioPlayer?
+    private var selectionEffectPlayer: AVAudioPlayer?
     init() {
         Task(priority: .background) {
             self.actionPlayers = (1...6).compactMap {
@@ -25,6 +26,14 @@ class 📢SoundEffect {
             } else {
                 assertionFailure()
             }
+            if let ⓓata = NSDataAsset(name: "selectionSound")?.data,
+               let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
+                self.selectionEffectPlayer = ⓟlayer
+                self.selectionEffectPlayer?.volume = 0.07
+                self.selectionEffectPlayer?.prepareToPlay()
+            } else {
+                assertionFailure()
+            }
         }
     }
     func execute() {
@@ -35,6 +44,11 @@ class 📢SoundEffect {
     func resetAction() {
         Task(priority: .background) {
             self.secondEffectPlayer?.play()
+        }
+    }
+    func selectionAction() {
+        Task(priority: .background) {
+            self.selectionEffectPlayer?.play()
         }
     }
     static func setCategory() {

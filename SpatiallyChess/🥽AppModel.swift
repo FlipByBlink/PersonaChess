@@ -46,6 +46,7 @@ extension 🥽AppModel {
                         if tappedPieceState.side == pickedPieceState.side {
                             self.gameState.pick(tappedPieceState.id)
                             self.gameState.unpick(pickedPieceState.id)
+                            self.soundEffect.selectionAction()
                         } else {
                             self.gameState.logPreviousSituation()
                             self.gameState.movePiece(pickedPieceState.id,
@@ -55,6 +56,7 @@ extension 🥽AppModel {
                     }
                 } else {
                     self.gameState.pick(tappedPieceState.id)
+                    self.soundEffect.selectionAction()
                 }
             case .tapSquare(let index):
                 self.gameState.logPreviousSituation()
