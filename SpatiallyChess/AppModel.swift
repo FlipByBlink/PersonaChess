@@ -4,7 +4,7 @@ import GroupActivities
 import Combine
 
 @MainActor
-class 🥽AppModel: ObservableObject {
+class AppModel: ObservableObject {
     @Published private(set) var gameState: GameState = .init()
     private(set) var rootEntity: Entity = .init()
     private var moving: Bool = false
@@ -12,19 +12,19 @@ class 🥽AppModel: ObservableObject {
     @Published private(set) var viewHeight: Double = 1000
     @Published private(set) var scale: Double = 1
     
-    @Published private(set) var groupSession: GroupSession<👤GroupActivity>?
+    @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
     private var messenger: GroupSessionMessenger?
     private var subscriptions = Set<AnyCancellable>()
     private var tasks = Set<Task<Void, Never>>()
     
-    private let soundEffect: 📢SoundEffect = .init()
+    private let soundEffect: SoundEffect = .init()
 }
 
-extension 🥽AppModel {
+extension AppModel {
     func setUpEntities() {
         self.gameState.latestSituation = FixedValue.preset
         self.gameState.latestSituation.forEach {
-            self.rootEntity.addChild(🧩PieceEntity.load($0))
+            self.rootEntity.addChild(PieceEntity.load($0))
         }
         self.applyLatestSituationToEntities(animation: false)
     }
@@ -94,7 +94,7 @@ extension 🥽AppModel {
     }
 }
 
-private extension 🥽AppModel {
+private extension AppModel {
     private func pickedPieceEntity() -> Entity? {
         self.rootEntity.children.first { $0.components[PieceStateComponent.self]?.picked == true }
     }
@@ -180,7 +180,7 @@ private extension 🥽AppModel {
 }
 
 //MARK: ==== SharePlay ====
-extension 🥽AppModel {
+extension AppModel {
     func sendMessage() {
         Task {
             try? await self.messenger?.send(self.gameState)

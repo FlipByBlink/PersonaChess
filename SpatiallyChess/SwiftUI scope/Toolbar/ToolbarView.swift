@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct 🛠️ToolbarView: View {
-    var position: 🛠️ToolbarPosition
-    @EnvironmentObject var model: 🥽AppModel
+struct ToolbarView: View {
+    var position: ToolbarPosition
+    @EnvironmentObject var model: AppModel
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.physicalMetrics) var physicalMetrics
     @State private var expanded: Bool = true
@@ -114,6 +114,6 @@ struct 🛠️ToolbarView: View {
     }
 }
 
-private extension 🛠️ToolbarView {
+private extension ToolbarView {
     private static let circleButtonSize = 32.0
 }

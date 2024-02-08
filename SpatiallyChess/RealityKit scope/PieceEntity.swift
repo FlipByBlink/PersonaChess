@@ -1,6 +1,6 @@
 import RealityKit
 
-enum 🧩PieceEntity {
+enum PieceEntity {
     static func load(_ pieceState: PieceStateComponent) -> Entity {
         let value = Entity()
         value.position = pieceState.index.position

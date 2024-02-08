@@ -1,7 +1,7 @@
 import SwiftUI
 import AVFAudio
 
-class 📢SoundEffect {
+class SoundEffect {
     private var putSoundPlayers: [AVAudioPlayer] = []
     private var resetSoundPlayer: AVAudioPlayer?
     private var selectionSoundPlayer: AVAudioPlayer?
