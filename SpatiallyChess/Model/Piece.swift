@@ -1,6 +1,6 @@
 import RealityKit
 
-struct PieceStateComponent: Component {
+struct Piece {
     var index: Index
     let chessmen: Chessmen
     let side: Side
@@ -9,7 +9,7 @@ struct PieceStateComponent: Component {
     var id: Self.ID { .init(self.chessmen, self.side) }
 }
 
-extension PieceStateComponent: Codable, Equatable {
+extension Piece: Component, Codable, Equatable {
     struct ID: Codable, Equatable {
         var chessmen: Chessmen
         var side: Side

@@ -8,7 +8,7 @@ struct SpatiallyChessApp: App {
         }
     }
     init() {
-        PieceStateComponent.registerComponent()
+        Piece.registerComponent()
         PieceOpacitySystem.registerSystem()
     }
 }

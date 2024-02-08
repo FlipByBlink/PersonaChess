@@ -1,7 +1,7 @@
 import RealityKit
 
 struct PieceOpacitySystem: System {
-    private static let query = EntityQuery(where: .has(PieceStateComponent.self))
+    private static let query = EntityQuery(where: .has(Piece.self))
     
     init(scene: Scene) {}
     
@@ -11,7 +11,7 @@ struct PieceOpacitySystem: System {
         guard !pieceEntities.isEmpty else { return }
         
         for pieceEntity in pieceEntities {
-            if pieceEntity.components[PieceStateComponent.self]!.removed {
+            if pieceEntity.components[Piece.self]!.removed {
                 if pieceEntity.components[OpacityComponent.self]!.opacity > 0 {
                     pieceEntity.components[OpacityComponent.self]!.opacity -= 0.04
                 }

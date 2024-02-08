@@ -40,7 +40,7 @@
 		16EA6A7B2B6875CA00A3A740 /* pawnB.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A6F2B6875CA00A3A740 /* pawnB.reality */; };
 		16EA6A7C2B6875CA00A3A740 /* pawnW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A702B6875CA00A3A740 /* pawnW.reality */; };
 		16EA6A802B68769C00A3A740 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA6A7F2B68769C00A3A740 /* Side.swift */; };
-		16F972752B68B77C00711C53 /* PieceStateComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* PieceStateComponent.swift */; };
+		16F972752B68B77C00711C53 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
 		16F972772B68B7FB00711C53 /* FixedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* FixedValue.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,7 +86,7 @@
 		16EA6A6F2B6875CA00A3A740 /* pawnB.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = pawnB.reality; sourceTree = "<group>"; };
 		16EA6A702B6875CA00A3A740 /* pawnW.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = pawnW.reality; sourceTree = "<group>"; };
 		16EA6A7F2B68769C00A3A740 /* Side.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
-		16F972742B68B77C00711C53 /* PieceStateComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceStateComponent.swift; sourceTree = "<group>"; };
+		16F972742B68B77C00711C53 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		16F972762B68B7FB00711C53 /* FixedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				16780FFA2B689304005A0244 /* GameState.swift */,
-				16F972742B68B77C00711C53 /* PieceStateComponent.swift */,
+				16F972742B68B77C00711C53 /* Piece.swift */,
 				16780FFC2B6893CF005A0244 /* Index.swift */,
 				16780FF82B6892E9005A0244 /* Chessmen.swift */,
 				16EA6A7F2B68769C00A3A740 /* Side.swift */,
@@ -338,7 +338,7 @@
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
 				16780FFB2B689304005A0244 /* GameState.swift in Sources */,
-				16F972752B68B77C00711C53 /* PieceStateComponent.swift in Sources */,
+				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
 				16AE50282B70FE3200D25197 /* SoundEffect.swift in Sources */,
 				1671A1682B74A040009A87A6 /* ToolbarsView.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,

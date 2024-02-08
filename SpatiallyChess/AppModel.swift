@@ -32,7 +32,7 @@ extension AppModel {
         guard self.moving == false else { return }
         switch action {
             case .tapPiece(let tappedPieceEntity):
-                guard let tappedPieceState = tappedPieceEntity.parent?.components[PieceStateComponent.self] else {
+                guard let tappedPiece = tappedPieceEntity.parent?.components[Piece.self] else {
                     return
                 }
                 if self.gameState.latestSituation.contains(where: { $0.picked }) {
@@ -40,29 +40,28 @@ extension AppModel {
                         assertionFailure(); return
                     }
                     if tappedPieceEntity == pickedPieceEntity {
-                        self.gameState.unpick(tappedPieceState.id)
+                        self.gameState.unpick(tappedPiece.id)
                     } else {
-                        let pickedPieceState = pickedPieceEntity.components[PieceStateComponent.self]!
-                        if tappedPieceState.side == pickedPieceState.side {
-                            self.gameState.pick(tappedPieceState.id)
-                            self.gameState.unpick(pickedPieceState.id)
+                        let pickedPiece = pickedPieceEntity.components[Piece.self]!
+                        if tappedPiece.side == pickedPiece.side {
+                            self.gameState.pick(tappedPiece.id)
+                            self.gameState.unpick(pickedPiece.id)
                             self.soundEffect.selectionAction()
                         } else {
                             self.gameState.logPreviousSituation()
-                            self.gameState.movePiece(pickedPieceState.id,
-                                                     to: tappedPieceState.index)
-                            self.gameState.removePiece(tappedPieceState.id)
+                            self.gameState.movePiece(pickedPiece.id,
+                                                     to: tappedPiece.index)
+                            self.gameState.removePiece(tappedPiece.id)
                         }
                     }
                 } else {
-                    self.gameState.pick(tappedPieceState.id)
+                    self.gameState.pick(tappedPiece.id)
                     self.soundEffect.selectionAction()
                 }
             case .tapSquare(let index):
                 self.gameState.logPreviousSituation()
-                self.gameState
-                    .movePiece(self.pickedPieceEntity()!.components[PieceStateComponent.self]!.id,
-                               to: index)
+                self.gameState.movePiece(self.pickedPieceEntity()!.components[Piece.self]!.id,
+                                         to: index)
             case .back:
                 if let oldGameState = self.gameState.log.popLast() {
                     self.gameState.latestSituation = oldGameState
@@ -96,40 +95,36 @@ extension AppModel {
 
 private extension AppModel {
     private func pickedPieceEntity() -> Entity? {
-        self.rootEntity.children.first { $0.components[PieceStateComponent.self]?.picked == true }
+        self.rootEntity.children.first { $0.components[Piece.self]?.picked == true }
     }
     private func applyLatestSituationToEntities(animation: Bool = true) {
         self.rootEntity
             .children
-            .filter { $0.components.has(PieceStateComponent.self) }
+            .filter { $0.components.has(Piece.self) }
             .forEach { pieceEntity in
-                let entityPieceState = pieceEntity.components[PieceStateComponent.self]!
-                let latestPieceState = {
-                    self.gameState
-                        .latestSituation
-                        .first { $0.id == entityPieceState.id }!
-                }()
-                if entityPieceState != latestPieceState {
-                    if latestPieceState.removed {
-                        pieceEntity.components[PieceStateComponent.self] = latestPieceState
+                let piece = pieceEntity.components[Piece.self]!
+                let latestPiece = self.gameState.latestSituation.first { $0.id == piece.id }!
+                if piece != latestPiece {
+                    if latestPiece.removed {
+                        pieceEntity.components[Piece.self] = latestPiece
                     } else {
                         Task { @MainActor in
                             self.moving = true
                             self.disablePieceHoverEffect()
-                            if entityPieceState.index != latestPieceState.index {
-                                if !entityPieceState.picked {
-                                    await self.raisePiece(pieceEntity, entityPieceState.index, animation)
+                            if piece.index != latestPiece.index {
+                                if !piece.picked {
+                                    await self.raisePiece(pieceEntity, piece.index, animation)
                                 }
                                 let duration: TimeInterval = animation ? 1 : 0
-                                pieceEntity.move(to: .init(translation: latestPieceState.index.position),
+                                pieceEntity.move(to: .init(translation: latestPiece.index.position),
                                                  relativeTo: self.rootEntity,
                                                  duration: duration)
                                 try? await Task.sleep(for: .seconds(duration))
-                                await self.lowerPiece(pieceEntity, latestPieceState.index, animation)
+                                await self.lowerPiece(pieceEntity, latestPiece.index, animation)
                             } else {
-                                if entityPieceState.picked != latestPieceState.picked {
-                                    var translation = entityPieceState.index.position
-                                    translation.y = latestPieceState.picked ? FixedValue.pickedOffset : 0
+                                if piece.picked != latestPiece.picked {
+                                    var translation = piece.index.position
+                                    translation.y = latestPiece.picked ? FixedValue.pickedOffset : 0
                                     let duration: TimeInterval = animation ? 0.6 : 0
                                     let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
                                     pieceBodyEntity.move(to: .init(translation: translation),
@@ -138,7 +133,7 @@ private extension AppModel {
                                     try? await Task.sleep(for: .seconds(duration))
                                 }
                             }
-                            pieceEntity.components[PieceStateComponent.self] = latestPieceState
+                            pieceEntity.components[Piece.self] = latestPiece
                             self.activatePieceHoverEffect()
                             self.moving = false
                         }
@@ -168,13 +163,13 @@ private extension AppModel {
     private func disablePieceHoverEffect() {
         self.rootEntity
             .children
-            .filter { $0.components.has(PieceStateComponent.self) }
+            .filter { $0.components.has(Piece.self) }
             .forEach { $0.findEntity(named: "body")!.components.remove(HoverEffectComponent.self) }
     }
     private func activatePieceHoverEffect() {
         self.rootEntity
             .children
-            .filter { $0.components.has(PieceStateComponent.self) }
+            .filter { $0.components.has(Piece.self) }
             .forEach { $0.findEntity(named: "body")!.components.set(HoverEffectComponent()) }
     }
 }

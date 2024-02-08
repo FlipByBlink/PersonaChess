@@ -7,8 +7,8 @@ enum FixedValue {
     
     static let pickedOffset: Float = 0.1
     
-    static var preset: [PieceStateComponent] {
-        var value: [PieceStateComponent] = []
+    static var preset: [Piece] {
+        var value: [Piece] = []
         [Chessmen.rook0, .knight0, .bishop0, .queen, .king, .bishop1, .knight1, .rook1].enumerated().forEach {
             value.append(.init(index: .init(0, $0.offset),
                                chessmen: $0.element,
