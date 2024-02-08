@@ -163,7 +163,7 @@ private extension 🥽AppModel {
                              relativeTo: self.rootEntity,
                              duration: duration)
         try? await Task.sleep(for: .seconds(duration))
-        if animation { self.soundEffect.execute() }
+        if animation { self.soundEffect.putAction() }
     }
     private func disablePieceHoverEffect() {
         self.rootEntity
