@@ -23,14 +23,16 @@ struct 🌐RealityView: View {
             )
             .rotation3DEffect(.degrees(self.model.boardAngle),
                               axis: .y)
-            .animation(.default, value: self.model.boardAngle)
             .frame(width: FixedValue.boardSize, height: FixedValue.boardSize)
             .frame(depth: FixedValue.boardSize)
             ToolbarView()
                 .environmentObject(self.model)
         }
+        .scaleEffect(self.model.scale, anchor: .bottom)
         .offset(z: -1000)
         .offset(y: -self.model.viewHeight)
+        .animation(.default, value: self.model.boardAngle)
+        .animation(.default, value: self.model.scale)
         .animation(.default, value: self.model.viewHeight)
     }
 }

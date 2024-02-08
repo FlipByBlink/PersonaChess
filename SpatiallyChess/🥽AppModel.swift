@@ -10,6 +10,7 @@ class 🥽AppModel: ObservableObject {
     private var moving: Bool = false
     @Published private(set) var boardAngle: Double = 0
     @Published private(set) var viewHeight: Double = 1000
+    @Published var scale: Double = 1
     
     @Published private(set) var groupSession: GroupSession<👤GroupActivity>?
     private var messenger: GroupSessionMessenger?

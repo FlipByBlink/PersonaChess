@@ -62,15 +62,18 @@ private extension ToolbarView {
                     Group {
                         HStack(spacing: 4) {
                             Button {
+                                self.model.scale += 0.05
                             } label: {
                                 Image(systemName: "plus")
                                     .padding(8)
                             }
                             Button {
+                                self.model.scale -= 0.05
                             } label: {
                                 Image(systemName: "minus")
                                     .padding(8)
                             }
+                            .disabled(self.model.scale < 0.6)
                         }
                         HStack(spacing: 4) {
                             Button {
