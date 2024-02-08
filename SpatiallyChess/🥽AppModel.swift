@@ -69,7 +69,7 @@ extension 🥽AppModel {
                 }
             case .reset:
                 self.gameState.logPreviousSituation()
-                self.soundEffect.secondAction()
+                self.soundEffect.resetAction()
                 self.gameState.latestSituation = FixedValue.preset
         }
         self.applyLatestSituationToEntities(animation: action != .back)

@@ -17,7 +17,7 @@ class 📢SoundEffect {
                     return nil
                 }
             }
-            if let ⓓata = NSDataAsset(name: "BigActionSound")?.data,
+            if let ⓓata = NSDataAsset(name: "resetSound")?.data,
                let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
                 self.secondEffectPlayer = ⓟlayer
                 self.secondEffectPlayer?.volume = 0.13
@@ -32,7 +32,7 @@ class 📢SoundEffect {
             self.actionPlayers.randomElement()?.play()
         }
     }
-    func secondAction() {
+    func resetAction() {
         Task(priority: .background) {
             self.secondEffectPlayer?.play()
         }
