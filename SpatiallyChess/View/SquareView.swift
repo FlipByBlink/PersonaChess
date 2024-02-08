@@ -22,7 +22,7 @@ struct SquareView: View {
                 self.model.executeAction(.tapSquare(.init(self.row, self.column)))
             }
         }
-        .onChange(of: self.model.gameState) { self.updateInputtable() }
+        .onChange(of: self.model.chessState) { self.updateInputtable() }
     }
     init(_ row: Int, _ column: Int) {
         self.row = row
@@ -32,7 +32,7 @@ struct SquareView: View {
 
 private extension SquareView {
     private func updateInputtable() {
-        let latestActivePiecesSituation = self.model.gameState.latestSituation.filter { !$0.removed }
+        let latestActivePiecesSituation = self.model.chessState.latestSituation.filter { !$0.removed }
         if latestActivePiecesSituation.contains(where: { $0.picked }),
            !latestActivePiecesSituation.contains(where: { $0.index == .init(self.row, self.column) }) {
             self.inputtable = true

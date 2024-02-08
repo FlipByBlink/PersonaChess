@@ -75,14 +75,14 @@ struct ToolbarView: View {
                     Label("Back", systemImage: "arrow.uturn.backward")
                         .padding(8)
                 }
-                .disabled(self.model.gameState.log.isEmpty)
+                .disabled(self.model.chessState.log.isEmpty)
                 Button {
                     self.model.executeAction(.reset)
                 } label: {
                     Label("Reset", systemImage: "arrow.counterclockwise")
                         .padding(8)
                 }
-                .disabled(self.model.gameState.latestSituation == FixedValue.preset)
+                .disabled(self.model.chessState.latestSituation == FixedValue.preset)
                 Button {
                     Task { await self.dismissImmersiveSpace() }
                 } label: {

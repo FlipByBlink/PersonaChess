@@ -1,11 +1,11 @@
 import Foundation
 
-struct GameState {
+struct ChessState {
     var latestSituation: [Piece] = []
     var log: [[Piece]] = []
 }
 
-extension GameState: Codable, Equatable {
+extension ChessState: Codable, Equatable {
     mutating func movePiece(_ id: Piece.ID, to index: Index) {
         self.unpick(id)
         self.latestSituation[self.arrayIndex(id)].index = index
@@ -30,7 +30,7 @@ extension GameState: Codable, Equatable {
     }
 }
 
-private extension GameState {
+private extension ChessState {
     private func arrayIndex(_ id: Piece.ID) -> Int {
         self.latestSituation.firstIndex { $0.id == id }!
     }

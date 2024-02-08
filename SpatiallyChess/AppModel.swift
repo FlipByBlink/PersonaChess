@@ -5,7 +5,7 @@ import Combine
 
 @MainActor
 class AppModel: ObservableObject {
-    @Published private(set) var gameState: GameState = .init()
+    @Published private(set) var chessState: ChessState = .init()
     private(set) var rootEntity: Entity = .init()
     private var moving: Bool = false
     @Published private(set) var boardAngle: Double = 0
@@ -22,8 +22,8 @@ class AppModel: ObservableObject {
 
 extension AppModel {
     func setUpEntities() {
-        self.gameState.latestSituation = FixedValue.preset
-        self.gameState.latestSituation.forEach {
+        self.chessState.latestSituation = FixedValue.preset
+        self.chessState.latestSituation.forEach {
             self.rootEntity.addChild(PieceEntity.load($0))
         }
         self.applyLatestSituationToEntities(animation: false)
@@ -35,43 +35,43 @@ extension AppModel {
                 guard let tappedPiece = tappedPieceEntity.parent?.components[Piece.self] else {
                     return
                 }
-                if self.gameState.latestSituation.contains(where: { $0.picked }) {
+                if self.chessState.latestSituation.contains(where: { $0.picked }) {
                     guard let pickedPieceEntity = self.pickedPieceEntity() else {
                         assertionFailure(); return
                     }
                     if tappedPieceEntity == pickedPieceEntity {
-                        self.gameState.unpick(tappedPiece.id)
+                        self.chessState.unpick(tappedPiece.id)
                     } else {
                         let pickedPiece = pickedPieceEntity.components[Piece.self]!
                         if tappedPiece.side == pickedPiece.side {
-                            self.gameState.pick(tappedPiece.id)
-                            self.gameState.unpick(pickedPiece.id)
+                            self.chessState.pick(tappedPiece.id)
+                            self.chessState.unpick(pickedPiece.id)
                             self.soundEffect.selectionAction()
                         } else {
-                            self.gameState.logPreviousSituation()
-                            self.gameState.movePiece(pickedPiece.id,
+                            self.chessState.logPreviousSituation()
+                            self.chessState.movePiece(pickedPiece.id,
                                                      to: tappedPiece.index)
-                            self.gameState.removePiece(tappedPiece.id)
+                            self.chessState.removePiece(tappedPiece.id)
                         }
                     }
                 } else {
-                    self.gameState.pick(tappedPiece.id)
+                    self.chessState.pick(tappedPiece.id)
                     self.soundEffect.selectionAction()
                 }
             case .tapSquare(let index):
-                self.gameState.logPreviousSituation()
-                self.gameState.movePiece(self.pickedPieceEntity()!.components[Piece.self]!.id,
+                self.chessState.logPreviousSituation()
+                self.chessState.movePiece(self.pickedPieceEntity()!.components[Piece.self]!.id,
                                          to: index)
             case .back:
-                if let oldGameState = self.gameState.log.popLast() {
-                    self.gameState.latestSituation = oldGameState
+                if let oldChessState = self.chessState.log.popLast() {
+                    self.chessState.latestSituation = oldChessState
                 } else {
                     assertionFailure()
                 }
             case .reset:
-                self.gameState.logPreviousSituation()
+                self.chessState.logPreviousSituation()
                 self.soundEffect.resetAction()
-                self.gameState.latestSituation = FixedValue.preset
+                self.chessState.latestSituation = FixedValue.preset
         }
         self.applyLatestSituationToEntities(animation: action != .back)
         self.sendMessage()
@@ -103,7 +103,7 @@ private extension AppModel {
             .filter { $0.components.has(Piece.self) }
             .forEach { pieceEntity in
                 let piece = pieceEntity.components[Piece.self]!
-                let latestPiece = self.gameState.latestSituation.first { $0.id == piece.id }!
+                let latestPiece = self.chessState.latestSituation.first { $0.id == piece.id }!
                 if piece != latestPiece {
                     if latestPiece.removed {
                         pieceEntity.components[Piece.self] = latestPiece
@@ -178,11 +178,11 @@ private extension AppModel {
 extension AppModel {
     func sendMessage() {
         Task {
-            try? await self.messenger?.send(self.gameState)
+            try? await self.messenger?.send(self.chessState)
         }
     }
-    private func receive(_ newGameState: GameState) {
-        self.gameState = newGameState
+    private func receive(_ newChessState: ChessState) {
+        self.chessState = newChessState
         self.applyLatestSituationToEntities()
     }
 }
