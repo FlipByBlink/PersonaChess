@@ -125,8 +125,7 @@
 				165EC6A32B6914430005172B /* SpatiallyChess.entitlements */,
 				16EA6A642B6875CA00A3A740 /* Piece assets */,
 				1671A17D2B74C6B2009A87A6 /* Sound assets */,
-				1671A1562B72069F009A87A6 /* README assets */,
-				16780FF72B6887B9005A0244 /* Archive */,
+				1671A1802B74D341009A87A6 /* Rest */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -214,6 +213,15 @@
 				1671A1742B74C639009A87A6 /* resetSound.m4a */,
 			);
 			path = "Sound assets";
+			sourceTree = "<group>";
+		};
+		1671A1802B74D341009A87A6 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				1671A1562B72069F009A87A6 /* README assets */,
+				16780FF72B6887B9005A0244 /* Archive */,
+			);
+			path = Rest;
 			sourceTree = "<group>";
 		};
 		16780FF72B6887B9005A0244 /* Archive */ = {
