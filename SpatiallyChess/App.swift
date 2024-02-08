@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct SpatialChessApp: App {
+struct SpatiallyChessApp: App {
     var body: some Scene {
         ImmersiveSpace {
             ContentView()

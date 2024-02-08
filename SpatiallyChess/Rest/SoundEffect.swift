@@ -10,7 +10,7 @@ class SoundEffect {
             self.putSoundPlayers = (1...6).compactMap {
                 if let ⓓata = NSDataAsset(name: "sound\($0)")?.data,
                    let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
-                    ⓟlayer.volume = 0.2
+                    ⓟlayer.volume = 0.18
                     ⓟlayer.prepareToPlay()
                     return ⓟlayer
                 } else {
@@ -21,7 +21,7 @@ class SoundEffect {
             if let ⓓata = NSDataAsset(name: "resetSound")?.data,
                let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
                 self.resetSoundPlayer = ⓟlayer
-                self.resetSoundPlayer?.volume = 0.13
+                self.resetSoundPlayer?.volume = 0.15
                 self.resetSoundPlayer?.prepareToPlay()
             } else {
                 assertionFailure()

@@ -24,7 +24,6 @@ enum PieceEntity {
             materials: [SimpleMaterial(color: .black, isMetallic: false)]
         )
         shadowEntity.components.set(OpacityComponent(opacity: 0.4))
-        shadowEntity.name = "shadow"
         value.addChild(shadowEntity)
         
         return value
