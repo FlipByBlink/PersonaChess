@@ -2,9 +2,9 @@ import AVFAudio
 import RealityKit
 
 class SoundFeedback {
-    private let putSound: [AudioFileResource] = (1...6).map { try! .load(named: "putSound\($0)") }
-    private let resetSound: AudioFileResource = try! .load(named: "resetSound")
-    private let selectSound: AudioFileResource = try! .load(named: "selectSound")
+    private let putSound: [AudioFileResource] = (1...6).map { try! .load(named: "putSound\($0).m4a") }
+    private let resetSound: AudioFileResource = try! .load(named: "resetSound.m4a")
+    private let selectSound: AudioFileResource = try! .load(named: "selectSound.m4a")
 }
 
 extension SoundFeedback {
