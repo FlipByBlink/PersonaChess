@@ -10,6 +10,7 @@
 		1601FEF82B4AA42D0050457E /* シンプルボード.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF72B4AA42D0050457E /* シンプルボード.reality */; };
 		1601FEFA2B4AA43A0050457E /* 駒.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF92B4AA43A0050457E /* 駒.reality */; };
 		161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A740E2B6A4FC10057FD17 /* ToolbarView.swift */; };
+		16312B532B75BB52006A93D1 /* SharePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B522B75BB52006A93D1 /* SharePlayMenu.swift */; };
 		165EC69E2B68C5E40005172B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
 		165EC6A02B6901670005172B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* AppGroupActivity.swift */; };
@@ -57,6 +58,7 @@
 		1601FEF72B4AA42D0050457E /* シンプルボード.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "シンプルボード.reality"; sourceTree = "<group>"; };
 		1601FEF92B4AA43A0050457E /* 駒.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "駒.reality"; sourceTree = "<group>"; };
 		161A740E2B6A4FC10057FD17 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		16312B522B75BB52006A93D1 /* SharePlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePlayMenu.swift; sourceTree = "<group>"; };
 		165EC69D2B68C5E30005172B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		165EC69F2B6901670005172B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		165EC6A12B6913250005172B /* AppGroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGroupActivity.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				1671A1592B720778009A87A6 /* ChessView.swift */,
 				169B9E812B68BEA70025FCEB /* BoardView.swift */,
 				165EC6A42B69153B0005172B /* SquareView.swift */,
+				16312B522B75BB52006A93D1 /* SharePlayMenu.swift */,
 				1671A1662B74A013009A87A6 /* Toolbar */,
 				1671A16A2B74A872009A87A6 /* RealityKit scope */,
 			);
@@ -388,6 +391,7 @@
 				165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
+				16312B532B75BB52006A93D1 /* SharePlayMenu.swift in Sources */,
 				16780FFB2B689304005A0244 /* Chess.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
 				16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */,

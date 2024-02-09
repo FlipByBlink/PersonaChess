@@ -4,6 +4,7 @@ struct ContentView: View {
     @StateObject private var model: AppModel = .init()
     var body: some View {
         VStack(spacing: 2) {
+            SharePlayMenu()
             ChessView()
             ToolbarsView()
         }
