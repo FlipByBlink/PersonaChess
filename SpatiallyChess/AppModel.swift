@@ -174,6 +174,101 @@ private extension AppModel {
 
 //MARK: ==== SharePlay ====
 extension AppModel {
+    func activateGroupActivity() {
+        Task {
+            do {
+                _ = try await AppGroupActivity().activate()
+            } catch {
+                print("Failed to activate activity: \(error)")
+            }
+        }
+    }
+    func configureGroupSession(_ groupSession: GroupSession<AppGroupActivity>) {
+        self.execute(.reset)
+        
+        self.groupSession = groupSession
+        let messenger = GroupSessionMessenger(session: groupSession)
+        self.messenger = messenger
+        
+        groupSession.$state
+            .sink { state in
+                if case .invalidated = state {
+                    self.groupSession = nil
+                    self.execute(.reset)
+                }
+            }
+            .store(in: &subscriptions)
+        
+        groupSession.$activeParticipants
+            .sink { activeParticipants in
+                let newParticipants = activeParticipants.subtracting(groupSession.activeParticipants)
+                Task {
+                    try? await messenger.send(self.activityState,
+                                              to: .only(newParticipants))
+                }
+            }
+            .store(in: &subscriptions)
+        
+        let task = Task {
+            for await (message, _) in messenger.messages(of: ActivityState.self) {
+                Task { @MainActor in
+                    self.receive(message)
+                }
+            }
+        }
+        self.tasks.insert(task)
+        
+#if os(visionOS)
+        //Task {
+        //    if let systemCoordinator = await groupSession.systemCoordinator {
+        //        for await localParticipantState in systemCoordinator.localParticipantStates {
+        //            if localParticipantState.isSpatial {
+        //                // Start syncing spacial-actions
+        //            } else {
+        //                // Stop syncing spacial-actions
+        //            }
+        //        }
+        //    }
+        //}
+        
+        //Task {
+        //    if let systemCoordinator = await groupSession.systemCoordinator {
+        //        for await immersionStyle in systemCoordinator.groupImmersionStyle {
+        //            if let immersionStyle {
+        //                // Open an immersive space with the same immersion style
+        //            } else {
+        //                // Dismiss the immersive space
+        //            }
+        //        }
+        //    }
+        //}
+        
+        Task {
+            if let systemCoordinator = await groupSession.systemCoordinator {
+                var configuration = SystemCoordinator.Configuration()
+                configuration.spatialTemplatePreference = .none
+                //configuration.supportsGroupImmersiveSpace = true
+                systemCoordinator.configuration = configuration
+                groupSession.join()
+            }
+        }
+#else
+        groupSession.join()
+#endif
+    }
+    func restartGroupActivity() {
+        self.execute(.reset)
+        
+        self.messenger = nil
+        self.tasks.forEach { $0.cancel() }
+        self.tasks = []
+        self.subscriptions = []
+        if self.groupSession != nil {
+            self.groupSession?.leave()
+            self.groupSession = nil
+            self.activateGroupActivity()
+        }
+    }
     private func sendMessage() {
         Task {
             try? await self.messenger?.send(self.activityState)
