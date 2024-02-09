@@ -28,9 +28,10 @@
 		1671A17F2B74C7ED009A87A6 /* putSound1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A17E2B74C7ED009A87A6 /* putSound1.m4a */; };
 		16780FF62B6881DB005A0244 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* ContentView.swift */; };
 		16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
-		16780FFB2B689304005A0244 /* ChessState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* ChessState.swift */; };
+		16780FFB2B689304005A0244 /* Chess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* Chess.swift */; };
 		16780FFD2B6893CF005A0244 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
 		1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */; };
+		169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
 		169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169C002A2B4A9BE2001242F5 /* Assets.xcassets */; };
@@ -79,9 +80,10 @@
 		1671A17E2B74C7ED009A87A6 /* putSound1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = putSound1.m4a; sourceTree = "<group>"; };
 		16780FF52B6881DB005A0244 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16780FF82B6892E9005A0244 /* Chessmen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chessmen.swift; sourceTree = "<group>"; };
-		16780FFA2B689304005A0244 /* ChessState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessState.swift; sourceTree = "<group>"; };
+		16780FFA2B689304005A0244 /* Chess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chess.swift; sourceTree = "<group>"; };
 		16780FFC2B6893CF005A0244 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
 		1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceOpacitySystem.swift; sourceTree = "<group>"; };
+		169333A12B75A7B500B60E0F /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		169C001F2B4A9BE0001242F5 /* SpatiallyChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatiallyChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		169C00262B4A9BE0001242F5 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -190,7 +192,8 @@
 		1671A16C2B74A8A5009A87A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				16780FFA2B689304005A0244 /* ChessState.swift */,
+				169333A12B75A7B500B60E0F /* ActivityState.swift */,
+				16780FFA2B689304005A0244 /* Chess.swift */,
 				16F972742B68B77C00711C53 /* Piece.swift */,
 				16780FFC2B6893CF005A0244 /* Index.swift */,
 				16780FF82B6892E9005A0244 /* Chessmen.swift */,
@@ -385,13 +388,14 @@
 				165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
-				16780FFB2B689304005A0244 /* ChessState.swift in Sources */,
+				16780FFB2B689304005A0244 /* Chess.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
 				16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */,
 				1671A1682B74A040009A87A6 /* ToolbarsView.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				16780FF62B6881DB005A0244 /* ContentView.swift in Sources */,
 				1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */,
+				169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */,
 				16F972772B68B7FB00711C53 /* FixedValue.swift in Sources */,
 				161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,

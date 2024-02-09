@@ -58,7 +58,7 @@ struct ToolbarView: View {
                                 .frame(width: Self.circleButtonSize,
                                        height: Self.circleButtonSize)
                         }
-                        .disabled(self.model.scale < 0.6)
+                        .disabled(self.model.activityState.viewScale < 0.6)
                     }
                     Button {
                         self.model.rotateBoard()
@@ -75,14 +75,14 @@ struct ToolbarView: View {
                     Label("Back", systemImage: "arrow.uturn.backward")
                         .padding(8)
                 }
-                .disabled(self.model.chessState.log.isEmpty)
+                .disabled(self.model.activityState.chess.log.isEmpty)
                 Button {
                     self.model.execute(.reset)
                 } label: {
                     Label("Reset", systemImage: "arrow.counterclockwise")
                         .padding(8)
                 }
-                .disabled(self.model.chessState.latestSituation == FixedValue.preset)
+                .disabled(self.model.activityState.chess.latest == FixedValue.preset)
                 Button {
                     Task { await self.dismissImmersiveSpace() }
                 } label: {

@@ -7,11 +7,11 @@ struct ContentView: View {
             ChessView()
             ToolbarsView()
         }
-        .scaleEffect(self.model.scale, anchor: .bottom)
+        .scaleEffect(self.model.activityState.viewScale, anchor: .bottom)
         .offset(z: -1000)
-        .offset(y: -self.model.viewHeight)
-        .animation(.default, value: self.model.scale)
-        .animation(.default, value: self.model.viewHeight)
+        .offset(y: -self.model.activityState.viewHeight)
+        .animation(.default, value: self.model.activityState.viewScale)
+        .animation(.default, value: self.model.activityState.viewHeight)
         .task { SoundFeedback.setCategory() }
         .environmentObject(self.model)
     }

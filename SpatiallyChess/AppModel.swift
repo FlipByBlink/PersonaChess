@@ -5,12 +5,9 @@ import Combine
 
 @MainActor
 class AppModel: ObservableObject {
-    @Published private(set) var chessState: ChessState = .init()
+    @Published private(set) var activityState: ActivityState = .init()
     private(set) var rootEntity: Entity = .init()
     private var moving: Bool = false
-    @Published private(set) var boardAngle: Double = 0
-    @Published private(set) var viewHeight: Double = 1000
-    @Published private(set) var scale: Double = 1
     
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
     private var messenger: GroupSessionMessenger?
@@ -22,11 +19,11 @@ class AppModel: ObservableObject {
 
 extension AppModel {
     func setUpEntities() {
-        self.chessState.latestSituation = FixedValue.preset
-        self.chessState.latestSituation.forEach {
+        self.activityState.chess.latest = FixedValue.preset
+        self.activityState.chess.latest.forEach {
             self.rootEntity.addChild(PieceEntity.load($0))
         }
-        self.applyLatestSituationToEntities(animation: false)
+        self.applyLatestChessToEntities(animation: false)
     }
     func execute(_ action: Action) {
         guard self.moving == false else { return }
@@ -35,61 +32,61 @@ extension AppModel {
                 guard let tappedPiece = tappedPieceEntity.parent?.components[Piece.self] else {
                     return
                 }
-                if self.chessState.latestSituation.contains(where: { $0.picked }) {
+                if self.activityState.chess.latest.contains(where: { $0.picked }) {
                     guard let pickedPieceEntity = self.pickedPieceEntity() else {
                         assertionFailure(); return
                     }
                     if tappedPieceEntity == pickedPieceEntity {
-                        self.chessState.unpick(tappedPiece.id)
+                        self.activityState.chess.unpick(tappedPiece.id)
                     } else {
                         let pickedPiece = pickedPieceEntity.components[Piece.self]!
                         if tappedPiece.side == pickedPiece.side {
-                            self.chessState.pick(tappedPiece.id)
-                            self.chessState.unpick(pickedPiece.id)
+                            self.activityState.chess.pick(tappedPiece.id)
+                            self.activityState.chess.unpick(pickedPiece.id)
                             self.soundFeedback.select(tappedPieceEntity)
                         } else {
-                            self.chessState.logPreviousSituation()
-                            self.chessState.movePiece(pickedPiece.id,
-                                                      to: tappedPiece.index)
-                            self.chessState.removePiece(tappedPiece.id)
+                            self.activityState.chess.appendLog()
+                            self.activityState.chess.movePiece(pickedPiece.id,
+                                                               to: tappedPiece.index)
+                            self.activityState.chess.removePiece(tappedPiece.id)
                         }
                     }
                 } else {
-                    self.chessState.pick(tappedPiece.id)
+                    self.activityState.chess.pick(tappedPiece.id)
                     self.soundFeedback.select(tappedPieceEntity)
                 }
             case .tapSquare(let index):
-                self.chessState.logPreviousSituation()
-                self.chessState.movePiece(self.pickedPieceEntity()!.components[Piece.self]!.id,
-                                          to: index)
+                self.activityState.chess.appendLog()
+                self.activityState.chess.movePiece(self.pickedPieceEntity()!.components[Piece.self]!.id,
+                                                   to: index)
             case .back:
-                if let oldChessState = self.chessState.log.popLast() {
-                    self.chessState.latestSituation = oldChessState
+                if let previousChessValue = self.activityState.chess.log.popLast() {
+                    self.activityState.chess.latest = previousChessValue
                 } else {
                     assertionFailure()
                 }
             case .reset:
-                self.chessState.logPreviousSituation()
+                self.activityState.chess.appendLog()
                 self.soundFeedback.reset(self.rootEntity)
-                self.chessState.latestSituation = FixedValue.preset
+                self.activityState.chess.latest = FixedValue.preset
         }
-        self.applyLatestSituationToEntities(animation: action != .back)
+        self.applyLatestChessToEntities(animation: action != .back)
         self.sendMessage()
     }
     func upScale() {
-        self.scale += 0.07
+        self.activityState.viewScale += 0.07
     }
     func downScale() {
-        self.scale -= 0.07
+        self.activityState.viewScale -= 0.07
     }
     func raiseBoard() {
-        self.viewHeight += 50
+        self.activityState.viewHeight += 50
     }
     func lowerBoard() {
-        self.viewHeight -= 50
+        self.activityState.viewHeight -= 50
     }
     func rotateBoard() {
-        self.boardAngle += 90
+        self.activityState.boardAngle += 90
     }
 }
 
@@ -97,10 +94,10 @@ private extension AppModel {
     private func pickedPieceEntity() -> Entity? {
         self.rootEntity.children.first { $0.components[Piece.self]?.picked == true }
     }
-    private func applyLatestSituationToEntities(animation: Bool = true) {
+    private func applyLatestChessToEntities(animation: Bool = true) {
         for pieceEntity in self.rootEntity.children.filter({ $0.components.has(Piece.self) }) {
             let piece = pieceEntity.components[Piece.self]!
-            let latestPiece = self.chessState.latestSituation.first { $0.id == piece.id }!
+            let latestPiece = self.activityState.chess.latest.first { $0.id == piece.id }!
             guard piece != latestPiece else { continue }
             if latestPiece.removed {
                 pieceEntity.components[Piece.self] = latestPiece
@@ -172,13 +169,13 @@ private extension AppModel {
 
 //MARK: ==== SharePlay ====
 extension AppModel {
-    func sendMessage() {
+    private func sendMessage() {
         Task {
-            try? await self.messenger?.send(self.chessState)
+            try? await self.messenger?.send(self.activityState)
         }
     }
-    private func receive(_ newChessState: ChessState) {
-        self.chessState = newChessState
-        self.applyLatestSituationToEntities()
+    private func receive(_ message: ActivityState) {
+        self.activityState = message
+        self.applyLatestChessToEntities()
     }
 }
