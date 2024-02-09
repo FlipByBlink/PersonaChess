@@ -7,7 +7,7 @@ import Combine
 class AppModel: ObservableObject {
     @Published private(set) var activityState: ActivityState = .init()
     private(set) var rootEntity: Entity = .init()
-    private var moving: Bool = false
+    @Published private(set) var moving: Bool = false
     
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
     @Published private(set) var isSpatial: Bool = false

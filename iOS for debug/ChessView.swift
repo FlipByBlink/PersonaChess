@@ -92,7 +92,6 @@ struct PieceView: View {
                         .first { ($0.components[Piece.self] as? Piece)?.id == piece.id }!
                         .findEntity(named: "body")
                 }()!
-                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                 self.model.execute(.tapPiece(entity))
             }
             .border(.pink, width: piece.picked ? 3 : 0)
