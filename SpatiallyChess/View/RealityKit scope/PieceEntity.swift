@@ -29,7 +29,14 @@ enum PieceEntity {
         
         return value
 #else
-        Entity()
+        let value = Entity()
+        value.components.set([piece])
+        
+        let bodyEntity = Entity()
+        bodyEntity.name = "body"
+        value.addChild(bodyEntity)
+        
+        return value
 #endif
     }
 }

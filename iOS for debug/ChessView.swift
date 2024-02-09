@@ -78,10 +78,20 @@ struct PieceView: View {
     var body: some View {
         if let piece {
             Text(piece.icon)
+                .font(.largeTitle.bold())
                 .contentShape(.rect)
                 .onTapGesture {
-                    self.model.execute(.tapPiece(Entity()))
+                    let entity = {
+                        self.model
+                            .rootEntity
+                            .children
+                            .first { ($0.components[Piece.self] as? Piece)?.id == piece.id }!
+                            .findEntity(named: "body")
+                    }()!
+                    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                    self.model.execute(.tapPiece(entity))
                 }
+                .border(.pink, width: piece.picked ? 2 : 0)
         }
     }
     init(_ row: Int, _ column: Int) {

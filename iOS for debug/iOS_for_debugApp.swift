@@ -7,4 +7,7 @@ struct iOS_for_debugApp: App {
             ContentView()
         }
     }
+    init() {
+        Piece.registerComponent()
+    }
 }
