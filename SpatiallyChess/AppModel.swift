@@ -30,7 +30,7 @@ extension AppModel {
         guard self.moving == false else { return }
         switch action {
             case .tapPiece(let tappedPieceEntity):
-                guard let tappedPiece = tappedPieceEntity.parent?.components[Piece.self] else {
+                guard let tappedPiece: Piece = tappedPieceEntity.parent?.components[Piece.self] else {
                     return
                 }
                 if self.activityState.chess.latest.contains(where: { $0.picked }) {
@@ -40,7 +40,7 @@ extension AppModel {
                     if tappedPieceEntity == pickedPieceEntity {
                         self.activityState.chess.unpick(tappedPiece.id)
                     } else {
-                        let pickedPiece = pickedPieceEntity.components[Piece.self]!
+                        let pickedPiece: Piece = pickedPieceEntity.components[Piece.self]!
                         if tappedPiece.side == pickedPiece.side {
                             self.activityState.chess.pick(tappedPiece.id)
                             self.activityState.chess.unpick(pickedPiece.id)
@@ -102,8 +102,8 @@ private extension AppModel {
     }
     private func applyLatestChessToEntities(animation: Bool = true) {
         for pieceEntity in self.rootEntity.children.filter({ $0.components.has(Piece.self) }) {
-            let piece = pieceEntity.components[Piece.self]!
-            let latestPiece = self.activityState.chess.latest.first { $0.id == piece.id }!
+            let piece: Piece = pieceEntity.components[Piece.self]!
+            let latestPiece: Piece = self.activityState.chess.latest.first { $0.id == piece.id }!
             guard piece != latestPiece else { continue }
             if latestPiece.removed {
                 pieceEntity.components[Piece.self] = latestPiece
@@ -160,16 +160,20 @@ private extension AppModel {
         if animation { self.soundFeedback.put(entity) }
     }
     private func disablePieceHoverEffect() {
+#if os(visionOS)
         self.rootEntity
             .children
             .filter { $0.components.has(Piece.self) }
             .forEach { $0.findEntity(named: "body")!.components.remove(HoverEffectComponent.self) }
+#endif
     }
     private func activatePieceHoverEffect() {
+#if os(visionOS)
         self.rootEntity
             .children
             .filter { $0.components.has(Piece.self) }
             .forEach { $0.findEntity(named: "body")!.components.set(HoverEffectComponent()) }
+#endif
     }
 }
 

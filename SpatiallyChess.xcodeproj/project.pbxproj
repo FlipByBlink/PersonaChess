@@ -11,6 +11,21 @@
 		1601FEFA2B4AA43A0050457E /* 駒.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF92B4AA43A0050457E /* 駒.reality */; };
 		161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A740E2B6A4FC10057FD17 /* ToolbarView.swift */; };
 		16312B532B75BB52006A93D1 /* SharePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B522B75BB52006A93D1 /* SharePlayMenu.swift */; };
+		16312B5B2B75D0FB006A93D1 /* iOS_for_debugApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* iOS_for_debugApp.swift */; };
+		16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5C2B75D0FB006A93D1 /* ContentView.swift */; };
+		16312B5F2B75D0FD006A93D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16312B5E2B75D0FD006A93D1 /* Assets.xcassets */; };
+		16312B662B75D193006A93D1 /* FixedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* FixedValue.swift */; };
+		16312B672B75D193006A93D1 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
+		16312B682B75D193006A93D1 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
+		16312B692B75D193006A93D1 /* Chess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* Chess.swift */; };
+		16312B6A2B75D193006A93D1 /* Chessmen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
+		16312B6B2B75D193006A93D1 /* SoundFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
+		16312B6C2B75D193006A93D1 /* AppGroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* AppGroupActivity.swift */; };
+		16312B6D2B75D193006A93D1 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA6A7F2B68769C00A3A740 /* Side.swift */; };
+		16312B6E2B75D193006A93D1 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
+		16312B6F2B75D193006A93D1 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
+		16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
+		16312B722B75D201006A93D1 /* PieceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1602B72354F009A87A6 /* PieceEntity.swift */; };
 		165EC69E2B68C5E40005172B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
 		165EC6A02B6901670005172B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* AppGroupActivity.swift */; };
@@ -59,6 +74,10 @@
 		1601FEF92B4AA43A0050457E /* 駒.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "駒.reality"; sourceTree = "<group>"; };
 		161A740E2B6A4FC10057FD17 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		16312B522B75BB52006A93D1 /* SharePlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePlayMenu.swift; sourceTree = "<group>"; };
+		16312B582B75D0FB006A93D1 /* iOS for debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS for debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16312B5A2B75D0FB006A93D1 /* iOS_for_debugApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_for_debugApp.swift; sourceTree = "<group>"; };
+		16312B5C2B75D0FB006A93D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		16312B5E2B75D0FD006A93D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		165EC69D2B68C5E30005172B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		165EC69F2B6901670005172B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		165EC6A12B6913250005172B /* AppGroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGroupActivity.swift; sourceTree = "<group>"; };
@@ -111,6 +130,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		16312B552B75D0FB006A93D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		169C001C2B4A9BE0001242F5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -121,6 +147,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16312B592B75D0FB006A93D1 /* iOS for debug */ = {
+			isa = PBXGroup;
+			children = (
+				16312B5A2B75D0FB006A93D1 /* iOS_for_debugApp.swift */,
+				16312B5C2B75D0FB006A93D1 /* ContentView.swift */,
+				16312B5E2B75D0FD006A93D1 /* Assets.xcassets */,
+			);
+			path = "iOS for debug";
+			sourceTree = "<group>";
+		};
 		1671A1552B720659009A87A6 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +281,7 @@
 			children = (
 				166D208C2B71F6560000EAF6 /* README.md */,
 				169C00212B4A9BE0001242F5 /* SpatiallyChess */,
+				16312B592B75D0FB006A93D1 /* iOS for debug */,
 				169C00202B4A9BE0001242F5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -253,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				169C001F2B4A9BE0001242F5 /* SpatiallyChess.app */,
+				16312B582B75D0FB006A93D1 /* iOS for debug.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -295,6 +333,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		16312B572B75D0FB006A93D1 /* iOS for debug */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16312B652B75D0FD006A93D1 /* Build configuration list for PBXNativeTarget "iOS for debug" */;
+			buildPhases = (
+				16312B542B75D0FB006A93D1 /* Sources */,
+				16312B552B75D0FB006A93D1 /* Frameworks */,
+				16312B562B75D0FB006A93D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iOS for debug";
+			productName = "iOS for debug";
+			productReference = 16312B582B75D0FB006A93D1 /* iOS for debug.app */;
+			productType = "com.apple.product-type.application";
+		};
 		169C001E2B4A9BE0001242F5 /* SpatiallyChess */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 169C00322B4A9BE2001242F5 /* Build configuration list for PBXNativeTarget "SpatiallyChess" */;
@@ -324,6 +379,9 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					16312B572B75D0FB006A93D1 = {
+						CreatedOnToolsVersion = 15.2;
+					};
 					169C001E2B4A9BE0001242F5 = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -343,11 +401,20 @@
 			projectRoot = "";
 			targets = (
 				169C001E2B4A9BE0001242F5 /* SpatiallyChess */,
+				16312B572B75D0FB006A93D1 /* iOS for debug */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		16312B562B75D0FB006A93D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16312B5F2B75D0FD006A93D1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		169C001D2B4A9BE0001242F5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -381,6 +448,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		16312B542B75D0FB006A93D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16312B6C2B75D193006A93D1 /* AppGroupActivity.swift in Sources */,
+				16312B6F2B75D193006A93D1 /* Action.swift in Sources */,
+				16312B692B75D193006A93D1 /* Chess.swift in Sources */,
+				16312B6D2B75D193006A93D1 /* Side.swift in Sources */,
+				16312B6E2B75D193006A93D1 /* Index.swift in Sources */,
+				16312B722B75D201006A93D1 /* PieceEntity.swift in Sources */,
+				16312B672B75D193006A93D1 /* Piece.swift in Sources */,
+				16312B682B75D193006A93D1 /* ActivityState.swift in Sources */,
+				16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */,
+				16312B662B75D193006A93D1 /* FixedValue.swift in Sources */,
+				16312B6B2B75D193006A93D1 /* SoundFeedback.swift in Sources */,
+				16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */,
+				16312B6A2B75D193006A93D1 /* Chessmen.swift in Sources */,
+				16312B5B2B75D0FB006A93D1 /* iOS_for_debugApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		169C001B2B4A9BE0001242F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -413,6 +501,68 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		16312B632B75D0FD006A93D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 6696GEY228;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.SpatiallyChess;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		16312B642B75D0FD006A93D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 6696GEY228;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.SpatiallyChess;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		169C00302B4A9BE2001242F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -591,6 +741,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		16312B652B75D0FD006A93D1 /* Build configuration list for PBXNativeTarget "iOS for debug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16312B632B75D0FD006A93D1 /* Debug */,
+				16312B642B75D0FD006A93D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		169C001A2B4A9BE0001242F5 /* Build configuration list for PBXProject "SpatiallyChess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

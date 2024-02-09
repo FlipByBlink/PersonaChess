@@ -2,6 +2,7 @@ import RealityKit
 
 enum PieceEntity {
     static func load(_ piece: Piece) -> Entity {
+#if os(visionOS)
         let value = Entity()
         value.position = piece.index.position
         value.components.set([piece,
@@ -27,5 +28,8 @@ enum PieceEntity {
         value.addChild(shadowEntity)
         
         return value
+#else
+        Entity()
+#endif
     }
 }
