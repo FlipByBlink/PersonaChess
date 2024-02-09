@@ -6,7 +6,7 @@ struct AppGroupActivity: GroupActivity {
         var metadata = GroupActivityMetadata()
         metadata.title = String(localized: "Chess")
         metadata.type = .generic
-//        metadata.previewImage = UIImage(resource: .whole).cgImage
+        metadata.previewImage = UIImage(resource: .wholeIcon).cgImage
         return metadata
     }
 }
