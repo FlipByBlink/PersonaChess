@@ -20,7 +20,7 @@ extension SoundFeedback {
     }
     func select(_ entity: Entity) {
         let player = entity.prepareAudio(self.selectSound)
-        player.gain = -8
+        player.gain = -21
         player.play()
     }
     static func setCategory() {
