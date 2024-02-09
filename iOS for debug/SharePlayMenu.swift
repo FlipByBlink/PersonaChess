@@ -14,6 +14,12 @@ struct SharePlayMenu: View {
                 .disabled(!self.groupStateObserver.isEligibleForGroupSession)
         }
         .padding()
-        .opacity(self.model.groupSession?.state == .joined ? 0 : 1)
+        .opacity({
+            switch self.model.groupSession?.state {
+                case .joined: 0
+                case .waiting: 0.4
+                default: 1
+            }
+        }())
     }
 }
