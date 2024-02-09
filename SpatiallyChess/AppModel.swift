@@ -198,7 +198,7 @@ extension AppModel {
                     self.execute(.reset)
                 }
             }
-            .store(in: &subscriptions)
+            .store(in: &self.subscriptions)
         
         groupSession.$activeParticipants
             .sink { activeParticipants in
@@ -208,25 +208,28 @@ extension AppModel {
                                               to: .only(newParticipants))
                 }
             }
-            .store(in: &subscriptions)
+            .store(in: &self.subscriptions)
         
-        let task = Task {
-            for await (message, _) in messenger.messages(of: ActivityState.self) {
-                Task { @MainActor in
-                    self.receive(message)
+        self.tasks.insert(
+            Task {
+                for await (message, _) in messenger.messages(of: ActivityState.self) {
+                    Task { @MainActor in
+                        self.receive(message)
+                    }
                 }
             }
-        }
-        self.tasks.insert(task)
+        )
         
 #if os(visionOS)
-        Task {
-            if let systemCoordinator = await groupSession.systemCoordinator {
-                for await localParticipantState in systemCoordinator.localParticipantStates {
-                    self.isSpatial = localParticipantState.isSpatial
+        self.tasks.insert(
+            Task {
+                if let systemCoordinator = await groupSession.systemCoordinator {
+                    for await localParticipantState in systemCoordinator.localParticipantStates {
+                        self.isSpatial = localParticipantState.isSpatial
+                    }
                 }
             }
-        }
+        )
         
         //Task {
         //    if let systemCoordinator = await groupSession.systemCoordinator {
@@ -240,15 +243,17 @@ extension AppModel {
         //    }
         //}
         
-        Task {
-            if let systemCoordinator = await groupSession.systemCoordinator {
-                var configuration = SystemCoordinator.Configuration()
-                configuration.spatialTemplatePreference = .none
-                //configuration.supportsGroupImmersiveSpace = true
-                systemCoordinator.configuration = configuration
-                groupSession.join()
+        self.tasks.insert(
+            Task {
+                if let systemCoordinator = await groupSession.systemCoordinator {
+                    var configuration = SystemCoordinator.Configuration()
+                    configuration.spatialTemplatePreference = .none
+                    //configuration.supportsGroupImmersiveSpace = true
+                    systemCoordinator.configuration = configuration
+                    groupSession.join()
+                }
             }
-        }
+        )
 #else
         groupSession.join()
 #endif
