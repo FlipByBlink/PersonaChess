@@ -10,6 +10,7 @@ class AppModel: ObservableObject {
     private var moving: Bool = false
     
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
+    @Published private(set) var isSpatial: Bool = false
     private var messenger: GroupSessionMessenger?
     private var subscriptions = Set<AnyCancellable>()
     private var tasks = Set<Task<Void, Never>>()
@@ -219,17 +220,13 @@ extension AppModel {
         self.tasks.insert(task)
         
 #if os(visionOS)
-        //Task {
-        //    if let systemCoordinator = await groupSession.systemCoordinator {
-        //        for await localParticipantState in systemCoordinator.localParticipantStates {
-        //            if localParticipantState.isSpatial {
-        //                // Start syncing spacial-actions
-        //            } else {
-        //                // Stop syncing spacial-actions
-        //            }
-        //        }
-        //    }
-        //}
+        Task {
+            if let systemCoordinator = await groupSession.systemCoordinator {
+                for await localParticipantState in systemCoordinator.localParticipantStates {
+                    self.isSpatial = localParticipantState.isSpatial
+                }
+            }
+        }
         
         //Task {
         //    if let systemCoordinator = await groupSession.systemCoordinator {

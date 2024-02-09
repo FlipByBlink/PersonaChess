@@ -9,7 +9,7 @@ struct ContentView: View {
             ToolbarsView()
         }
         .scaleEffect(self.model.activityState.viewScale, anchor: .bottom)
-        .offset(z: -1000)
+        .offset(z: self.model.isSpatial ? 0 : -1000)
         .offset(y: -self.model.activityState.viewHeight)
         .animation(.default, value: self.model.activityState.viewScale)
         .animation(.default, value: self.model.activityState.viewHeight)
