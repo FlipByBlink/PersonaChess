@@ -13,6 +13,12 @@ extension Chess: Codable, Equatable {
     mutating func removePiece(_ id: Piece.ID) {
         self.latest[self.arrayIndex(id)].removed = true
     }
+    mutating func removeAllPieces() {
+        for index in self.latest.indices {
+            self.latest[index].removed = true
+        }
+    }
+    var allPiecesRemoved: Bool { self.latest.allSatisfy { $0.removed } }
     mutating func pick(_ id: Piece.ID) {
         self.latest[self.arrayIndex(id)].picked = true
     }

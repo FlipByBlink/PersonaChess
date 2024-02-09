@@ -190,7 +190,7 @@ extension AppModel {
         }
     }
     func configureGroupSession(_ groupSession: GroupSession<AppGroupActivity>) {
-        self.execute(.reset)
+        self.activityState.chess.removeAllPieces()
         
         self.groupSession = groupSession
         let messenger = GroupSessionMessenger(session: groupSession)
@@ -208,6 +208,10 @@ extension AppModel {
         groupSession.$activeParticipants
             .sink { activeParticipants in
                 let newParticipants = activeParticipants.subtracting(groupSession.activeParticipants)
+                if activeParticipants.count == 1, self.activityState.chess.allPiecesRemoved {
+                    self.execute(.reset)
+                }
+                guard !self.activityState.chess.allPiecesRemoved else { return }
                 Task {
                     try? await messenger.send(self.activityState,
                                               to: .only(newParticipants))
