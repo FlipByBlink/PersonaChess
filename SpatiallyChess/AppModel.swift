@@ -159,22 +159,23 @@ private extension AppModel {
         try? await Task.sleep(for: .seconds(duration))
         if animation { self.soundFeedback.put(entity) }
     }
-    private func disablePieceHoverEffect() {
 #if os(visionOS)
+    private func disablePieceHoverEffect() {
         self.rootEntity
             .children
             .filter { $0.components.has(Piece.self) }
             .forEach { $0.findEntity(named: "body")!.components.remove(HoverEffectComponent.self) }
-#endif
     }
     private func activatePieceHoverEffect() {
-#if os(visionOS)
         self.rootEntity
             .children
             .filter { $0.components.has(Piece.self) }
             .forEach { $0.findEntity(named: "body")!.components.set(HoverEffectComponent()) }
-#endif
     }
+#else
+    private func disablePieceHoverEffect() {}
+    private func activatePieceHoverEffect() {}
+#endif
 }
 
 //MARK: ==== SharePlay ====

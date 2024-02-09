@@ -20,7 +20,7 @@ struct ChessView: View {
                 .stroke(Color(white: 0.75), lineWidth: 3)
         }
         .frame(width: 330, height: 330)
-        .rotationEffect(.degrees(self.model.activityState.boardAngle))
+        .rotationEffect(.degrees(-self.model.activityState.boardAngle))
         .animation(.default, value: self.model.activityState.boardAngle)
         .task { self.model.setUpEntities() }
     }
@@ -69,11 +69,11 @@ struct PieceView: View {
     private var row: Int
     private var column: Int
     private var piece: Piece? {
-        self.model.activityState.chess.latest.first(where: {
+        self.model.activityState.chess.latest.first {
             $0.index == .init(self.row, self.column)
             &&
             ($0.removed == false)
-        })
+        }
     }
     var body: some View {
         if let piece {
