@@ -13,7 +13,7 @@ struct SharePlayMenu: View {
             Button("Restart") { self.model.restartGroupActivity() }
                 .disabled(!self.groupStateObserver.isEligibleForGroupSession)
         }
-        .padding(32)
+        .padding()
         .opacity(self.model.groupSession?.state == .joined ? 0 : 1)
     }
 }
