@@ -75,18 +75,23 @@ extension AppModel {
     }
     func upScale() {
         self.activityState.viewScale += 0.07
+        self.sendMessage()
     }
     func downScale() {
         self.activityState.viewScale -= 0.07
+        self.sendMessage()
     }
     func raiseBoard() {
         self.activityState.viewHeight += 50
+        self.sendMessage()
     }
     func lowerBoard() {
         self.activityState.viewHeight -= 50
+        self.sendMessage()
     }
     func rotateBoard() {
         self.activityState.boardAngle += 90
+        self.sendMessage()
     }
 }
 
