@@ -200,6 +200,7 @@ extension AppModel {
             .sink { state in
                 if case .invalidated = state {
                     self.groupSession = nil
+                    //TODO: SharePlayリセット処理を適切に実装
                     self.execute(.reset)
                 }
             }
