@@ -20,7 +20,8 @@ struct SharePlayMenu: View {
             .opacity({
                 switch self.model.groupSession?.state {
                     case .joined: 0
-                    case .waiting: 0.4
+                    case .waiting: 0.5
+                    case .invalidated(reason: _): 0.1
                     default: 1
                 }
             }())
