@@ -199,8 +199,8 @@ extension AppModel {
         self.messenger = messenger
         
         groupSession.$state
-            .sink { state in
-                if case .invalidated = state {
+            .sink {
+                if case .invalidated = $0 {
                     self.messenger = nil
                     self.tasks.forEach { $0.cancel() }
                     self.tasks = []
@@ -212,8 +212,8 @@ extension AppModel {
             .store(in: &self.subscriptions)
         
         groupSession.$activeParticipants
-            .sink { activeParticipants in
-                let newParticipants = activeParticipants.subtracting(groupSession.activeParticipants)
+            .sink {
+                let newParticipants = $0.subtracting(groupSession.activeParticipants)
                 Task {
                     try? await messenger.send(self.activityState,
                                               to: .only(newParticipants))
@@ -290,8 +290,10 @@ extension AppModel {
         }
     }
     private func receive(_ message: ActivityState) {
-        guard message.chess.log.isEmpty == false else { return }
+        guard !message.chess.log.isEmpty else { return }
         self.activityState = message
         self.applyLatestChessToEntities()
     }
 }
+//Ref: Drawing content in a group session | Apple Developer Documentation
+//https://developer.apple.com/documentation/groupactivities/drawing_content_in_a_group_session

@@ -10,5 +10,3 @@ struct AppGroupActivity: GroupActivity {
         return metadata
     }
 }
-
-extension AppGroupActivity: Transferable {}
