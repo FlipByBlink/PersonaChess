@@ -206,7 +206,9 @@ extension AppModel {
                     self.tasks = []
                     self.subscriptions = []
                     self.groupSession = nil
-                    self.execute(.reset)
+                    self.activityState.chess.clearLog()
+                    self.activityState.chess.setPreset()
+                    self.applyLatestChessToEntities(animation: false)
                 }
             }
             .store(in: &self.subscriptions)
@@ -224,9 +226,7 @@ extension AppModel {
         self.tasks.insert(
             Task {
                 for await (message, _) in messenger.messages(of: ActivityState.self) {
-                    Task { @MainActor in
-                        self.receive(message)
-                    }
+                    self.receive(message)
                 }
             }
         )
@@ -291,8 +291,10 @@ extension AppModel {
     }
     private func receive(_ message: ActivityState) {
         guard !message.chess.log.isEmpty else { return }
-        self.activityState = message
-        self.applyLatestChessToEntities()
+        Task { @MainActor in
+            self.activityState = message
+            self.applyLatestChessToEntities()
+        }
     }
 }
 //Ref: Drawing content in a group session | Apple Developer Documentation
