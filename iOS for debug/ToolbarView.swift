@@ -68,6 +68,7 @@ struct ToolbarView: View {
         .buttonStyle(.plain)
         .font(.caption)
         .padding(12)
+        .disabled(!self.model.movingPieces.isEmpty)
     }
 }
 
