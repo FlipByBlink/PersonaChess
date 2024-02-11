@@ -7,30 +7,58 @@ struct SharePlayMenu: View {
     var body: some View {
         NavigationStack {
             List {
+                HStack(spacing: 16) {
+                    Spacer()
+                    Image(systemName: "photo")
+                        .resizable()
+                        .frame(width: 400, height: 200)
+                    Text("Join the activity in control center.")
+                    Spacer()
+                }
+                .listRowBackground(Color.clear)
                 Section {
-                    LabeledContent {
-                        Text("\(self.groupStateObserver.isEligibleForGroupSession.description)")
-                    } label: {
-                        Text("Eligible for SharePlay:")
+                    NavigationLink("What's SharePlay?") {
+                        List {
+                            HStack(spacing: 16) {
+                                Image(systemName: "photo")
+                                    .resizable()
+                                    .frame(width: 400, height: 300)
+                                Text("With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time.")
+                                //"With SharePlay in the FaceTime app, you can stream TV shows, movies, and music in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced playback and shared controls, you see and hear the same moments at the same time."
+                            }
+                            .padding()
+                        }
+                        .navigationTitle("What's SharePlay?")
                     }
-                } footer: {
-                    Text("With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time.")
-                    //"With SharePlay in the FaceTime app, you can stream TV shows, movies, and music in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced playback and shared controls, you see and hear the same moments at the same time."
                 }
-                Button("Start activity!") {
-                    self.model.activateGroupActivity()
+                if self.model.groupSession == nil {
+                    Section {
+                        NavigationLink("No activity?") {
+                            List {
+                                Section {
+                                    LabeledContent {
+                                        Text("\(self.groupStateObserver.isEligibleForGroupSession.description)")
+                                    } label: {
+                                        Text("Eligible for SharePlay:")
+                                    }
+                                }
+                                Button("Start activity!") {
+                                    self.model.activateGroupActivity()
+                                }
+                                .disabled(
+                                    !self.groupStateObserver.isEligibleForGroupSession
+                                    ||
+                                    self.model.groupSession?.state != nil
+                                )
+                            }
+                        }
+                    }
                 }
-                .disabled(
-                    !self.groupStateObserver.isEligibleForGroupSession
-                    ||
-                    self.model.groupSession?.state != nil
-                )
-                Section {
-                    self.groupSessionStateText()
+                if self.model.groupSession?.state != nil {
+                    Section { self.groupSessionStateText() }
                 }
             }
             .navigationTitle("SpatiallyChess")
-            .padding(32)
         }
         .glassBackgroundEffect()
         .opacity(self.model.groupSession?.state == .joined ? 0 : 1)
