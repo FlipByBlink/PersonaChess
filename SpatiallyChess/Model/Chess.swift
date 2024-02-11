@@ -1,11 +1,12 @@
 import Foundation
 
 struct Chess {
-    var latest: [Piece] = []
-    var log: [[Piece]] = []
+    var latest: [Piece]
+    var log: [[Piece]]
 }
 
 extension Chess: Codable, Equatable {
+    static var empty: Self { .init(latest: [], log: []) }
     mutating func setPreset() {
         self.latest = Self.preset
     }
