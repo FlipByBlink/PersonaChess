@@ -82,7 +82,7 @@ struct ToolbarView: View {
                     Label("Reset", systemImage: "arrow.counterclockwise")
                         .padding(8)
                 }
-                .disabled(self.model.activityState.chess.latest == FixedValue.preset)
+                .disabled(self.model.activityState.chess.isPreset)
                 Button {
                     Task { await self.dismissImmersiveSpace() }
                 } label: {

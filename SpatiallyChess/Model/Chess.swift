@@ -6,6 +6,12 @@ struct Chess {
 }
 
 extension Chess: Codable, Equatable {
+    mutating func setPreset() {
+        self.latest = Self.preset
+    }
+    var isPreset: Bool {
+        self.latest == Self.preset
+    }
     mutating func movePiece(_ id: Piece.ID, to index: Index) {
         self.unpick(id)
         self.latest[self.arrayIndex(id)].index = index
@@ -34,10 +40,37 @@ extension Chess: Codable, Equatable {
             }
         )
     }
+    mutating func clearLog() {
+        self.log.removeAll()
+    }
 }
 
 private extension Chess {
     private func arrayIndex(_ id: Piece.ID) -> Int {
         self.latest.firstIndex { $0.id == id }!
+    }
+    private static var preset: [Piece] {
+        var value: [Piece] = []
+        [Chessmen.rook0, .knight0, .bishop0, .queen, .king, .bishop1, .knight1, .rook1].enumerated().forEach {
+            value.append(.init(index: .init(0, $0.offset),
+                               chessmen: $0.element,
+                               side: .black))
+        }
+        [Chessmen.pawn0, .pawn1, .pawn2, .pawn3, .pawn4, .pawn5, .pawn6, .pawn7].enumerated().forEach {
+            value.append(.init(index: .init(1, $0),
+                               chessmen: $1,
+                               side: .black))
+        }
+        [Chessmen.pawn0, .pawn1, .pawn2, .pawn3, .pawn4, .pawn5, .pawn6, .pawn7].enumerated().forEach {
+            value.append(.init(index: .init(6, $0),
+                               chessmen: $1,
+                               side: .white))
+        }
+        [Chessmen.rook0, .knight0, .bishop0, .queen, .king, .bishop1, .knight1, .rook1].enumerated().forEach {
+            value.append(.init(index: .init(7, $0.offset),
+                               chessmen: $0.element,
+                               side: .white))
+        }
+        return value
     }
 }

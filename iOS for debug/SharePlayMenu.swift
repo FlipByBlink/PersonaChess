@@ -16,7 +16,6 @@ struct SharePlayMenu: View {
                 Button("Restart") { self.model.restartGroupActivity() }
                     .disabled(!self.groupStateObserver.isEligibleForGroupSession)
             }
-            .padding()
             .opacity({
                 switch self.model.groupSession?.state {
                     case .joined: 0
@@ -26,5 +25,6 @@ struct SharePlayMenu: View {
                 }
             }())
         }
+        .padding()
     }
 }

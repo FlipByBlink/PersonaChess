@@ -11,7 +11,6 @@ class AppModel: ObservableObject {
     
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
     @Published private(set) var isSpatial: Bool = false
-    private var beganActivityByMe: Bool = false
     private var messenger: GroupSessionMessenger?
     private var subscriptions = Set<AnyCancellable>()
     private var tasks = Set<Task<Void, Never>>()
@@ -21,7 +20,7 @@ class AppModel: ObservableObject {
 
 extension AppModel {
     func setUpEntities() {
-        self.activityState.chess.latest = FixedValue.preset
+        self.activityState.chess.setPreset()
         self.activityState.chess.latest.forEach {
             self.rootEntity.addChild(PieceEntity.load($0))
         }
@@ -70,7 +69,7 @@ extension AppModel {
             case .reset:
                 self.activityState.chess.appendLog()
                 self.soundFeedback.reset(self.rootEntity)
-                self.activityState.chess.latest = FixedValue.preset
+                self.activityState.chess.setPreset()
         }
         self.applyLatestChessToEntities(animation: action != .back)
         self.sendMessage()
@@ -184,23 +183,16 @@ extension AppModel {
     func activateGroupActivity() {
         Task {
             do {
-                self.beganActivityByMe = true
-                let result = try await AppGroupActivity().activate()
-                if result == false {
-                    self.beganActivityByMe = false
-                }
+                _ = try await AppGroupActivity().activate()
             } catch {
                 print("Failed to activate activity: \(error)")
             }
         }
     }
     func configureGroupSession(_ groupSession: GroupSession<AppGroupActivity>) {
-        if self.beganActivityByMe {
-            self.execute(.reset)
-            self.beganActivityByMe = false
-        } else {
-            self.activityState.chess.removeAllPieces()
-        }
+        self.activityState.chess.clearLog()
+        self.activityState.chess.setPreset()
+        self.applyLatestChessToEntities(animation: false)
         
         self.groupSession = groupSession
         let messenger = GroupSessionMessenger(session: groupSession)
@@ -209,8 +201,11 @@ extension AppModel {
         groupSession.$state
             .sink { state in
                 if case .invalidated = state {
+                    self.messenger = nil
+                    self.tasks.forEach { $0.cancel() }
+                    self.tasks = []
+                    self.subscriptions = []
                     self.groupSession = nil
-                    //TODO: SharePlayリセット処理を適切に実装
                     self.execute(.reset)
                 }
             }
@@ -219,10 +214,6 @@ extension AppModel {
         groupSession.$activeParticipants
             .sink { activeParticipants in
                 let newParticipants = activeParticipants.subtracting(groupSession.activeParticipants)
-                if activeParticipants.count == 1, self.activityState.chess.allPiecesRemoved {
-                    self.execute(.reset)
-                }
-                guard !self.activityState.chess.allPiecesRemoved else { return }
                 Task {
                     try? await messenger.send(self.activityState,
                                               to: .only(newParticipants))
@@ -279,7 +270,9 @@ extension AppModel {
 #endif
     }
     func restartGroupActivity() {
-        self.execute(.reset)
+        self.activityState.chess.clearLog()
+        self.activityState.chess.setPreset()
+        self.applyLatestChessToEntities(animation: false)
         
         self.messenger = nil
         self.tasks.forEach { $0.cancel() }
@@ -297,6 +290,7 @@ extension AppModel {
         }
     }
     private func receive(_ message: ActivityState) {
+        guard message.chess.log.isEmpty == false else { return }
         self.activityState = message
         self.applyLatestChessToEntities()
     }

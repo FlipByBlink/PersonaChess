@@ -63,7 +63,7 @@ struct ToolbarView: View {
                     .padding(8)
                     .labelStyle(.iconOnly)
             }
-            .disabled(self.model.activityState.chess.latest == FixedValue.preset)
+            .disabled(self.model.activityState.chess.isPreset)
         }
         .buttonStyle(.plain)
         .font(.caption)
