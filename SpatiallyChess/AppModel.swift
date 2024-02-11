@@ -11,6 +11,7 @@ class AppModel: ObservableObject {
     
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
     @Published private(set) var isSpatial: Bool = false
+    private var beganActivityByMe: Bool = false
     private var messenger: GroupSessionMessenger?
     private var subscriptions = Set<AnyCancellable>()
     private var tasks = Set<Task<Void, Never>>()
@@ -183,14 +184,23 @@ extension AppModel {
     func activateGroupActivity() {
         Task {
             do {
-                _ = try await AppGroupActivity().activate()
+                self.beganActivityByMe = true
+                let result = try await AppGroupActivity().activate()
+                if result == false {
+                    self.beganActivityByMe = false
+                }
             } catch {
                 print("Failed to activate activity: \(error)")
             }
         }
     }
     func configureGroupSession(_ groupSession: GroupSession<AppGroupActivity>) {
-        self.activityState.chess.removeAllPieces()
+        if self.beganActivityByMe {
+            self.execute(.reset)
+            self.beganActivityByMe = false
+        } else {
+            self.activityState.chess.removeAllPieces()
+        }
         
         self.groupSession = groupSession
         let messenger = GroupSessionMessenger(session: groupSession)
