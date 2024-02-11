@@ -9,6 +9,7 @@ struct ContentView: View {
             ToolbarView()
         }
         .scaleEffect(self.model.activityState.viewScale)
+        .offset(y: 1600 - self.model.activityState.viewHeight)
         .animation(.default, value: self.model.activityState.viewHeight)
         .task { SoundFeedback.setCategory() }
         .task {
