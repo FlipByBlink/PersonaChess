@@ -6,8 +6,20 @@ struct SharePlayMenu: View {
     @StateObject private var groupStateObserver = GroupStateObserver()
     var body: some View {
         VStack {
-            Text("groupSession?.state: " + String(describing: self.model.groupSession?.state))
-                .font(.caption)
+            Text({
+                "groupSession?.state: "
+                +
+                {
+                    switch self.model.groupSession?.state {
+                        case .waiting: "waiting"
+                        case .joined: "joined"
+                        case .invalidated(reason: let error): "invalidated(\(error))"
+                        case .none: "none"
+                        @unknown default: "@unknown default"
+                    }
+                }()
+            }())
+            .font(.caption)
             VStack {
                 Text("eligibleForGroupSession: \(self.groupStateObserver.isEligibleForGroupSession.description)")
                     .font(.caption)
