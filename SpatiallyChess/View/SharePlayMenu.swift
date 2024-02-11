@@ -42,14 +42,18 @@ struct SharePlayMenu: View {
                                         Text("Eligible for SharePlay:")
                                     }
                                 }
-                                Button("Start activity!") {
-                                    self.model.activateGroupActivity()
+                                Section {
+                                    Button("Start activity!") {
+                                        self.model.activateGroupActivity()
+                                    }
+                                    .disabled(
+                                        !self.groupStateObserver.isEligibleForGroupSession
+                                        ||
+                                        self.model.groupSession?.state != nil
+                                    )
+                                } footer: {
+                                    Text("If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay.")
                                 }
-                                .disabled(
-                                    !self.groupStateObserver.isEligibleForGroupSession
-                                    ||
-                                    self.model.groupSession?.state != nil
-                                )
                             }
                         }
                     }
@@ -84,7 +88,9 @@ private extension SharePlayMenu {
         }
     }
     private func restartButton() -> some View {
-        Button("Restart") { self.model.restartGroupActivity() }
-            .disabled(!self.groupStateObserver.isEligibleForGroupSession)
+        Button("Restart") {
+            self.model.restartGroupActivity()
+        }
+        .disabled(!self.groupStateObserver.isEligibleForGroupSession)
     }
 }
