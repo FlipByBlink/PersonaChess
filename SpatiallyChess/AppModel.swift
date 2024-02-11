@@ -7,7 +7,7 @@ import Combine
 class AppModel: ObservableObject {
     @Published private(set) var activityState: ActivityState = .init()
     private(set) var rootEntity: Entity = .init()
-    @Published private(set) var moving: Bool = false
+    @Published private(set) var movingPieces: [Piece.ID] = []
     
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
     @Published private(set) var isSpatial: Bool = false
@@ -27,7 +27,7 @@ extension AppModel {
         self.applyLatestChessToEntities(animation: false)
     }
     func execute(_ action: Action) {
-        guard self.moving == false else { return }
+        guard self.movingPieces.isEmpty else { return }
         switch action {
             case .tapPiece(let tappedPieceEntity):
                 guard let tappedPiece: Piece = tappedPieceEntity.parent?.components[Piece.self] else {
@@ -109,7 +109,7 @@ private extension AppModel {
                 pieceEntity.components[Piece.self] = latestPiece
             } else {
                 Task { @MainActor in
-                    self.moving = true
+                    self.movingPieces.append(piece.id)
                     self.disablePieceHoverEffect()
                     if piece.index != latestPiece.index {
                         if !piece.picked {
@@ -135,7 +135,7 @@ private extension AppModel {
                     }
                     pieceEntity.components[Piece.self] = latestPiece
                     self.activatePieceHoverEffect()
-                    self.moving = false
+                    self.movingPieces.removeAll { $0 == piece.id }
                 }
             }
         }

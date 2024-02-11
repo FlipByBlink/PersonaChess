@@ -17,6 +17,6 @@ struct ContentView: View {
             }
         }
         .environmentObject(self.model)
-        .overlay { if self.model.moving { ProgressView() } }
+        .overlay { if !self.model.movingPieces.isEmpty { ProgressView() } }
     }
 }
