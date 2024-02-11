@@ -14,10 +14,17 @@ struct SharePlayMenu: View {
                         Text("Eligible for SharePlay:")
                     }
                 } footer: {
-                    Text("SharePlay can be used during a FaceTime call.")
+                    Text("With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time.")
+                    //"With SharePlay in the FaceTime app, you can stream TV shows, movies, and music in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced playback and shared controls, you see and hear the same moments at the same time."
                 }
-                Button("Start activity!") { self.model.activateGroupActivity() }
-                    .disabled(!self.groupStateObserver.isEligibleForGroupSession)
+                Button("Start activity!") {
+                    self.model.activateGroupActivity()
+                }
+                .disabled(
+                    !self.groupStateObserver.isEligibleForGroupSession
+                    ||
+                    self.model.groupSession?.state != nil
+                )
                 Section {
                     self.groupSessionStateText()
                 }
