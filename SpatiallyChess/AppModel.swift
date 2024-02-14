@@ -242,24 +242,24 @@ extension AppModel {
             }
         )
         
-        //Task {
-        //    if let systemCoordinator = await groupSession.systemCoordinator {
-        //        for await immersionStyle in systemCoordinator.groupImmersionStyle {
-        //            if let immersionStyle {
-        //                // Open an immersive space with the same immersion style
-        //            } else {
-        //                // Dismiss the immersive space
-        //            }
-        //        }
-        //    }
-        //}
+        Task {
+            if let systemCoordinator = await groupSession.systemCoordinator {
+                for await immersionStyle in systemCoordinator.groupImmersionStyle {
+                    if let immersionStyle {
+                        // Open an immersive space with the same immersion style
+                    } else {
+                        // Dismiss the immersive space
+                    }
+                }
+            }
+        }
         
         self.tasks.insert(
             Task {
                 if let systemCoordinator = await groupSession.systemCoordinator {
                     var configuration = SystemCoordinator.Configuration()
-                    configuration.spatialTemplatePreference = .none
-                    //configuration.supportsGroupImmersiveSpace = true
+                    //configuration.spatialTemplatePreference = .none
+                    configuration.supportsGroupImmersiveSpace = true
                     systemCoordinator.configuration = configuration
                     groupSession.join()
                 }
