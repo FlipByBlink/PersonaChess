@@ -9,14 +9,9 @@ struct ContentView: View {
             ToolbarView()
         }
         .scaleEffect(self.model.activityState.viewScale)
-        .offset(y: 1600 - self.model.activityState.viewHeight)
+        .offset(y: ActivityState().viewHeight - self.model.activityState.viewHeight)
         .animation(.default, value: self.model.activityState.viewHeight)
         .task { SoundFeedback.setCategory() }
-        .task {
-            for await session in AppGroupActivity.sessions() {
-                self.model.configureGroupSession(session)
-            }
-        }
         .environmentObject(self.model)
         .overlay { if !self.model.movingPieces.isEmpty { ProgressView() } }
     }

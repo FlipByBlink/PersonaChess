@@ -30,10 +30,6 @@ struct SharePlayMenu: View {
                 ||
                 self.model.groupSession?.state != nil
             )
-            Button("Restart") {
-                self.model.restartGroupActivity()
-            }
-            .disabled(!self.groupStateObserver.isEligibleForGroupSession)
         }
         .padding()
     }
