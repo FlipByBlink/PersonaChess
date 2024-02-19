@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ToolbarView: View {
     @EnvironmentObject var model: AppModel
+    @Binding var presentFullScreen: Bool
     var body: some View {
         HStack(spacing: 24) {
             Group {
@@ -64,6 +65,18 @@ struct ToolbarView: View {
                     .labelStyle(.iconOnly)
             }
             .disabled(self.model.activityState.chess.isPreset)
+            Button {
+                switch self.model.activityState.preferredScene {
+                    case .fullSpace:
+                        self.model.exitFullSpaceWithEveryone()
+                    case .window:
+                        self.presentFullScreen = false
+                }
+            } label: {
+                Label("Exit", systemImage: "escape")
+                    .padding(8)
+                    .labelStyle(.iconOnly)
+            }
         }
         .buttonStyle(.plain)
         .font(.caption)

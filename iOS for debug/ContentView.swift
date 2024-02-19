@@ -2,17 +2,16 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var model: AppModel = .init()
+    @State private var presentFullScreen: Bool = false
     var body: some View {
-        VStack(spacing: 2) {
-            SharePlayMenu()
-            ChessView()
-            ToolbarView()
-        }
-        .scaleEffect(self.model.activityState.viewScale)
-        .offset(y: ActivityState().viewHeight - self.model.activityState.viewHeight)
-        .animation(.default, value: self.model.activityState.viewHeight)
-        .task { SoundFeedback.setCategory() }
-        .environmentObject(self.model)
-        .overlay { if !self.model.movingPieces.isEmpty { ProgressView() } }
+        SharePlayMenu(presentFullScreen: self.$presentFullScreen)
+            .fullScreenCover(isPresented: self.$presentFullScreen) {
+                FullScreenView(presentFullScreen: self.$presentFullScreen)
+            }
+            .task { SoundFeedback.setCategory() }
+            .onChange(of: self.model.activityState.preferredScene) { _, newValue in
+                if newValue == .fullSpace { self.presentFullScreen = true }
+            }
+            .environmentObject(self.model)
     }
 }

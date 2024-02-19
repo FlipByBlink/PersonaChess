@@ -12,6 +12,7 @@
 		1619D2462B8324C200F7FE0A /* PreferredScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1619D2452B8324C200F7FE0A /* PreferredScene.swift */; };
 		1619D2472B8324D900F7FE0A /* PreferredScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1619D2452B8324C200F7FE0A /* PreferredScene.swift */; };
 		1619D2482B834AA500F7FE0A /* ToolbarPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1642B749F2B009A87A6 /* ToolbarPosition.swift */; };
+		1619D24A2B834EA400F7FE0A /* FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1619D2492B834EA400F7FE0A /* FullScreenView.swift */; };
 		161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A740E2B6A4FC10057FD17 /* ToolbarView.swift */; };
 		16312B532B75BB52006A93D1 /* SharePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B522B75BB52006A93D1 /* SharePlayMenu.swift */; };
 		16312B5B2B75D0FB006A93D1 /* iOS_for_debugApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* iOS_for_debugApp.swift */; };
@@ -91,6 +92,7 @@
 		1601FEF72B4AA42D0050457E /* シンプルボード.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "シンプルボード.reality"; sourceTree = "<group>"; };
 		1601FEF92B4AA43A0050457E /* 駒.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "駒.reality"; sourceTree = "<group>"; };
 		1619D2452B8324C200F7FE0A /* PreferredScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredScene.swift; sourceTree = "<group>"; };
+		1619D2492B834EA400F7FE0A /* FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenView.swift; sourceTree = "<group>"; };
 		161A740E2B6A4FC10057FD17 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		16312B522B75BB52006A93D1 /* SharePlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePlayMenu.swift; sourceTree = "<group>"; };
 		16312B582B75D0FB006A93D1 /* iOS for debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS for debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +181,7 @@
 			children = (
 				16312B5A2B75D0FB006A93D1 /* iOS_for_debugApp.swift */,
 				16312B5C2B75D0FB006A93D1 /* ContentView.swift */,
+				1619D2492B834EA400F7FE0A /* FullScreenView.swift */,
 				16312B732B75D45A006A93D1 /* ChessView.swift */,
 				16312B752B75D45B006A93D1 /* ToolbarView.swift */,
 				16312B742B75D45B006A93D1 /* SharePlayMenu.swift */,
@@ -517,6 +520,7 @@
 				16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */,
 				16312B662B75D193006A93D1 /* FixedValue.swift in Sources */,
 				16312B6B2B75D193006A93D1 /* SoundFeedback.swift in Sources */,
+				1619D24A2B834EA400F7FE0A /* FullScreenView.swift in Sources */,
 				16312B762B75D45B006A93D1 /* ChessView.swift in Sources */,
 				16312B772B75D45B006A93D1 /* SharePlayMenu.swift in Sources */,
 				16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */,
