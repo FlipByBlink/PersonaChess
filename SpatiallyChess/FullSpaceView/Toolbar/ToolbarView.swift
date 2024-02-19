@@ -6,8 +6,7 @@ struct ToolbarView: View {
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openWindow) var openWindow
     @Environment(\.physicalMetrics) var physicalMetrics
-    @State private var expanded: Bool = true
-    //@State private var expanded: Bool = false MARK: 戻す
+    @State private var expanded: Bool = false
     var body: some View {
         ZStack(alignment: .top) {
             Button {
@@ -109,7 +108,7 @@ struct ToolbarView: View {
         }
         .animation(.default, value: self.expanded)
         .rotation3DEffect(.degrees(20), axis: .x)
-        .offset(z: (self.physicalMetrics.convert(FixedValue.boardSize, from: .meters) / 2) + 80)
+        .offset(z: (self.physicalMetrics.convert(FixedValue.boardSize, from: .meters) / 2) + 60)
         .rotation3DEffect(
             .degrees({
                 switch self.position {
