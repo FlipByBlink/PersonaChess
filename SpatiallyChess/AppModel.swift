@@ -282,21 +282,21 @@ extension AppModel {
         groupSession.join()
 #endif
     }
-    func restartGroupActivity() {
-        self.activityState.chess.clearLog()
-        self.activityState.chess.setPreset()
-        self.applyLatestChessToEntities(animation: false)
-        
-        self.messenger = nil
-        self.tasks.forEach { $0.cancel() }
-        self.tasks = []
-        self.subscriptions = []
-        if self.groupSession != nil {
-            self.groupSession?.leave()
-            self.groupSession = nil
-            self.activateGroupActivity()
-        }
-    }
+    //func restartGroupActivity() {
+    //    self.activityState.chess.clearLog()
+    //    self.activityState.chess.setPreset()
+    //    self.applyLatestChessToEntities(animation: false)
+    //    
+    //    self.messenger = nil
+    //    self.tasks.forEach { $0.cancel() }
+    //    self.tasks = []
+    //    self.subscriptions = []
+    //    if self.groupSession != nil {
+    //        self.groupSession?.leave()
+    //        self.groupSession = nil
+    //        self.activateGroupActivity()
+    //    }
+    //}
     private func sendMessage() {
         Task {
             try? await self.messenger?.send(self.activityState)

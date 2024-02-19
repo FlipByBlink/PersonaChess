@@ -84,10 +84,10 @@ private extension SharePlayMenu {
             Text("groupSession?.state:")
         }
     }
-    private func restartButton() -> some View {
-        Button("Restart") {
-            self.model.restartGroupActivity()
-        }
-        .disabled(!self.groupStateObserver.isEligibleForGroupSession)
-    }
+    //private func restartButton() -> some View {
+    //    Button("Restart") {
+    //        self.model.restartGroupActivity()
+    //    }
+    //    .disabled(!self.groupStateObserver.isEligibleForGroupSession)
+    //}
 }
