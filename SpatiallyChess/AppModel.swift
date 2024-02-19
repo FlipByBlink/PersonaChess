@@ -106,6 +106,14 @@ extension AppModel {
         self.activityState.boardAngle += 90
         self.sendMessage()
     }
+    func expandToolbar(_ position: ToolbarPosition) {
+        self.activityState.expandedToolbar.append(position)
+        self.sendMessage()
+    }
+    func closeToolbar(_ position: ToolbarPosition) {
+        self.activityState.expandedToolbar.removeAll { $0 == position }
+        self.sendMessage()
+    }
 }
 
 private extension AppModel {

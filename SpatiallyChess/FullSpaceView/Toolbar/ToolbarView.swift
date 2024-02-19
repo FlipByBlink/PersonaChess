@@ -6,20 +6,19 @@ struct ToolbarView: View {
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openWindow) var openWindow
     @Environment(\.physicalMetrics) var physicalMetrics
-    @State private var expanded: Bool = false
     var body: some View {
         ZStack(alignment: .top) {
             Button {
-                self.expanded = true
+                self.model.expandToolbar(self.position)
             } label: {
                 Image(systemName: "ellipsis")
             }
-            .opacity(self.expanded ? 0 : 1)
+            .opacity(self.isExpanded ? 0 : 1)
             .foregroundStyle(.secondary)
             HStack(spacing: 24) {
                 Group {
                     Button {
-                        self.expanded = false
+                        self.model.closeToolbar(self.position)
                     } label: {
                         Image(systemName: "xmark.circle.fill")
                             .resizable()
@@ -104,9 +103,9 @@ struct ToolbarView: View {
             .padding(12)
             .padding(.horizontal, 16)
             .glassBackgroundEffect()
-            .opacity(self.expanded ? 1 : 0)
+            .opacity(self.isExpanded ? 1 : 0)
         }
-        .animation(.default, value: self.expanded)
+        .animation(.default, value: self.isExpanded)
         .rotation3DEffect(.degrees(20), axis: .x)
         .offset(z: (self.physicalMetrics.convert(FixedValue.boardSize, from: .meters) / 2) + 60)
         .rotation3DEffect(
@@ -124,5 +123,8 @@ struct ToolbarView: View {
 }
 
 private extension ToolbarView {
+    private var isExpanded: Bool {
+        self.model.activityState.expandedToolbar.contains(self.position)
+    }
     private static let circleButtonSize = 32.0
 }

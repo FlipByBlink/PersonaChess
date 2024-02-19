@@ -1,4 +1,10 @@
-enum ToolbarPosition: CaseIterable, Identifiable {
-    case foreground, front, right, left
+enum ToolbarPosition {
+    case foreground, 
+         front,
+         right,
+         left
+}
+
+extension ToolbarPosition: Codable, CaseIterable, Identifiable {
     var id: Self { self }
 }
