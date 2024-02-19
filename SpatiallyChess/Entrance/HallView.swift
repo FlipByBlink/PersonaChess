@@ -22,11 +22,24 @@ struct HallView: View {
             ])
             content.add(entity)
         }
-        .onTapGesture {
-            Task {
-                await self.openImmersiveSpace(id: "immersiveSpace")
-                self.dismissWindow(id: "window")
+        .onTapGesture { self.enterFullSpace() }
+        .task {
+            if let systemCoordinator = await self.model.groupSession?.systemCoordinator {
+                for await immersionStyle in systemCoordinator.groupImmersionStyle {
+                    if immersionStyle != nil {
+                        self.enterFullSpace()
+                    }
+                }
             }
+        }
+    }
+}
+
+private extension HallView {
+    private func enterFullSpace() {
+        Task {
+            await self.openImmersiveSpace(id: "immersiveSpace")
+            self.dismissWindow(id: "window")
         }
     }
 }
