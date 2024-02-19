@@ -78,11 +78,11 @@ extension AppModel {
         self.applyLatestChessToEntities(animation: action != .back)
         self.sendMessage()
     }
-    func enterFullSpace() {
+    func enterFullSpaceWithEveryone() {
         self.activityState.preferredScene = .fullSpace
         self.sendMessage()
     }
-    func exitFullSpace() {
+    func exitFullSpaceWithEveryone() {
         self.activityState.preferredScene = .window
         self.sendMessage()
     }

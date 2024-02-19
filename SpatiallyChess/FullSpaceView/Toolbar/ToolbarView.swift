@@ -4,6 +4,7 @@ struct ToolbarView: View {
     var position: ToolbarPosition
     @EnvironmentObject var model: AppModel
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    @Environment(\.openWindow) var openWindow
     @Environment(\.physicalMetrics) var physicalMetrics
     @State private var expanded: Bool = true
     //@State private var expanded: Bool = false MARK: 戻す
@@ -84,7 +85,15 @@ struct ToolbarView: View {
                 }
                 .disabled(self.model.activityState.chess.isPreset)
                 Button {
-                    self.model.exitFullSpace()
+                    switch self.model.activityState.preferredScene {
+                        case .fullSpace:
+                            self.model.exitFullSpaceWithEveryone()
+                        case .window:
+                            Task {
+                                self.openWindow(id: "window")
+                                await self.dismissImmersiveSpace()
+                            }
+                    }
                 } label: {
                     Label("Exit", systemImage: "escape")
                         .padding(8)

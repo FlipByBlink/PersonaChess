@@ -22,14 +22,23 @@ struct HallView: View {
             ])
             content.add(entity)
         }
-        .onTapGesture { self.model.enterFullSpace() }
-        .onChange(of: self.model.activityState.preferredScene) { _, newValue in
-            if newValue == .fullSpace {
-                Task {
-                    await self.openImmersiveSpace(id: "immersiveSpace")
-                    self.dismissWindow(id: "window")
-                }
+        .onTapGesture {
+            switch self.model.activityState.preferredScene {
+                case .window: self.model.enterFullSpaceWithEveryone()
+                case .fullSpace: self.enterFullSpaceForMyself()
             }
+        }
+        .onChange(of: self.model.activityState.preferredScene) { _, newValue in
+            if newValue == .fullSpace { self.enterFullSpaceForMyself() }
+        }
+    }
+}
+
+private extension HallView {
+    private func enterFullSpaceForMyself() {
+        Task {
+            await self.openImmersiveSpace(id: "immersiveSpace")
+            self.dismissWindow(id: "window")
         }
     }
 }
