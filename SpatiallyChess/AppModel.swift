@@ -16,6 +16,10 @@ class AppModel: ObservableObject {
     private var tasks = Set<Task<Void, Never>>()
     
     private let soundFeedback: SoundFeedback = .init()
+    
+    init() {
+        self.handleGroupSession()
+    }
 }
 
 extension AppModel {
@@ -189,7 +193,14 @@ extension AppModel {
             }
         }
     }
-    func configureGroupSession(_ groupSession: GroupSession<AppGroupActivity>) {
+    func handleGroupSession() {
+        Task {
+            for await session in AppGroupActivity.sessions() {
+                self.configureGroupSession(session)
+            }
+        }
+    }
+    private func configureGroupSession(_ groupSession: GroupSession<AppGroupActivity>) {
         self.activityState.chess.clearLog()
         self.activityState.chess.setPreset()
         self.applyLatestChessToEntities(animation: false)
@@ -246,6 +257,7 @@ extension AppModel {
             if let systemCoordinator = await groupSession.systemCoordinator {
                 for await immersionStyle in systemCoordinator.groupImmersionStyle {
                     if let immersionStyle {
+                        print(immersionStyle)
                         // Open an immersive space with the same immersion style
                     } else {
                         // Dismiss the immersive space
@@ -297,6 +309,7 @@ extension AppModel {
         }
     }
 }
+
 //Ref: Drawing content in a group session | Apple Developer Documentation
 //https://developer.apple.com/documentation/groupactivities/drawing_content_in_a_group_session
 //Ref: Design spatial SharePlay experiences - WWDC23 - Videos - Apple Developer

@@ -65,9 +65,6 @@ struct SharePlayMenu: View {
             .navigationTitle("SpatiallyChess")
         }
         .glassBackgroundEffect()
-        .opacity(self.model.groupSession?.state == .joined ? 0 : 1)
-        .frame(width: 800, height: 500)
-        .padding(.bottom, 300)
     }
 }
 

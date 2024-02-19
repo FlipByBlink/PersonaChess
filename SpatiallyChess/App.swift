@@ -2,9 +2,13 @@ import SwiftUI
 
 @main
 struct SpatiallyChessApp: App {
+    @StateObject private var model: AppModel = .init()
     var body: some Scene {
-        ImmersiveSpace {
-            ContentView()
+        EntranceWindow()
+            .environmentObject(self.model)
+        ImmersiveSpace(id: "immersiveSpace") {
+            FullSpaceView()
+                .environmentObject(self.model)
         }
     }
     init() {

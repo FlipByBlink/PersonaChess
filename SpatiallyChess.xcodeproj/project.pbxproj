@@ -53,7 +53,7 @@
 		1671A17B2B74C63A009A87A6 /* putSound4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1732B74C638009A87A6 /* putSound4.m4a */; };
 		1671A17C2B74C63A009A87A6 /* resetSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1742B74C639009A87A6 /* resetSound.m4a */; };
 		1671A17F2B74C7ED009A87A6 /* putSound1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A17E2B74C7ED009A87A6 /* putSound1.m4a */; };
-		16780FF62B6881DB005A0244 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* ContentView.swift */; };
+		16780FF62B6881DB005A0244 /* FullSpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* FullSpaceView.swift */; };
 		16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
 		16780FFB2B689304005A0244 /* Chess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* Chess.swift */; };
 		16780FFD2B6893CF005A0244 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
@@ -63,6 +63,10 @@
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
 		169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169C002A2B4A9BE2001242F5 /* Assets.xcassets */; };
 		16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
+		16CB3C8C2B7F8907001CA93D /* EntranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C8B2B7F8907001CA93D /* EntranceView.swift */; };
+		16CB3C8F2B81881C001CA93D /* EntranceWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C8E2B81881C001CA93D /* EntranceWindow.swift */; };
+		16CB3C912B81B091001CA93D /* HallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C902B81B091001CA93D /* HallView.swift */; };
+		16CB3C9A2B8200CE001CA93D /* EntrancePiecesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */; };
 		16EA6A712B6875CA00A3A740 /* rookW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A652B6875CA00A3A740 /* rookW.reality */; };
 		16EA6A722B6875CA00A3A740 /* rookB.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A662B6875CA00A3A740 /* rookB.reality */; };
 		16EA6A732B6875CA00A3A740 /* bishopW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A672B6875CA00A3A740 /* bishopW.reality */; };
@@ -114,7 +118,7 @@
 		1671A1732B74C638009A87A6 /* putSound4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = putSound4.m4a; sourceTree = "<group>"; };
 		1671A1742B74C639009A87A6 /* resetSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = resetSound.m4a; sourceTree = "<group>"; };
 		1671A17E2B74C7ED009A87A6 /* putSound1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = putSound1.m4a; sourceTree = "<group>"; };
-		16780FF52B6881DB005A0244 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		16780FF52B6881DB005A0244 /* FullSpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSpaceView.swift; sourceTree = "<group>"; };
 		16780FF82B6892E9005A0244 /* Chessmen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chessmen.swift; sourceTree = "<group>"; };
 		16780FFA2B689304005A0244 /* Chess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chess.swift; sourceTree = "<group>"; };
 		16780FFC2B6893CF005A0244 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
@@ -127,6 +131,10 @@
 		169C002A2B4A9BE2001242F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		169C002F2B4A9BE2001242F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16AE50272B70FE3100D25197 /* SoundFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundFeedback.swift; sourceTree = "<group>"; };
+		16CB3C8B2B7F8907001CA93D /* EntranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceView.swift; sourceTree = "<group>"; };
+		16CB3C8E2B81881C001CA93D /* EntranceWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceWindow.swift; sourceTree = "<group>"; };
+		16CB3C902B81B091001CA93D /* HallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallView.swift; sourceTree = "<group>"; };
+		16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrancePiecesView.swift; sourceTree = "<group>"; };
 		16EA6A652B6875CA00A3A740 /* rookW.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = rookW.reality; sourceTree = "<group>"; };
 		16EA6A662B6875CA00A3A740 /* rookB.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = rookB.reality; sourceTree = "<group>"; };
 		16EA6A672B6875CA00A3A740 /* bishopW.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = bishopW.reality; sourceTree = "<group>"; };
@@ -217,17 +225,17 @@
 			path = Toolbar;
 			sourceTree = "<group>";
 		};
-		1671A1692B74A866009A87A6 /* View */ = {
+		1671A1692B74A866009A87A6 /* FullSpaceView */ = {
 			isa = PBXGroup;
 			children = (
+				16780FF52B6881DB005A0244 /* FullSpaceView.swift */,
 				1671A1592B720778009A87A6 /* ChessView.swift */,
 				169B9E812B68BEA70025FCEB /* BoardView.swift */,
 				165EC6A42B69153B0005172B /* SquareView.swift */,
-				16312B522B75BB52006A93D1 /* SharePlayMenu.swift */,
 				1671A1662B74A013009A87A6 /* Toolbar */,
 				1671A16A2B74A872009A87A6 /* RealityKit scope */,
 			);
-			path = View;
+			path = FullSpaceView;
 			sourceTree = "<group>";
 		};
 		1671A16A2B74A872009A87A6 /* RealityKit scope */ = {
@@ -319,14 +327,26 @@
 			children = (
 				169C00262B4A9BE0001242F5 /* App.swift */,
 				165EC69D2B68C5E30005172B /* AppModel.swift */,
-				16780FF52B6881DB005A0244 /* ContentView.swift */,
 				1671A16C2B74A8A5009A87A6 /* Model */,
-				1671A1692B74A866009A87A6 /* View */,
+				16CB3C882B7F88B4001CA93D /* Entrance */,
+				1671A1692B74A866009A87A6 /* FullSpaceView */,
 				1671A16B2B74A89B009A87A6 /* SharePlay */,
 				1671A1582B720747009A87A6 /* Rest */,
 				1671A1552B720659009A87A6 /* Supporting files */,
 			);
 			path = SpatiallyChess;
+			sourceTree = "<group>";
+		};
+		16CB3C882B7F88B4001CA93D /* Entrance */ = {
+			isa = PBXGroup;
+			children = (
+				16CB3C8E2B81881C001CA93D /* EntranceWindow.swift */,
+				16CB3C8B2B7F8907001CA93D /* EntranceView.swift */,
+				16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */,
+				16CB3C902B81B091001CA93D /* HallView.swift */,
+				16312B522B75BB52006A93D1 /* SharePlayMenu.swift */,
+			);
+			path = Entrance;
 			sourceTree = "<group>";
 		};
 		16EA6A642B6875CA00A3A740 /* Piece assets */ = {
@@ -503,19 +523,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16CB3C8C2B7F8907001CA93D /* EntranceView.swift in Sources */,
 				1671A1652B749F2B009A87A6 /* ToolbarPosition.swift in Sources */,
+				16CB3C912B81B091001CA93D /* HallView.swift in Sources */,
 				1671A15A2B720779009A87A6 /* ChessView.swift in Sources */,
 				169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */,
 				165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
+				16CB3C8F2B81881C001CA93D /* EntranceWindow.swift in Sources */,
 				16312B532B75BB52006A93D1 /* SharePlayMenu.swift in Sources */,
 				16780FFB2B689304005A0244 /* Chess.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
 				16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */,
 				1671A1682B74A040009A87A6 /* ToolbarsView.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
-				16780FF62B6881DB005A0244 /* ContentView.swift in Sources */,
+				16CB3C9A2B8200CE001CA93D /* EntrancePiecesView.swift in Sources */,
+				16780FF62B6881DB005A0244 /* FullSpaceView.swift in Sources */,
 				1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */,
 				169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */,
 				16F972772B68B7FB00711C53 /* FixedValue.swift in Sources */,
