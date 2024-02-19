@@ -84,7 +84,7 @@ struct ToolbarView: View {
                 }
                 .disabled(self.model.activityState.chess.isPreset)
                 Button {
-                    Task { await self.dismissImmersiveSpace() }
+                    self.model.exitFullSpace()
                 } label: {
                     Label("Exit", systemImage: "escape")
                         .padding(8)
