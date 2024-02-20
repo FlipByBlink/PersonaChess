@@ -1,12 +1,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var model: AppModel = .init()
+    @EnvironmentObject var model: AppModel
     @State private var presentFullScreen: Bool = false
     var body: some View {
         SharePlayMenu(presentFullScreen: self.$presentFullScreen)
             .fullScreenCover(isPresented: self.$presentFullScreen) {
                 FullScreenView(presentFullScreen: self.$presentFullScreen)
+                    .environmentObject(self.model)
             }
             .task { SoundFeedback.setCategory() }
             .onChange(of: self.model.activityState.preferredScene) { _, newValue in

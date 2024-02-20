@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct FullScreenView: View {
-    @StateObject private var model: AppModel = .init()
+    @EnvironmentObject var model: AppModel
     @Binding var presentFullScreen: Bool
     var body: some View {
         VStack {
