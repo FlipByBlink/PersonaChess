@@ -107,7 +107,7 @@ struct ToolbarView: View {
         }
         .animation(.default, value: self.isExpanded)
         .rotation3DEffect(.degrees(20), axis: .x)
-        .offset(z: (self.physicalMetrics.convert(FixedValue.boardSize, from: .meters) / 2) + 60)
+        .offset(z: Size.Point.board(self.physicalMetrics) / 2)
         .rotation3DEffect(
             .degrees({
                 switch self.position {

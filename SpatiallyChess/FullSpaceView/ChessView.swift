@@ -3,6 +3,7 @@ import RealityKit
 
 struct ChessView: View {
     @EnvironmentObject var model: AppModel
+    @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         RealityView { content, attachments in
             attachments.entity(for: "board")!.name = "board"
@@ -21,8 +22,8 @@ struct ChessView: View {
         )
         .rotation3DEffect(.degrees(self.model.activityState.boardAngle), axis: .y)
         .animation(.default, value: self.model.activityState.boardAngle)
-        .frame(width: FixedValue.boardSize, height: FixedValue.boardSize)
-        .frame(depth: FixedValue.boardSize)
+        .frame(width: Size.Point.board(self.physicalMetrics), height: 0)
+        .frame(depth: Size.Point.board(self.physicalMetrics))
         .overlay {
             if self.model.showProgressView {
                 ProgressView()

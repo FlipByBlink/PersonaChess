@@ -145,7 +145,7 @@ private extension AppModel {
                     } else {
                         if piece.picked != latestPiece.picked {
                             var translation = piece.index.position
-                            translation.y = latestPiece.picked ? FixedValue.pickedOffset : 0
+                            translation.y = latestPiece.picked ? Size.Meter.pickedOffset : 0
                             let duration: TimeInterval = animation ? 0.6 : 0
                             let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
                             pieceBodyEntity.move(to: .init(translation: translation),
@@ -163,7 +163,7 @@ private extension AppModel {
     }
     private func raisePiece(_ entity: Entity, _ index: Index, _ animation: Bool) async {
         var translation = index.position
-        translation.y = FixedValue.pickedOffset
+        translation.y = Size.Meter.pickedOffset
         let duration: TimeInterval = animation ? 0.6 : 0
         let pieceBodyEntity = entity.findEntity(named: "body")!
         pieceBodyEntity.move(to: .init(translation: translation),

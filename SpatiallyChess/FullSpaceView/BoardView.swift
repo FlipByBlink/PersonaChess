@@ -17,9 +17,9 @@ struct BoardView: View {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .stroke(Color(white: 0.75), lineWidth: 3)
         }
-        .frame(width: self.physicalMetrics.convert(FixedValue.boardSize, from: .meters),
-               height: self.physicalMetrics.convert(FixedValue.boardSize, from: .meters))
-        .padding(48)
+        .padding(Size.Point.boardInnerPadding)
+        .frame(width: Size.Point.board(self.physicalMetrics),
+               height: Size.Point.board(self.physicalMetrics))
         .glassBackgroundEffect()
         .rotation3DEffect(.degrees(90), axis: .x)
     }

@@ -7,13 +7,13 @@ struct EntranceWindow: Scene {
             EntranceView()
                 .environmentObject(self.model)
         }
-        .defaultSize(width: Self.size,
-                     height: Self.size,
-                     depth: Self.size)
+        .defaultSize(width: Size.Meter.volume,
+                     height: Size.Meter.volume,
+                     depth: Size.Meter.volume,
+                     in: .meters)
         .windowResizability(.contentSize)
         .windowStyle(.volumetric)
     }
-    static let size: CGFloat = 800
 }
 
 //Workaround: FullSpaceから改めてWindowを開いた際にEnvironmentObjectが機能しない場合があるので二重にenvironmentObject

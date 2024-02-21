@@ -18,7 +18,7 @@
 		16312B5B2B75D0FB006A93D1 /* iOS_for_debugApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* iOS_for_debugApp.swift */; };
 		16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5C2B75D0FB006A93D1 /* ContentView.swift */; };
 		16312B5F2B75D0FD006A93D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16312B5E2B75D0FD006A93D1 /* Assets.xcassets */; };
-		16312B662B75D193006A93D1 /* FixedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* FixedValue.swift */; };
+		16312B662B75D193006A93D1 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
 		16312B672B75D193006A93D1 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
 		16312B682B75D193006A93D1 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
 		16312B692B75D193006A93D1 /* Chess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* Chess.swift */; };
@@ -87,7 +87,7 @@
 		16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
 		16ECC0F22B85ACE100A1A6B6 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
 		16F972752B68B77C00711C53 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
-		16F972772B68B7FB00711C53 /* FixedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* FixedValue.swift */; };
+		16F972772B68B7FB00711C53 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,7 +158,7 @@
 		16EA6A7F2B68769C00A3A740 /* Side.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
 		16ECC0F02B85ACE100A1A6B6 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		16F972742B68B77C00711C53 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
-		16F972762B68B7FB00711C53 /* FixedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedValue.swift; sourceTree = "<group>"; };
+		16F972762B68B7FB00711C53 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,7 +219,7 @@
 		1671A1582B720747009A87A6 /* Rest */ = {
 			isa = PBXGroup;
 			children = (
-				16F972762B68B7FB00711C53 /* FixedValue.swift */,
+				16F972762B68B7FB00711C53 /* Size.swift */,
 				16AE50272B70FE3100D25197 /* SoundFeedback.swift */,
 			);
 			path = Rest;
@@ -522,7 +522,7 @@
 				16312B672B75D193006A93D1 /* Piece.swift in Sources */,
 				16312B682B75D193006A93D1 /* ActivityState.swift in Sources */,
 				16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */,
-				16312B662B75D193006A93D1 /* FixedValue.swift in Sources */,
+				16312B662B75D193006A93D1 /* Size.swift in Sources */,
 				16312B6B2B75D193006A93D1 /* SoundFeedback.swift in Sources */,
 				1619D24A2B834EA400F7FE0A /* FullScreenView.swift in Sources */,
 				16312B762B75D45B006A93D1 /* ChessView.swift in Sources */,
@@ -560,7 +560,7 @@
 				16780FF62B6881DB005A0244 /* FullSpaceView.swift in Sources */,
 				1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */,
 				169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */,
-				16F972772B68B7FB00711C53 /* FixedValue.swift in Sources */,
+				16F972772B68B7FB00711C53 /* Size.swift in Sources */,
 				161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,

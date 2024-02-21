@@ -2,21 +2,30 @@ import SwiftUI
 import RealityKit
 
 struct EntranceView: View {
-    @EnvironmentObject var model: AppModel
+    @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 12) {
             Group {
                 if self.showHallView {
                     HallView()
                 } else {
                     SharePlayMenu()
+                        .frame(height: self.volumeSize * 0.7)
                 }
             }
-            .frame(width: EntranceWindow.size,
-                   height: EntranceWindow.size - EntrancePiecesView.height)
-            .frame(depth: EntranceWindow.size)
-            EntrancePiecesView()
+            Spacer()
+            ChessView()
+            ToolbarsView()
         }
+        .frame(width: Size.Point.board(self.physicalMetrics),
+               height: Size.Point.board(self.physicalMetrics))
+        .offset(z: Size.Point.boardOuterPadding(self.physicalMetrics))
+        .frame(width: self.volumeSize,
+               height: self.volumeSize)
+        .frame(depth: self.volumeSize)
+    }
+    private var volumeSize: CGFloat {
+        Size.Point.volume(self.physicalMetrics)
     }
 }
 
@@ -24,6 +33,7 @@ private extension EntranceView {
     private var showHallView: Bool {
 #if targetEnvironment(simulator)
         true
+//        false
 #else
         self.model.groupSession != nil
 #endif

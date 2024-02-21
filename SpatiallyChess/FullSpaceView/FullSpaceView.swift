@@ -5,7 +5,7 @@ struct FullSpaceView: View {
     @Environment(\.openWindow) var openWindow
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: 12) {
             ChessView()
             ToolbarsView()
         }

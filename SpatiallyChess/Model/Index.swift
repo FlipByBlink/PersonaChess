@@ -9,8 +9,8 @@ struct Index {
 
 extension Index: Hashable, Codable {
     var position: SIMD3<Float> {
-        .init(x: Float(self.column - 4) * FixedValue.squareSize + (FixedValue.squareSize / 2),
+        .init(x: Float(self.column - 4) * Size.Meter.square + (Size.Meter.square / 2),
               y: 0,
-              z: Float(self.row - 4) * FixedValue.squareSize + (FixedValue.squareSize / 2))
+              z: Float(self.row - 4) * Size.Meter.square + (Size.Meter.square / 2))
     }
 }
