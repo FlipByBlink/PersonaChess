@@ -19,6 +19,7 @@ class AppModel: ObservableObject {
     
     init() {
         self.handleGroupSession()
+        self.setUpEntities()
     }
 }
 

@@ -5,7 +5,6 @@ struct ChessView: View {
     @EnvironmentObject var model: AppModel
     var body: some View {
         RealityView { content, attachments in
-            self.model.setUpEntities()
             attachments.entity(for: "board")!.name = "board"
             self.model.rootEntity.addChild(attachments.entity(for: "board")!)
             content.add(self.model.rootEntity)
