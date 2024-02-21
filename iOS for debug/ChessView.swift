@@ -19,6 +19,9 @@ struct ChessView: View {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .stroke(Color(white: 0.75), lineWidth: 3)
         }
+        .overlay {
+            if self.model.showProgressView { ProgressView() }
+        }
         .frame(width: 330, height: 330)
         .rotationEffect(.degrees(-self.model.activityState.boardAngle))
         .animation(.default, value: self.model.activityState.boardAngle)

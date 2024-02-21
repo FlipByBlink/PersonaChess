@@ -5,6 +5,7 @@ struct ActivityState: Codable, Equatable {
     var viewHeight: Double = 1250
     var viewScale: Double = 1
     var expandedToolbar: [ToolbarPosition] = []
+    var mode: Mode = .localOnly
 }
 
 //TODO: 検討

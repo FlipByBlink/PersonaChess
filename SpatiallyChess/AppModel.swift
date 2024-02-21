@@ -204,7 +204,11 @@ extension AppModel {
     func activateGroupActivity() {
         Task {
             do {
-                _ = try await AppGroupActivity().activate()
+                let result = try await AppGroupActivity().activate()
+                switch result {
+                    case true: self.activityState.mode = .sharePlay
+                    default: break
+                }
             } catch {
                 print("Failed to activate activity: \(error)")
             }
@@ -216,6 +220,11 @@ extension AppModel {
                 self.configureGroupSession(session)
             }
         }
+    }
+    var showProgressView: Bool {
+        self.groupSession != nil
+        &&
+        self.activityState.mode == .localOnly
     }
     private func configureGroupSession(_ groupSession: GroupSession<AppGroupActivity>) {
         self.activityState.chess.clearLog()
@@ -236,6 +245,7 @@ extension AppModel {
                     self.groupSession = nil
                     self.activityState.chess.clearLog()
                     self.activityState.chess.setPreset()
+                    self.activityState.mode = .localOnly
                     self.applyLatestChessToEntities(animation: false)
                 }
             }
@@ -320,7 +330,7 @@ extension AppModel {
         }
     }
     private func receive(_ message: ActivityState) {
-        guard !message.chess.log.isEmpty else { return }
+        guard message.mode == .sharePlay else { return }
         Task { @MainActor in
             self.activityState = message
             self.applyLatestChessToEntities()

@@ -23,5 +23,12 @@ struct ChessView: View {
         .animation(.default, value: self.model.activityState.boardAngle)
         .frame(width: FixedValue.boardSize, height: FixedValue.boardSize)
         .frame(depth: FixedValue.boardSize)
+        .overlay {
+            if self.model.showProgressView {
+                ProgressView()
+                    .offset(y: -200)
+                    .scaleEffect(3)
+            }
+        }
     }
 }
