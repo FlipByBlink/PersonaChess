@@ -17,7 +17,7 @@ struct BoardView: View {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .stroke(Color(white: 0.75), lineWidth: 3)
         }
-        .padding(Size.Point.boardInnerPadding)
+        .padding(Size.Point.boardInnerPadding(self.physicalMetrics))
         .frame(width: Size.Point.board(self.physicalMetrics),
                height: Size.Point.board(self.physicalMetrics))
         .glassBackgroundEffect()

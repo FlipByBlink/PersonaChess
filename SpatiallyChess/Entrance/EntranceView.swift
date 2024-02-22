@@ -17,19 +17,17 @@ struct EntranceView: View {
             ChessView()
             ToolbarsView()
         }
-        .frame(width: Size.Point.board(self.physicalMetrics),
-               height: Size.Point.board(self.physicalMetrics))
         .offset(z: Size.Point.boardOuterPadding(self.physicalMetrics))
         .frame(width: self.volumeSize,
                height: self.volumeSize)
         .frame(depth: self.volumeSize)
     }
-    private var volumeSize: CGFloat {
-        Size.Point.volume(self.physicalMetrics)
-    }
 }
 
 private extension EntranceView {
+    private var volumeSize: CGFloat {
+        Size.Point.volume(self.physicalMetrics)
+    }
     private var showHallView: Bool {
 #if targetEnvironment(simulator)
         true
