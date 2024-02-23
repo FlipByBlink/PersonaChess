@@ -107,18 +107,8 @@ struct ToolbarView: View {
         }
         .animation(.default, value: self.isExpanded)
         .rotation3DEffect(.degrees(20), axis: .x)
-        .offset(z: Size.Point.board(self.physicalMetrics) / 2)
-        .rotation3DEffect(
-            .degrees({
-                switch self.position {
-                    case .foreground: 0
-                    case .front: 180
-                    case .right: 90
-                    case .left: 270
-                }
-            }()),
-            axis: .y
-        )
+//        .offset(z: Size.Point.board(self.physicalMetrics) / 2) <- SwiftUI pattern
+        .rotation3DEffect(.degrees(self.position.rotationDegrees), axis: .y)
     }
 }
 
