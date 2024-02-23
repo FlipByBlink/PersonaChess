@@ -9,23 +9,14 @@ enum Size {
             +
             (Self.boardInnerPadding * 2)
         }
-        static let boardOuterPadding: CGFloat = 0.015
         static let pickedOffset: Float = 0.1
     }
     enum Point {
         static func boardInnerPadding(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
             physicalMetrics.convert(Size.Meter.boardInnerPadding, from: .meters)
         }
-        static func boardOuterPadding(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
-            physicalMetrics.convert(Size.Meter.boardOuterPadding, from: .meters)
-        }
         static func board(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
             physicalMetrics.convert(Size.Meter.board, from: .meters)
-        }
-        static func volume(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
-            Self.board(physicalMetrics)
-            +
-            (Self.boardOuterPadding(physicalMetrics) * 2)
         }
     }
 }

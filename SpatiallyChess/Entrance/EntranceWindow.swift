@@ -7,23 +7,12 @@ struct EntranceWindow: Scene {
             EntranceView()
                 .environmentObject(self.model)
         }
-        .defaultSize(width: Self.defaultSize,
-                     height: Self.defaultSize,
-                     depth: Self.defaultSize,
+        .defaultSize(width: Size.Meter.board,
+                     height: Size.Meter.board,
+                     depth: Size.Meter.board,
                      in: .meters)
+        .windowResizability(.contentSize)
         .windowStyle(.volumetric)
-    }
-}
-
-private extension EntranceWindow {
-    private static var defaultSize: CGFloat { //TODO: 再検討
-        (.init(Size.Meter.square) * 8)
-        +
-        0.03
-//        +
-//        (Size.Meter.boardInnerPadding * 2)
-//        +
-//        (Size.Meter.boardOuterPadding * 2)
     }
 }
 

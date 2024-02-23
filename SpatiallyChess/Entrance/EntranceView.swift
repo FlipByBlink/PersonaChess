@@ -10,23 +10,21 @@ struct EntranceView: View {
                     HallView()
                 } else {
                     SharePlayMenu()
-                        .frame(height: self.volumeSize * 0.7)
+                        .frame(height: self.boardSize * 0.7)
                 }
             }
             Spacer()
             ChessView()
             ToolbarsView()
         }
-        .offset(z: Size.Point.boardOuterPadding(self.physicalMetrics))
-        .frame(width: self.volumeSize,
-               height: self.volumeSize)
-        .frame(depth: self.volumeSize)
+        .frame(width: self.boardSize, height: self.boardSize)
+        .frame(depth: self.boardSize)
     }
 }
 
 private extension EntranceView {
-    private var volumeSize: CGFloat {
-        Size.Point.volume(self.physicalMetrics)
+    private var boardSize: CGFloat {
+        Size.Point.board(self.physicalMetrics)
     }
     private var showHallView: Bool {
 #if targetEnvironment(simulator)
