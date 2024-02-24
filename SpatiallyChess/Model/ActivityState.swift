@@ -6,10 +6,3 @@ struct ActivityState: Codable, Equatable {
     var expandedToolbar: [ToolbarPosition] = []
     var mode: Mode = .localOnly
 }
-
-//TODO: 検討
-//extension ActivityState {
-//    var isEmpty: Bool {
-//        self == Self()
-//    }
-//}

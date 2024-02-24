@@ -194,16 +194,7 @@
 			path = "iOS for debug";
 			sourceTree = "<group>";
 		};
-		1662F1502B89F37D0024763B /* Archhive */ = {
-			isa = PBXGroup;
-			children = (
-				16CB3C902B81B091001CA93D /* HallView.swift */,
-				16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */,
-			);
-			path = Archhive;
-			sourceTree = "<group>";
-		};
-		1662F1512B89F3C90024763B /* ChessView */ = {
+		1662F1512B89F3C90024763B /* Chess */ = {
 			isa = PBXGroup;
 			children = (
 				1671A1592B720778009A87A6 /* ChessView.swift */,
@@ -212,7 +203,7 @@
 				1671A1662B74A013009A87A6 /* Toolbar */,
 				1671A16A2B74A872009A87A6 /* RealityKit scope */,
 			);
-			path = ChessView;
+			path = Chess;
 			sourceTree = "<group>";
 		};
 		1671A1552B720659009A87A6 /* Supporting files */ = {
@@ -241,8 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				16F972762B68B7FB00711C53 /* Size.swift */,
-				16AE50272B70FE3100D25197 /* SoundFeedback.swift */,
-				1662F1502B89F37D0024763B /* Archhive */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -257,12 +246,12 @@
 			path = Toolbar;
 			sourceTree = "<group>";
 		};
-		1671A1692B74A866009A87A6 /* FullSpaceView */ = {
+		1671A1692B74A866009A87A6 /* FullSpace */ = {
 			isa = PBXGroup;
 			children = (
 				16780FF52B6881DB005A0244 /* FullSpaceView.swift */,
 			);
-			path = FullSpaceView;
+			path = FullSpace;
 			sourceTree = "<group>";
 		};
 		1671A16A2B74A872009A87A6 /* RealityKit scope */ = {
@@ -292,8 +281,7 @@
 				16780FF82B6892E9005A0244 /* Chessmen.swift */,
 				16EA6A7F2B68769C00A3A740 /* Side.swift */,
 				165EC69F2B6901670005172B /* Action.swift */,
-				16ECC0F02B85ACE100A1A6B6 /* Mode.swift */,
-				16F21ADF2B898136001182E2 /* TargetScene.swift */,
+				16A0F0872B89FEB800EC0FE8 /* Rest */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,6 +313,8 @@
 		16780FF72B6887B9005A0244 /* Archive */ = {
 			isa = PBXGroup;
 			children = (
+				16CB3C902B81B091001CA93D /* HallView.swift */,
+				16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */,
 				169C00282B4A9BE0001242F5 /* ContentView(old).swift */,
 				1601FEF72B4AA42D0050457E /* シンプルボード.reality */,
 				1601FEF92B4AA43A0050457E /* 駒.reality */,
@@ -357,14 +347,32 @@
 				169C00262B4A9BE0001242F5 /* App.swift */,
 				165EC69D2B68C5E30005172B /* AppModel.swift */,
 				1671A16C2B74A8A5009A87A6 /* Model */,
-				16CB3C882B7F88B4001CA93D /* Entrance */,
-				1671A1692B74A866009A87A6 /* FullSpaceView */,
-				1662F1512B89F3C90024763B /* ChessView */,
+				16A0F0862B89FE2900EC0FE8 /* View */,
 				1671A16B2B74A89B009A87A6 /* SharePlay */,
-				1671A1582B720747009A87A6 /* Rest */,
 				1671A1552B720659009A87A6 /* Supporting files */,
 			);
 			path = SpatiallyChess;
+			sourceTree = "<group>";
+		};
+		16A0F0862B89FE2900EC0FE8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				16CB3C882B7F88B4001CA93D /* Entrance */,
+				1671A1692B74A866009A87A6 /* FullSpace */,
+				1662F1512B89F3C90024763B /* Chess */,
+				1671A1582B720747009A87A6 /* Rest */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		16A0F0872B89FEB800EC0FE8 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				16ECC0F02B85ACE100A1A6B6 /* Mode.swift */,
+				16F21ADF2B898136001182E2 /* TargetScene.swift */,
+				16AE50272B70FE3100D25197 /* SoundFeedback.swift */,
+			);
+			path = Rest;
 			sourceTree = "<group>";
 		};
 		16CB3C882B7F88B4001CA93D /* Entrance */ = {

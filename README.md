@@ -2,7 +2,7 @@ SpatiallyChess
 ==============
 __Platform: Apple Vision Pro__
 
-_SharePlay spatial chess_
+_Spatial SharePlay × Chess_
 
 <img src="SpatiallyChess/Supporting files/Rest/README assets/icon.png" width="64">
 
