@@ -3,7 +3,6 @@ import GroupActivities
 
 struct SharePlayMenu: View {
     @EnvironmentObject var model: AppModel
-    @Binding var presentFullScreen: Bool
     @StateObject private var groupStateObserver = GroupStateObserver()
     var body: some View {
         VStack {
@@ -31,13 +30,6 @@ struct SharePlayMenu: View {
                 ||
                 self.model.groupSession?.state != nil
             )
-            Button("enterFullSpaceWithEveryone!") {
-                switch self.model.activityState.preferredScene {
-                    case .window: self.model.enterFullSpaceWithEveryone()
-                    case .fullSpace: self.presentFullScreen = true
-                }
-            }
-            .disabled(self.model.groupSession?.state == nil)
         }
         .padding()
     }
