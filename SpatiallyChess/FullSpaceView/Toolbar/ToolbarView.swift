@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ToolbarView: View {
+    var targetScene: TargetScene
     var position: ToolbarPosition
     @EnvironmentObject var model: AppModel
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
@@ -26,38 +27,40 @@ struct ToolbarView: View {
                             .frame(width: Self.circleButtonSize,
                                    height: Self.circleButtonSize)
                     }
-                    HStack(spacing: 8) {
-                        Button {
-                            self.model.raiseBoard()
-                        } label: {
-                            Image(systemName: "chevron.up")
-                                .frame(width: Self.circleButtonSize,
-                                       height: Self.circleButtonSize)
+                    if self.targetScene == .fullSpace {
+                        HStack(spacing: 8) {
+                            Button {
+                                self.model.raiseBoard()
+                            } label: {
+                                Image(systemName: "chevron.up")
+                                    .frame(width: Self.circleButtonSize,
+                                           height: Self.circleButtonSize)
+                            }
+                            Button {
+                                self.model.lowerBoard()
+                            } label: {
+                                Image(systemName: "chevron.down")
+                                    .frame(width: Self.circleButtonSize,
+                                           height: Self.circleButtonSize)
+                            }
                         }
-                        Button {
-                            self.model.lowerBoard()
-                        } label: {
-                            Image(systemName: "chevron.down")
-                                .frame(width: Self.circleButtonSize,
-                                       height: Self.circleButtonSize)
+                        HStack(spacing: 8) {
+                            Button {
+                                self.model.upScale()
+                            } label: {
+                                Image(systemName: "plus")
+                                    .frame(width: Self.circleButtonSize,
+                                           height: Self.circleButtonSize)
+                            }
+                            Button {
+                                self.model.downScale()
+                            } label: {
+                                Image(systemName: "minus")
+                                    .frame(width: Self.circleButtonSize,
+                                           height: Self.circleButtonSize)
+                            }
+                            .disabled(self.model.activityState.viewScale < 0.6)
                         }
-                    }
-                    HStack(spacing: 8) {
-                        Button {
-                            self.model.upScale()
-                        } label: {
-                            Image(systemName: "plus")
-                                .frame(width: Self.circleButtonSize,
-                                       height: Self.circleButtonSize)
-                        }
-                        Button {
-                            self.model.downScale()
-                        } label: {
-                            Image(systemName: "minus")
-                                .frame(width: Self.circleButtonSize,
-                                       height: Self.circleButtonSize)
-                        }
-                        .disabled(self.model.activityState.viewScale < 0.6)
                     }
                     Button {
                         self.model.rotateBoard()
@@ -82,19 +85,21 @@ struct ToolbarView: View {
                         .padding(8)
                 }
                 .disabled(self.model.activityState.chess.isPreset)
-                Button {
-                    switch self.model.activityState.preferredScene {
-                        case .fullSpace:
-                            self.model.exitFullSpaceWithEveryone()
-                        case .window:
-                            Task {
-                                self.openWindow(id: "window")
-                                await self.dismissImmersiveSpace()
-                            }
+                if self.targetScene == .fullSpace {
+                    Button {
+                        switch self.model.activityState.preferredScene {
+                            case .fullSpace:
+                                self.model.exitFullSpaceWithEveryone()
+                            case .window:
+                                Task {
+                                    self.openWindow(id: "window")
+                                    await self.dismissImmersiveSpace()
+                                }
+                        }
+                    } label: {
+                        Label("Exit", systemImage: "escape")
+                            .padding(8)
                     }
-                } label: {
-                    Label("Exit", systemImage: "escape")
-                        .padding(8)
                 }
             }
             .buttonStyle(.plain)

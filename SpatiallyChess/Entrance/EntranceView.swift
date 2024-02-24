@@ -15,7 +15,7 @@ struct EntranceView: View {
             }
             Spacer()
             ChessView()
-            ToolbarsView()
+            ToolbarsView(targetScene: .window)
         }
         .frame(width: self.boardSize, height: self.boardSize)
         .frame(depth: self.boardSize)

@@ -7,7 +7,7 @@ struct FullSpaceView: View {
     var body: some View {
         VStack(spacing: 12) {
             ChessView()
-            ToolbarsView()
+            ToolbarsView(targetScene: .fullSpace)
         }
         .scaleEffect(self.model.activityState.viewScale, anchor: .bottom)
         .offset(z: self.model.isSpatial ? 0 : -1000)
