@@ -4,8 +4,10 @@ struct ToolbarView: View {
     var targetScene: TargetScene
     var position: ToolbarPosition
     @EnvironmentObject var model: AppModel
+    @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openWindow) var openWindow
+    @Environment(\.dismissWindow) var dismissWindow
     @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         ZStack(alignment: .top) {
@@ -85,21 +87,33 @@ struct ToolbarView: View {
                         .padding(8)
                 }
                 .disabled(self.model.activityState.chess.isPreset)
-                if self.targetScene == .fullSpace {
-                    Button {
-                        switch self.model.activityState.preferredScene {
-                            case .fullSpace:
-                                self.model.exitFullSpaceWithEveryone()
-                            case .window:
-                                Task {
-                                    self.openWindow(id: "window")
-                                    await self.dismissImmersiveSpace()
-                                }
-                        }
-                    } label: {
-                        Label("Exit", systemImage: "escape")
+                switch self.targetScene {
+                    case .window:
+                        Button {
+                            Task {
+                                await self.openImmersiveSpace(id: "immersiveSpace")
+                                self.dismissWindow(id: "window")
+                            }
+                        } label: {
+                            Label("Enter full space",
+                                  systemImage: "arrow.up.left.and.arrow.down.right")
                             .padding(8)
-                    }
+                        }
+                    case .fullSpace:
+                        Button {
+                            switch self.model.activityState.preferredScene {
+                                case .fullSpace:
+                                    self.model.exitFullSpaceWithEveryone()
+                                case .window:
+                                    Task {
+                                        self.openWindow(id: "window")
+                                        await self.dismissImmersiveSpace()
+                                    }
+                            }
+                        } label: {
+                            Label("Exit full space", systemImage: "escape")
+                                .padding(8)
+                        }
                 }
             }
             .buttonStyle(.plain)
