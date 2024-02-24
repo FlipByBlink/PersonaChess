@@ -28,7 +28,7 @@ enum PieceEntity {
         value.addChild(shadowEntity)
         
         return value
-#else
+#elseif os(iOS)
         let value = Entity()
         value.components.set([piece])
         

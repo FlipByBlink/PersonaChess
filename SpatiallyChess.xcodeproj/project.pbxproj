@@ -197,6 +197,27 @@
 			path = "iOS for debug";
 			sourceTree = "<group>";
 		};
+		1662F1502B89F37D0024763B /* Archhive */ = {
+			isa = PBXGroup;
+			children = (
+				16CB3C902B81B091001CA93D /* HallView.swift */,
+				16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */,
+			);
+			path = Archhive;
+			sourceTree = "<group>";
+		};
+		1662F1512B89F3C90024763B /* ChessView */ = {
+			isa = PBXGroup;
+			children = (
+				1671A1592B720778009A87A6 /* ChessView.swift */,
+				169B9E812B68BEA70025FCEB /* BoardView.swift */,
+				165EC6A42B69153B0005172B /* SquareView.swift */,
+				1671A1662B74A013009A87A6 /* Toolbar */,
+				1671A16A2B74A872009A87A6 /* RealityKit scope */,
+			);
+			path = ChessView;
+			sourceTree = "<group>";
+		};
 		1671A1552B720659009A87A6 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +245,7 @@
 			children = (
 				16F972762B68B7FB00711C53 /* Size.swift */,
 				16AE50272B70FE3100D25197 /* SoundFeedback.swift */,
+				1662F1502B89F37D0024763B /* Archhive */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -242,11 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				16780FF52B6881DB005A0244 /* FullSpaceView.swift */,
-				1671A1592B720778009A87A6 /* ChessView.swift */,
-				169B9E812B68BEA70025FCEB /* BoardView.swift */,
-				165EC6A42B69153B0005172B /* SquareView.swift */,
-				1671A1662B74A013009A87A6 /* Toolbar */,
-				1671A16A2B74A872009A87A6 /* RealityKit scope */,
 			);
 			path = FullSpaceView;
 			sourceTree = "<group>";
@@ -346,6 +363,7 @@
 				1671A16C2B74A8A5009A87A6 /* Model */,
 				16CB3C882B7F88B4001CA93D /* Entrance */,
 				1671A1692B74A866009A87A6 /* FullSpaceView */,
+				1662F1512B89F3C90024763B /* ChessView */,
 				1671A16B2B74A89B009A87A6 /* SharePlay */,
 				1671A1582B720747009A87A6 /* Rest */,
 				1671A1552B720659009A87A6 /* Supporting files */,
@@ -358,8 +376,6 @@
 			children = (
 				16CB3C8E2B81881C001CA93D /* EntranceWindow.swift */,
 				16CB3C8B2B7F8907001CA93D /* EntranceView.swift */,
-				16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */,
-				16CB3C902B81B091001CA93D /* HallView.swift */,
 				16312B522B75BB52006A93D1 /* SharePlayMenu.swift */,
 			);
 			path = Entrance;
