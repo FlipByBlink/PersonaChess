@@ -2,6 +2,8 @@ import SwiftUI
 
 struct FullSpaceView: View {
     @EnvironmentObject var model: AppModel
+    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    @Environment(\.openWindow) var openWindow
     var body: some View {
         VStack(spacing: 12) {
             ChessView()
@@ -13,5 +15,14 @@ struct FullSpaceView: View {
         .animation(.default, value: self.model.activityState.viewScale)
         .animation(.default, value: self.model.activityState.viewHeight)
         .task { SoundFeedback.setCategory() }
+        .onChange(of: self.model.queueToOpenScene) { _, newValue in
+            if newValue == .window {
+                Task {
+                    self.openWindow(id: "window")
+                    await self.dismissImmersiveSpace()
+                    self.model.clearQueueToOpenScene()
+                }
+            }
+        }
     }
 }

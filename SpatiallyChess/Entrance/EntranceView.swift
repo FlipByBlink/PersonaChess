@@ -2,7 +2,10 @@ import SwiftUI
 import RealityKit
 
 struct EntranceView: View {
+    @EnvironmentObject var model: AppModel
     @Environment(\.physicalMetrics) var physicalMetrics
+    @Environment(\.openImmersiveSpace) var openImmersiveSpace
+    @Environment(\.dismissWindow) var dismissWindow
     var body: some View {
         VStack(spacing: 12) {
             if self.showSharePlayMenu {
@@ -15,6 +18,15 @@ struct EntranceView: View {
         }
         .frame(width: self.boardSize, height: self.boardSize)
         .frame(depth: self.boardSize)
+        .onChange(of: self.model.queueToOpenScene) { _, newValue in
+            if newValue == .fullSpace {
+                Task {
+                    await self.openImmersiveSpace(id: "immersiveSpace")
+                    self.dismissWindow(id: "window")
+                    self.model.clearQueueToOpenScene()
+                }
+            }
+        }
     }
 }
 

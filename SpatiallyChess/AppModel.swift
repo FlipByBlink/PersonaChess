@@ -108,6 +108,9 @@ extension AppModel {
         self.activityState.expandedToolbar.removeAll { $0 == position }
         self.sendMessage()
     }
+    func clearQueueToOpenScene() {
+        self.queueToOpenScene = nil
+    }
 }
 
 private extension AppModel {
