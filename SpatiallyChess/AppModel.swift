@@ -223,7 +223,7 @@ extension AppModel {
         self.activityState.mode == .localOnly
     }
     private func configureGroupSession(_ groupSession: GroupSession<AppGroupActivity>) {
-        self.activityState.chess.clearLog()
+        self.activityState.clear()
         self.activityState.chess.setPreset()
         self.applyLatestChessToEntities(animation: false)
         
