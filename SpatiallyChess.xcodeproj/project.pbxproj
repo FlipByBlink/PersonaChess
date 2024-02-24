@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1601FEF82B4AA42D0050457E /* シンプルボード.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF72B4AA42D0050457E /* シンプルボード.reality */; };
 		1601FEFA2B4AA43A0050457E /* 駒.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF92B4AA43A0050457E /* 駒.reality */; };
-		1619D2462B8324C200F7FE0A /* PreferredScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1619D2452B8324C200F7FE0A /* PreferredScene.swift */; };
-		1619D2472B8324D900F7FE0A /* PreferredScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1619D2452B8324C200F7FE0A /* PreferredScene.swift */; };
 		1619D2482B834AA500F7FE0A /* ToolbarPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1642B749F2B009A87A6 /* ToolbarPosition.swift */; };
 		1619D24A2B834EA400F7FE0A /* FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1619D2492B834EA400F7FE0A /* FullScreenView.swift */; };
 		161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A740E2B6A4FC10057FD17 /* ToolbarView.swift */; };
@@ -95,7 +93,6 @@
 /* Begin PBXFileReference section */
 		1601FEF72B4AA42D0050457E /* シンプルボード.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "シンプルボード.reality"; sourceTree = "<group>"; };
 		1601FEF92B4AA43A0050457E /* 駒.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "駒.reality"; sourceTree = "<group>"; };
-		1619D2452B8324C200F7FE0A /* PreferredScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredScene.swift; sourceTree = "<group>"; };
 		1619D2492B834EA400F7FE0A /* FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenView.swift; sourceTree = "<group>"; };
 		161A740E2B6A4FC10057FD17 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		16312B522B75BB52006A93D1 /* SharePlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePlayMenu.swift; sourceTree = "<group>"; };
@@ -295,7 +292,6 @@
 				16780FF82B6892E9005A0244 /* Chessmen.swift */,
 				16EA6A7F2B68769C00A3A740 /* Side.swift */,
 				165EC69F2B6901670005172B /* Action.swift */,
-				1619D2452B8324C200F7FE0A /* PreferredScene.swift */,
 				16ECC0F02B85ACE100A1A6B6 /* Mode.swift */,
 				16F21ADF2B898136001182E2 /* TargetScene.swift */,
 			);
@@ -537,7 +533,6 @@
 				16F21AE12B89813A001182E2 /* TargetScene.swift in Sources */,
 				16312B692B75D193006A93D1 /* Chess.swift in Sources */,
 				16312B6D2B75D193006A93D1 /* Side.swift in Sources */,
-				1619D2472B8324D900F7FE0A /* PreferredScene.swift in Sources */,
 				16312B6E2B75D193006A93D1 /* Index.swift in Sources */,
 				16312B722B75D201006A93D1 /* PieceEntity.swift in Sources */,
 				16312B672B75D193006A93D1 /* Piece.swift in Sources */,
@@ -574,7 +569,6 @@
 				16780FFB2B689304005A0244 /* Chess.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
 				16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */,
-				1619D2462B8324C200F7FE0A /* PreferredScene.swift in Sources */,
 				1671A1682B74A040009A87A6 /* ToolbarsView.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				16CB3C9A2B8200CE001CA93D /* EntrancePiecesView.swift in Sources */,

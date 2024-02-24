@@ -11,6 +11,7 @@ class AppModel: ObservableObject {
     
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
     @Published private(set) var isSpatial: Bool = false
+    @Published private(set) var queueToOpenScene: TargetScene? = nil
     private var messenger: GroupSessionMessenger?
     private var subscriptions = Set<AnyCancellable>()
     private var tasks = Set<Task<Void, Never>>()
@@ -77,14 +78,6 @@ extension AppModel {
                 self.activityState.chess.setPreset()
         }
         self.applyLatestChessToEntities(animation: action != .back)
-        self.sendMessage()
-    }
-    func enterFullSpaceWithEveryone() {
-        self.activityState.preferredScene = .fullSpace
-        self.sendMessage()
-    }
-    func exitFullSpaceWithEveryone() {
-        self.activityState.preferredScene = .window
         self.sendMessage()
     }
     func upScale() {
@@ -280,19 +273,21 @@ extension AppModel {
             }
         )
         
-        //self.tasks.insert(
-        //    Task {
-        //        if let systemCoordinator = await groupSession.systemCoordinator {
-        //            for await immersionStyle in systemCoordinator.groupImmersionStyle {
-        //                if immersionStyle != nil {
-        //                    // Open an immersive space with the same immersion style
-        //                } else {
-        //                    // Dismiss the immersive space
-        //                }
-        //            }
-        //        }
-        //    }
-        //)
+        self.tasks.insert(
+            Task {
+                if let systemCoordinator = await groupSession.systemCoordinator {
+                    for await immersionStyle in systemCoordinator.groupImmersionStyle {
+                        if immersionStyle != nil {
+                            // Open an immersive space with the same immersion style
+                            self.queueToOpenScene = .fullSpace
+                        } else {
+                            // Dismiss the immersive space
+                            self.queueToOpenScene = .window
+                        }
+                    }
+                }
+            }
+        )
         
         self.tasks.insert(
             Task {

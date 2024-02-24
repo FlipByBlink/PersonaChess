@@ -99,20 +99,31 @@ struct ToolbarView: View {
                                   systemImage: "arrow.up.left.and.arrow.down.right")
                             .padding(8)
                         }
+                        .onChange(of: self.model.queueToOpenScene) { _, newValue in
+                            if newValue == .fullSpace {
+                                Task {
+                                    await self.openImmersiveSpace(id: "immersiveSpace")
+                                    self.dismissWindow(id: "window")
+                                }
+                            }
+                        }
                     case .fullSpace:
                         Button {
-                            switch self.model.activityState.preferredScene {
-                                case .fullSpace:
-                                    self.model.exitFullSpaceWithEveryone()
-                                case .window:
-                                    Task {
-                                        self.openWindow(id: "window")
-                                        await self.dismissImmersiveSpace()
-                                    }
+                            Task {
+                                self.openWindow(id: "window")
+                                await self.dismissImmersiveSpace()
                             }
                         } label: {
                             Label("Exit full space", systemImage: "escape")
                                 .padding(8)
+                        }
+                        .onChange(of: self.model.queueToOpenScene) { _, newValue in
+                            if newValue == .window {
+                                Task {
+                                    self.openWindow(id: "window")
+                                    await self.dismissImmersiveSpace()
+                                }
+                            }
                         }
                 }
             }
