@@ -19,7 +19,7 @@ class AppModel: ObservableObject {
     private let soundFeedback: SoundFeedback = .init()
     
     init() {
-        self.handleGroupSession()
+        self.configureGroupSessions()
         self.setUpEntities()
     }
 }
@@ -210,119 +210,101 @@ extension AppModel {
             }
         }
     }
-    func handleGroupSession() {
-        Task {
-            for await session in AppGroupActivity.sessions() {
-                self.configureGroupSession(session)
-            }
-        }
-    }
     var showProgressView: Bool {
         self.groupSession != nil
         &&
         self.activityState.mode == .localOnly
     }
-    private func configureGroupSession(_ groupSession: GroupSession<AppGroupActivity>) {
-        self.activityState.clear()
-        self.activityState.chess.setPreset()
-        self.applyLatestChessToEntities(animation: false)
-        
-        self.groupSession = groupSession
-        let messenger = GroupSessionMessenger(session: groupSession)
-        self.messenger = messenger
-        
-        groupSession.$state
-            .sink {
-                if case .invalidated = $0 {
-                    self.messenger = nil
-                    self.tasks.forEach { $0.cancel() }
-                    self.tasks = []
-                    self.subscriptions = []
-                    self.groupSession = nil
-                    self.isSpatial = nil
-                    self.activityState.chess.clearLog()
-                    self.activityState.chess.setPreset()
-                    self.activityState.mode = .localOnly
-                    self.applyLatestChessToEntities(animation: false)
-                }
-            }
-            .store(in: &self.subscriptions)
-        
-        groupSession.$activeParticipants
-            .sink {
-                let newParticipants = $0.subtracting(groupSession.activeParticipants)
-                Task {
-                    try? await messenger.send(self.activityState,
-                                              to: .only(newParticipants))
-                }
-            }
-            .store(in: &self.subscriptions)
-        
-        self.tasks.insert(
-            Task {
-                for await (message, _) in messenger.messages(of: ActivityState.self) {
-                    self.receive(message)
-                }
-            }
-        )
-        
-#if os(visionOS)
-        self.tasks.insert(
-            Task {
-                if let systemCoordinator = await groupSession.systemCoordinator {
-                    for await localParticipantState in systemCoordinator.localParticipantStates {
-                        self.isSpatial = localParticipantState.isSpatial
-                    }
-                }
-            }
-        )
-        
-        self.tasks.insert(
-            Task {
-                if let systemCoordinator = await groupSession.systemCoordinator {
-                    for await immersionStyle in systemCoordinator.groupImmersionStyle {
-                        if immersionStyle != nil {
-                            // Open an immersive space with the same immersion style
-                            self.queueToOpenScene = .fullSpace
-                        } else {
-                            // Dismiss the immersive space
-                            self.queueToOpenScene = .volume
+    private func configureGroupSessions() {
+        Task {
+            for await groupSession in AppGroupActivity.sessions() {
+                self.activityState.clear()
+                self.activityState.chess.setPreset()
+                self.applyLatestChessToEntities(animation: false)
+                
+                self.groupSession = groupSession
+                let messenger = GroupSessionMessenger(session: groupSession)
+                self.messenger = messenger
+                
+                groupSession.$state
+                    .sink {
+                        if case .invalidated = $0 {
+                            self.messenger = nil
+                            self.tasks.forEach { $0.cancel() }
+                            self.tasks = []
+                            self.subscriptions = []
+                            self.groupSession = nil
+                            self.isSpatial = nil
+                            self.activityState.chess.clearLog()
+                            self.activityState.chess.setPreset()
+                            self.activityState.mode = .localOnly
+                            self.applyLatestChessToEntities(animation: false)
                         }
                     }
-                }
-            }
-        )
-        
-        self.tasks.insert(
-            Task {
-                if let systemCoordinator = await groupSession.systemCoordinator {
-                    var configuration = SystemCoordinator.Configuration()
-                    //configuration.spatialTemplatePreference = .none
-                    configuration.supportsGroupImmersiveSpace = true
-                    systemCoordinator.configuration = configuration
-                    groupSession.join()
-                }
-            }
-        )
+                    .store(in: &self.subscriptions)
+                
+                groupSession.$activeParticipants
+                    .sink {
+                        let newParticipants = $0.subtracting(groupSession.activeParticipants)
+                        Task {
+                            try? await messenger.send(self.activityState,
+                                                      to: .only(newParticipants))
+                        }
+                    }
+                    .store(in: &self.subscriptions)
+                
+                self.tasks.insert(
+                    Task {
+                        for await (message, _) in messenger.messages(of: ActivityState.self) {
+                            self.receive(message)
+                        }
+                    }
+                )
+                
+#if os(visionOS)
+                self.tasks.insert(
+                    Task {
+                        if let systemCoordinator = await groupSession.systemCoordinator {
+                            for await localParticipantState in systemCoordinator.localParticipantStates {
+                                self.isSpatial = localParticipantState.isSpatial
+                            }
+                        }
+                    }
+                )
+                
+                self.tasks.insert(
+                    Task {
+                        if let systemCoordinator = await groupSession.systemCoordinator {
+                            for await immersionStyle in systemCoordinator.groupImmersionStyle {
+                                if immersionStyle != nil {
+                                    // Open an immersive space with the same immersion style
+                                    self.queueToOpenScene = .fullSpace
+                                } else {
+                                    // Dismiss the immersive space
+                                    self.queueToOpenScene = .volume
+                                }
+                            }
+                        }
+                    }
+                )
+                
+                self.tasks.insert(
+                    Task {
+                        if let systemCoordinator = await groupSession.systemCoordinator {
+                            var configuration = SystemCoordinator.Configuration()
+                            //configuration.spatialTemplatePreference = .none
+                            configuration.supportsGroupImmersiveSpace = true
+                            systemCoordinator.configuration = configuration
+                            groupSession.join()
+                        }
+                    }
+                )
 #else
-        groupSession.join()
+                groupSession.join()
 #endif
+            }
+        }
     }
-    //func restartGroupActivity() {
-    //    self.activityState.chess.clearLog()
-    //    self.activityState.chess.setPreset()
-    //    self.applyLatestChessToEntities(animation: false)
-    //    
-    //    self.messenger = nil
-    //    self.tasks.forEach { $0.cancel() }
-    //    self.tasks = []
-    //    self.subscriptions = []
-    //    if self.groupSession != nil {
-    //        self.groupSession?.leave()
-    //        self.groupSession = nil
-    //        self.activateGroupActivity()
-    //    }
-    //}
     private func sendMessage() {
         Task {
             try? await self.messenger?.send(self.activityState)
