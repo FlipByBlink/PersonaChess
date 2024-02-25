@@ -10,7 +10,7 @@ class AppModel: ObservableObject {
     @Published private(set) var movingPieces: [Piece.ID] = []
     
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
-    @Published private(set) var isSpatial: Bool = false
+    @Published private(set) var isSpatial: Bool? = nil
     @Published private(set) var queueToOpenScene: TargetScene? = nil
     private var messenger: GroupSessionMessenger?
     private var subscriptions = Set<AnyCancellable>()
@@ -239,6 +239,7 @@ extension AppModel {
                     self.tasks = []
                     self.subscriptions = []
                     self.groupSession = nil
+                    self.isSpatial = nil
                     self.activityState.chess.clearLog()
                     self.activityState.chess.setPreset()
                     self.activityState.mode = .localOnly
