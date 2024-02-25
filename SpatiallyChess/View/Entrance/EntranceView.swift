@@ -27,6 +27,7 @@ struct EntranceView: View {
                 }
             }
         }
+        .task { ActivityRegistration.execute("window") }
     }
 }
 

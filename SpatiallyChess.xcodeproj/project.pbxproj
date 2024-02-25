@@ -64,6 +64,8 @@
 		169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169C002A2B4A9BE2001242F5 /* Assets.xcassets */; };
 		16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
 		16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
+		16C477132B8AC23D00343DD8 /* ActivityRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* ActivityRegistration.swift */; };
+		16C477152B8AC2E800343DD8 /* ActivityRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* ActivityRegistration.swift */; };
 		16CB3C8C2B7F8907001CA93D /* EntranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C8B2B7F8907001CA93D /* EntranceView.swift */; };
 		16CB3C8F2B81881C001CA93D /* EntranceWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C8E2B81881C001CA93D /* EntranceWindow.swift */; };
 		16CB3C912B81B091001CA93D /* HallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C902B81B091001CA93D /* HallView.swift */; };
@@ -136,6 +138,7 @@
 		169C002A2B4A9BE2001242F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		169C002F2B4A9BE2001242F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16AE50272B70FE3100D25197 /* SoundFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundFeedback.swift; sourceTree = "<group>"; };
+		16C477122B8AC23D00343DD8 /* ActivityRegistration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityRegistration.swift; sourceTree = "<group>"; };
 		16CB3C8B2B7F8907001CA93D /* EntranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceView.swift; sourceTree = "<group>"; };
 		16CB3C8E2B81881C001CA93D /* EntranceWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceWindow.swift; sourceTree = "<group>"; };
 		16CB3C902B81B091001CA93D /* HallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallView.swift; sourceTree = "<group>"; };
@@ -264,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				165EC6A12B6913250005172B /* AppGroupActivity.swift */,
+				16C477122B8AC23D00343DD8 /* ActivityRegistration.swift */,
 			);
 			path = SharePlay;
 			sourceTree = "<group>";
@@ -548,6 +552,7 @@
 				16312B762B75D45B006A93D1 /* ChessView.swift in Sources */,
 				16312B772B75D45B006A93D1 /* SharePlayMenu.swift in Sources */,
 				16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */,
+				16C477152B8AC2E800343DD8 /* ActivityRegistration.swift in Sources */,
 				16312B782B75D45B006A93D1 /* ToolbarView.swift in Sources */,
 				16312B6A2B75D193006A93D1 /* Chessmen.swift in Sources */,
 				16312B5B2B75D0FB006A93D1 /* iOS_for_debugApp.swift in Sources */,
@@ -581,6 +586,7 @@
 				169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */,
 				16F972772B68B7FB00711C53 /* Size.swift in Sources */,
 				161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */,
+				16C477132B8AC23D00343DD8 /* ActivityRegistration.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,
