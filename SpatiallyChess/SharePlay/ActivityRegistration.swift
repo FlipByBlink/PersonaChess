@@ -1,7 +1,7 @@
 import LinkPresentation
 
 enum ActivityRegistration {
-    static func execute(_ sceneID: String) {
+    static func execute() {
         let itemProvider = NSItemProvider()
         itemProvider.registerGroupActivity(AppGroupActivity())
         let configuration = UIActivityItemsConfiguration(itemProviders: [itemProvider])
@@ -16,7 +16,7 @@ enum ActivityRegistration {
             .connectedScenes
             .compactMap { $0 as? UIWindowScene }
             .filter {
-                ($0.session.userInfo?["com.apple.SwiftUI.sceneID"] as? String) == sceneID
+                ($0.session.userInfo?["com.apple.SwiftUI.sceneID"] as? String) == "volume"
             }
             .first!
             .windows

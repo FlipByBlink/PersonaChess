@@ -27,7 +27,7 @@ struct VolumeView: View {
                 }
             }
         }
-        .task { ActivityRegistration.execute("volume") }
+        .task { ActivityRegistration.execute() }
     }
 }
 
