@@ -10,7 +10,7 @@ struct VolumeView: View {
         VStack(spacing: 12) {
             if self.showSharePlayMenu {
                 SharePlayMenu()
-                    .frame(height: self.boardSize * 0.7)
+                    .frame(height: self.boardSize * 0.65)
             }
             Spacer()
             ChessView()

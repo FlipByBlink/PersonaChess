@@ -7,22 +7,23 @@ struct SharePlayMenu: View {
     var body: some View {
         NavigationStack {
             List {
-                HStack(spacing: 16) {
-                    Spacer()
-                    Image(systemName: "photo")
-                        .resizable()
-                        .frame(width: 400, height: 200)
-                    Text("Join the activity in control center.")
-                    Spacer()
-                }
-                .listRowBackground(Color.clear)
+                //HStack(spacing: 16) {
+                //    Spacer()
+                //    Image(systemName: "photo")
+                //        .resizable()
+                //        .frame(width: 400, height: 200)
+                //    Text("Join the activity in control center.")
+                //    Spacer()
+                //}
+                //.listRowBackground(Color.clear)
                 Section {
                     NavigationLink("What's SharePlay?") {
                         List {
-                            HStack(spacing: 16) {
-                                Image(systemName: "photo")
+                            HStack(spacing: 24) {
+                                Image(.exampleSharePlay)
                                     .resizable()
-                                    .frame(width: 400, height: 300)
+                                    .scaledToFit()
+                                    .frame(width: 360)
                                 Text("With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time.")
                                 //"With SharePlay in the FaceTime app, you can stream TV shows, movies, and music in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced playback and shared controls, you see and hear the same moments at the same time."
                             }
@@ -65,6 +66,7 @@ struct SharePlayMenu: View {
             .navigationTitle("SpatiallyChess")
         }
         .glassBackgroundEffect()
+        .padding(.horizontal, 24)
     }
 }
 
