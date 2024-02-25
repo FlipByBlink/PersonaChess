@@ -14,7 +14,6 @@ struct FullSpaceView: View {
         .offset(y: -self.model.activityState.viewHeight)
         .animation(.default, value: self.model.activityState.viewScale)
         .animation(.default, value: self.model.activityState.viewHeight)
-        .task { SoundFeedback.setCategory() }
         .onChange(of: self.model.queueToOpenScene) { _, newValue in
             if newValue == .volume {
                 Task {

@@ -12,7 +12,6 @@ struct ContentView: View {
         .offset(y: ActivityState().viewHeight - self.model.activityState.viewHeight)
         .animation(.default, value: self.model.activityState.viewHeight)
         .overlay { if !self.model.movingPieces.isEmpty { ProgressView() } }
-        .task { SoundFeedback.setCategory() }
         .task { ActivityRegistration.execute() }
         .environmentObject(self.model)
     }
