@@ -13,6 +13,7 @@ struct ContentView: View {
         .animation(.default, value: self.model.activityState.viewHeight)
         .overlay { if !self.model.movingPieces.isEmpty { ProgressView() } }
         .task { SoundFeedback.setCategory() }
+        .task { ActivityRegistration.execute("window") }
         .environmentObject(self.model)
     }
 }
