@@ -1,10 +1,10 @@
 import SwiftUI
 
-struct EntranceWindow: Scene {
+struct VolumeWindow: Scene {
     @EnvironmentObject var model: AppModel
     var body: some Scene {
-        WindowGroup(id: "window") {
-            EntranceView()
+        WindowGroup(id: "volume") {
+            VolumeView()
                 .environmentObject(self.model)
         }
         .defaultSize(width: Size.Meter.board,

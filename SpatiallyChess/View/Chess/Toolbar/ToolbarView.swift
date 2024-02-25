@@ -88,11 +88,11 @@ struct ToolbarView: View {
                 }
                 .disabled(self.model.activityState.chess.isPreset)
                 switch self.targetScene {
-                    case .window:
+                    case .volume:
                         Button {
                             Task {
                                 await self.openImmersiveSpace(id: "immersiveSpace")
-                                self.dismissWindow(id: "window")
+                                self.dismissWindow(id: "volume")
                             }
                         } label: {
                             Label("Enter full space",
@@ -102,7 +102,7 @@ struct ToolbarView: View {
                     case .fullSpace:
                         Button {
                             Task {
-                                self.openWindow(id: "window")
+                                self.openWindow(id: "volume")
                                 await self.dismissImmersiveSpace()
                             }
                         } label: {

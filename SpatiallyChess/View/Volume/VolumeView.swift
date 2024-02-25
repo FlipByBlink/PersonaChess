@@ -1,7 +1,7 @@
 import SwiftUI
 import RealityKit
 
-struct EntranceView: View {
+struct VolumeView: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.physicalMetrics) var physicalMetrics
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
@@ -14,7 +14,7 @@ struct EntranceView: View {
             }
             Spacer()
             ChessView()
-            ToolbarsView(targetScene: .window)
+            ToolbarsView(targetScene: .volume)
         }
         .frame(width: self.boardSize, height: self.boardSize)
         .frame(depth: self.boardSize)
@@ -22,16 +22,16 @@ struct EntranceView: View {
             if newValue == .fullSpace {
                 Task {
                     await self.openImmersiveSpace(id: "immersiveSpace")
-                    self.dismissWindow(id: "window")
+                    self.dismissWindow(id: "volume")
                     self.model.clearQueueToOpenScene()
                 }
             }
         }
-        .task { ActivityRegistration.execute("window") }
+        .task { ActivityRegistration.execute("volume") }
     }
 }
 
-private extension EntranceView {
+private extension VolumeView {
     private var boardSize: CGFloat {
         Size.Point.board(self.physicalMetrics)
     }

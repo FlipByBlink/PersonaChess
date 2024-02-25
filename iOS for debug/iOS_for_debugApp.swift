@@ -4,7 +4,7 @@ import SwiftUI
 struct iOS_for_debugApp: App {
     @StateObject private var model: AppModel = .init()
     var body: some Scene {
-        WindowGroup(id: "window") {
+        WindowGroup(id: "volume") {
             ContentView()
                 .environmentObject(self.model)
         }

@@ -8,7 +8,7 @@ enum ActivityRegistration {
         configuration.metadataProvider = { key in
             guard key == .linkPresentationMetadata else { return nil }
             let metadata = LPLinkMetadata()
-            metadata.title = "SharePlay chess"
+            metadata.title = "Chess"
             metadata.imageProvider = NSItemProvider(object: UIImage(resource: .wholeIcon))
             return metadata
         }

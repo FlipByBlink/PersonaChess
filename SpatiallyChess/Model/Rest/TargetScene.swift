@@ -1,4 +1,4 @@
 enum TargetScene {
-    case window,
+    case volume,
          fullSpace
 }

@@ -285,7 +285,7 @@ extension AppModel {
                             self.queueToOpenScene = .fullSpace
                         } else {
                             // Dismiss the immersive space
-                            self.queueToOpenScene = .window
+                            self.queueToOpenScene = .volume
                         }
                     }
                 }

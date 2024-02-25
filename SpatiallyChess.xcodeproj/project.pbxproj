@@ -66,8 +66,8 @@
 		16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
 		16C477132B8AC23D00343DD8 /* ActivityRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* ActivityRegistration.swift */; };
 		16C477152B8AC2E800343DD8 /* ActivityRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* ActivityRegistration.swift */; };
-		16CB3C8C2B7F8907001CA93D /* EntranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C8B2B7F8907001CA93D /* EntranceView.swift */; };
-		16CB3C8F2B81881C001CA93D /* EntranceWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C8E2B81881C001CA93D /* EntranceWindow.swift */; };
+		16CB3C8C2B7F8907001CA93D /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C8B2B7F8907001CA93D /* VolumeView.swift */; };
+		16CB3C8F2B81881C001CA93D /* VolumeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C8E2B81881C001CA93D /* VolumeWindow.swift */; };
 		16CB3C912B81B091001CA93D /* HallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C902B81B091001CA93D /* HallView.swift */; };
 		16CB3C9A2B8200CE001CA93D /* EntrancePiecesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */; };
 		16EA6A712B6875CA00A3A740 /* rookW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A652B6875CA00A3A740 /* rookW.reality */; };
@@ -139,8 +139,8 @@
 		169C002F2B4A9BE2001242F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16AE50272B70FE3100D25197 /* SoundFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundFeedback.swift; sourceTree = "<group>"; };
 		16C477122B8AC23D00343DD8 /* ActivityRegistration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityRegistration.swift; sourceTree = "<group>"; };
-		16CB3C8B2B7F8907001CA93D /* EntranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceView.swift; sourceTree = "<group>"; };
-		16CB3C8E2B81881C001CA93D /* EntranceWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceWindow.swift; sourceTree = "<group>"; };
+		16CB3C8B2B7F8907001CA93D /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
+		16CB3C8E2B81881C001CA93D /* VolumeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeWindow.swift; sourceTree = "<group>"; };
 		16CB3C902B81B091001CA93D /* HallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallView.swift; sourceTree = "<group>"; };
 		16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrancePiecesView.swift; sourceTree = "<group>"; };
 		16EA6A652B6875CA00A3A740 /* rookW.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = rookW.reality; sourceTree = "<group>"; };
@@ -358,7 +358,7 @@
 		16A0F0862B89FE2900EC0FE8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				16CB3C882B7F88B4001CA93D /* Entrance */,
+				16CB3C882B7F88B4001CA93D /* Volume */,
 				1671A1692B74A866009A87A6 /* FullSpace */,
 				1662F1512B89F3C90024763B /* Chess */,
 				1671A1582B720747009A87A6 /* Rest */,
@@ -376,14 +376,14 @@
 			path = Rest;
 			sourceTree = "<group>";
 		};
-		16CB3C882B7F88B4001CA93D /* Entrance */ = {
+		16CB3C882B7F88B4001CA93D /* Volume */ = {
 			isa = PBXGroup;
 			children = (
-				16CB3C8E2B81881C001CA93D /* EntranceWindow.swift */,
-				16CB3C8B2B7F8907001CA93D /* EntranceView.swift */,
+				16CB3C8E2B81881C001CA93D /* VolumeWindow.swift */,
+				16CB3C8B2B7F8907001CA93D /* VolumeView.swift */,
 				16312B522B75BB52006A93D1 /* SharePlayMenu.swift */,
 			);
-			path = Entrance;
+			path = Volume;
 			sourceTree = "<group>";
 		};
 		16EA6A642B6875CA00A3A740 /* Piece assets */ = {
@@ -564,7 +564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16CB3C8C2B7F8907001CA93D /* EntranceView.swift in Sources */,
+				16CB3C8C2B7F8907001CA93D /* VolumeView.swift in Sources */,
 				1671A1652B749F2B009A87A6 /* ToolbarPosition.swift in Sources */,
 				16CB3C912B81B091001CA93D /* HallView.swift in Sources */,
 				1671A15A2B720779009A87A6 /* ChessView.swift in Sources */,
@@ -573,7 +573,7 @@
 				16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
-				16CB3C8F2B81881C001CA93D /* EntranceWindow.swift in Sources */,
+				16CB3C8F2B81881C001CA93D /* VolumeWindow.swift in Sources */,
 				16312B532B75BB52006A93D1 /* SharePlayMenu.swift in Sources */,
 				16780FFB2B689304005A0244 /* Chess.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,

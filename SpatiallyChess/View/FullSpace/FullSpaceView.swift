@@ -16,9 +16,9 @@ struct FullSpaceView: View {
         .animation(.default, value: self.model.activityState.viewHeight)
         .task { SoundFeedback.setCategory() }
         .onChange(of: self.model.queueToOpenScene) { _, newValue in
-            if newValue == .window {
+            if newValue == .volume {
                 Task {
-                    self.openWindow(id: "window")
+                    self.openWindow(id: "volume")
                     await self.dismissImmersiveSpace()
                     self.model.clearQueueToOpenScene()
                 }
