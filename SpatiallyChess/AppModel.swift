@@ -10,11 +10,11 @@ class AppModel: ObservableObject {
     @Published private(set) var movingPieces: [Piece.ID] = []
     
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
-    @Published private(set) var isSpatial: Bool? = nil
-    @Published private(set) var queueToOpenScene: TargetScene? = nil
     private var messenger: GroupSessionMessenger?
-    private var subscriptions = Set<AnyCancellable>()
-    private var tasks = Set<Task<Void, Never>>()
+    private var subscriptions: Set<AnyCancellable> = []
+    private var tasks: Set<Task<Void, Never>> = []
+    @Published private(set) var isSpatial: Bool?
+    @Published private(set) var queueToOpenScene: TargetScene?
     
     private let soundFeedback: SoundFeedback = .init()
     
