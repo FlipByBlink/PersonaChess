@@ -25,13 +25,6 @@ class AppModel: ObservableObject {
 }
 
 extension AppModel {
-    func setUpEntities() {
-        self.activityState.chess.setPreset()
-        self.activityState.chess.latest.forEach {
-            self.rootEntity.addChild(PieceEntity.load($0))
-        }
-        self.applyLatestChessToEntities(animation: false)
-    }
     func execute(_ action: Action) {
         guard self.movingPieces.isEmpty else { return }
         switch action {
@@ -114,6 +107,13 @@ extension AppModel {
 }
 
 private extension AppModel {
+    private func setUpEntities() {
+        self.activityState.chess.setPreset()
+        self.activityState.chess.latest.forEach {
+            self.rootEntity.addChild(PieceEntity.load($0))
+        }
+        self.applyLatestChessToEntities(animation: false)
+    }
     private func pickedPieceEntity() -> Entity? {
         self.rootEntity.children.first { $0.components[Piece.self]?.picked == true }
     }

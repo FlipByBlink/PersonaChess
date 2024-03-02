@@ -17,46 +17,11 @@ struct SharePlayMenu: View {
                 //}
                 //.listRowBackground(Color.clear)
                 Section {
-                    NavigationLink("What's SharePlay?") {
-                        List {
-                            HStack(spacing: 24) {
-                                Image(.exampleSharePlay)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 360)
-                                Text("With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time.")
-                                //"With SharePlay in the FaceTime app, you can stream TV shows, movies, and music in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced playback and shared controls, you see and hear the same moments at the same time."
-                            }
-                            .padding()
-                        }
-                        .navigationTitle("What's SharePlay?")
-                    }
+                    NavigationLink("What's SharePlay?") { Self.whatsSharePlayMenu() }
                 }
                 if self.model.groupSession == nil {
                     Section {
-                        NavigationLink("No activity?") {
-                            List {
-                                Section {
-                                    LabeledContent {
-                                        Text("\(self.groupStateObserver.isEligibleForGroupSession.description)")
-                                    } label: {
-                                        Text("Eligible for SharePlay:")
-                                    }
-                                }
-                                Section {
-                                    Button("Start activity!") {
-                                        self.model.activateGroupActivity()
-                                    }
-                                    .disabled(
-                                        !self.groupStateObserver.isEligibleForGroupSession
-                                        ||
-                                        self.model.groupSession?.state != nil
-                                    )
-                                } footer: {
-                                    Text("If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay.")
-                                }
-                            }
-                        }
+                        NavigationLink("No activity?") { self.activityMenu() }
                     }
                 }
                 if self.model.groupSession?.state != nil {
@@ -86,10 +51,41 @@ private extension SharePlayMenu {
             Text("groupSession?.state:")
         }
     }
-    //private func restartButton() -> some View {
-    //    Button("Restart") {
-    //        self.model.restartGroupActivity()
-    //    }
-    //    .disabled(!self.groupStateObserver.isEligibleForGroupSession)
-    //}
+    private static func whatsSharePlayMenu() -> some View {
+        List {
+            HStack(spacing: 24) {
+                Image(.exampleSharePlay)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 360)
+                Text("With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time.")
+                //"With SharePlay in the FaceTime app, you can stream TV shows, movies, and music in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced playback and shared controls, you see and hear the same moments at the same time."
+            }
+            .padding()
+        }
+        .navigationTitle("What's SharePlay?")
+    }
+    private func activityMenu() -> some View {
+        List {
+            Section {
+                LabeledContent {
+                    Text("\(self.groupStateObserver.isEligibleForGroupSession.description)")
+                } label: {
+                    Text("Eligible for SharePlay:")
+                }
+            }
+            Section {
+                Button("Start activity!") {
+                    self.model.activateGroupActivity()
+                }
+                .disabled(
+                    !self.groupStateObserver.isEligibleForGroupSession
+                    ||
+                    self.model.groupSession?.state != nil
+                )
+            } footer: {
+                Text("If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay.")
+            }
+        }
+    }
 }
