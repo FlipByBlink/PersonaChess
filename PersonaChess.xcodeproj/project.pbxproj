@@ -107,7 +107,7 @@
 		165EC69D2B68C5E30005172B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		165EC69F2B6901670005172B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		165EC6A12B6913250005172B /* AppGroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGroupActivity.swift; sourceTree = "<group>"; };
-		165EC6A32B6914430005172B /* SpatiallyChess.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpatiallyChess.entitlements; sourceTree = "<group>"; };
+		165EC6A32B6914430005172B /* PersonaChess.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PersonaChess.entitlements; sourceTree = "<group>"; };
 		165EC6A42B69153B0005172B /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
 		166D208C2B71F6560000EAF6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1671A1572B7206BD009A87A6 /* appstore_badge.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = appstore_badge.svg; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceOpacitySystem.swift; sourceTree = "<group>"; };
 		169333A12B75A7B500B60E0F /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
-		169C001F2B4A9BE0001242F5 /* SpatiallyChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatiallyChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		169C001F2B4A9BE0001242F5 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		169C00262B4A9BE0001242F5 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		169C00282B4A9BE0001242F5 /* ContentView(old).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView(old).swift"; sourceTree = "<group>"; };
 		169C002A2B4A9BE2001242F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 			children = (
 				169C002A2B4A9BE2001242F5 /* Assets.xcassets */,
 				169C002F2B4A9BE2001242F5 /* Info.plist */,
-				165EC6A32B6914430005172B /* SpatiallyChess.entitlements */,
+				165EC6A32B6914430005172B /* PersonaChess.entitlements */,
 				16EA6A642B6875CA00A3A740 /* Piece assets */,
 				1671A17D2B74C6B2009A87A6 /* Sound assets */,
 				1671A1802B74D341009A87A6 /* Rest */,
@@ -327,7 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				166D208C2B71F6560000EAF6 /* README.md */,
-				169C00212B4A9BE0001242F5 /* SpatiallyChess */,
+				169C00212B4A9BE0001242F5 /* PersonaChess */,
 				16312B592B75D0FB006A93D1 /* iOS for debug */,
 				169C00202B4A9BE0001242F5 /* Products */,
 			);
@@ -336,13 +336,13 @@
 		169C00202B4A9BE0001242F5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				169C001F2B4A9BE0001242F5 /* SpatiallyChess.app */,
+				169C001F2B4A9BE0001242F5 /* PersonaChess.app */,
 				16312B582B75D0FB006A93D1 /* iOS for debug.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		169C00212B4A9BE0001242F5 /* SpatiallyChess */ = {
+		169C00212B4A9BE0001242F5 /* PersonaChess */ = {
 			isa = PBXGroup;
 			children = (
 				169C00262B4A9BE0001242F5 /* App.swift */,
@@ -352,7 +352,7 @@
 				1671A16B2B74A89B009A87A6 /* SharePlay */,
 				1671A1552B720659009A87A6 /* Supporting files */,
 			);
-			path = SpatiallyChess;
+			path = PersonaChess;
 			sourceTree = "<group>";
 		};
 		16A0F0862B89FE2900EC0FE8 /* View */ = {
@@ -426,9 +426,9 @@
 			productReference = 16312B582B75D0FB006A93D1 /* iOS for debug.app */;
 			productType = "com.apple.product-type.application";
 		};
-		169C001E2B4A9BE0001242F5 /* SpatiallyChess */ = {
+		169C001E2B4A9BE0001242F5 /* PersonaChess */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 169C00322B4A9BE2001242F5 /* Build configuration list for PBXNativeTarget "SpatiallyChess" */;
+			buildConfigurationList = 169C00322B4A9BE2001242F5 /* Build configuration list for PBXNativeTarget "PersonaChess" */;
 			buildPhases = (
 				169C001B2B4A9BE0001242F5 /* Sources */,
 				169C001C2B4A9BE0001242F5 /* Frameworks */,
@@ -438,11 +438,11 @@
 			);
 			dependencies = (
 			);
-			name = SpatiallyChess;
+			name = PersonaChess;
 			packageProductDependencies = (
 			);
 			productName = SpatialChess;
-			productReference = 169C001F2B4A9BE0001242F5 /* SpatiallyChess.app */;
+			productReference = 169C001F2B4A9BE0001242F5 /* PersonaChess.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -463,7 +463,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 169C001A2B4A9BE0001242F5 /* Build configuration list for PBXProject "SpatiallyChess" */;
+			buildConfigurationList = 169C001A2B4A9BE0001242F5 /* Build configuration list for PBXProject "PersonaChess" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -476,7 +476,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				169C001E2B4A9BE0001242F5 /* SpatiallyChess */,
+				169C001E2B4A9BE0001242F5 /* PersonaChess */,
 				16312B572B75D0FB006A93D1 /* iOS for debug */,
 			);
 		};
@@ -622,7 +622,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.SpatiallyChess;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaChess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -654,7 +654,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.SpatiallyChess;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaChess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -787,7 +787,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "SpatiallyChess/Supporting files/SpatiallyChess.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "PersonaChess/Supporting files/PersonaChess.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -801,7 +801,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.SpatiallyChess;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaChess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -816,7 +816,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "SpatiallyChess/Supporting files/SpatiallyChess.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "PersonaChess/Supporting files/PersonaChess.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -830,7 +830,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.SpatiallyChess;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaChess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -852,7 +852,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		169C001A2B4A9BE0001242F5 /* Build configuration list for PBXProject "SpatiallyChess" */ = {
+		169C001A2B4A9BE0001242F5 /* Build configuration list for PBXProject "PersonaChess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				169C00302B4A9BE2001242F5 /* Debug */,
@@ -861,7 +861,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		169C00322B4A9BE2001242F5 /* Build configuration list for PBXNativeTarget "SpatiallyChess" */ = {
+		169C00322B4A9BE2001242F5 /* Build configuration list for PBXNativeTarget "PersonaChess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				169C00332B4A9BE2001242F5 /* Debug */,

@@ -1,16 +1,16 @@
-SpatiallyChess
-==============
+PersonaChess
+=============
 __Platform: Apple Vision Pro__
 
 _Spatial SharePlay × Chess_
 
-<img src="SpatiallyChess/Supporting files/Rest/README assets/icon.png" width="64">
+<img src="PersonaChess/Supporting files/Rest/README assets/icon.png" width="64">
 
-<a href="https://apps.apple.com/app/id6477424187" target="blank">
-    <img src="SpatiallyChess/Supporting files/Rest/README assets/appstore_badge.svg">
+<a href="https://apps.apple.com/app/id" target="blank">
+    <img src="PersonaChess/Supporting files/Rest/README assets/appstore_badge.svg">
 </a>
 
-<img src="SpatiallyChess/Supporting files/Rest/README assets/screenshot1200w.png" width="600">
+<img src="PersonaChess/Supporting files/Rest/README assets/screenshot1200w.png" width="600">
 
 
 Description
@@ -27,15 +27,15 @@ Option
 
 App Store link
 --------------
-[apps.apple.com/app/id6477424187](https://apps.apple.com/app/id6477424187)
+[apps.apple.com/app/id](https://apps.apple.com/app/id)
 
 
 Source code link
 -----------------
-https://github.com/FlipByBlink/SpatiallyChess
+https://github.com/FlipByBlink/PersonaChess
 
 ### Source code (Mirror) link
-https://gitlab.com/FlipByBlink/SpatiallyChess_Mirror
+https://gitlab.com/FlipByBlink/PersonaChess_Mirror
 
 
 Contact
@@ -53,7 +53,7 @@ sear_pandora_0x@icloud.com
 
 Privacy Policy for App Store
 ----------------------------
-2024-02-??
+2024-04-??
 
 ### English
 This application don't collect user infomation.
@@ -69,6 +69,6 @@ This application don't collect user infomation.
 
 
 <!-- URL "Support page for App Store" -->
-<!-- https://flipbyblink.github.io/SpatiallyChess/ -->
+<!-- https://flipbyblink.github.io/PersonaChess/ -->
 <!-- URL "Privacy Policy for App Store" -->
-<!-- https://flipbyblink.github.io/SpatiallyChess/#privacy-policy-for-app-store -->
+<!-- https://flipbyblink.github.io/PersonaChess/#privacy-policy-for-app-store -->
