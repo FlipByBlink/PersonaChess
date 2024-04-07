@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1601FEF82B4AA42D0050457E /* シンプルボード.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF72B4AA42D0050457E /* シンプルボード.reality */; };
-		1601FEFA2B4AA43A0050457E /* 駒.reality in Resources */ = {isa = PBXBuildFile; fileRef = 1601FEF92B4AA43A0050457E /* 駒.reality */; };
 		1619D2482B834AA500F7FE0A /* ToolbarPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1642B749F2B009A87A6 /* ToolbarPosition.swift */; };
 		161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A740E2B6A4FC10057FD17 /* ToolbarView.swift */; };
 		16312B532B75BB52006A93D1 /* SharePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B522B75BB52006A93D1 /* SharePlayMenu.swift */; };
@@ -93,7 +92,6 @@
 
 /* Begin PBXFileReference section */
 		1601FEF72B4AA42D0050457E /* シンプルボード.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "シンプルボード.reality"; sourceTree = "<group>"; };
-		1601FEF92B4AA43A0050457E /* 駒.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "駒.reality"; sourceTree = "<group>"; };
 		161A740E2B6A4FC10057FD17 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		16312B522B75BB52006A93D1 /* SharePlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePlayMenu.swift; sourceTree = "<group>"; };
 		16312B582B75D0FB006A93D1 /* iOS for debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS for debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,7 +316,6 @@
 				16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */,
 				169C00282B4A9BE0001242F5 /* ContentView(old).swift */,
 				1601FEF72B4AA42D0050457E /* シンプルボード.reality */,
-				1601FEF92B4AA43A0050457E /* 駒.reality */,
 			);
 			path = Archive;
 			sourceTree = "<group>";
@@ -506,7 +503,6 @@
 				16EA6A772B6875CA00A3A740 /* knightB.reality in Resources */,
 				16EA6A782B6875CA00A3A740 /* knightW.reality in Resources */,
 				16EA6A7C2B6875CA00A3A740 /* pawnW.reality in Resources */,
-				1601FEFA2B4AA43A0050457E /* 駒.reality in Resources */,
 				16EA6A732B6875CA00A3A740 /* bishopW.reality in Resources */,
 				1671A1792B74C63A009A87A6 /* putSound2.m4a in Resources */,
 				169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */,
