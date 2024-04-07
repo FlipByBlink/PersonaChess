@@ -6,7 +6,7 @@ _Spatial SharePlay × Chess_
 
 <img src="PersonaChess/Supporting files/Rest/README assets/icon.png" width="64">
 
-<a href="https://apps.apple.com/app/id" target="blank">
+<a href="https://apps.apple.com/app/id6482994319" target="blank">
     <img src="PersonaChess/Supporting files/Rest/README assets/appstore_badge.svg">
 </a>
 
@@ -27,7 +27,7 @@ Option
 
 App Store link
 --------------
-[apps.apple.com/app/id](https://apps.apple.com/app/id)
+[apps.apple.com/app/id6482994319](https://apps.apple.com/app/id6482994319)
 
 
 Source code link
@@ -40,7 +40,7 @@ https://gitlab.com/FlipByBlink/PersonaChess_Mirror
 
 Contact
 --------
-sear_pandora_0x@icloud.com
+softies.grazer_0y@icloud.com
 
 
 * * *
