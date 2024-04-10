@@ -11,11 +11,10 @@ struct SquareView: View {
                 Rectangle()
                     .fill(.background)
             } else {
-                Color.clear
-                    .glassBackgroundEffect(in: .rect)
+                Rectangle()
+                    .opacity(0.001)
             }
         }
-        .contentShape(.rect)
         .hoverEffect(isEnabled: self.inputtable)
         .onTapGesture {
             if self.inputtable {
