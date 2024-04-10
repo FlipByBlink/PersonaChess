@@ -1,10 +1,10 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "@unknown default" : {
+    "About App" : {
 
     },
-    "About App" : {
+    "About data" : {
 
     },
     "Apple Vision Pro" : {
@@ -25,22 +25,25 @@
     "Exit full space" : {
 
     },
-    "groupSession?.state:" : {
+    "How to start" : {
 
     },
     "If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay." : {
 
     },
-    "invalidated(%@)" : {
+    "If your friend has already started chess activity, you can join the activity by manipulating the system-side UI." : {
+
+    },
+    "invalidated, (%@)" : {
 
     },
     "joined" : {
 
     },
-    "No activity?" : {
+    "none" : {
 
     },
-    "none" : {
+    "Once you have started an activity, encourage your friends to join SharePlay." : {
 
     },
     "PersonaChess" : {
@@ -49,7 +52,19 @@
     "Reset" : {
 
     },
-    "Start activity!" : {
+    "Set up SharePlay" : {
+
+    },
+    "SharePlay state:" : {
+
+    },
+    "Start SharePlay by oneself" : {
+
+    },
+    "The Group Activities framework uses end-to-end encryption on all session data. Developer and Apple doesn’t have the keys to decrypt this data." : {
+
+    },
+    "unknown" : {
 
     },
     "waiting" : {
@@ -59,6 +74,12 @@
 
     },
     "With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time." : {
+
+    },
+    "You are currently connected with a friend. Join an activity launched by your friend, or launch an activity by yourself." : {
+
+    },
+    "You can also start SharePlay yourself. Please manipulate the system-side UI." : {
 
     }
   },

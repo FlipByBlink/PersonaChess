@@ -15,14 +15,19 @@ _Spatial SharePlay × Chess_
 
 Description
 ------------
-This is placeholder.
+Chess with Spatial Personas.
 
+- Simple design.
 
-Option
+- Support Spatial SharePlay.
 
-- placeholder
+- Undo function.
 
-- placeholder
+- Adjust a board height.
+
+- Adjust a board rotaion.
+
+- Adjust a board scale.
 
 
 App Store link

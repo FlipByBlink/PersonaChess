@@ -6,12 +6,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This is placeholder.\n\n\nTarget / Use-case\n\n- AAAA\n\n\nOption\n\n- AAAA\n\n\nOthers\n\n- AAAA\n\n\nConcept\n\nThis is placeholder."
+            "value" : "Chess with Spatial Personas.\n\n- Simple design.\n\n- Support Spatial SharePlay.\n\n- Undo function.\n\n- Adjust a board height.\n\n- Adjust a board rotaion.\n\n- Adjust a board scale."
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "これはプレースホルダーです。\n\n\n想定ユーザー / ユースケース\n\n- ああああ\n\n\nオプション\n\n- ああああ\n\n\nその他\n\n- ああああ\n\n\nコンセプト\n\nこれはプレースホルダーです。"
           }
         }

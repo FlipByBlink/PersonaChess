@@ -10,6 +10,12 @@
             "state" : "new",
             "value" : "PersonaChess"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ペルソナチェス"
+          }
         }
       }
     }
