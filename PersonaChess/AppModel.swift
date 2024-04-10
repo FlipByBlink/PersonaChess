@@ -69,6 +69,7 @@ extension AppModel {
                 self.activityState.chess.appendLog()
                 self.soundFeedback.reset(self.rootEntity)
                 self.activityState.chess.setPreset()
+                if self.groupSession != nil { self.activityState.mode = .sharePlay }
         }
         self.applyLatestChessToEntities(animation: action != .back)
         self.sendMessage()
@@ -245,6 +246,7 @@ extension AppModel {
                 
                 groupSession.$activeParticipants
                     .sink {
+                        if $0.count == 1 { self.activityState.mode = .sharePlay }
                         let newParticipants = $0.subtracting(groupSession.activeParticipants)
                         Task {
                             try? await messenger.send(self.activityState,
