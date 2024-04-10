@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct BoardView: View {
+    @EnvironmentObject var model: AppModel
     @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         HStack(spacing: 0) {
@@ -21,6 +22,13 @@ struct BoardView: View {
         .frame(width: Size.Point.board(self.physicalMetrics),
                height: Size.Point.board(self.physicalMetrics))
         .glassBackgroundEffect()
+        .overlay {
+            if self.model.isSharePlayStateNotSet {
+                ProgressView()
+                    .offset(z: 10)
+            }
+        }
+        .animation(.default, value: self.model.isSharePlayStateNotSet)
         .rotation3DEffect(.degrees(90), axis: .x)
     }
 }

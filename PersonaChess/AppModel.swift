@@ -105,6 +105,11 @@ extension AppModel {
     func clearQueueToOpenScene() {
         self.queueToOpenScene = nil
     }
+    var isSharePlayStateNotSet: Bool {
+        self.groupSession?.state == .joined
+        &&
+        self.activityState.mode == .localOnly
+    }
 }
 
 private extension AppModel {
