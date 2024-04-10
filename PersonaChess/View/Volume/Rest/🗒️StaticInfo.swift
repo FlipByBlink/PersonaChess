@@ -35,13 +35,11 @@ enum 🗒️StaticInfo {
             switch self {
                 case .main: [
                     "App.swift",
-                    "ContentView.swift",
-                    "📱AppModel.swift"
+                    "AppModel.swift"
                 ]
                 case .Rest: [
                     "🗒️StaticInfo.swift",
                     "ℹ️AboutApp.swift",
-                    "ℹ️AboutAppMenu+Tab.swift"
                 ]
             }
         }

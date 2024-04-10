@@ -10,7 +10,7 @@ _Spatial SharePlay × Chess_
     <img src="PersonaChess/Supporting files/Rest/README assets/appstore_badge.svg">
 </a>
 
-<img src="PersonaChess/Supporting files/Rest/README assets/screenshot1200w.png" width="600">
+<img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w.jpg" width="640">
 
 
 Description
