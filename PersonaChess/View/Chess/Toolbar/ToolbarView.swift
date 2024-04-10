@@ -122,8 +122,7 @@ struct ToolbarView: View {
             .opacity(self.isExpanded ? 1 : 0)
         }
         .animation(.default, value: self.isExpanded)
-//        .rotation3DEffect(.degrees(20), axis: .x) <- temp
-//        .offset(z: Size.Point.board(self.physicalMetrics) / 2) <- SwiftUI pattern
+        //.rotation3DEffect(.degrees(20), axis: .x) <- temp
         .rotation3DEffect(.degrees(self.position.rotationDegrees), axis: .y)
     }
 }

@@ -31,11 +31,9 @@ enum PieceEntity {
 #elseif os(iOS)
         let value = Entity()
         value.components.set([piece])
-        
         let bodyEntity = Entity()
         bodyEntity.name = "body"
         value.addChild(bodyEntity)
-        
         return value
 #endif
     }
