@@ -2,85 +2,274 @@
   "sourceLanguage" : "en",
   "strings" : {
     "About App" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリについて"
+          }
+        }
+      }
     },
     "About data" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データについて"
+          }
+        }
+      }
     },
     "Apple Vision Pro" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple Vision Pro"
+          }
+        }
+      }
     },
     "Back" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "戻る"
+          }
+        }
+      }
     },
     "Chess" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チェス"
+          }
+        }
+      }
     },
     "Eligible for SharePlay:" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SharePlay"
+          }
+        }
+      }
     },
     "Enter full space" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フルスペースに入る"
+          }
+        }
+      }
     },
     "Exit full space" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フルスペースから抜ける"
+          }
+        }
+      }
     },
     "How to start" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開始の仕方"
+          }
+        }
+      }
     },
     "If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FaceTime中にこのアプリを立ち上げると、アクティビティを起動することが出来ます。アクティビティを起動すると、通話相手のデバイスではSharePlay参加を促す通知が表示されます。"
+          }
+        }
+      }
     },
     "If your friend has already started chess activity, you can join the activity by manipulating the system-side UI." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "友達が既に「チェス」アクティビティを起動している場合は、システム側のUIを操作してアクティビティに参加しましょう。"
+          }
+        }
+      }
     },
     "invalidated, (%@)" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無効(%@)"
+          }
+        }
+      }
     },
     "joined" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "参加中"
+          }
+        }
+      }
     },
     "none" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不参加"
+          }
+        }
+      }
     },
     "Once you have started an activity, encourage your friends to join SharePlay." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アクティビティを起動したら友達にSharePlay参加を促しましょう。"
+          }
+        }
+      }
     },
     "PersonaChess" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ペルソナチェス"
+          }
+        }
+      }
     },
     "Reset" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リセット"
+          }
+        }
+      }
     },
     "Set up SharePlay" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SharePlayをセットアップ"
+          }
+        }
+      }
     },
     "SharePlay state:" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SharePlayの状況:"
+          }
+        }
+      }
     },
     "Start SharePlay by oneself" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自分からSharePlayを開始する"
+          }
+        }
+      }
     },
     "The Group Activities framework uses end-to-end encryption on all session data. Developer and Apple doesn’t have the keys to decrypt this data." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SharePlayではユーザーのデバイス間で同期するすべてのセッションデータに対してエンドツーエンド暗号化が用いられます。アプリ開発者やAppleは、このデータの復号鍵を保持していません。つまり、SharePlay中に通信されるデータを第三者が確認する事はありません。"
+          }
+        }
+      }
     },
     "unknown" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "想定外"
+          }
+        }
+      }
     },
     "waiting" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "待機中"
+          }
+        }
+      }
     },
     "What's SharePlay?" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SharePlayって何？"
+          }
+        }
+      }
     },
     "With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FaceTime App でSharePlayを使用すると、友達や家族とのFaceTime通話中にチェスを同期した状態でプレイすることができます。通話に参加しているほかの人とリアルタイムにつながって楽しみましょう。操作が共有されるため、同時に同じ瞬間を見たり聞いたりできます。"
+          }
+        }
+      }
     },
     "You are currently connected with a friend. Join an activity launched by your friend, or launch an activity by yourself." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在、友達と繋がっているようです。友達が立ち上げたアクティビティに参加するか、もしくは自分でアクティビティを起動しましょう。"
+          }
+        }
+      }
     },
     "You can also start SharePlay yourself. Please manipulate the system-side UI." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自分からSharePlayを開始する事もできます。システム側のUIを操作してください。"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

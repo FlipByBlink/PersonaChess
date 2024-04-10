@@ -11,8 +11,8 @@
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "これはプレースホルダーです。\n\n\n想定ユーザー / ユースケース\n\n- ああああ\n\n\nオプション\n\n- ああああ\n\n\nその他\n\n- ああああ\n\n\nコンセプト\n\nこれはプレースホルダーです。"
+            "state" : "translated",
+            "value" : "空間ペルソナでチェスしよう！\n\n・シンプルなデザイン\n\n・空間シェアプレイ対応\n\n・「戻す」機能\n\n・ボードの高さ変更機能\n\n・ボード回転機能\n\n・ボードスケール変更機能\n\n\n==== English ====\nChess with Spatial Personas.\n\n- Simple design.\n\n- Support Spatial SharePlay.\n\n- Undo function.\n\n- Adjust a board height.\n\n- Adjust a board rotaion.\n\n- Adjust a board scale."
           }
         }
       }
