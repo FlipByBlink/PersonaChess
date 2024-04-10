@@ -29,7 +29,15 @@ enum 🗒️StaticInfo {
     static let versionInfos: [(version: String, date: String)] = [("1.0", "2024-04-??")] //降順。先頭の方が新しい
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
-        case main, Rest
+        case main,
+             ActivityState,
+             Volume,
+             FullSpace,
+             ChessView,
+             RealityKitScope,
+             Size,
+             SharePlay,
+             Rest
         var id: Self { self }
         var fileNames: [String] {
             switch self {
@@ -37,7 +45,46 @@ enum 🗒️StaticInfo {
                     "App.swift",
                     "AppModel.swift"
                 ]
+                case .ActivityState: [
+                    "ActivityState.swift",
+                    "Chess.swift",
+                    "Piece.swift",
+                    "Index.swift",
+                    "Chessmen.swift",
+                    "Side.swift",
+                    "Mode.swift",
+                ]
+                case .Volume: [
+                    "VolumeWindow.swift",
+                    "VolumeView.swift",
+                    "SharePlayMenu.swift",
+                ]
+                case .FullSpace: [
+                    "FullSpaceView.swift",
+                ]
+                case .ChessView: [
+                    "ChessView.swift",
+                    "BoardView.swift",
+                    "SquareView.swift",
+                    "ToolbarsView.swift",
+                    "ToolbarPosition.swift",
+                    "ToolbarView.swift",
+                ]
+                case .RealityKitScope: [
+                    "PieceEntity.swift",
+                    "PieceOpacitySystem.swift",
+                ]
+                case .Size: [
+                    "Size.swift",
+                ]
+                case .SharePlay: [
+                    "AppGroupActivity.swift",
+                    "SharePlayProvider.swift",
+                ]
                 case .Rest: [
+                    "Action.swift",
+                    "TargetScene.swift",
+                    "SoundFeedback.swift",
                     "🗒️StaticInfo.swift",
                     "ℹ️AboutApp.swift",
                 ]
@@ -45,4 +92,3 @@ enum 🗒️StaticInfo {
         }
     }
 }
-

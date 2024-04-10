@@ -1,7 +1,7 @@
 import LinkPresentation
 
-enum ActivityRegistration {
-    static func execute() {
+enum SharePlayProvider {
+    static func registerGroupActivity() {
         let itemProvider = NSItemProvider()
         itemProvider.registerGroupActivity(AppGroupActivity())
         let configuration = UIActivityItemsConfiguration(itemProviders: [itemProvider])

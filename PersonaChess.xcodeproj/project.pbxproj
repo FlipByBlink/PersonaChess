@@ -65,6 +65,35 @@
 		167948B02BC66E78004DFF4B /* 🌐AppStoreDescription.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 167948AE2BC66E78004DFF4B /* 🌐AppStoreDescription.xcstrings */; };
 		167948B12BC66E78004DFF4B /* 🌐VersionHistory.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 167948AF2BC66E78004DFF4B /* 🌐VersionHistory.xcstrings */; };
 		167948B32BC66EAE004DFF4B /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 167948B22BC66EAE004DFF4B /* InfoPlist.xcstrings */; };
+		167948BA2BC6A60B004DFF4B /* App.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
+		167948BB2BC6A60B004DFF4B /* AppModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
+		167948BC2BC6A60B004DFF4B /* ActivityState.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
+		167948BD2BC6A60B004DFF4B /* Chess.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* Chess.swift */; };
+		167948BE2BC6A60B004DFF4B /* Piece.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
+		167948BF2BC6A60B004DFF4B /* Index.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
+		167948C02BC6A60B004DFF4B /* Chessmen.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
+		167948C12BC6A60B004DFF4B /* Side.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16EA6A7F2B68769C00A3A740 /* Side.swift */; };
+		167948C22BC6A60B004DFF4B /* Mode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
+		167948C32BC6A60B004DFF4B /* VolumeWindow.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16CB3C8E2B81881C001CA93D /* VolumeWindow.swift */; };
+		167948C42BC6A60B004DFF4B /* VolumeView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16CB3C8B2B7F8907001CA93D /* VolumeView.swift */; };
+		167948C52BC6A60B004DFF4B /* SharePlayMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16312B522B75BB52006A93D1 /* SharePlayMenu.swift */; };
+		167948C62BC6A60B004DFF4B /* FullSpaceView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* FullSpaceView.swift */; };
+		167948C72BC6A60B004DFF4B /* ChessView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1671A1592B720778009A87A6 /* ChessView.swift */; };
+		167948C82BC6A60B004DFF4B /* BoardView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
+		167948C92BC6A60B004DFF4B /* SquareView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165EC6A42B69153B0005172B /* SquareView.swift */; };
+		167948CA2BC6A60B004DFF4B /* ToolbarsView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1671A1672B74A040009A87A6 /* ToolbarsView.swift */; };
+		167948CB2BC6A60B004DFF4B /* ToolbarView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 161A740E2B6A4FC10057FD17 /* ToolbarView.swift */; };
+		167948CC2BC6A60B004DFF4B /* ToolbarPosition.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1671A1642B749F2B009A87A6 /* ToolbarPosition.swift */; };
+		167948CD2BC6A60B004DFF4B /* PieceEntity.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1671A1602B72354F009A87A6 /* PieceEntity.swift */; };
+		167948CE2BC6A60B004DFF4B /* PieceOpacitySystem.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */; };
+		167948CF2BC6A60B004DFF4B /* Size.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
+		167948D02BC6A60B004DFF4B /* AppGroupActivity.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* AppGroupActivity.swift */; };
+		167948D12BC6A60B004DFF4B /* SharePlayProvider.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */; };
+		167948D22BC6A60B004DFF4B /* Action.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
+		167948D32BC6A60B004DFF4B /* TargetScene.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16F21ADF2B898136001182E2 /* TargetScene.swift */; };
+		167948D42BC6A60B004DFF4B /* SoundFeedback.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
+		167948D52BC6A60B004DFF4B /* 🗒️StaticInfo.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489F2BC66BA2004DFF4B /* 🗒️StaticInfo.swift */; };
+		167948D62BC6A60B004DFF4B /* ℹ️AboutApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489E2BC66BA2004DFF4B /* ℹ️AboutApp.swift */; };
 		1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */; };
 		169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
@@ -72,8 +101,8 @@
 		169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169C002A2B4A9BE2001242F5 /* Assets.xcassets */; };
 		16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
 		16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
-		16C477132B8AC23D00343DD8 /* ActivityRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* ActivityRegistration.swift */; };
-		16C477152B8AC2E800343DD8 /* ActivityRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* ActivityRegistration.swift */; };
+		16C477132B8AC23D00343DD8 /* SharePlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */; };
+		16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */; };
 		16CB3C8C2B7F8907001CA93D /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C8B2B7F8907001CA93D /* VolumeView.swift */; };
 		16CB3C8F2B81881C001CA93D /* VolumeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C8E2B81881C001CA93D /* VolumeWindow.swift */; };
 		16CB3C912B81B091001CA93D /* HallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C902B81B091001CA93D /* HallView.swift */; };
@@ -98,6 +127,47 @@
 		16F972752B68B77C00711C53 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
 		16F972772B68B7FB00711C53 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		167948B92BC6A5EC004DFF4B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "📁SourceCode";
+			dstSubfolderSpec = 7;
+			files = (
+				167948BA2BC6A60B004DFF4B /* App.swift in CopyFiles */,
+				167948BB2BC6A60B004DFF4B /* AppModel.swift in CopyFiles */,
+				167948BC2BC6A60B004DFF4B /* ActivityState.swift in CopyFiles */,
+				167948BD2BC6A60B004DFF4B /* Chess.swift in CopyFiles */,
+				167948BE2BC6A60B004DFF4B /* Piece.swift in CopyFiles */,
+				167948BF2BC6A60B004DFF4B /* Index.swift in CopyFiles */,
+				167948C02BC6A60B004DFF4B /* Chessmen.swift in CopyFiles */,
+				167948C12BC6A60B004DFF4B /* Side.swift in CopyFiles */,
+				167948C22BC6A60B004DFF4B /* Mode.swift in CopyFiles */,
+				167948C32BC6A60B004DFF4B /* VolumeWindow.swift in CopyFiles */,
+				167948C42BC6A60B004DFF4B /* VolumeView.swift in CopyFiles */,
+				167948C52BC6A60B004DFF4B /* SharePlayMenu.swift in CopyFiles */,
+				167948C62BC6A60B004DFF4B /* FullSpaceView.swift in CopyFiles */,
+				167948C72BC6A60B004DFF4B /* ChessView.swift in CopyFiles */,
+				167948C82BC6A60B004DFF4B /* BoardView.swift in CopyFiles */,
+				167948C92BC6A60B004DFF4B /* SquareView.swift in CopyFiles */,
+				167948CA2BC6A60B004DFF4B /* ToolbarsView.swift in CopyFiles */,
+				167948CB2BC6A60B004DFF4B /* ToolbarView.swift in CopyFiles */,
+				167948CC2BC6A60B004DFF4B /* ToolbarPosition.swift in CopyFiles */,
+				167948CD2BC6A60B004DFF4B /* PieceEntity.swift in CopyFiles */,
+				167948CE2BC6A60B004DFF4B /* PieceOpacitySystem.swift in CopyFiles */,
+				167948CF2BC6A60B004DFF4B /* Size.swift in CopyFiles */,
+				167948D02BC6A60B004DFF4B /* AppGroupActivity.swift in CopyFiles */,
+				167948D12BC6A60B004DFF4B /* SharePlayProvider.swift in CopyFiles */,
+				167948D22BC6A60B004DFF4B /* Action.swift in CopyFiles */,
+				167948D32BC6A60B004DFF4B /* TargetScene.swift in CopyFiles */,
+				167948D42BC6A60B004DFF4B /* SoundFeedback.swift in CopyFiles */,
+				167948D52BC6A60B004DFF4B /* 🗒️StaticInfo.swift in CopyFiles */,
+				167948D62BC6A60B004DFF4B /* ℹ️AboutApp.swift in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1601FEF72B4AA42D0050457E /* シンプルボード.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "シンプルボード.reality"; sourceTree = "<group>"; };
@@ -155,7 +225,7 @@
 		169C002A2B4A9BE2001242F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		169C002F2B4A9BE2001242F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16AE50272B70FE3100D25197 /* SoundFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundFeedback.swift; sourceTree = "<group>"; };
-		16C477122B8AC23D00343DD8 /* ActivityRegistration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityRegistration.swift; sourceTree = "<group>"; };
+		16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePlayProvider.swift; sourceTree = "<group>"; };
 		16CB3C8B2B7F8907001CA93D /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		16CB3C8E2B81881C001CA93D /* VolumeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeWindow.swift; sourceTree = "<group>"; };
 		16CB3C902B81B091001CA93D /* HallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallView.swift; sourceTree = "<group>"; };
@@ -284,7 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				165EC6A12B6913250005172B /* AppGroupActivity.swift */,
-				16C477122B8AC23D00343DD8 /* ActivityRegistration.swift */,
+				16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */,
 			);
 			path = SharePlay;
 			sourceTree = "<group>";
@@ -483,6 +553,7 @@
 				169C001B2B4A9BE0001242F5 /* Sources */,
 				169C001C2B4A9BE0001242F5 /* Frameworks */,
 				169C001D2B4A9BE0001242F5 /* Resources */,
+				167948B92BC6A5EC004DFF4B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -503,7 +574,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					16312B572B75D0FB006A93D1 = {
 						CreatedOnToolsVersion = 15.2;
@@ -609,7 +680,7 @@
 				16312B762B75D45B006A93D1 /* ChessView.swift in Sources */,
 				16312B772B75D45B006A93D1 /* SharePlayMenu.swift in Sources */,
 				16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */,
-				16C477152B8AC2E800343DD8 /* ActivityRegistration.swift in Sources */,
+				16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */,
 				16312B782B75D45B006A93D1 /* ToolbarView.swift in Sources */,
 				16312B6A2B75D193006A93D1 /* Chessmen.swift in Sources */,
 				16312B5B2B75D0FB006A93D1 /* App.swift in Sources */,
@@ -645,7 +716,7 @@
 				169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */,
 				16F972772B68B7FB00711C53 /* Size.swift in Sources */,
 				161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */,
-				16C477132B8AC23D00343DD8 /* ActivityRegistration.swift in Sources */,
+				16C477132B8AC23D00343DD8 /* SharePlayProvider.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,
@@ -727,6 +798,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -790,6 +862,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
