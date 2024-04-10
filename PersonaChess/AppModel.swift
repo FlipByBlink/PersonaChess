@@ -284,10 +284,8 @@ extension AppModel {
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             for await immersionStyle in systemCoordinator.groupImmersionStyle {
                                 if immersionStyle != nil {
-                                    // Open an immersive space with the same immersion style
                                     self.queueToOpenScene = .fullSpace
                                 } else {
-                                    // Dismiss the immersive space
                                     self.queueToOpenScene = .volume
                                 }
                             }

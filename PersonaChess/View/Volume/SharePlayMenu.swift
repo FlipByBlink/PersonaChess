@@ -38,21 +38,11 @@ struct SharePlayMenu: View {
         }
         .glassBackgroundEffect()
         .padding(.horizontal, 24)
-        .opacity(self.showMenu ? 1 : 0)
-        .animation(.default, value: self.showMenu)
         .animation(.default, value: self.isEligibleForGroupSession)
     }
 }
 
 private extension SharePlayMenu {
-    var showMenu: Bool {
-#if targetEnvironment(simulator)
-        true
-//        false
-#else
-        self.model.groupSession == nil
-#endif
-    }
     var isEligibleForGroupSession: Bool {
 #if targetEnvironment(simulator)
         true

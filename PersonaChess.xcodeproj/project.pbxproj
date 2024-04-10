@@ -289,7 +289,7 @@
 			path = SharePlay;
 			sourceTree = "<group>";
 		};
-		1671A16C2B74A8A5009A87A6 /* Model */ = {
+		1671A16C2B74A8A5009A87A6 /* ActivityState */ = {
 			isa = PBXGroup;
 			children = (
 				169333A12B75A7B500B60E0F /* ActivityState.swift */,
@@ -298,10 +298,9 @@
 				16780FFC2B6893CF005A0244 /* Index.swift */,
 				16780FF82B6892E9005A0244 /* Chessmen.swift */,
 				16EA6A7F2B68769C00A3A740 /* Side.swift */,
-				165EC69F2B6901670005172B /* Action.swift */,
-				16A0F0872B89FEB800EC0FE8 /* Rest */,
+				16ECC0F02B85ACE100A1A6B6 /* Mode.swift */,
 			);
-			path = Model;
+			path = ActivityState;
 			sourceTree = "<group>";
 		};
 		1671A17D2B74C6B2009A87A6 /* Sound */ = {
@@ -372,6 +371,17 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		167948B52BC67612004DFF4B /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				165EC69F2B6901670005172B /* Action.swift */,
+				16F21ADF2B898136001182E2 /* TargetScene.swift */,
+				16AE50272B70FE3100D25197 /* SoundFeedback.swift */,
+				1679489D2BC66B88004DFF4B /* Rest */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
 		169C00162B4A9BE0001242F5 = {
 			isa = PBXGroup;
 			children = (
@@ -396,9 +406,10 @@
 			children = (
 				169C00262B4A9BE0001242F5 /* App.swift */,
 				165EC69D2B68C5E30005172B /* AppModel.swift */,
-				1671A16C2B74A8A5009A87A6 /* Model */,
+				1671A16C2B74A8A5009A87A6 /* ActivityState */,
 				16A0F0862B89FE2900EC0FE8 /* View */,
 				1671A16B2B74A89B009A87A6 /* SharePlay */,
+				167948B52BC67612004DFF4B /* Rest */,
 				1671A1552B720659009A87A6 /* Supporting files */,
 			);
 			path = PersonaChess;
@@ -415,23 +426,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		16A0F0872B89FEB800EC0FE8 /* Rest */ = {
-			isa = PBXGroup;
-			children = (
-				16ECC0F02B85ACE100A1A6B6 /* Mode.swift */,
-				16F21ADF2B898136001182E2 /* TargetScene.swift */,
-				16AE50272B70FE3100D25197 /* SoundFeedback.swift */,
-			);
-			path = Rest;
-			sourceTree = "<group>";
-		};
 		16CB3C882B7F88B4001CA93D /* Volume */ = {
 			isa = PBXGroup;
 			children = (
 				16CB3C8E2B81881C001CA93D /* VolumeWindow.swift */,
 				16CB3C8B2B7F8907001CA93D /* VolumeView.swift */,
 				16312B522B75BB52006A93D1 /* SharePlayMenu.swift */,
-				1679489D2BC66B88004DFF4B /* Rest */,
 			);
 			path = Volume;
 			sourceTree = "<group>";
