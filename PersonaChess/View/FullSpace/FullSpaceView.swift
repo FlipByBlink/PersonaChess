@@ -10,7 +10,7 @@ struct FullSpaceView: View {
             ToolbarsView(targetScene: .fullSpace)
         }
         .scaleEffect(self.model.activityState.viewScale, anchor: .bottom)
-        .offset(z: self.spatialSharePlaying ? 0 : -1200)
+        .offset(z: self.model.spatialSharePlaying == true ? 0 : -1200)
         .offset(y: -self.model.activityState.viewHeight)
         .animation(.default, value: self.model.activityState.viewScale)
         .animation(.default, value: self.model.activityState.viewHeight)
@@ -23,11 +23,5 @@ struct FullSpaceView: View {
                 }
             }
         }
-    }
-}
-
-private extension FullSpaceView {
-    private var spatialSharePlaying: Bool {
-        self.model.isSpatial == true
     }
 }

@@ -7,15 +7,6 @@ struct SharePlayMenu: View {
     var body: some View {
         NavigationStack {
             List {
-                //HStack(spacing: 16) {
-                //    Spacer()
-                //    Image(systemName: "photo")
-                //        .resizable()
-                //        .frame(width: 400, height: 200)
-                //    Text("Join the activity in control center.")
-                //    Spacer()
-                //}
-                //.listRowBackground(Color.clear)
                 Section {
                     NavigationLink("What's SharePlay?") { Self.whatsSharePlayMenu() }
                 }
@@ -28,7 +19,7 @@ struct SharePlayMenu: View {
                     Section { self.groupSessionStateText() }
                 }
             }
-            .navigationTitle("SpatiallyChess")
+            .navigationTitle("PersonaChess")
         }
         .glassBackgroundEffect()
         .padding(.horizontal, 24)
@@ -69,7 +60,7 @@ private extension SharePlayMenu {
         List {
             Section {
                 LabeledContent {
-                    Text("\(self.groupStateObserver.isEligibleForGroupSession.description)")
+                    Text("\(self.groupStateObserver.isEligibleForGroupSession)")
                 } label: {
                     Text("Eligible for SharePlay:")
                 }

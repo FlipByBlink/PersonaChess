@@ -5,7 +5,7 @@ import Combine
 
 @MainActor
 class AppModel: ObservableObject {
-    @Published private(set) var activityState: ActivityState = .init()
+    @Published private(set) var activityState = ActivityState()
     private(set) var rootEntity = Entity()
     @Published private(set) var movingPieces: [Piece.ID] = []
     
@@ -13,7 +13,7 @@ class AppModel: ObservableObject {
     private var messenger: GroupSessionMessenger?
     private var subscriptions: Set<AnyCancellable> = []
     private var tasks: Set<Task<Void, Never>> = []
-    @Published private(set) var isSpatial: Bool?
+    @Published private(set) var spatialSharePlaying: Bool?
     @Published private(set) var queueToOpenScene: TargetScene?
     
     private let soundFeedback = SoundFeedback()
@@ -240,7 +240,7 @@ extension AppModel {
                             self.tasks = []
                             self.subscriptions = []
                             self.groupSession = nil
-                            self.isSpatial = nil
+                            self.spatialSharePlaying = nil
                             self.activityState.chess.clearLog()
                             self.activityState.chess.setPreset()
                             self.activityState.mode = .localOnly
@@ -273,7 +273,7 @@ extension AppModel {
                     Task {
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             for await localParticipantState in systemCoordinator.localParticipantStates {
-                                self.isSpatial = localParticipantState.isSpatial
+                                self.spatialSharePlaying = localParticipantState.isSpatial
                             }
                         }
                     }
@@ -299,7 +299,6 @@ extension AppModel {
                     Task {
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             var configuration = SystemCoordinator.Configuration()
-                            //configuration.spatialTemplatePreference = .none
                             configuration.supportsGroupImmersiveSpace = true
                             systemCoordinator.configuration = configuration
                             groupSession.join()

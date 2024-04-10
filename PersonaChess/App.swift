@@ -2,7 +2,7 @@ import SwiftUI
 
 @main
 struct PersonaChessApp: App {
-    @StateObject private var model: AppModel = .init()
+    @StateObject private var model = AppModel()
     var body: some Scene {
         VolumeWindow(self.model)
         ImmersiveSpace(id: "immersiveSpace") {
