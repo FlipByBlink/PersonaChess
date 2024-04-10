@@ -1,0 +1,66 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "@unknown default" : {
+
+    },
+    "About App" : {
+
+    },
+    "Apple Vision Pro" : {
+
+    },
+    "Back" : {
+
+    },
+    "Chess" : {
+
+    },
+    "Eligible for SharePlay:" : {
+
+    },
+    "Enter full space" : {
+
+    },
+    "Exit full space" : {
+
+    },
+    "groupSession?.state:" : {
+
+    },
+    "If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay." : {
+
+    },
+    "invalidated(%@)" : {
+
+    },
+    "joined" : {
+
+    },
+    "No activity?" : {
+
+    },
+    "none" : {
+
+    },
+    "PersonaChess" : {
+
+    },
+    "Reset" : {
+
+    },
+    "Start activity!" : {
+
+    },
+    "waiting" : {
+
+    },
+    "What's SharePlay?" : {
+
+    },
+    "With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time." : {
+
+    }
+  },
+  "version" : "1.0"
+}

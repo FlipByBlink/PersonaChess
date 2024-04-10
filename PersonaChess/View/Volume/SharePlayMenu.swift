@@ -20,6 +20,16 @@ struct SharePlayMenu: View {
                 }
             }
             .navigationTitle("PersonaChess")
+            .toolbar {
+                NavigationLink {
+                    List { ℹ️AboutAppContent() }
+                } label: {
+                    Label("About App", systemImage: "info")
+                        .padding(14)
+                }
+                .buttonBorderShape(.circle)
+                .buttonStyle(.plain)
+            }
         }
         .glassBackgroundEffect()
         .padding(.horizontal, 24)

@@ -56,6 +56,15 @@
 		16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
 		16780FFB2B689304005A0244 /* Chess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* Chess.swift */; };
 		16780FFD2B6893CF005A0244 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
+		167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1679489E2BC66BA2004DFF4B /* ℹ️AboutApp.swift */; };
+		167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1679489F2BC66BA2004DFF4B /* 🗒️StaticInfo.swift */; };
+		167948A32BC66BB6004DFF4B /* Developer_Publisher.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167948A22BC66BB6004DFF4B /* Developer_Publisher.xcassets */; };
+		167948A72BC66BD1004DFF4B /* 🌐AboutApp.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 167948A52BC66BD1004DFF4B /* 🌐AboutApp.xcstrings */; };
+		167948A82BC66BD1004DFF4B /* 🌐Timeline.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 167948A62BC66BD1004DFF4B /* 🌐Timeline.xcstrings */; };
+		167948AC2BC66BF7004DFF4B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 167948AB2BC66BF7004DFF4B /* Localizable.xcstrings */; };
+		167948B02BC66E78004DFF4B /* 🌐AppStoreDescription.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 167948AE2BC66E78004DFF4B /* 🌐AppStoreDescription.xcstrings */; };
+		167948B12BC66E78004DFF4B /* 🌐VersionHistory.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 167948AF2BC66E78004DFF4B /* 🌐VersionHistory.xcstrings */; };
+		167948B32BC66EAE004DFF4B /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 167948B22BC66EAE004DFF4B /* InfoPlist.xcstrings */; };
 		1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */; };
 		169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
@@ -127,6 +136,15 @@
 		16780FF82B6892E9005A0244 /* Chessmen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chessmen.swift; sourceTree = "<group>"; };
 		16780FFA2B689304005A0244 /* Chess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chess.swift; sourceTree = "<group>"; };
 		16780FFC2B6893CF005A0244 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
+		1679489E2BC66BA2004DFF4B /* ℹ️AboutApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ℹ️AboutApp.swift"; sourceTree = "<group>"; };
+		1679489F2BC66BA2004DFF4B /* 🗒️StaticInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🗒️StaticInfo.swift"; sourceTree = "<group>"; };
+		167948A22BC66BB6004DFF4B /* Developer_Publisher.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Developer_Publisher.xcassets; sourceTree = "<group>"; };
+		167948A52BC66BD1004DFF4B /* 🌐AboutApp.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = "🌐AboutApp.xcstrings"; sourceTree = "<group>"; };
+		167948A62BC66BD1004DFF4B /* 🌐Timeline.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = "🌐Timeline.xcstrings"; sourceTree = "<group>"; };
+		167948AB2BC66BF7004DFF4B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		167948AE2BC66E78004DFF4B /* 🌐AppStoreDescription.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = "🌐AppStoreDescription.xcstrings"; sourceTree = "<group>"; };
+		167948AF2BC66E78004DFF4B /* 🌐VersionHistory.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = "🌐VersionHistory.xcstrings"; sourceTree = "<group>"; };
+		167948B22BC66EAE004DFF4B /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceOpacitySystem.swift; sourceTree = "<group>"; };
 		169333A12B75A7B500B60E0F /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
@@ -207,11 +225,10 @@
 		1671A1552B720659009A87A6 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				169C002A2B4A9BE2001242F5 /* Assets.xcassets */,
 				169C002F2B4A9BE2001242F5 /* Info.plist */,
 				165EC6A32B6914430005172B /* PersonaChess.entitlements */,
-				16EA6A642B6875CA00A3A740 /* Piece assets */,
-				1671A17D2B74C6B2009A87A6 /* Sound assets */,
+				167948AD2BC66E10004DFF4B /* Assets */,
+				167948A42BC66BC7004DFF4B /* 🌐Localization */,
 				1671A1802B74D341009A87A6 /* Rest */,
 			);
 			path = "Supporting files";
@@ -285,7 +302,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		1671A17D2B74C6B2009A87A6 /* Sound assets */ = {
+		1671A17D2B74C6B2009A87A6 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
 				1671A17E2B74C7ED009A87A6 /* putSound1.m4a */,
@@ -297,7 +314,7 @@
 				1671A1722B74C638009A87A6 /* selectSound.m4a */,
 				1671A1742B74C639009A87A6 /* resetSound.m4a */,
 			);
-			path = "Sound assets";
+			path = Sound;
 			sourceTree = "<group>";
 		};
 		1671A1802B74D341009A87A6 /* Rest */ = {
@@ -318,6 +335,39 @@
 				1601FEF72B4AA42D0050457E /* シンプルボード.reality */,
 			);
 			path = Archive;
+			sourceTree = "<group>";
+		};
+		1679489D2BC66B88004DFF4B /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				1679489F2BC66BA2004DFF4B /* 🗒️StaticInfo.swift */,
+				1679489E2BC66BA2004DFF4B /* ℹ️AboutApp.swift */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
+		167948A42BC66BC7004DFF4B /* 🌐Localization */ = {
+			isa = PBXGroup;
+			children = (
+				167948AB2BC66BF7004DFF4B /* Localizable.xcstrings */,
+				167948B22BC66EAE004DFF4B /* InfoPlist.xcstrings */,
+				167948AE2BC66E78004DFF4B /* 🌐AppStoreDescription.xcstrings */,
+				167948AF2BC66E78004DFF4B /* 🌐VersionHistory.xcstrings */,
+				167948A52BC66BD1004DFF4B /* 🌐AboutApp.xcstrings */,
+				167948A62BC66BD1004DFF4B /* 🌐Timeline.xcstrings */,
+			);
+			path = "🌐Localization";
+			sourceTree = "<group>";
+		};
+		167948AD2BC66E10004DFF4B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				169C002A2B4A9BE2001242F5 /* Assets.xcassets */,
+				167948A22BC66BB6004DFF4B /* Developer_Publisher.xcassets */,
+				16EA6A642B6875CA00A3A740 /* Piece */,
+				1671A17D2B74C6B2009A87A6 /* Sound */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		169C00162B4A9BE0001242F5 = {
@@ -379,11 +429,12 @@
 				16CB3C8E2B81881C001CA93D /* VolumeWindow.swift */,
 				16CB3C8B2B7F8907001CA93D /* VolumeView.swift */,
 				16312B522B75BB52006A93D1 /* SharePlayMenu.swift */,
+				1679489D2BC66B88004DFF4B /* Rest */,
 			);
 			path = Volume;
 			sourceTree = "<group>";
 		};
-		16EA6A642B6875CA00A3A740 /* Piece assets */ = {
+		16EA6A642B6875CA00A3A740 /* Piece */ = {
 			isa = PBXGroup;
 			children = (
 				1671A1632B7324CA009A87A6 /* README.md */,
@@ -400,7 +451,7 @@
 				16EA6A6F2B6875CA00A3A740 /* pawnB.reality */,
 				16EA6A702B6875CA00A3A740 /* pawnW.reality */,
 			);
-			path = "Piece assets";
+			path = Piece;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,28 +551,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				167948B12BC66E78004DFF4B /* 🌐VersionHistory.xcstrings in Resources */,
 				16EA6A772B6875CA00A3A740 /* knightB.reality in Resources */,
 				16EA6A782B6875CA00A3A740 /* knightW.reality in Resources */,
 				16EA6A7C2B6875CA00A3A740 /* pawnW.reality in Resources */,
+				167948B02BC66E78004DFF4B /* 🌐AppStoreDescription.xcstrings in Resources */,
+				167948A82BC66BD1004DFF4B /* 🌐Timeline.xcstrings in Resources */,
 				16EA6A732B6875CA00A3A740 /* bishopW.reality in Resources */,
 				1671A1792B74C63A009A87A6 /* putSound2.m4a in Resources */,
 				169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */,
 				1671A1752B74C63A009A87A6 /* putSound3.m4a in Resources */,
+				167948A72BC66BD1004DFF4B /* 🌐AboutApp.xcstrings in Resources */,
 				16EA6A7B2B6875CA00A3A740 /* pawnB.reality in Resources */,
 				16EA6A792B6875CA00A3A740 /* kingW.reality in Resources */,
 				1671A1772B74C63A009A87A6 /* putSound6.m4a in Resources */,
 				16EA6A752B6875CA00A3A740 /* queenW.reality in Resources */,
 				1601FEF82B4AA42D0050457E /* シンプルボード.reality in Resources */,
+				167948A32BC66BB6004DFF4B /* Developer_Publisher.xcassets in Resources */,
 				1671A1762B74C63A009A87A6 /* putSound5.m4a in Resources */,
 				1671A17C2B74C63A009A87A6 /* resetSound.m4a in Resources */,
 				16EA6A722B6875CA00A3A740 /* rookB.reality in Resources */,
 				1671A17A2B74C63A009A87A6 /* selectSound.m4a in Resources */,
 				16EA6A742B6875CA00A3A740 /* bishopB.reality in Resources */,
+				167948B32BC66EAE004DFF4B /* InfoPlist.xcstrings in Resources */,
 				16EA6A7A2B6875CA00A3A740 /* kingB.reality in Resources */,
 				1671A17F2B74C7ED009A87A6 /* putSound1.m4a in Resources */,
 				16EA6A762B6875CA00A3A740 /* queenB.reality in Resources */,
 				16EA6A712B6875CA00A3A740 /* rookW.reality in Resources */,
 				1671A17B2B74C63A009A87A6 /* putSound4.m4a in Resources */,
+				167948AC2BC66BF7004DFF4B /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,7 +629,9 @@
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
 				16CB3C8F2B81881C001CA93D /* VolumeWindow.swift in Sources */,
 				16312B532B75BB52006A93D1 /* SharePlayMenu.swift in Sources */,
+				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
 				16780FFB2B689304005A0244 /* Chess.swift in Sources */,
+				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
 				16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */,
 				1671A1682B74A040009A87A6 /* ToolbarsView.swift in Sources */,

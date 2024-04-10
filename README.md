@@ -53,7 +53,7 @@ softies.grazer_0y@icloud.com
 
 Privacy Policy for App Store
 ----------------------------
-2024-04-??
+2024-04-17
 
 ### English
 This application don't collect user infomation.
