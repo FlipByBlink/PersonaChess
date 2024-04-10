@@ -6,7 +6,7 @@ import Combine
 @MainActor
 class AppModel: ObservableObject {
     @Published private(set) var activityState: ActivityState = .init()
-    private(set) var rootEntity: Entity = .init()
+    private(set) var rootEntity = Entity()
     @Published private(set) var movingPieces: [Piece.ID] = []
     
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
@@ -16,7 +16,7 @@ class AppModel: ObservableObject {
     @Published private(set) var isSpatial: Bool?
     @Published private(set) var queueToOpenScene: TargetScene?
     
-    private let soundFeedback: SoundFeedback = .init()
+    private let soundFeedback = SoundFeedback()
     
     init() {
         self.configureGroupSessions()

@@ -15,9 +15,11 @@ struct ToolbarView: View {
                 self.model.expandToolbar(self.position)
             } label: {
                 Image(systemName: "ellipsis")
+                    .padding(24)
             }
+            .buttonStyle(.plain)
+            .glassBackgroundEffect()
             .opacity(self.isExpanded ? 0 : 1)
-            .foregroundStyle(.secondary)
             HStack(spacing: 24) {
                 Group {
                     Button {
