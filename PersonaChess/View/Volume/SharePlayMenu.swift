@@ -93,11 +93,6 @@ private extension SharePlayMenu {
         List {
             Section {
                 Text("If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay.")
-                LabeledContent {
-                    Text("\(self.groupStateObserver.isEligibleForGroupSession)")
-                } label: {
-                    Text("Eligible for SharePlay:")
-                }
             } header: {
                 Text("How to start")
             }

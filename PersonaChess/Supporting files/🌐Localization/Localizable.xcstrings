@@ -51,16 +51,6 @@
         }
       }
     },
-    "Eligible for SharePlay:" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SharePlay"
-          }
-        }
-      }
-    },
     "Enter full space" : {
       "localizations" : {
         "ja" : {
