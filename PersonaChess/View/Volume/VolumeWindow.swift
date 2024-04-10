@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct VolumeWindow: Scene {
-    @EnvironmentObject var model: AppModel
+    private var model: AppModel
     var body: some Scene {
         WindowGroup(id: "volume") {
             VolumeView()
-                .environmentObject(self.model) //※1
+                .environmentObject(self.model)
         }
         .defaultSize(width: Size.Meter.board,
                      height: Size.Meter.board,
@@ -14,9 +14,7 @@ struct VolumeWindow: Scene {
         .windowResizability(.contentSize)
         .windowStyle(.volumetric)
     }
+    init(_ model: AppModel) {
+        self.model = model
+    }
 }
-
-//==== ※1 workaround ====
-//不具合: FullSpaceから改めてWindowを開いた際にEnvironmentObjectが機能しない場合がある
-//対応: 冗長になるがここでもenvironmentObject(self.model)
-//=======================

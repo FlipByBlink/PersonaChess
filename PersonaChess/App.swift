@@ -1,11 +1,10 @@
 import SwiftUI
 
 @main
-struct SpatiallyChessApp: App {
+struct PersonaChessApp: App {
     @StateObject private var model: AppModel = .init()
     var body: some Scene {
-        VolumeWindow()
-            .environmentObject(self.model)
+        VolumeWindow(self.model)
         ImmersiveSpace(id: "immersiveSpace") {
             FullSpaceView()
                 .environmentObject(self.model)
