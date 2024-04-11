@@ -19,6 +19,8 @@ Chess with Spatial Personas.
 
 - Simple design.
 
+- Move pieces freely.
+
 - Support Spatial SharePlay.
 
 - Undo function.
