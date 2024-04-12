@@ -24,5 +24,7 @@ struct FullSpaceView: View {
                 }
             }
         }
+        .onAppear { self.model.isFullSpaceShown = true }
+        .onDisappear { self.model.isFullSpaceShown = false }
     }
 }

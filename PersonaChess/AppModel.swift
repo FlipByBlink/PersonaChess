@@ -8,6 +8,7 @@ class AppModel: ObservableObject {
     @Published private(set) var activityState = ActivityState()
     private(set) var rootEntity = Entity()
     @Published private(set) var movingPieces: [Piece.ID] = []
+    @Published var isFullSpaceShown: Bool = false
     
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
     private var messenger: GroupSessionMessenger?
@@ -75,7 +76,7 @@ extension AppModel {
         self.sendMessage()
     }
     func upScale() {
-        self.activityState.viewScale *= self.floorMode ? 1.7 : 1.1
+        self.activityState.viewScale *= self.floorMode ? 1.5 : 1.1
         self.sendMessage()
     }
     func downScale() {
@@ -119,6 +120,8 @@ extension AppModel {
         self.activityState.mode == .localOnly
     }
     var floorMode: Bool {
+        self.isFullSpaceShown
+        &&
         self.activityState.viewHeight == 0
     }
 }
