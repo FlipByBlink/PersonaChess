@@ -7,8 +7,9 @@ struct FullSpaceView: View {
     var body: some View {
         VStack(spacing: 12) {
             ChessView()
-            ToolbarsView(targetScene: .fullSpace)
+            if !self.model.floorMode { ToolbarsView(targetScene: .fullSpace) }
         }
+        .overlay { ToolbarViewForFloorMode() }
         .scaleEffect(self.model.activityState.viewScale, anchor: .bottom)
         .offset(z: self.model.spatialSharePlaying == true ? 0 : -1200)
         .offset(y: -self.model.activityState.viewHeight)

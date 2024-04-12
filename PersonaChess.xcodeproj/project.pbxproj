@@ -95,6 +95,8 @@
 		167948D52BC6A60B004DFF4B /* 🗒️StaticInfo.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489F2BC66BA2004DFF4B /* 🗒️StaticInfo.swift */; };
 		167948D62BC6A60B004DFF4B /* ℹ️AboutApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489E2BC66BA2004DFF4B /* ℹ️AboutApp.swift */; };
 		1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */; };
+		16910D5E2BC90EC600373BAD /* ToolbarViewForFloorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16910D5D2BC90EC600373BAD /* ToolbarViewForFloorMode.swift */; };
+		16910D602BC90EED00373BAD /* FloorModeDividers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */; };
 		169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
@@ -217,6 +219,8 @@
 		167948B22BC66EAE004DFF4B /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		167948B42BC674F4004DFF4B /* screenshot1280w.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w.jpg; sourceTree = "<group>"; };
 		1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceOpacitySystem.swift; sourceTree = "<group>"; };
+		16910D5D2BC90EC600373BAD /* ToolbarViewForFloorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewForFloorMode.swift; sourceTree = "<group>"; };
+		16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorModeDividers.swift; sourceTree = "<group>"; };
 		169333A12B75A7B500B60E0F /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		169C001F2B4A9BE0001242F5 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -337,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				16780FF52B6881DB005A0244 /* FullSpaceView.swift */,
+				16910D5C2BC90EA900373BAD /* FloorMode */,
 			);
 			path = FullSpace;
 			sourceTree = "<group>";
@@ -450,6 +455,15 @@
 				1679489D2BC66B88004DFF4B /* Rest */,
 			);
 			path = Rest;
+			sourceTree = "<group>";
+		};
+		16910D5C2BC90EA900373BAD /* FloorMode */ = {
+			isa = PBXGroup;
+			children = (
+				16910D5D2BC90EC600373BAD /* ToolbarViewForFloorMode.swift */,
+				16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */,
+			);
+			path = FloorMode;
 			sourceTree = "<group>";
 		};
 		169C00162B4A9BE0001242F5 = {
@@ -701,6 +715,7 @@
 				16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
+				16910D602BC90EED00373BAD /* FloorModeDividers.swift in Sources */,
 				16CB3C8F2B81881C001CA93D /* VolumeWindow.swift in Sources */,
 				16312B532B75BB52006A93D1 /* SharePlayMenu.swift in Sources */,
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
@@ -713,6 +728,7 @@
 				16CB3C9A2B8200CE001CA93D /* EntrancePiecesView.swift in Sources */,
 				16780FF62B6881DB005A0244 /* FullSpaceView.swift in Sources */,
 				1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */,
+				16910D5E2BC90EC600373BAD /* ToolbarViewForFloorMode.swift in Sources */,
 				169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */,
 				16F972772B68B7FB00711C53 /* Size.swift in Sources */,
 				161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */,

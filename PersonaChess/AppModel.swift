@@ -75,11 +75,11 @@ extension AppModel {
         self.sendMessage()
     }
     func upScale() {
-        self.activityState.viewScale += 0.07
+        self.activityState.viewScale *= self.floorMode ? 1.7 : 1.1
         self.sendMessage()
     }
     func downScale() {
-        self.activityState.viewScale -= 0.07
+        self.activityState.viewScale *= self.floorMode ? 0.75 : 0.9
         self.sendMessage()
     }
     func raiseBoard() {
@@ -88,6 +88,14 @@ extension AppModel {
     }
     func lowerBoard() {
         self.activityState.viewHeight -= 50
+        self.sendMessage()
+    }
+    func lowerToFloor() {
+        self.activityState.viewHeight = 0
+        self.sendMessage()
+    }
+    func separateFromFloor() {
+        self.activityState.viewHeight = 1000
         self.sendMessage()
     }
     func rotateBoard() {
@@ -109,6 +117,9 @@ extension AppModel {
         self.groupSession?.state == .joined
         &&
         self.activityState.mode == .localOnly
+    }
+    var floorMode: Bool {
+        self.activityState.viewHeight == 0
     }
 }
 

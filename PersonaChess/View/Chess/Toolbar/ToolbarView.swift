@@ -47,6 +47,13 @@ struct ToolbarView: View {
                                     .frame(width: Self.circleButtonSize,
                                            height: Self.circleButtonSize)
                             }
+                            Button {
+                                self.model.lowerToFloor()
+                            } label: {
+                                Image(systemName: "arrow.down.to.line")
+                                    .frame(width: Self.circleButtonSize,
+                                           height: Self.circleButtonSize)
+                            }
                         }
                         HStack(spacing: 8) {
                             Button {

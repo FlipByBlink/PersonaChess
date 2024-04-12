@@ -8,8 +8,13 @@ struct SquareView: View {
     var body: some View {
         Group {
             if (self.column + self.row) % 2 == 1 {
-                Rectangle()
-                    .fill(.background)
+                if self.model.floorMode {
+                    Rectangle()
+                        .fill(.black.tertiary)
+                } else {
+                    Rectangle()
+                        .fill(.background)
+                }
             } else {
                 Rectangle()
                     .opacity(0.001)
