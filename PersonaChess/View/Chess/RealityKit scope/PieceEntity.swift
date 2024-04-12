@@ -20,11 +20,11 @@ enum PieceEntity {
         value.addChild(bodyEntity)
         
         let shadowEntity = ModelEntity(
-            mesh: .generateCylinder(height: 0.0025,
+            mesh: .generateCylinder(height: 0.001,
                                     radius: bodyEntity.visualBounds(relativeTo: nil).extents.x * 0.48),
-            materials: [SimpleMaterial(color: .black, isMetallic: false)]
+            materials: [UnlitMaterial(color: .black, applyPostProcessToneMap: true)]
         )
-        shadowEntity.components.set(OpacityComponent(opacity: 0.4))
+        shadowEntity.components.set(OpacityComponent(opacity: 0.3))
         value.addChild(shadowEntity)
         
         return value
