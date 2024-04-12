@@ -72,7 +72,7 @@ struct ToolbarViewForFloorMode: View {
             .padding()
             .padding(.horizontal)
             .glassBackgroundEffect()
-            .rotation3DEffect(.degrees(-90), axis: .y)
+            .rotation3DEffect(.degrees(270), axis: .y)
             .offset(z: -Size.Point.board(physicalMetrics) / 2)
             .offset(x: Size.Point.board(physicalMetrics),
                     y: -Size.Point.board(physicalMetrics) / 2)
