@@ -8,14 +8,18 @@ struct FloorModeDividers: View {
                 HStack(spacing: 0) {
                     Spacer()
                     ForEach(1..<8, id: \.self) { _ in
-                        Rectangle().frame(width: 1)
+                        Rectangle()
+                            .foregroundStyle(.white)
+                            .frame(width: 1.5)
                         Spacer()
                     }
                 }
                 VStack(spacing: 0) {
                     Spacer()
                     ForEach(1..<8, id: \.self) { _ in
-                        Rectangle().frame(height: 1)
+                        Rectangle()
+                            .foregroundStyle(.white)
+                            .frame(height: 1.5)
                         Spacer()
                     }
                 }

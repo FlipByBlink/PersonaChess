@@ -16,7 +16,8 @@ struct BoardView: View {
         .mask(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .overlay {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .stroke(Color(white: 0.75), lineWidth: 3)
+                .stroke(Color(white: self.model.floorMode ? 1 : 0.75),
+                        lineWidth: 3)
         }
         .overlay { FloorModeDividers() }
         .padding(Size.Point.boardInnerPadding(self.physicalMetrics))
