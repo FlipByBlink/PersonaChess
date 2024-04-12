@@ -61,6 +61,8 @@ enum 🗒️StaticInfo {
                 ]
                 case .FullSpace: [
                     "FullSpaceView.swift",
+                    "ToolbarViewForFloorMode.swift",
+                    "FloorModeDividers.swift",
                 ]
                 case .ChessView: [
                     "ChessView.swift",

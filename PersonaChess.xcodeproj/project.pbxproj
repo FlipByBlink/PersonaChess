@@ -97,6 +97,8 @@
 		1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */; };
 		16910D5E2BC90EC600373BAD /* ToolbarViewForFloorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16910D5D2BC90EC600373BAD /* ToolbarViewForFloorMode.swift */; };
 		16910D602BC90EED00373BAD /* FloorModeDividers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */; };
+		16910D612BC9180500373BAD /* ToolbarViewForFloorMode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16910D5D2BC90EC600373BAD /* ToolbarViewForFloorMode.swift */; };
+		16910D622BC9180500373BAD /* FloorModeDividers.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */; };
 		169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
@@ -137,6 +139,8 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				16910D612BC9180500373BAD /* ToolbarViewForFloorMode.swift in CopyFiles */,
+				16910D622BC9180500373BAD /* FloorModeDividers.swift in CopyFiles */,
 				167948BA2BC6A60B004DFF4B /* App.swift in CopyFiles */,
 				167948BB2BC6A60B004DFF4B /* AppModel.swift in CopyFiles */,
 				167948BC2BC6A60B004DFF4B /* ActivityState.swift in CopyFiles */,
