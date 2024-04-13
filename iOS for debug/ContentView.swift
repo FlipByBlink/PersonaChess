@@ -12,7 +12,7 @@ struct ContentView: View {
         .offset(y: ActivityState().viewHeight - self.model.activityState.viewHeight)
         .animation(.default, value: self.model.activityState.viewHeight)
         .overlay { if !self.model.movingPieces.isEmpty { ProgressView() } }
-        .task { ActivityRegistration.execute() }
+        .task { SharePlayProvider.registerGroupActivity() }
         .environmentObject(self.model)
     }
 }

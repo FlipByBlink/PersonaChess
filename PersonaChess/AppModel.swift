@@ -218,19 +218,6 @@ private extension AppModel {
 
 //MARK: ==== SharePlay ====
 extension AppModel {
-//    func activateGroupActivity() {
-//        Task {
-//            do {
-//                let result = try await AppGroupActivity().activate()
-//                switch result {
-//                    case true: self.activityState.mode = .sharePlay
-//                    default: break
-//                }
-//            } catch {
-//                print("Failed to activate activity: \(error)")
-//            }
-//        }
-//    }
     var showProgressView: Bool {
         self.groupSession != nil
         &&
@@ -336,6 +323,21 @@ extension AppModel {
             self.applyLatestChessToEntities()
         }
     }
+#if os(iOS)
+    func activateGroupActivity() {
+        Task {
+            do {
+                let result = try await AppGroupActivity().activate()
+                switch result {
+                    case true: self.activityState.mode = .sharePlay
+                    default: break
+                }
+            } catch {
+                print("Failed to activate activity: \(error)")
+            }
+        }
+    }
+#endif
 }
 
 //Ref: Drawing content in a group session | Apple Developer Documentation

@@ -85,6 +85,11 @@ struct PieceView: View {
                     .font(.system(size: 60))
                     .minimumScaleFactor(0.2)
             }
+            .overlay(alignment: .topTrailing) {
+                if piece.promotion {
+                    Circle().frame(width: 10, height: 10).padding(4)
+                }
+            }
             .contentShape(.rect)
             .onTapGesture {
                 let entity = {
