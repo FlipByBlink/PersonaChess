@@ -17,6 +17,16 @@ enum PieceEntity {
                 shapes: [.generateBox(size: bodyEntity.visualBounds(relativeTo: nil).extents)]
             )
         ])
+        
+        let promotionMarkEntity = Entity()
+        promotionMarkEntity.name = "promotionMark"
+        promotionMarkEntity.isEnabled = false
+        let material = SimpleMaterial(color: .init(white: piece.side == .white ? 0.9 : 0.15, alpha: 1),
+                                      isMetallic: false)
+        promotionMarkEntity.components.set(ModelComponent(mesh: .generateSphere(radius: 0.005),
+                                                          materials: [material]))
+        promotionMarkEntity.position.y = 0.06
+        bodyEntity.addChild(promotionMarkEntity)
         value.addChild(bodyEntity)
         
         let shadowEntity = ModelEntity(

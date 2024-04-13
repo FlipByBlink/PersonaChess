@@ -170,6 +170,7 @@ private extension AppModel {
                             try? await Task.sleep(for: .seconds(duration))
                         }
                     }
+                    pieceEntity.findEntity(named: "promotionMark")?.isEnabled = latestPiece.promotion
                     pieceEntity.components[Piece.self] = latestPiece
                     self.activatePieceHoverEffect()
                     self.movingPieces.removeAll { $0 == piece.id }

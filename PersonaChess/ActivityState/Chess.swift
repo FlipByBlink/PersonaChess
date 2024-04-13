@@ -16,6 +16,9 @@ extension Chess: Codable, Equatable {
     mutating func movePiece(_ id: Piece.ID, to index: Index) {
         self.unpick(id)
         self.latest[self.arrayIndex(id)].index = index
+        if self.satisfiedPromotion(id) {
+            self.latest[self.arrayIndex(id)].promotion = true
+        }
     }
     mutating func removePiece(_ id: Piece.ID) {
         self.latest[self.arrayIndex(id)].removed = true
@@ -49,6 +52,17 @@ extension Chess: Codable, Equatable {
 private extension Chess {
     private func arrayIndex(_ id: Piece.ID) -> Int {
         self.latest.firstIndex { $0.id == id }!
+    }
+    private func satisfiedPromotion(_ id: Piece.ID) -> Bool {
+        let piece = self.latest[self.arrayIndex(id)]
+        if piece.chessmen.role == .pawn {
+            switch piece.side {
+                case .white: return piece.index.row == 0
+                case .black: return piece.index.row == 7
+            }
+        } else {
+            return false
+        }
     }
     private static var preset: [Piece] {
         var value: [Piece] = []

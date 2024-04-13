@@ -6,6 +6,7 @@ struct Piece {
     let side: Side
     var picked: Bool = false
     var removed: Bool = false
+    var promotion: Bool = false
     var id: Self.ID { .init(self.chessmen, self.side) }
 }
 
