@@ -76,7 +76,7 @@ extension AppModel {
         self.sendMessage()
     }
     func upScale() {
-        self.activityState.viewScale *= self.floorMode ? 1.5 : 1.1
+        self.activityState.viewScale *= self.floorMode ? 1.4 : 1.1
         self.sendMessage()
     }
     func downScale() {
