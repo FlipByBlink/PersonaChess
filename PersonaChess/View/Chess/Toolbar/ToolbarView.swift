@@ -138,5 +138,5 @@ private extension ToolbarView {
     private var isExpanded: Bool {
         self.model.activityState.expandedToolbar.contains(self.position)
     }
-    private static let circleButtonSize = 32.0
+    private static let circleButtonSize = 40.0
 }
