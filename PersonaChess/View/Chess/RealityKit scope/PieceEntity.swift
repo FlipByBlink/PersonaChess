@@ -13,9 +13,11 @@ enum PieceEntity {
         bodyEntity.components.set([
             HoverEffectComponent(),
             InputTargetComponent(),
-            CollisionComponent(
-                shapes: [.generateBox(size: bodyEntity.visualBounds(relativeTo: nil).extents)]
-            )
+            CollisionComponent(shapes: [{
+                var value: ShapeResource = .generateBox(size: bodyEntity.visualBounds(relativeTo: nil).extents)
+                value = value.offsetBy(translation: [0, value.bounds.extents.y / 2, 0])
+                return value
+            }()])
         ])
         
         let promotionMarkEntity = Entity()
