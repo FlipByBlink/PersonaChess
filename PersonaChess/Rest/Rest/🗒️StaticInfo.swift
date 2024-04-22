@@ -10,7 +10,7 @@ enum 🗒️StaticInfo {
     static var contactAddress: String { "softies.grazer_0y@icloud.com" }
     
     static let privacyPolicyDescription = """
-        2024-04-17
+        2024-04-22
         
         
         English
@@ -26,7 +26,7 @@ enum 🗒️StaticInfo {
     static let webRepositoryURL: URL = .init(string: "https://github.com/FlipByBlink/PersonaChess")!
     static let webMirrorRepositoryURL: URL = .init(string: "https://gitlab.com/FlipByBlink/PersonaChess_Mirror")!
 
-    static let versionInfos: [(version: String, date: String)] = [("1.0", "2024-04-??")] //降順。先頭の方が新しい
+    static let versionInfos: [(version: String, date: String)] = [("1.0", "2024-04-22")] //降順。先頭の方が新しい
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main,
