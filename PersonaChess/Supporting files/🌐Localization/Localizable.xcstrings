@@ -21,6 +21,16 @@
         }
       }
     },
+    "Apple official support page" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple公式サポートページ"
+          }
+        }
+      }
+    },
     "Apple Vision Pro" : {
       "localizations" : {
         "ja" : {
@@ -47,6 +57,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "チェス"
+          }
+        }
+      }
+    },
+    "During a FaceTime call, if the person you are speaking with starts SharePlay, you will automatically join SharePlay as well. If you want to join a SharePlay session that has already started, you can do so from the Control Center." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FaceTimeの通話中に誰かがSharePlayを開始すると、通話相手は自動的にSharePlayに参加します。もし既に通話相手がSharePlayを開始している場合は、コントロールセンターから参加できます。"
           }
         }
       }
@@ -91,12 +111,12 @@
         }
       }
     },
-    "If your friend has already started chess activity, you can join the activity by manipulating the system-side UI." : {
+    "If your friend has already started chess activity, you can join the activity from the Control Center." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "友達が既に「チェス」アクティビティを起動している場合は、システム側のUIを操作してアクティビティに参加しましょう。"
+            "value" : "友達が既に「チェス」アクティビティを起動している場合は、コントロールセンターからアクティビティに参加しましょう。"
           }
         }
       }
@@ -107,6 +127,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無効(%@)"
+          }
+        }
+      }
+    },
+    "Join SharePlay" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SharePlayに参加する"
           }
         }
       }
@@ -201,6 +231,16 @@
         }
       }
     },
+    "The Persona (or Spatial Persona) is displayed as part of SharePlay, in collaboration with this app and FaceTime." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FaceTimeとこのアプリが連携し、ペルソナ(また空間ペルソナ)は表示されます。"
+          }
+        }
+      }
+    },
     "unknown" : {
       "localizations" : {
         "ja" : {
@@ -217,6 +257,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "待機中"
+          }
+        }
+      }
+    },
+    "What's Persona?" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ペルソナって何？"
           }
         }
       }
@@ -251,12 +301,12 @@
         }
       }
     },
-    "You can also start SharePlay yourself. Please manipulate the system-side UI." : {
+    "You can also start SharePlay yourself. During a FaceTime call, a system menu UI for SharePlay appears at the bottom of the app. You can start SharePlay from the menu." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自分からSharePlayを開始する事もできます。システム側のUIを操作してください。"
+            "value" : "自分からSharePlayを開始する事もできます。FaceTimeの通話中にアプリ下部にSharePlay用のシステムUIが表示されます。そのメニューからSharePlayを開始できます。"
           }
         }
       }

@@ -32,6 +32,15 @@ Chess with Spatial Personas.
 - Adjust a board scale.
 
 
+Notice
+
+- To use SharePlay, a FaceTime call is required.
+
+- You must set up your persona on the OS beforehand.
+
+- The persona appears as part of FaceTime/SharePlay.
+
+
 App Store link
 --------------
 [apps.apple.com/app/id6482994319](https://apps.apple.com/app/id6482994319)
