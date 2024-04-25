@@ -197,7 +197,7 @@
 		1671A1592B720778009A87A6 /* ChessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessView.swift; sourceTree = "<group>"; };
 		1671A1602B72354F009A87A6 /* PieceEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceEntity.swift; sourceTree = "<group>"; };
 		1671A1622B7323C2009A87A6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		1671A1632B7324CA009A87A6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1671A1632B7324CA009A87A6 /* About piece assets.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "About piece assets.md"; sourceTree = "<group>"; };
 		1671A1642B749F2B009A87A6 /* ToolbarPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPosition.swift; sourceTree = "<group>"; };
 		1671A1672B74A040009A87A6 /* ToolbarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarsView.swift; sourceTree = "<group>"; };
 		1671A16D2B74C634009A87A6 /* putSound3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = putSound3.m4a; sourceTree = "<group>"; };
@@ -222,6 +222,13 @@
 		167948AF2BC66E78004DFF4B /* 🌐VersionHistory.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = "🌐VersionHistory.xcstrings"; sourceTree = "<group>"; };
 		167948B22BC66EAE004DFF4B /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		167948B42BC674F4004DFF4B /* screenshot1280w.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w.jpg; sourceTree = "<group>"; };
+		167C0DF62BDA0EF400229714 /* [rcproject example]rookW.rcproject.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "[rcproject example]rookW.rcproject.zip"; sourceTree = "<group>"; };
+		167C0DF72BDA131300229714 /* App Store product page.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "App Store product page.jpg"; sourceTree = "<group>"; };
+		167C0DF92BDA14C400229714 /* Reality Composer files.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer files.jpg"; sourceTree = "<group>"; };
+		167C0DFA2BDA14C500229714 /* Reality Composer export1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer export1.jpg"; sourceTree = "<group>"; };
+		167C0DFB2BDA14C500229714 /* Reality Composer buildin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer buildin.jpg"; sourceTree = "<group>"; };
+		167C0DFC2BDA14C500229714 /* Reality Composer export2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer export2.jpg"; sourceTree = "<group>"; };
+		167C0DFD2BDA14C500229714 /* Reality Composer editor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer editor.jpg"; sourceTree = "<group>"; };
 		1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceOpacitySystem.swift; sourceTree = "<group>"; };
 		16910D5D2BC90EC600373BAD /* ToolbarViewForFloorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewForFloorMode.swift; sourceTree = "<group>"; };
 		16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorModeDividers.swift; sourceTree = "<group>"; };
@@ -461,6 +468,37 @@
 			path = Rest;
 			sourceTree = "<group>";
 		};
+		167C0DF42BDA0EA200229714 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				1671A1632B7324CA009A87A6 /* About piece assets.md */,
+				167C0DFE2BDA154600229714 /* Rest */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		167C0DF82BDA131C00229714 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				167C0DF72BDA131300229714 /* App Store product page.jpg */,
+				167C0DFB2BDA14C500229714 /* Reality Composer buildin.jpg */,
+				167C0DF92BDA14C400229714 /* Reality Composer files.jpg */,
+				167C0DFD2BDA14C500229714 /* Reality Composer editor.jpg */,
+				167C0DFA2BDA14C500229714 /* Reality Composer export1.jpg */,
+				167C0DFC2BDA14C500229714 /* Reality Composer export2.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		167C0DFE2BDA154600229714 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				167C0DF82BDA131C00229714 /* Images */,
+				167C0DF62BDA0EF400229714 /* [rcproject example]rookW.rcproject.zip */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
 		16910D5C2BC90EA900373BAD /* FloorMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,7 +565,6 @@
 		16EA6A642B6875CA00A3A740 /* Piece */ = {
 			isa = PBXGroup;
 			children = (
-				1671A1632B7324CA009A87A6 /* README.md */,
 				16EA6A652B6875CA00A3A740 /* rookW.reality */,
 				16EA6A662B6875CA00A3A740 /* rookB.reality */,
 				16EA6A672B6875CA00A3A740 /* bishopW.reality */,
@@ -540,6 +577,7 @@
 				16EA6A6E2B6875CA00A3A740 /* kingB.reality */,
 				16EA6A6F2B6875CA00A3A740 /* pawnB.reality */,
 				16EA6A702B6875CA00A3A740 /* pawnW.reality */,
+				167C0DF42BDA0EA200229714 /* About */,
 			);
 			path = Piece;
 			sourceTree = "<group>";
