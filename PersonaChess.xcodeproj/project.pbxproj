@@ -222,7 +222,7 @@
 		167948AF2BC66E78004DFF4B /* 🌐VersionHistory.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = "🌐VersionHistory.xcstrings"; sourceTree = "<group>"; };
 		167948B22BC66EAE004DFF4B /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		167948B42BC674F4004DFF4B /* screenshot1280w.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w.jpg; sourceTree = "<group>"; };
-		167C0DF62BDA0EF400229714 /* [rcproject example]rookW.rcproject.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "[rcproject example]rookW.rcproject.zip"; sourceTree = "<group>"; };
+		167C0DF62BDA0EF400229714 /* rookW.rcproject.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = rookW.rcproject.zip; sourceTree = "<group>"; };
 		167C0DF72BDA131300229714 /* App Store product page.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "App Store product page.jpg"; sourceTree = "<group>"; };
 		167C0DF92BDA14C400229714 /* Reality Composer files.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer files.jpg"; sourceTree = "<group>"; };
 		167C0DFA2BDA14C500229714 /* Reality Composer export1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer export1.jpg"; sourceTree = "<group>"; };
@@ -472,12 +472,13 @@
 			isa = PBXGroup;
 			children = (
 				1671A1632B7324CA009A87A6 /* About piece assets.md */,
-				167C0DFE2BDA154600229714 /* Rest */,
+				167C0DF82BDA131C00229714 /* Screenshot log */,
+				167C0DFE2BDA154600229714 /* Example rcproject file */,
 			);
 			path = About;
 			sourceTree = "<group>";
 		};
-		167C0DF82BDA131C00229714 /* Images */ = {
+		167C0DF82BDA131C00229714 /* Screenshot log */ = {
 			isa = PBXGroup;
 			children = (
 				167C0DF72BDA131300229714 /* App Store product page.jpg */,
@@ -487,16 +488,15 @@
 				167C0DFA2BDA14C500229714 /* Reality Composer export1.jpg */,
 				167C0DFC2BDA14C500229714 /* Reality Composer export2.jpg */,
 			);
-			path = Images;
+			path = "Screenshot log";
 			sourceTree = "<group>";
 		};
-		167C0DFE2BDA154600229714 /* Rest */ = {
+		167C0DFE2BDA154600229714 /* Example rcproject file */ = {
 			isa = PBXGroup;
 			children = (
-				167C0DF82BDA131C00229714 /* Images */,
-				167C0DF62BDA0EF400229714 /* [rcproject example]rookW.rcproject.zip */,
+				167C0DF62BDA0EF400229714 /* rookW.rcproject.zip */,
 			);
-			path = Rest;
+			path = "Example rcproject file";
 			sourceTree = "<group>";
 		};
 		16910D5C2BC90EA900373BAD /* FloorMode */ = {

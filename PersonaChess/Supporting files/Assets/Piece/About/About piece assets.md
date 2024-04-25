@@ -9,22 +9,8 @@ The 3D model of the piece used in this app is a built-in asset of the Reality Co
 
 > Reality Composer is particularly useful for designers, educators, and developers who want to create immersive AR projects. It works seamlessly with Apple's ARKit framework, enhancing the capabilities of AR applications on iOS devices. The tool provides a user-friendly interface and a variety of assets and templates to help users get started with AR content creation.
 
-…, according to ChatGPT.
-
-![App Store product page](Rest/Images/App Store product page.jpg)
+(…, according to ChatGPT.)
 
 
 ### "Reality Composer" App Store link
 https://apps.apple.com/app/id1462358802
-
-
-## Screenshot log
-![buildin](Rest/Images/Reality Composer buildin.jpg)
-
-![files](Rest/Images/Reality Composer files.jpg)
-
-![editor](Rest/Images/Reality Composer editor.jpg)
-
-![export1](Rest/Images/Reality Composer export1.jpg)
-
-![export2](Rest/Images/Reality Composer export2.jpg)
