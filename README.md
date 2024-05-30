@@ -41,6 +41,11 @@ Notice
 - The persona appears as part of FaceTime/SharePlay.
 
 
+<img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w2.jpg" width="640">
+
+<img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w3.jpg" width="640">
+
+
 App Store link
 --------------
 [apps.apple.com/app/id6482994319](https://apps.apple.com/app/id6482994319)
