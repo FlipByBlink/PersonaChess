@@ -178,7 +178,7 @@
 		160805FF2C08050F0064FCB2 /* screenshot1280w3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w3.jpg; sourceTree = "<group>"; };
 		161A740E2B6A4FC10057FD17 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		16312B522B75BB52006A93D1 /* SharePlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePlayMenu.swift; sourceTree = "<group>"; };
-		16312B582B75D0FB006A93D1 /* iOS for debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS for debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16312B582B75D0FB006A93D1 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16312B5A2B75D0FB006A93D1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		16312B5C2B75D0FB006A93D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16312B5E2B75D0FD006A93D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -523,7 +523,7 @@
 			isa = PBXGroup;
 			children = (
 				169C001F2B4A9BE0001242F5 /* PersonaChess.app */,
-				16312B582B75D0FB006A93D1 /* iOS for debug.app */,
+				16312B582B75D0FB006A93D1 /* PersonaChess.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -600,7 +600,7 @@
 			);
 			name = "iOS for debug";
 			productName = "iOS for debug";
-			productReference = 16312B582B75D0FB006A93D1 /* iOS for debug.app */;
+			productReference = 16312B582B75D0FB006A93D1 /* PersonaChess.app */;
 			productType = "com.apple.product-type.application";
 		};
 		169C001E2B4A9BE0001242F5 /* PersonaChess */ = {
@@ -809,7 +809,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaChess;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PersonaChess;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -841,7 +841,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaChess;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PersonaChess;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -990,7 +990,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaChess;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PersonaChess;
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1019,7 +1019,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaChess;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PersonaChess;
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
