@@ -157,12 +157,12 @@ private extension SharePlayMenu {
                 Text("In full space mode, you can change the board’s size and height.")
                     .padding()
                 HStack(spacing: 24) {
-                    Image(.groundModeExample)
+                    Image(.floorModeExample)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 360)
                         .clipShape(.rect(cornerRadius: 6))
-                    Text("By setting the board’s height equal to the ground, the board will seamlessly integrate with the ground.")
+                    Text("By setting the board’s height equal to the floor, the board will seamlessly integrate with the floor.")
                 }
                 .padding()
             }

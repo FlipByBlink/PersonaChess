@@ -61,12 +61,12 @@
         }
       }
     },
-    "By setting the board’s height equal to the ground, the board will seamlessly integrate with the ground." : {
+    "By setting the board’s height equal to the floor, the board will seamlessly integrate with the floor." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ボードの高さを地面と同じ高さにすると、ボードと地面が一体化します。"
+            "value" : "ボードの高さを床と同じ高さにすると、ボードと床が一体化します。"
           }
         }
       }
