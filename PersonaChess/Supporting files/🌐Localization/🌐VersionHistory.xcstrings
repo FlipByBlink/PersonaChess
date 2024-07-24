@@ -17,6 +17,9 @@
           }
         }
       }
+    },
+    "1.0.1" : {
+      "extractionState" : "manual"
     }
   },
   "version" : "1.0"

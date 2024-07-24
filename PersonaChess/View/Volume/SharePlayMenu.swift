@@ -127,18 +127,22 @@ private extension SharePlayMenu {
     private func setUpMenu() -> some View {
         List {
             Section {
-                Text("If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay.")
+                Text("If you launch this application during FaceTime, you can start an activity. When you start an activity, the callers automatically join an activity.")
+                Button {
+                    self.model.activateGroupActivity()
+                } label: {
+                    Label(#"Start "Share chess" activity"#, systemImage: "play.fill")
+                        .fontWeight(.semibold)
+                }
+                .disabled(!self.groupStateObserver.isEligibleForGroupSession)
             } header: {
                 Text("How to start")
             }
             Section {
-                Text("You can also start SharePlay yourself. During a FaceTime call, a system menu UI for SharePlay appears at the bottom of the app. You can start SharePlay from the menu.")
-                Text("Once you have started an activity, encourage your friends to join SharePlay.")
-            } header: {
-                Text("Start SharePlay by oneself")
+                Text("During a FaceTime call, a system menu UI for SharePlay appears at the bottom of the app. You can start SharePlay from the menu.")
             }
             Section {
-                Text("During a FaceTime call, if the person you are speaking with starts SharePlay, you will automatically join SharePlay as well. If you want to join a SharePlay session that has already started, you can do so from the Control Center.")
+                Text("If you want to join a SharePlay session that has already started, you can do so from the Control Center.")
             } header: {
                 Text("Join SharePlay")
             }

@@ -4,14 +4,16 @@ enum SharePlayProvider {
     static func registerGroupActivity() {
         let itemProvider = NSItemProvider()
         itemProvider.registerGroupActivity(AppGroupActivity())
+        
         let configuration = UIActivityItemsConfiguration(itemProviders: [itemProvider])
         configuration.metadataProvider = { key in
             guard key == .linkPresentationMetadata else { return nil }
             let metadata = LPLinkMetadata()
-            metadata.title = "Chess"
+            metadata.title = String(localized: "Share chess")
             metadata.imageProvider = NSItemProvider(object: UIImage(resource: .wholeIcon))
             return metadata
         }
+        
         UIApplication.shared
             .connectedScenes
             .compactMap { $0 as? UIWindowScene }
