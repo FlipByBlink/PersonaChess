@@ -20,6 +20,7 @@ struct SharePlayMenu: View {
                 }
                 Section {
                     NavigationLink("About full space mode") { self.aboutFullSpaceModeMenu() }
+                        .fontWeight(.medium)
                 }
                 if self.model.groupSession?.state != nil {
                     Section { self.groupSessionStateText() }
@@ -80,6 +81,7 @@ private extension SharePlayMenu {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 360)
+                    .clipShape(.rect(cornerRadius: 6))
                 Text("With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time.")
             }
             .padding()
@@ -153,7 +155,16 @@ private extension SharePlayMenu {
         List {
             Section {
                 Text("In full space mode, you can change the board’s size, height, and orientation.")
-                Text("By setting the board’s height equal to the ground, the board will seamlessly integrate with the ground.")
+                    .padding()
+                HStack(spacing: 24) {
+                    Image(.groundModeExample)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 360)
+                        .clipShape(.rect(cornerRadius: 6))
+                    Text("By setting the board’s height equal to the ground, the board will seamlessly integrate with the ground.")
+                }
+                .padding()
             }
             Section {
                 Text("Full space mode can only be enabled during SharePlay.")
