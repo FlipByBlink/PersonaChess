@@ -19,7 +19,21 @@
       }
     },
     "1.0.1" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Add a button to start SharePlay in app.\n- Full space mode can now only be activated during SharePlay.\n- Small fix."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・SharePlayを開始するためのボタンを追加しました。\n・SharePlay中のみフルスペースモードを有効に出来るようにしました。\n・軽微な修正。"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
