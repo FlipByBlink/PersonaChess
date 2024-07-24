@@ -108,6 +108,7 @@ struct ToolbarView: View {
                                   systemImage: "arrow.up.left.and.arrow.down.right")
                             .padding(8)
                         }
+                        .disabled(self.model.groupSession?.state != .joined)
                     case .fullSpace:
                         Button {
                             Task {

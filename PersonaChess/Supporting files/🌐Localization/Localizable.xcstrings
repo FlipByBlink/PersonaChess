@@ -21,6 +21,16 @@
         }
       }
     },
+    "About full space mode" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フルスペースモードについて"
+          }
+        }
+      }
+    },
     "Apple official support page" : {
       "localizations" : {
         "ja" : {
@@ -47,6 +57,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "戻る"
+          }
+        }
+      }
+    },
+    "By setting the board’s height equal to the ground, the board will seamlessly integrate with the ground." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ボードの高さを地面と同じ高さにすると、ボードと地面が一体化します。"
           }
         }
       }
@@ -91,6 +111,16 @@
         }
       }
     },
+    "Full space mode can only be enabled during SharePlay." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SharePlay中のみフルスペースモードを有効に出来ます。"
+          }
+        }
+      }
+    },
     "How to start" : {
       "localizations" : {
         "ja" : {
@@ -127,6 +157,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "友達が既に「チェスを共有」アクティビティを起動している場合は、コントロールセンターからアクティビティに参加しましょう。"
+          }
+        }
+      }
+    },
+    "In full space mode, you can change the board’s size, height, and orientation." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フルスペースモードでは、ボードの大きさや高さ、向きを変更出来ます。"
           }
         }
       }

@@ -247,6 +247,9 @@ extension AppModel {
                             self.activityState.chess.setPreset()
                             self.activityState.mode = .localOnly
                             self.applyLatestChessToEntities(animation: false)
+                            if self.isFullSpaceShown {
+                                self.queueToOpenScene = .volume
+                            }
                         }
                     }
                     .store(in: &self.subscriptions)

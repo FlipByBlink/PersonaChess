@@ -15,10 +15,11 @@ struct SharePlayMenu: View {
                     Text("You are currently connected with a friend. Join an activity launched by your friend, or launch an activity by yourself.")
                     Text("If your friend has already started chess activity, you can join the activity from the Control Center.")
                 }
-                if self.model.groupSession == nil {
-                    Section {
-                        NavigationLink("Set up SharePlay") { self.setUpMenu() }
-                    }
+                Section {
+                    NavigationLink("Set up SharePlay") { self.setUpMenu() }
+                }
+                Section {
+                    NavigationLink("About full space mode") { self.aboutFullSpaceModeMenu() }
                 }
                 if self.model.groupSession?.state != nil {
                     Section { self.groupSessionStateText() }
@@ -147,5 +148,17 @@ private extension SharePlayMenu {
                 Text("Join SharePlay")
             }
         }
+    }
+    private func aboutFullSpaceModeMenu() -> some View {
+        List {
+            Section {
+                Text("In full space mode, you can change the board’s size, height, and orientation.")
+                Text("By setting the board’s height equal to the ground, the board will seamlessly integrate with the ground.")
+            }
+            Section {
+                Text("Full space mode can only be enabled during SharePlay.")
+            }
+        }
+        .navigationTitle("About full space mode")
     }
 }
