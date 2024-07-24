@@ -161,12 +161,12 @@
         }
       }
     },
-    "In full space mode, you can change the board’s size, height, and orientation." : {
+    "In full space mode, you can change the board’s size and height." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "フルスペースモードでは、ボードの大きさや高さ、向きを変更出来ます。"
+            "value" : "フルスペースモードでは、ボードの大きさや高さを変更出来ます。"
           }
         }
       }

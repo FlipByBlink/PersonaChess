@@ -154,7 +154,7 @@ private extension SharePlayMenu {
     private func aboutFullSpaceModeMenu() -> some View {
         List {
             Section {
-                Text("In full space mode, you can change the board’s size, height, and orientation.")
+                Text("In full space mode, you can change the board’s size and height.")
                     .padding()
                 HStack(spacing: 24) {
                     Image(.groundModeExample)
