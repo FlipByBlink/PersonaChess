@@ -112,8 +112,8 @@ struct ToolbarView: View {
                     case .fullSpace:
                         Button {
                             Task {
-                                self.openWindow(id: "volume")
                                 await self.dismissImmersiveSpace()
+                                //FIXME: Newly opened volume have an issue of not being shared.
                             }
                         } label: {
                             Label("Exit full space", systemImage: "escape")
