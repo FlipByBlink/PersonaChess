@@ -106,6 +106,7 @@ struct ToolbarView: View {
                         } label: {
                             Label("Enter full space",
                                   systemImage: "arrow.up.left.and.arrow.down.right")
+                            .strikethrough(self.model.groupSession?.state != .joined)
                             .padding(8)
                         }
                         .disabled(self.model.groupSession?.state != .joined)
