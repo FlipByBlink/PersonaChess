@@ -15,13 +15,12 @@ struct SharePlayMenu: View {
                     Text("You are currently connected with a friend. Join an activity launched by your friend, or launch an activity by yourself.")
                     Text("If your friend has already started chess activity, you can join the activity from the Control Center.")
                 }
-                if self.model.groupSession == nil {
-                    Section {
-                        NavigationLink("Set up SharePlay") { self.setUpMenu() }
-                    }
+                Section {
+                    NavigationLink("Set up SharePlay") { self.setUpMenu() }
                 }
-                if self.model.groupSession?.state != nil {
-                    Section { self.groupSessionStateText() }
+                Section {
+                    NavigationLink("Guide") { self.guideMenu() }
+                        .fontWeight(.medium)
                 }
             }
             .font(.title3)
@@ -52,26 +51,6 @@ private extension SharePlayMenu {
         self.groupStateObserver.isEligibleForGroupSession
 #endif
     }
-    private func groupSessionStateText() -> some View {
-        LabeledContent {
-            Text({
-                switch self.model.groupSession?.state {
-                    case .waiting:
-                        "waiting"
-                    case .joined:
-                        "joined"
-                    case .invalidated(reason: let error):
-                        "invalidated, (\(error.localizedDescription))"
-                    case .none:
-                        "none"
-                    @unknown default:
-                        "unknown"
-                }
-            }() as LocalizedStringKey)
-        } label: {
-            Text("SharePlay state:")
-        }
-    }
     private static func whatsSharePlayMenu() -> some View {
         List {
             HStack(spacing: 24) {
@@ -79,6 +58,7 @@ private extension SharePlayMenu {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 360)
+                    .clipShape(.rect(cornerRadius: 6))
                 Text("With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time.")
             }
             .padding()
@@ -127,21 +107,40 @@ private extension SharePlayMenu {
     private func setUpMenu() -> some View {
         List {
             Section {
-                Text("If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay.")
+                Text("If you launch this application during FaceTime, you can start an activity. When you start an activity, the callers automatically join an activity.")
+                Button {
+                    self.model.activateGroupActivity()
+                } label: {
+                    Label(#"Start "Share chess" activity"#, systemImage: "play.fill")
+                        .fontWeight(.semibold)
+                }
+                .disabled(!self.groupStateObserver.isEligibleForGroupSession)
             } header: {
                 Text("How to start")
             }
             Section {
-                Text("You can also start SharePlay yourself. During a FaceTime call, a system menu UI for SharePlay appears at the bottom of the app. You can start SharePlay from the menu.")
-                Text("Once you have started an activity, encourage your friends to join SharePlay.")
-            } header: {
-                Text("Start SharePlay by oneself")
-            }
-            Section {
-                Text("During a FaceTime call, if the person you are speaking with starts SharePlay, you will automatically join SharePlay as well. If you want to join a SharePlay session that has already started, you can do so from the Control Center.")
+                Text("If you want to join a SharePlay session that has already started, you can do so from the Control Center.")
             } header: {
                 Text("Join SharePlay")
             }
         }
+    }
+    private func guideMenu() -> some View {
+        List {
+            Section {
+                Text("You can change the board’s size and height.")
+                    .padding()
+                HStack(spacing: 24) {
+                    Image(.floorModeExample)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 360)
+                        .clipShape(.rect(cornerRadius: 6))
+                    Text("By setting the board’s height equal to the floor, the board will seamlessly integrate with the floor.")
+                }
+                .padding()
+            }
+        }
+        .navigationTitle("Guide")
     }
 }

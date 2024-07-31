@@ -323,7 +323,6 @@ extension AppModel {
             self.applyLatestChessToEntities()
         }
     }
-#if os(iOS)
     func activateGroupActivity() {
         Task {
             do {
@@ -337,7 +336,6 @@ extension AppModel {
             }
         }
     }
-#endif
 }
 
 //Ref: Drawing content in a group session | Apple Developer Documentation
