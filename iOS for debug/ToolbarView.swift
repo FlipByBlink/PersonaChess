@@ -48,9 +48,9 @@ struct ToolbarView: View {
             }
             .buttonBorderShape(.circle)
             Button {
-                self.model.execute(.back)
+                self.model.execute(.undo)
             } label: {
-                Label("Back", systemImage: "arrow.uturn.backward")
+                Label("Undo", systemImage: "arrow.uturn.backward")
                     .padding(8)
                     .labelStyle(.iconOnly)
                 

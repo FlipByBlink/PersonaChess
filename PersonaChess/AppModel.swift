@@ -8,14 +8,12 @@ class AppModel: ObservableObject {
     @Published private(set) var activityState = ActivityState()
     private(set) var rootEntity = Entity()
     @Published private(set) var movingPieces: [Piece.ID] = []
-    @Published var isFullSpaceShown: Bool = false
     
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
     private var messenger: GroupSessionMessenger?
     private var subscriptions: Set<AnyCancellable> = []
     private var tasks: Set<Task<Void, Never>> = []
     @Published private(set) var spatialSharePlaying: Bool?
-    @Published private(set) var queueToOpenScene: TargetScene?
     
     private let soundFeedback = SoundFeedback()
     
@@ -60,7 +58,7 @@ extension AppModel {
                 self.activityState.chess.appendLog()
                 self.activityState.chess.movePiece(self.pickedPieceEntity()!.components[Piece.self]!.id,
                                                    to: index)
-            case .back:
+            case .undo:
                 if let previousChessValue = self.activityState.chess.log.popLast() {
                     self.activityState.chess.latest = previousChessValue
                 } else {
@@ -72,7 +70,7 @@ extension AppModel {
                 self.activityState.chess.setPreset()
                 if self.groupSession != nil { self.activityState.mode = .sharePlay }
         }
-        self.applyLatestChessToEntities(animation: action != .back)
+        self.applyLatestChessToEntities(animation: action != .undo)
         self.sendMessage()
     }
     func upScale() {
@@ -111,17 +109,12 @@ extension AppModel {
         self.activityState.expandedToolbar.removeAll { $0 == position }
         self.sendMessage()
     }
-    func clearQueueToOpenScene() {
-        self.queueToOpenScene = nil
-    }
     var isSharePlayStateNotSet: Bool {
         self.groupSession?.state == .joined
         &&
         self.activityState.mode == .localOnly
     }
     var floorMode: Bool {
-        self.isFullSpaceShown
-        &&
         self.activityState.viewHeight == 0
     }
 }
@@ -280,34 +273,8 @@ extension AppModel {
                         }
                     }
                 )
-                
-                self.tasks.insert(
-                    Task {
-                        if let systemCoordinator = await groupSession.systemCoordinator {
-                            for await immersionStyle in systemCoordinator.groupImmersionStyle {
-                                if immersionStyle != nil {
-                                    self.queueToOpenScene = .fullSpace
-                                } else {
-                                    self.queueToOpenScene = .volume
-                                }
-                            }
-                        }
-                    }
-                )
-                
-                self.tasks.insert(
-                    Task {
-                        if let systemCoordinator = await groupSession.systemCoordinator {
-                            var configuration = SystemCoordinator.Configuration()
-                            configuration.supportsGroupImmersiveSpace = true
-                            systemCoordinator.configuration = configuration
-                            groupSession.join()
-                        }
-                    }
-                )
-#else
-                groupSession.join()
 #endif
+                groupSession.join()
             }
         }
     }

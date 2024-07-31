@@ -43,7 +43,7 @@ struct ToolbarViewForFloorMode: View {
                 }
                 .buttonBorderShape(.circle)
                 Button {
-                    self.model.execute(.back)
+                    self.model.execute(.undo)
                 } label: {
                     Label("Back", systemImage: "arrow.uturn.backward")
                         .padding(8)

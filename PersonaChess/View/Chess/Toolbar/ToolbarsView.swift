@@ -3,7 +3,6 @@ import RealityKit
 
 struct ToolbarsView: View {
     @Environment(\.physicalMetrics) var physicalMetrics
-    var targetScene: TargetScene
     var body: some View {
         RealityView { content, attachments in
             ToolbarPosition.allCases.forEach { position in
@@ -14,8 +13,7 @@ struct ToolbarsView: View {
         } attachments: {
             ForEach(ToolbarPosition.allCases) { position in
                 Attachment(id: position) {
-                    ToolbarView(targetScene: self.targetScene,
-                                position: position)
+                    ToolbarView(position: position)
                 }
             }
         }

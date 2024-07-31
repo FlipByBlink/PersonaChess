@@ -19,8 +19,9 @@ struct SharePlayMenu: View {
                     NavigationLink("Set up SharePlay") { self.setUpMenu() }
                 }
                 Section {
-                    NavigationLink("Guide") { self.guideMenu() }
-                        .fontWeight(.medium)
+                    NavigationLink("About options") {
+                        self.aboutOptionsMenu()
+                    }
                 }
             }
             .font(.title3)
@@ -38,11 +39,19 @@ struct SharePlayMenu: View {
         }
         .glassBackgroundEffect()
         .padding(.horizontal, 24)
+        .opacity(self.isPresented ? 1.0 : 0)
+        .animation(.default, value: self.isPresented)
         .animation(.default, value: self.isEligibleForGroupSession)
+        .frame(width: 1000, height: 700)
+        .offset(y: -1800)
+        .offset(z: -1800)
     }
 }
 
 private extension SharePlayMenu {
+    var isPresented: Bool {
+        self.model.groupSession == nil
+    }
     var isEligibleForGroupSession: Bool {
 #if targetEnvironment(simulator)
         true
@@ -125,10 +134,13 @@ private extension SharePlayMenu {
             }
         }
     }
-    private func guideMenu() -> some View {
+    private func aboutOptionsMenu() -> some View {
         List {
             Section {
-                Text("You can change the board’s size and height.")
+                Text(verbatim: "Open toolbar bottom a board.")
+            }
+            Section {
+                Text("You can change the board’s size and height, rotation.")
                     .padding()
                 HStack(spacing: 24) {
                     Image(.floorModeExample)
@@ -140,7 +152,11 @@ private extension SharePlayMenu {
                 }
                 .padding()
             }
+            Section {
+                Text(verbatim: "Undo function")
+                Text(verbatim: "Reset function")
+            }
         }
-        .navigationTitle("Guide")
+        .navigationTitle("About options")
     }
 }

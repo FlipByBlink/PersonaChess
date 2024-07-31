@@ -4,9 +4,8 @@ import SwiftUI
 struct PersonaChessApp: App {
     @StateObject private var model = AppModel()
     var body: some Scene {
-        VolumeWindow(self.model)
-        ImmersiveSpace(id: "immersiveSpace") {
-            FullSpaceView()
+        ImmersiveSpace {
+            ContentView()
                 .environmentObject(self.model)
         }
     }

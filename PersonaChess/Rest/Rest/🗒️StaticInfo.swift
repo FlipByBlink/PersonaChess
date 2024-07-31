@@ -61,7 +61,7 @@ enum 🗒️StaticInfo {
                     "SharePlayMenu.swift",
                 ]
                 case .FullSpace: [
-                    "FullSpaceView.swift",
+                    "ContentView.swift",
                     "ToolbarViewForFloorMode.swift",
                     "FloorModeDividers.swift",
                 ]

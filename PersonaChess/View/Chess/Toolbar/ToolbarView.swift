@@ -1,13 +1,9 @@
 import SwiftUI
 
 struct ToolbarView: View {
-    var targetScene: TargetScene
     var position: ToolbarPosition
     @EnvironmentObject var model: AppModel
-    @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-    @Environment(\.openWindow) var openWindow
-    @Environment(\.dismissWindow) var dismissWindow
     @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         ZStack(alignment: .top) {
@@ -31,47 +27,45 @@ struct ToolbarView: View {
                             .frame(width: Self.circleButtonSize,
                                    height: Self.circleButtonSize)
                     }
-                    if self.targetScene == .fullSpace {
-                        HStack(spacing: 8) {
-                            Button {
-                                self.model.raiseBoard()
-                            } label: {
-                                Image(systemName: "chevron.up")
-                                    .frame(width: Self.circleButtonSize,
-                                           height: Self.circleButtonSize)
-                            }
-                            Button {
-                                self.model.lowerBoard()
-                            } label: {
-                                Image(systemName: "chevron.down")
-                                    .frame(width: Self.circleButtonSize,
-                                           height: Self.circleButtonSize)
-                            }
-                            Button {
-                                self.model.lowerToFloor()
-                            } label: {
-                                Image(systemName: "arrow.down.to.line")
-                                    .frame(width: Self.circleButtonSize,
-                                           height: Self.circleButtonSize)
-                            }
+                    HStack(spacing: 16) {
+                        Button {
+                            self.model.raiseBoard()
+                        } label: {
+                            Image(systemName: "chevron.up")
+                                .frame(width: Self.circleButtonSize,
+                                       height: Self.circleButtonSize)
                         }
-                        HStack(spacing: 8) {
-                            Button {
-                                self.model.upScale()
-                            } label: {
-                                Image(systemName: "plus")
-                                    .frame(width: Self.circleButtonSize,
-                                           height: Self.circleButtonSize)
-                            }
-                            Button {
-                                self.model.downScale()
-                            } label: {
-                                Image(systemName: "minus")
-                                    .frame(width: Self.circleButtonSize,
-                                           height: Self.circleButtonSize)
-                            }
-                            .disabled(self.model.activityState.viewScale < 0.6)
+                        Button {
+                            self.model.lowerBoard()
+                        } label: {
+                            Image(systemName: "chevron.down")
+                                .frame(width: Self.circleButtonSize,
+                                       height: Self.circleButtonSize)
                         }
+                        Button {
+                            self.model.lowerToFloor()
+                        } label: {
+                            Image(systemName: "arrow.down.to.line")
+                                .frame(width: Self.circleButtonSize,
+                                       height: Self.circleButtonSize)
+                        }
+                    }
+                    HStack(spacing: 16) {
+                        Button {
+                            self.model.upScale()
+                        } label: {
+                            Image(systemName: "plus")
+                                .frame(width: Self.circleButtonSize,
+                                       height: Self.circleButtonSize)
+                        }
+                        Button {
+                            self.model.downScale()
+                        } label: {
+                            Image(systemName: "minus")
+                                .frame(width: Self.circleButtonSize,
+                                       height: Self.circleButtonSize)
+                        }
+                        .disabled(self.model.activityState.viewScale < 0.6)
                     }
                     Button {
                         self.model.rotateBoard()
@@ -82,42 +76,52 @@ struct ToolbarView: View {
                     }
                 }
                 .buttonBorderShape(.circle)
+                Divider()
+                    .frame(height: Self.circleButtonSize)
                 Button {
-                    self.model.execute(.back)
+                    self.model.execute(.undo)
                 } label: {
-                    Label("Back", systemImage: "arrow.uturn.backward")
-                        .padding(8)
+                    Image(systemName: "arrow.uturn.backward")
+                        .frame(width: Self.circleButtonSize,
+                               height: Self.circleButtonSize)
                 }
+                .accessibilityLabel("Undo")
                 .disabled(self.model.activityState.chess.log.isEmpty)
                 Button {
                     self.model.execute(.reset)
                 } label: {
-                    Label("Reset", systemImage: "arrow.counterclockwise")
-                        .padding(8)
+                    Image(systemName: "arrow.counterclockwise")
+                        .frame(width: Self.circleButtonSize,
+                               height: Self.circleButtonSize)
                 }
+                .accessibilityLabel("Reset")
                 .disabled(self.model.activityState.chess.isPreset)
-                switch self.targetScene {
-                    case .volume:
+                Divider()
+                    .frame(height: Self.circleButtonSize)
+                if self.model.groupSession?.state == .joined {
+                    Group {
                         Button {
-                            Task {
-                                await self.openImmersiveSpace(id: "immersiveSpace")
-                                self.dismissWindow(id: "volume")
-                            }
+                            self.model.groupSession?.leave()
                         } label: {
-                            Label("Enter full space",
-                                  systemImage: "arrow.up.left.and.arrow.down.right")
-                            .padding(8)
-                        }
-                    case .fullSpace:
-                        Button {
-                            Task {
-                                self.openWindow(id: "volume")
-                                await self.dismissImmersiveSpace()
-                            }
-                        } label: {
-                            Label("Exit full space", systemImage: "escape")
+                            Label("Leave activity", systemImage: "escape")
                                 .padding(8)
                         }
+                        Button {
+                            self.model.groupSession?.end()
+                        } label: {
+                            Label("End activity", systemImage: "stop.fill")
+                                .padding(8)
+                        }
+                    }
+                    .imageScale(.small)
+                    Divider()
+                        .frame(height: Self.circleButtonSize)
+                }
+                Button {
+                    Task { await self.dismissImmersiveSpace() }
+                } label: {
+                    Label("Close", systemImage: "power.dotted")
+                        .padding(8)
                 }
             }
             .buttonStyle(.plain)
