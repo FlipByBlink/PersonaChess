@@ -19,6 +19,7 @@ enum Size {
         static func board(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
             physicalMetrics.convert(Size.Meter.board, from: .meters)
         }
+        static let defaultHeight = 1000.0
     }
 #endif
 }

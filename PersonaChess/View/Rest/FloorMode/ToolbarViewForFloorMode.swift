@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ToolbarViewForFloorMode: View {
     @EnvironmentObject var model: AppModel
-    @Environment(\.openWindow) var openWindow
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
@@ -45,7 +44,7 @@ struct ToolbarViewForFloorMode: View {
                 Button {
                     self.model.execute(.undo)
                 } label: {
-                    Label("Back", systemImage: "arrow.uturn.backward")
+                    Label("Undo", systemImage: "arrow.uturn.backward")
                         .padding(8)
                 }
                 .disabled(self.model.activityState.chess.log.isEmpty)
@@ -57,12 +56,9 @@ struct ToolbarViewForFloorMode: View {
                 }
                 .disabled(self.model.activityState.chess.isPreset)
                 Button {
-                    Task {
-                        self.openWindow(id: "volume")
-                        await self.dismissImmersiveSpace()
-                    }
+                    Task { await self.dismissImmersiveSpace() }
                 } label: {
-                    Label("Exit full space", systemImage: "escape")
+                    Label("Close", systemImage: "power.dotted")
                         .padding(8)
                 }
             }

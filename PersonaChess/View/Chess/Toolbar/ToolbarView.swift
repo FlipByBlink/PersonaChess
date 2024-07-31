@@ -27,6 +27,30 @@ struct ToolbarView: View {
                             .frame(width: Self.circleButtonSize,
                                    height: Self.circleButtonSize)
                     }
+                    Button {
+                        self.model.rotateBoard()
+                    } label: {
+                        Image(systemName: "arrow.turn.right.up")
+                            .frame(width: Self.circleButtonSize,
+                                   height: Self.circleButtonSize)
+                    }
+                    HStack(spacing: 16) {
+                        Button {
+                            self.model.upScale()
+                        } label: {
+                            Image(systemName: "plus")
+                                .frame(width: Self.circleButtonSize,
+                                       height: Self.circleButtonSize)
+                        }
+                        Button {
+                            self.model.downScale()
+                        } label: {
+                            Image(systemName: "minus")
+                                .frame(width: Self.circleButtonSize,
+                                       height: Self.circleButtonSize)
+                        }
+                        .disabled(self.model.activityState.viewScale < 0.6)
+                    }
                     HStack(spacing: 16) {
                         Button {
                             self.model.raiseBoard()
@@ -50,78 +74,72 @@ struct ToolbarView: View {
                                        height: Self.circleButtonSize)
                         }
                     }
-                    HStack(spacing: 16) {
-                        Button {
-                            self.model.upScale()
-                        } label: {
-                            Image(systemName: "plus")
-                                .frame(width: Self.circleButtonSize,
-                                       height: Self.circleButtonSize)
-                        }
-                        Button {
-                            self.model.downScale()
-                        } label: {
-                            Image(systemName: "minus")
-                                .frame(width: Self.circleButtonSize,
-                                       height: Self.circleButtonSize)
-                        }
-                        .disabled(self.model.activityState.viewScale < 0.6)
-                    }
+                    Divider()
+                        .frame(height: Self.circleButtonSize)
                     Button {
-                        self.model.rotateBoard()
+                        self.model.execute(.undo)
                     } label: {
-                        Image(systemName: "arrow.turn.right.up")
+                        Image(systemName: "arrow.uturn.backward")
                             .frame(width: Self.circleButtonSize,
                                    height: Self.circleButtonSize)
                     }
+                    .accessibilityLabel("Undo")
+                    .disabled(self.model.activityState.chess.log.isEmpty)
+                    Button {
+                        self.model.execute(.reset)
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise")
+                            .frame(width: Self.circleButtonSize,
+                                   height: Self.circleButtonSize)
+                    }
+                    .accessibilityLabel("Reset")
+                    .disabled(self.model.activityState.chess.isPreset)
                 }
                 .buttonBorderShape(.circle)
                 Divider()
                     .frame(height: Self.circleButtonSize)
-                Button {
-                    self.model.execute(.undo)
-                } label: {
-                    Image(systemName: "arrow.uturn.backward")
-                        .frame(width: Self.circleButtonSize,
-                               height: Self.circleButtonSize)
-                }
-                .accessibilityLabel("Undo")
-                .disabled(self.model.activityState.chess.log.isEmpty)
-                Button {
-                    self.model.execute(.reset)
-                } label: {
-                    Image(systemName: "arrow.counterclockwise")
-                        .frame(width: Self.circleButtonSize,
-                               height: Self.circleButtonSize)
-                }
-                .accessibilityLabel("Reset")
-                .disabled(self.model.activityState.chess.isPreset)
-                Divider()
-                    .frame(height: Self.circleButtonSize)
                 if self.model.groupSession?.state == .joined {
-                    Group {
-                        Button {
-                            self.model.groupSession?.leave()
-                        } label: {
-                            Label("Leave activity", systemImage: "escape")
-                                .padding(8)
-                        }
-                        Button {
-                            self.model.groupSession?.end()
-                        } label: {
-                            Label("End activity", systemImage: "stop.fill")
-                                .padding(8)
-                        }
+                    Button {
+                        self.model.groupSession?.leave()
+                    } label: {
+                        Label("""
+                              Leave
+                              activity
+                              """,
+                              systemImage: "escape")
+                        .minimumScaleFactor(0.5)
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 8)
+                        .frame(height: Self.circleButtonSize)
                     }
-                    .imageScale(.small)
+                    Button {
+                        self.model.groupSession?.end()
+                    } label: {
+                        Label("""
+                              End
+                              activity
+                              """,
+                              systemImage: "stop.fill")
+                        .minimumScaleFactor(0.5)
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 8)
+                        .frame(height: Self.circleButtonSize)
+                    }
                     Divider()
                         .frame(height: Self.circleButtonSize)
                 }
                 Button {
                     Task { await self.dismissImmersiveSpace() }
                 } label: {
-                    Label("Close", systemImage: "power.dotted")
-                        .padding(8)
+                    Label("""
+                          Close
+                          app
+                          """,
+                          systemImage: "power.dotted")
+                    .minimumScaleFactor(0.5)
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 8)
+                    .frame(height: Self.circleButtonSize)
                 }
             }
             .buttonStyle(.plain)

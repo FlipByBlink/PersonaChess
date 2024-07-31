@@ -74,11 +74,11 @@ extension AppModel {
         self.sendMessage()
     }
     func upScale() {
-        self.activityState.viewScale *= self.floorMode ? 1.4 : 1.1
+        self.activityState.viewScale *= (self.floorMode ? 1.4 : 1.1)
         self.sendMessage()
     }
     func downScale() {
-        self.activityState.viewScale *= self.floorMode ? 0.75 : 0.9
+        self.activityState.viewScale *= (self.floorMode ? 0.75 : 0.9)
         self.sendMessage()
     }
     func raiseBoard() {
@@ -94,7 +94,7 @@ extension AppModel {
         self.sendMessage()
     }
     func separateFromFloor() {
-        self.activityState.viewHeight = 1000
+        self.activityState.viewHeight = Size.Point.defaultHeight
         self.sendMessage()
     }
     func rotateBoard() {

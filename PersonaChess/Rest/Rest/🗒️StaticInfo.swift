@@ -32,8 +32,7 @@ enum 🗒️StaticInfo {
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main,
              ActivityState,
-             Volume,
-             FullSpace,
+             View,
              ChessView,
              RealityKitScope,
              Size,
@@ -53,17 +52,13 @@ enum 🗒️StaticInfo {
                     "Index.swift",
                     "Chessmen.swift",
                     "Side.swift",
-                    "Mode.swift",
+                    "Mode.swift"
                 ]
-                case .Volume: [
-                    "VolumeWindow.swift",
-                    "VolumeView.swift",
-                    "SharePlayMenu.swift",
-                ]
-                case .FullSpace: [
+                case .View: [
                     "ContentView.swift",
                     "ToolbarViewForFloorMode.swift",
                     "FloorModeDividers.swift",
+                    "SharePlayMenu.swift"
                 ]
                 case .ChessView: [
                     "ChessView.swift",
@@ -71,25 +66,23 @@ enum 🗒️StaticInfo {
                     "SquareView.swift",
                     "ToolbarsView.swift",
                     "ToolbarPosition.swift",
-                    "ToolbarView.swift",
+                    "ToolbarView.swift"
                 ]
                 case .RealityKitScope: [
                     "PieceEntity.swift",
-                    "PieceOpacitySystem.swift",
+                    "PieceOpacitySystem.swift"
                 ]
                 case .Size: [
-                    "Size.swift",
+                    "Size.swift"
                 ]
                 case .SharePlay: [
-                    "AppGroupActivity.swift",
-                    "SharePlayProvider.swift",
+                    "AppGroupActivity.swift"
                 ]
                 case .Rest: [
                     "Action.swift",
-                    "TargetScene.swift",
                     "SoundFeedback.swift",
                     "🗒️StaticInfo.swift",
-                    "ℹ️AboutApp.swift",
+                    "ℹ️AboutApp.swift"
                 ]
             }
         }
