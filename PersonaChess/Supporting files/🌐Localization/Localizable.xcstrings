@@ -24,6 +24,15 @@
     "About options" : {
 
     },
+    "Adjust the height of the board." : {
+
+    },
+    "Adjust the rotation of the board." : {
+
+    },
+    "Adjust the size of the board." : {
+
+    },
     "Apple official support page" : {
       "localizations" : {
         "ja" : {
@@ -157,6 +166,9 @@
     "Leave\nactivity" : {
 
     },
+    "Open the toolbar at the bottom of a board." : {
+
+    },
     "PersonaChess" : {
       "localizations" : {
         "ja" : {
@@ -227,6 +239,12 @@
         }
       }
     },
+    "The Reset feature allows you to restart the chess game from the beginning." : {
+
+    },
+    "The Undo feature allows you to take back your last move." : {
+
+    },
     "Undo" : {
 
     },
@@ -269,9 +287,6 @@
           }
         }
       }
-    },
-    "You can change the board’s size and height, rotation." : {
-
     },
     "You can change the board’s size and height." : {
       "extractionState" : "stale",
