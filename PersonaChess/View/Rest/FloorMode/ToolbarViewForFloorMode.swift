@@ -39,27 +39,72 @@ struct ToolbarViewForFloorMode: View {
                             .frame(width: Self.circleButtonSize,
                                    height: Self.circleButtonSize)
                     }
+                    Divider()
+                        .frame(height: Self.circleButtonSize)
+                    Button {
+                        self.model.execute(.undo)
+                    } label: {
+                        Image(systemName: "arrow.uturn.backward")
+                            .frame(width: Self.circleButtonSize,
+                                   height: Self.circleButtonSize)
+                    }
+                    .accessibilityLabel("Undo")
+                    .disabled(self.model.activityState.chess.log.isEmpty)
+                    Button {
+                        self.model.execute(.reset)
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise")
+                            .frame(width: Self.circleButtonSize,
+                                   height: Self.circleButtonSize)
+                    }
+                    .accessibilityLabel("Reset")
+                    .disabled(self.model.activityState.chess.isPreset)
                 }
                 .buttonBorderShape(.circle)
-                Button {
-                    self.model.execute(.undo)
-                } label: {
-                    Label("Undo", systemImage: "arrow.uturn.backward")
-                        .padding(8)
+                Divider()
+                    .frame(height: Self.circleButtonSize)
+                if self.model.groupSession?.state == .joined {
+                    Button {
+                        self.model.groupSession?.leave()
+                    } label: {
+                        Label("""
+                              Leave
+                              activity
+                              """,
+                              systemImage: "escape")
+                        .minimumScaleFactor(0.5)
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 8)
+                        .frame(height: Self.circleButtonSize)
+                    }
+                    Button {
+                        self.model.groupSession?.end()
+                    } label: {
+                        Label("""
+                              End
+                              activity
+                              """,
+                              systemImage: "stop.fill")
+                        .minimumScaleFactor(0.5)
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 8)
+                        .frame(height: Self.circleButtonSize)
+                    }
+                    Divider()
+                        .frame(height: Self.circleButtonSize)
                 }
-                .disabled(self.model.activityState.chess.log.isEmpty)
-                Button {
-                    self.model.execute(.reset)
-                } label: {
-                    Label("Reset", systemImage: "arrow.counterclockwise")
-                        .padding(8)
-                }
-                .disabled(self.model.activityState.chess.isPreset)
                 Button {
                     Task { await self.dismissImmersiveSpace() }
                 } label: {
-                    Label("Close", systemImage: "power.dotted")
-                        .padding(8)
+                    Label("""
+                          Close
+                          app
+                          """,
+                          systemImage: "power.dotted")
+                    .minimumScaleFactor(0.5)
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 8)
+                    .frame(height: Self.circleButtonSize)
                 }
             }
             .buttonStyle(.plain)
