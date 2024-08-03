@@ -56,7 +56,7 @@ enum 🗒️StaticInfo {
                 ]
                 case .View: [
                     "ContentView.swift",
-                    "ToolbarViewForFloorMode.swift",
+                    "ToolbarViewOnHand.swift",
                     "FloorModeDividers.swift",
                     "SharePlayMenu.swift"
                 ]

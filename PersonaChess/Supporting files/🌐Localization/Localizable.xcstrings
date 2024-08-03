@@ -77,7 +77,13 @@
     "Close\napp" : {
 
     },
+    "Close app" : {
+
+    },
     "End\nactivity" : {
+
+    },
+    "End activity" : {
 
     },
     "Enter full space" : {
@@ -163,7 +169,13 @@
         }
       }
     },
+    "Larger" : {
+
+    },
     "Leave\nactivity" : {
+
+    },
+    "Leave activity" : {
 
     },
     "Open the toolbar at the bottom of a board." : {
@@ -189,6 +201,9 @@
         }
       }
     },
+    "Rotate" : {
+
+    },
     "Set up SharePlay" : {
       "localizations" : {
         "ja" : {
@@ -208,6 +223,9 @@
           }
         }
       }
+    },
+    "Smaller" : {
+
     },
     "Start \"Share chess\" activity" : {
       "localizations" : {

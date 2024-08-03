@@ -90,9 +90,9 @@
 		167948D52BC6A60B004DFF4B /* 🗒️StaticInfo.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489F2BC66BA2004DFF4B /* 🗒️StaticInfo.swift */; };
 		167948D62BC6A60B004DFF4B /* ℹ️AboutApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489E2BC66BA2004DFF4B /* ℹ️AboutApp.swift */; };
 		1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */; };
-		16910D5E2BC90EC600373BAD /* ToolbarViewForFloorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16910D5D2BC90EC600373BAD /* ToolbarViewForFloorMode.swift */; };
+		16910D5E2BC90EC600373BAD /* ToolbarViewOnHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16910D5D2BC90EC600373BAD /* ToolbarViewOnHand.swift */; };
 		16910D602BC90EED00373BAD /* FloorModeDividers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */; };
-		16910D612BC9180500373BAD /* ToolbarViewForFloorMode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16910D5D2BC90EC600373BAD /* ToolbarViewForFloorMode.swift */; };
+		16910D612BC9180500373BAD /* ToolbarViewOnHand.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16910D5D2BC90EC600373BAD /* ToolbarViewOnHand.swift */; };
 		16910D622BC9180500373BAD /* FloorModeDividers.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */; };
 		169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
@@ -127,7 +127,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
-				16910D612BC9180500373BAD /* ToolbarViewForFloorMode.swift in CopyFiles */,
+				16910D612BC9180500373BAD /* ToolbarViewOnHand.swift in CopyFiles */,
 				16910D622BC9180500373BAD /* FloorModeDividers.swift in CopyFiles */,
 				167948BA2BC6A60B004DFF4B /* App.swift in CopyFiles */,
 				167948BB2BC6A60B004DFF4B /* AppModel.swift in CopyFiles */,
@@ -217,7 +217,7 @@
 		167C0DFD2BDA14C500229714 /* Reality Composer editor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer editor.jpg"; sourceTree = "<group>"; };
 		1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceOpacitySystem.swift; sourceTree = "<group>"; };
 		169056A12C5A07CA001A1DEC /* TargetScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetScene.swift; sourceTree = "<group>"; };
-		16910D5D2BC90EC600373BAD /* ToolbarViewForFloorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewForFloorMode.swift; sourceTree = "<group>"; };
+		16910D5D2BC90EC600373BAD /* ToolbarViewOnHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewOnHand.swift; sourceTree = "<group>"; };
 		16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorModeDividers.swift; sourceTree = "<group>"; };
 		169333A12B75A7B500B60E0F /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
@@ -334,6 +334,7 @@
 			children = (
 				1671A1672B74A040009A87A6 /* ToolbarsView.swift */,
 				161A740E2B6A4FC10057FD17 /* ToolbarView.swift */,
+				16910D5D2BC90EC600373BAD /* ToolbarViewOnHand.swift */,
 				1671A1642B749F2B009A87A6 /* ToolbarPosition.swift */,
 			);
 			path = Toolbar;
@@ -501,7 +502,6 @@
 		16910D5C2BC90EA900373BAD /* FloorMode */ = {
 			isa = PBXGroup;
 			children = (
-				16910D5D2BC90EC600373BAD /* ToolbarViewForFloorMode.swift */,
 				16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */,
 			);
 			path = FloorMode;
@@ -752,7 +752,7 @@
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				16780FF62B6881DB005A0244 /* ContentView.swift in Sources */,
 				1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */,
-				16910D5E2BC90EC600373BAD /* ToolbarViewForFloorMode.swift in Sources */,
+				16910D5E2BC90EC600373BAD /* ToolbarViewOnHand.swift in Sources */,
 				169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */,
 				16F972772B68B7FB00711C53 /* Size.swift in Sources */,
 				161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */,
