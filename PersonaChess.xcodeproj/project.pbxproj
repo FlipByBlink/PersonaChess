@@ -283,7 +283,7 @@
 			path = "iOS for debug";
 			sourceTree = "<group>";
 		};
-		1662F1512B89F3C90024763B /* Chess */ = {
+		1662F1512B89F3C90024763B /* View */ = {
 			isa = PBXGroup;
 			children = (
 				1671A1592B720778009A87A6 /* ChessView.swift */,
@@ -291,8 +291,9 @@
 				165EC6A42B69153B0005172B /* SquareView.swift */,
 				1671A1662B74A013009A87A6 /* Toolbar */,
 				1671A16A2B74A872009A87A6 /* RealityKit scope */,
+				1671A1582B720747009A87A6 /* Rest */,
 			);
-			path = Chess;
+			path = View;
 			sourceTree = "<group>";
 		};
 		1671A1552B720659009A87A6 /* Supporting files */ = {
@@ -322,9 +323,8 @@
 		1671A1582B720747009A87A6 /* Rest */ = {
 			isa = PBXGroup;
 			children = (
-				16910D5C2BC90EA900373BAD /* FloorMode */,
 				16312B522B75BB52006A93D1 /* SharePlayMenu.swift */,
-				16F972762B68B7FB00711C53 /* Size.swift */,
+				16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -334,8 +334,8 @@
 			children = (
 				1671A1672B74A040009A87A6 /* ToolbarsView.swift */,
 				161A740E2B6A4FC10057FD17 /* ToolbarView.swift */,
-				16910D5D2BC90EC600373BAD /* ToolbarViewOnHand.swift */,
 				1671A1642B749F2B009A87A6 /* ToolbarPosition.swift */,
+				16910D5D2BC90EC600373BAD /* ToolbarViewOnHand.swift */,
 			);
 			path = Toolbar;
 			sourceTree = "<group>";
@@ -440,6 +440,7 @@
 		167948B52BC67612004DFF4B /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				16F972762B68B7FB00711C53 /* Size.swift */,
 				165EC69F2B6901670005172B /* Action.swift */,
 				16AE50272B70FE3100D25197 /* SoundFeedback.swift */,
 				1679489D2BC66B88004DFF4B /* Rest */,
@@ -499,14 +500,6 @@
 			path = ver1.0;
 			sourceTree = "<group>";
 		};
-		16910D5C2BC90EA900373BAD /* FloorMode */ = {
-			isa = PBXGroup;
-			children = (
-				16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */,
-			);
-			path = FloorMode;
-			sourceTree = "<group>";
-		};
 		169C00162B4A9BE0001242F5 = {
 			isa = PBXGroup;
 			children = (
@@ -531,23 +524,14 @@
 			children = (
 				169C00262B4A9BE0001242F5 /* App.swift */,
 				165EC69D2B68C5E30005172B /* AppModel.swift */,
+				16780FF52B6881DB005A0244 /* ContentView.swift */,
 				1671A16C2B74A8A5009A87A6 /* ActivityState */,
-				16A0F0862B89FE2900EC0FE8 /* View */,
+				1662F1512B89F3C90024763B /* View */,
 				1671A16B2B74A89B009A87A6 /* SharePlay */,
 				167948B52BC67612004DFF4B /* Rest */,
 				1671A1552B720659009A87A6 /* Supporting files */,
 			);
 			path = PersonaChess;
-			sourceTree = "<group>";
-		};
-		16A0F0862B89FE2900EC0FE8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				16780FF52B6881DB005A0244 /* ContentView.swift */,
-				1662F1512B89F3C90024763B /* Chess */,
-				1671A1582B720747009A87A6 /* Rest */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		16EA6A642B6875CA00A3A740 /* Piece */ = {

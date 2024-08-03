@@ -32,8 +32,8 @@ enum 🗒️StaticInfo {
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main,
              ActivityState,
-             View,
              ChessView,
+             SubView,
              RealityKitScope,
              Size,
              SharePlay,
@@ -43,7 +43,8 @@ enum 🗒️StaticInfo {
             switch self {
                 case .main: [
                     "App.swift",
-                    "AppModel.swift"
+                    "AppModel.swift",
+                    "ContentView.swift"
                 ]
                 case .ActivityState: [
                     "ActivityState.swift",
@@ -54,19 +55,18 @@ enum 🗒️StaticInfo {
                     "Side.swift",
                     "Mode.swift"
                 ]
-                case .View: [
-                    "ContentView.swift",
-                    "ToolbarViewOnHand.swift",
-                    "FloorModeDividers.swift",
-                    "SharePlayMenu.swift"
-                ]
                 case .ChessView: [
                     "ChessView.swift",
                     "BoardView.swift",
                     "SquareView.swift",
                     "ToolbarsView.swift",
+                    "ToolbarView.swift",
                     "ToolbarPosition.swift",
-                    "ToolbarView.swift"
+                    "ToolbarViewOnHand.swift"
+                ]
+                case .SubView: [
+                    "SharePlayMenu.swift",
+                    "FloorModeDividers.swift"
                 ]
                 case .RealityKitScope: [
                     "PieceEntity.swift",

@@ -138,8 +138,26 @@ private extension SharePlayMenu {
     private func aboutOptionsMenu() -> some View {
         List {
             Section {
-                Label("Open the toolbar at the bottom of a board.",
-                      systemImage: "ellipsis")
+                HStack(spacing: 24) {
+                    Label("Open the toolbar at the bottom of a board.",
+                          systemImage: "ellipsis")                
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 360)
+                        .clipShape(.rect(cornerRadius: 6))
+                }
+                .padding()
+                HStack(spacing: 24) {
+                    Label("Open the toolbar on your left wrist.",
+                          systemImage: "line.horizontal.3")
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 360)
+                        .clipShape(.rect(cornerRadius: 6))
+                }
+                .padding()
             }
             Section {
                 Label("Adjust the rotation of the board.",
