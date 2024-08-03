@@ -4,6 +4,7 @@ import GroupActivities
 struct SharePlayMenu: View {
     @EnvironmentObject var model: AppModel
     @StateObject private var groupStateObserver = GroupStateObserver()
+    @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         NavigationStack {
             List {
@@ -44,7 +45,7 @@ struct SharePlayMenu: View {
         .animation(.default, value: self.isEligibleForGroupSession)
         .frame(width: 1000, height: 700)
         .offset(y: -1800)
-        .offset(z: -1800)
+        .offset(z: -1200 - Size.Point.board(self.physicalMetrics))
     }
 }
 
