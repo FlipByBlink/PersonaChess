@@ -13,6 +13,6 @@ struct ContentView: View {
         .animation(.default, value: self.model.activityState.viewScale)
         .animation(.default, value: self.model.activityState.viewHeight)
         .overlay { ToolbarViewOnHand() }
-        .overlay { SharePlayMenu() }
+        .overlay { MainMenu() }
     }
 }

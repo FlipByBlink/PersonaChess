@@ -65,7 +65,7 @@ enum 🗒️StaticInfo {
                     "ToolbarViewOnHand.swift"
                 ]
                 case .SubView: [
-                    "SharePlayMenu.swift",
+                    "MainMenu.swift",
                     "FloorModeDividers.swift"
                 ]
                 case .RealityKitScope: [

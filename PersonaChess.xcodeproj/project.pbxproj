@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1619D2482B834AA500F7FE0A /* ToolbarPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1642B749F2B009A87A6 /* ToolbarPosition.swift */; };
 		161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A740E2B6A4FC10057FD17 /* ToolbarView.swift */; };
-		16312B532B75BB52006A93D1 /* SharePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B522B75BB52006A93D1 /* SharePlayMenu.swift */; };
+		16312B532B75BB52006A93D1 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B522B75BB52006A93D1 /* MainMenu.swift */; };
 		16312B5B2B75D0FB006A93D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* App.swift */; };
 		16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5C2B75D0FB006A93D1 /* ContentView.swift */; };
 		16312B5F2B75D0FD006A93D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16312B5E2B75D0FD006A93D1 /* Assets.xcassets */; };
@@ -25,7 +25,7 @@
 		16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
 		16312B722B75D201006A93D1 /* PieceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1602B72354F009A87A6 /* PieceEntity.swift */; };
 		16312B762B75D45B006A93D1 /* ChessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B732B75D45A006A93D1 /* ChessView.swift */; };
-		16312B772B75D45B006A93D1 /* SharePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B742B75D45B006A93D1 /* SharePlayMenu.swift */; };
+		16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B742B75D45B006A93D1 /* MainMenu.swift */; };
 		16312B782B75D45B006A93D1 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B752B75D45B006A93D1 /* ToolbarView.swift */; };
 		16312B792B75D570006A93D1 /* putSound4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1732B74C638009A87A6 /* putSound4.m4a */; };
 		16312B7A2B75D570006A93D1 /* putSound2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1712B74C637009A87A6 /* putSound2.m4a */; };
@@ -39,6 +39,10 @@
 		165EC6A02B6901670005172B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* AppGroupActivity.swift */; };
 		165EC6A52B69153B0005172B /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A42B69153B0005172B /* SquareView.swift */; };
+		165F69EA2C5E5F5800604599 /* AboutOptionsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F69E92C5E5F5800604599 /* AboutOptionsMenu.swift */; };
+		165F69ED2C5E5FFE00604599 /* WhatsSharePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F69EC2C5E5FFE00604599 /* WhatsSharePlayMenu.swift */; };
+		165F69EF2C5E600900604599 /* WhatsPersonaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F69EE2C5E600900604599 /* WhatsPersonaMenu.swift */; };
+		165F69F12C5E60F100604599 /* AboutAppLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F69F02C5E60F100604599 /* AboutAppLink.swift */; };
 		1671A15A2B720779009A87A6 /* ChessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1592B720778009A87A6 /* ChessView.swift */; };
 		1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1602B72354F009A87A6 /* PieceEntity.swift */; };
 		1671A1652B749F2B009A87A6 /* ToolbarPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1642B749F2B009A87A6 /* ToolbarPosition.swift */; };
@@ -73,7 +77,7 @@
 		167948C02BC6A60B004DFF4B /* Chessmen.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
 		167948C12BC6A60B004DFF4B /* Side.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16EA6A7F2B68769C00A3A740 /* Side.swift */; };
 		167948C22BC6A60B004DFF4B /* Mode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
-		167948C52BC6A60B004DFF4B /* SharePlayMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16312B522B75BB52006A93D1 /* SharePlayMenu.swift */; };
+		167948C52BC6A60B004DFF4B /* MainMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16312B522B75BB52006A93D1 /* MainMenu.swift */; };
 		167948C62BC6A60B004DFF4B /* ContentView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* ContentView.swift */; };
 		167948C72BC6A60B004DFF4B /* ChessView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1671A1592B720778009A87A6 /* ChessView.swift */; };
 		167948C82BC6A60B004DFF4B /* BoardView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
@@ -138,7 +142,7 @@
 				167948C02BC6A60B004DFF4B /* Chessmen.swift in CopyFiles */,
 				167948C12BC6A60B004DFF4B /* Side.swift in CopyFiles */,
 				167948C22BC6A60B004DFF4B /* Mode.swift in CopyFiles */,
-				167948C52BC6A60B004DFF4B /* SharePlayMenu.swift in CopyFiles */,
+				167948C52BC6A60B004DFF4B /* MainMenu.swift in CopyFiles */,
 				167948C62BC6A60B004DFF4B /* ContentView.swift in CopyFiles */,
 				167948C72BC6A60B004DFF4B /* ChessView.swift in CopyFiles */,
 				167948C82BC6A60B004DFF4B /* BoardView.swift in CopyFiles */,
@@ -164,13 +168,13 @@
 		160805FE2C08050F0064FCB2 /* screenshot1280w2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w2.jpg; sourceTree = "<group>"; };
 		160805FF2C08050F0064FCB2 /* screenshot1280w3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w3.jpg; sourceTree = "<group>"; };
 		161A740E2B6A4FC10057FD17 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
-		16312B522B75BB52006A93D1 /* SharePlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePlayMenu.swift; sourceTree = "<group>"; };
+		16312B522B75BB52006A93D1 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		16312B582B75D0FB006A93D1 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16312B5A2B75D0FB006A93D1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		16312B5C2B75D0FB006A93D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16312B5E2B75D0FD006A93D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16312B732B75D45A006A93D1 /* ChessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessView.swift; sourceTree = "<group>"; };
-		16312B742B75D45B006A93D1 /* SharePlayMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePlayMenu.swift; sourceTree = "<group>"; };
+		16312B742B75D45B006A93D1 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		16312B752B75D45B006A93D1 /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		16312B812B75D581006A93D1 /* iOS for debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS for debug.entitlements"; sourceTree = "<group>"; };
 		165EC69D2B68C5E30005172B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
@@ -178,6 +182,10 @@
 		165EC6A12B6913250005172B /* AppGroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGroupActivity.swift; sourceTree = "<group>"; };
 		165EC6A32B6914430005172B /* PersonaChess.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PersonaChess.entitlements; sourceTree = "<group>"; };
 		165EC6A42B69153B0005172B /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
+		165F69E92C5E5F5800604599 /* AboutOptionsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutOptionsMenu.swift; sourceTree = "<group>"; };
+		165F69EC2C5E5FFE00604599 /* WhatsSharePlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsSharePlayMenu.swift; sourceTree = "<group>"; };
+		165F69EE2C5E600900604599 /* WhatsPersonaMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsPersonaMenu.swift; sourceTree = "<group>"; };
+		165F69F02C5E60F100604599 /* AboutAppLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppLink.swift; sourceTree = "<group>"; };
 		166D208C2B71F6560000EAF6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1671A1572B7206BD009A87A6 /* appstore_badge.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = appstore_badge.svg; sourceTree = "<group>"; };
 		1671A1592B720778009A87A6 /* ChessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessView.swift; sourceTree = "<group>"; };
@@ -275,12 +283,24 @@
 				16312B5C2B75D0FB006A93D1 /* ContentView.swift */,
 				16312B732B75D45A006A93D1 /* ChessView.swift */,
 				16312B752B75D45B006A93D1 /* ToolbarView.swift */,
-				16312B742B75D45B006A93D1 /* SharePlayMenu.swift */,
+				16312B742B75D45B006A93D1 /* MainMenu.swift */,
 				16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */,
 				16312B5E2B75D0FD006A93D1 /* Assets.xcassets */,
 				16312B812B75D581006A93D1 /* iOS for debug.entitlements */,
 			);
 			path = "iOS for debug";
+			sourceTree = "<group>";
+		};
+		165F69EB2C5E5FD100604599 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				16312B522B75BB52006A93D1 /* MainMenu.swift */,
+				165F69EC2C5E5FFE00604599 /* WhatsSharePlayMenu.swift */,
+				165F69EE2C5E600900604599 /* WhatsPersonaMenu.swift */,
+				165F69E92C5E5F5800604599 /* AboutOptionsMenu.swift */,
+				165F69F02C5E60F100604599 /* AboutAppLink.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		1662F1512B89F3C90024763B /* View */ = {
@@ -291,6 +311,7 @@
 				165EC6A42B69153B0005172B /* SquareView.swift */,
 				1671A1662B74A013009A87A6 /* Toolbar */,
 				1671A16A2B74A872009A87A6 /* RealityKit scope */,
+				165F69EB2C5E5FD100604599 /* Menu */,
 				1671A1582B720747009A87A6 /* Rest */,
 			);
 			path = View;
@@ -323,7 +344,6 @@
 		1671A1582B720747009A87A6 /* Rest */ = {
 			isa = PBXGroup;
 			children = (
-				16312B522B75BB52006A93D1 /* SharePlayMenu.swift */,
 				16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */,
 			);
 			path = Rest;
@@ -704,7 +724,7 @@
 				16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */,
 				16312B6B2B75D193006A93D1 /* SoundFeedback.swift in Sources */,
 				16312B762B75D45B006A93D1 /* ChessView.swift in Sources */,
-				16312B772B75D45B006A93D1 /* SharePlayMenu.swift in Sources */,
+				16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */,
 				16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */,
 				16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */,
 				16312B782B75D45B006A93D1 /* ToolbarView.swift in Sources */,
@@ -719,17 +739,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				1671A1652B749F2B009A87A6 /* ToolbarPosition.swift in Sources */,
+				165F69EA2C5E5F5800604599 /* AboutOptionsMenu.swift in Sources */,
 				1671A15A2B720779009A87A6 /* ChessView.swift in Sources */,
 				169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */,
 				165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */,
 				16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
+				165F69F12C5E60F100604599 /* AboutAppLink.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
 				16910D602BC90EED00373BAD /* FloorModeDividers.swift in Sources */,
-				16312B532B75BB52006A93D1 /* SharePlayMenu.swift in Sources */,
+				16312B532B75BB52006A93D1 /* MainMenu.swift in Sources */,
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
 				16780FFB2B689304005A0244 /* Chess.swift in Sources */,
 				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
+				165F69ED2C5E5FFE00604599 /* WhatsSharePlayMenu.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
 				16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */,
 				1671A1682B74A040009A87A6 /* ToolbarsView.swift in Sources */,
@@ -741,6 +764,7 @@
 				16F972772B68B7FB00711C53 /* Size.swift in Sources */,
 				161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
+				165F69EF2C5E600900604599 /* WhatsPersonaMenu.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,
 				16EA6A802B68769C00A3A740 /* Side.swift in Sources */,
