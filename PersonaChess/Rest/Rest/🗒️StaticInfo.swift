@@ -26,16 +26,15 @@ enum 🗒️StaticInfo {
     static let webRepositoryURL: URL = .init(string: "https://github.com/FlipByBlink/PersonaChess")!
     static let webMirrorRepositoryURL: URL = .init(string: "https://gitlab.com/FlipByBlink/PersonaChess_Mirror")!
 
-    static let versionInfos: [(version: String, date: String)] = [("1.1", "2024-08-01"),
+    static let versionInfos: [(version: String, date: String)] = [("1.1", "2024-08-05"),
                                                                   ("1.0", "2024-04-22")] //降順。先頭の方が新しい
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main,
              ActivityState,
              ChessView,
-             SubView,
+             MenuView,
              RealityKitScope,
-             Size,
              SharePlay,
              Rest
         var id: Self { self }
@@ -62,23 +61,25 @@ enum 🗒️StaticInfo {
                     "ToolbarsView.swift",
                     "ToolbarView.swift",
                     "ToolbarPosition.swift",
-                    "ToolbarViewOnHand.swift"
-                ]
-                case .SubView: [
-                    "MainMenu.swift",
+                    "ToolbarViewOnHand.swift",
                     "FloorModeDividers.swift"
+                ]
+                case .MenuView: [
+                    "MainMenu.swift",
+                    "WhatsSharePlayMenu.swift",
+                    "WhatsPersonaMenu.swift",
+                    "AboutOptionsMenu.swift",
+                    "AboutAppLink.swift"
                 ]
                 case .RealityKitScope: [
                     "PieceEntity.swift",
                     "PieceOpacitySystem.swift"
                 ]
-                case .Size: [
-                    "Size.swift"
-                ]
                 case .SharePlay: [
                     "AppGroupActivity.swift"
                 ]
                 case .Rest: [
+                    "Size.swift",
                     "Action.swift",
                     "SoundFeedback.swift",
                     "🗒️StaticInfo.swift",

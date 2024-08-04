@@ -105,6 +105,10 @@
 		16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
 		16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
 		16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */; };
+		16DEAAD22C5F96A5006A85B5 /* WhatsSharePlayMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165F69EC2C5E5FFE00604599 /* WhatsSharePlayMenu.swift */; };
+		16DEAAD32C5F96A5006A85B5 /* WhatsPersonaMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165F69EE2C5E600900604599 /* WhatsPersonaMenu.swift */; };
+		16DEAAD42C5F96A5006A85B5 /* AboutOptionsMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165F69E92C5E5F5800604599 /* AboutOptionsMenu.swift */; };
+		16DEAAD52C5F96A5006A85B5 /* AboutAppLink.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165F69F02C5E60F100604599 /* AboutAppLink.swift */; };
 		16EA6A712B6875CA00A3A740 /* rookW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A652B6875CA00A3A740 /* rookW.reality */; };
 		16EA6A722B6875CA00A3A740 /* rookB.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A662B6875CA00A3A740 /* rookB.reality */; };
 		16EA6A732B6875CA00A3A740 /* bishopW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A672B6875CA00A3A740 /* bishopW.reality */; };
@@ -131,6 +135,10 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				16DEAAD22C5F96A5006A85B5 /* WhatsSharePlayMenu.swift in CopyFiles */,
+				16DEAAD32C5F96A5006A85B5 /* WhatsPersonaMenu.swift in CopyFiles */,
+				16DEAAD42C5F96A5006A85B5 /* AboutOptionsMenu.swift in CopyFiles */,
+				16DEAAD52C5F96A5006A85B5 /* AboutAppLink.swift in CopyFiles */,
 				16910D612BC9180500373BAD /* ToolbarViewOnHand.swift in CopyFiles */,
 				16910D622BC9180500373BAD /* FloorModeDividers.swift in CopyFiles */,
 				167948BA2BC6A60B004DFF4B /* App.swift in CopyFiles */,
@@ -291,19 +299,7 @@
 			path = "iOS for debug";
 			sourceTree = "<group>";
 		};
-		165F69EB2C5E5FD100604599 /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				16312B522B75BB52006A93D1 /* MainMenu.swift */,
-				165F69EC2C5E5FFE00604599 /* WhatsSharePlayMenu.swift */,
-				165F69EE2C5E600900604599 /* WhatsPersonaMenu.swift */,
-				165F69E92C5E5F5800604599 /* AboutOptionsMenu.swift */,
-				165F69F02C5E60F100604599 /* AboutAppLink.swift */,
-			);
-			path = Menu;
-			sourceTree = "<group>";
-		};
-		1662F1512B89F3C90024763B /* View */ = {
+		1662F1512B89F3C90024763B /* ChessView */ = {
 			isa = PBXGroup;
 			children = (
 				1671A1592B720778009A87A6 /* ChessView.swift */,
@@ -311,10 +307,9 @@
 				165EC6A42B69153B0005172B /* SquareView.swift */,
 				1671A1662B74A013009A87A6 /* Toolbar */,
 				1671A16A2B74A872009A87A6 /* RealityKit scope */,
-				165F69EB2C5E5FD100604599 /* Menu */,
 				1671A1582B720747009A87A6 /* Rest */,
 			);
-			path = View;
+			path = ChessView;
 			sourceTree = "<group>";
 		};
 		1671A1552B720659009A87A6 /* Supporting files */ = {
@@ -546,12 +541,25 @@
 				165EC69D2B68C5E30005172B /* AppModel.swift */,
 				16780FF52B6881DB005A0244 /* ContentView.swift */,
 				1671A16C2B74A8A5009A87A6 /* ActivityState */,
-				1662F1512B89F3C90024763B /* View */,
+				1662F1512B89F3C90024763B /* ChessView */,
+				16DEAAD12C5F9604006A85B5 /* MenuView */,
 				1671A16B2B74A89B009A87A6 /* SharePlay */,
 				167948B52BC67612004DFF4B /* Rest */,
 				1671A1552B720659009A87A6 /* Supporting files */,
 			);
 			path = PersonaChess;
+			sourceTree = "<group>";
+		};
+		16DEAAD12C5F9604006A85B5 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				16312B522B75BB52006A93D1 /* MainMenu.swift */,
+				165F69EC2C5E5FFE00604599 /* WhatsSharePlayMenu.swift */,
+				165F69EE2C5E600900604599 /* WhatsPersonaMenu.swift */,
+				165F69E92C5E5F5800604599 /* AboutOptionsMenu.swift */,
+				165F69F02C5E60F100604599 /* AboutAppLink.swift */,
+			);
+			path = MenuView;
 			sourceTree = "<group>";
 		};
 		16EA6A642B6875CA00A3A740 /* Piece */ = {
