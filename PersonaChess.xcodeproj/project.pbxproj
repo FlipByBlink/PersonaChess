@@ -35,6 +35,8 @@
 		16312B7E2B75D570006A93D1 /* putSound1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A17E2B74C7ED009A87A6 /* putSound1.m4a */; };
 		16312B7F2B75D570006A93D1 /* putSound5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A16E2B74C635009A87A6 /* putSound5.m4a */; };
 		16312B802B75D570006A93D1 /* putSound3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A16D2B74C634009A87A6 /* putSound3.m4a */; };
+		165BB56E2C60B26D00E06F72 /* Wall.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 165BB56C2C60B26D00E06F72 /* Wall.usdz */; };
+		165BB56F2C60B26D00E06F72 /* Plane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 165BB56D2C60B26D00E06F72 /* Plane.usdz */; };
 		165EC69E2B68C5E40005172B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
 		165EC6A02B6901670005172B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* AppGroupActivity.swift */; };
@@ -105,7 +107,6 @@
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
 		169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169C002A2B4A9BE2001242F5 /* Assets.xcassets */; };
 		16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
-		16A499712C60B15700891AF0 /* RecordingRoomContent in Frameworks */ = {isa = PBXBuildFile; productRef = 16A499702C60B15700891AF0 /* RecordingRoomContent */; };
 		16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
 		16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */; };
 		16DEAAD22C5F96A5006A85B5 /* WhatsSharePlayMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165F69EC2C5E5FFE00604599 /* WhatsSharePlayMenu.swift */; };
@@ -178,7 +179,6 @@
 		1601FEF72B4AA42D0050457E /* シンプルボード.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "シンプルボード.reality"; sourceTree = "<group>"; };
 		160805FE2C08050F0064FCB2 /* screenshot1280w2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w2.jpg; sourceTree = "<group>"; };
 		160805FF2C08050F0064FCB2 /* screenshot1280w3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w3.jpg; sourceTree = "<group>"; };
-		160BAC0D2C60B07300165A64 /* RecordingRoomContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RecordingRoomContent; sourceTree = "<group>"; };
 		161A740E2B6A4FC10057FD17 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		16312B522B75BB52006A93D1 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		16312B582B75D0FB006A93D1 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +189,8 @@
 		16312B742B75D45B006A93D1 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		16312B752B75D45B006A93D1 /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		16312B812B75D581006A93D1 /* iOS for debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS for debug.entitlements"; sourceTree = "<group>"; };
+		165BB56C2C60B26D00E06F72 /* Wall.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wall.usdz; sourceTree = "<group>"; };
+		165BB56D2C60B26D00E06F72 /* Plane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Plane.usdz; sourceTree = "<group>"; };
 		165EC69D2B68C5E30005172B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		165EC69F2B6901670005172B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		165EC6A12B6913250005172B /* AppGroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGroupActivity.swift; sourceTree = "<group>"; };
@@ -284,7 +286,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16A499712C60B15700891AF0 /* RecordingRoomContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,8 +528,9 @@
 		1699317E2C609ADB00B6AA8B /* RecordingRoom */ = {
 			isa = PBXGroup;
 			children = (
+				165BB56D2C60B26D00E06F72 /* Plane.usdz */,
+				165BB56C2C60B26D00E06F72 /* Wall.usdz */,
 				168080E62C609C5500416946 /* RoomItems.reality */,
-				160BAC0D2C60B07300165A64 /* RecordingRoomContent */,
 			);
 			path = RecordingRoom;
 			sourceTree = "<group>";
@@ -635,7 +637,6 @@
 			);
 			name = PersonaChess;
 			packageProductDependencies = (
-				16A499702C60B15700891AF0 /* RecordingRoomContent */,
 			);
 			productName = SpatialChess;
 			productReference = 169C001F2B4A9BE0001242F5 /* PersonaChess.app */;
@@ -709,6 +710,7 @@
 				16EA6A732B6875CA00A3A740 /* bishopW.reality in Resources */,
 				1671A1792B74C63A009A87A6 /* putSound2.m4a in Resources */,
 				168080E72C609C5500416946 /* RoomItems.reality in Resources */,
+				165BB56E2C60B26D00E06F72 /* Wall.usdz in Resources */,
 				169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */,
 				1671A1752B74C63A009A87A6 /* putSound3.m4a in Resources */,
 				167948A72BC66BD1004DFF4B /* 🌐AboutApp.xcstrings in Resources */,
@@ -719,6 +721,7 @@
 				167948A32BC66BB6004DFF4B /* Developer_Publisher.xcassets in Resources */,
 				1671A1762B74C63A009A87A6 /* putSound5.m4a in Resources */,
 				1671A17C2B74C63A009A87A6 /* resetSound.m4a in Resources */,
+				165BB56F2C60B26D00E06F72 /* Plane.usdz in Resources */,
 				16EA6A722B6875CA00A3A740 /* rookB.reality in Resources */,
 				1671A17A2B74C63A009A87A6 /* selectSound.m4a in Resources */,
 				16EA6A742B6875CA00A3A740 /* bishopB.reality in Resources */,
@@ -1078,13 +1081,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		16A499702C60B15700891AF0 /* RecordingRoomContent */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RecordingRoomContent;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 169C00172B4A9BE0001242F5 /* Project object */;
 }

@@ -1,6 +1,5 @@
 import SwiftUI
 import RealityKit
-import RecordingRoomContent
 
 struct RecordingRoom: View {
     @EnvironmentObject var model: AppModel
@@ -15,13 +14,11 @@ struct RecordingRoom: View {
                                          relativeTo: nil)
                     content.add(clone)
                 }
-                if let entity = try? await Entity(named: "Wall",
-                                                  in: recordingRoomContentBundle) {
+                if let entity = try? await Entity(named: "Wall") {
                     entity.scale.x *= -1
                     content.add(entity)
                 }
-                if let entity = try? await Entity(named: "Plane",
-                                                  in: recordingRoomContentBundle) {
+                if let entity = try? await Entity(named: "Plane") {
                     content.add(entity)
                 }
                 self.startedFadeIn = true
