@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "・This option is intended to hide the passthrough view.\n・Please set this option before starting SharePlay.\n・This option will not be applied to the call recipient." : {
+
+    },
     "About App" : {
       "localizations" : {
         "ja" : {
@@ -267,9 +270,6 @@
 
     },
     "The Undo feature allows you to take back your last move." : {
-
-    },
-    "This option is intended to hide the passthrough view." : {
 
     },
     "Undo" : {

@@ -5,9 +5,10 @@ struct AboutOptionsMenu: View {
     var body: some View {
         List {
             Section {
-                HStack(spacing: 24) {
+                HStack(spacing: 16) {
                     Label("Open the toolbar at the bottom of a board.",
                           systemImage: "ellipsis")
+                    Spacer()
                     Image(systemName: "photo")
                         .resizable()
                         .scaledToFit()
@@ -15,9 +16,10 @@ struct AboutOptionsMenu: View {
                         .clipShape(.rect(cornerRadius: 6))
                 }
                 .padding()
-                HStack(spacing: 24) {
+                HStack(spacing: 16) {
                     Label("Open the toolbar on your left wrist.",
                           systemImage: "line.horizontal.3")
+                    Spacer()
                     Image(systemName: "photo")
                         .resizable()
                         .scaledToFit()
@@ -41,9 +43,10 @@ struct AboutOptionsMenu: View {
                       systemImage: "arrow.counterclockwise")
             }
             Section {
-                HStack(spacing: 24) {
+                HStack(spacing: 16) {
                     Label("By setting the board’s height equal to the floor, the board will seamlessly integrate with the floor.",
                           systemImage: "arrow.down.to.line")
+                    Spacer()
                     Image(.floorModeExample)
                         .resizable()
                         .scaledToFit()
@@ -58,7 +61,11 @@ struct AboutOptionsMenu: View {
                           systemImage: "rectangle.dashed.badge.record")
                 }
             } footer: {
-                Text("This option is intended to hide the passthrough view.")
+                Text("""
+                     ・This option is intended to hide the passthrough view.
+                     ・Please set this option before starting SharePlay.
+                     ・This option will not be applied to the call recipient.
+                     """)
             }
         }
         .navigationTitle("About options")

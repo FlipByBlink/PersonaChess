@@ -107,6 +107,7 @@
 		16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
 		16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
 		16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */; };
+		16D376252C60E2E000B13E3B /* RecordingRoom.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 168080E82C609D0000416946 /* RecordingRoom.swift */; };
 		16DEAAD22C5F96A5006A85B5 /* WhatsSharePlayMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165F69EC2C5E5FFE00604599 /* WhatsSharePlayMenu.swift */; };
 		16DEAAD32C5F96A5006A85B5 /* WhatsPersonaMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165F69EE2C5E600900604599 /* WhatsPersonaMenu.swift */; };
 		16DEAAD42C5F96A5006A85B5 /* AboutOptionsMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165F69E92C5E5F5800604599 /* AboutOptionsMenu.swift */; };
@@ -137,6 +138,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				16D376252C60E2E000B13E3B /* RecordingRoom.swift in CopyFiles */,
 				16DEAAD22C5F96A5006A85B5 /* WhatsSharePlayMenu.swift in CopyFiles */,
 				16DEAAD32C5F96A5006A85B5 /* WhatsPersonaMenu.swift in CopyFiles */,
 				16DEAAD42C5F96A5006A85B5 /* AboutOptionsMenu.swift in CopyFiles */,
