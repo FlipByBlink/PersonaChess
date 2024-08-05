@@ -99,9 +99,7 @@
 		168080E92C609D0000416946 /* RecordingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168080E82C609D0000416946 /* RecordingRoom.swift */; };
 		1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */; };
 		16910D5E2BC90EC600373BAD /* ToolbarViewOnHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16910D5D2BC90EC600373BAD /* ToolbarViewOnHand.swift */; };
-		16910D602BC90EED00373BAD /* FloorModeDividers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */; };
 		16910D612BC9180500373BAD /* ToolbarViewOnHand.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16910D5D2BC90EC600373BAD /* ToolbarViewOnHand.swift */; };
-		16910D622BC9180500373BAD /* FloorModeDividers.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */; };
 		169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
@@ -144,7 +142,6 @@
 				16DEAAD42C5F96A5006A85B5 /* AboutOptionsMenu.swift in CopyFiles */,
 				16DEAAD52C5F96A5006A85B5 /* AboutAppLink.swift in CopyFiles */,
 				16910D612BC9180500373BAD /* ToolbarViewOnHand.swift in CopyFiles */,
-				16910D622BC9180500373BAD /* FloorModeDividers.swift in CopyFiles */,
 				167948BA2BC6A60B004DFF4B /* App.swift in CopyFiles */,
 				167948BB2BC6A60B004DFF4B /* AppModel.swift in CopyFiles */,
 				167948BC2BC6A60B004DFF4B /* ActivityState.swift in CopyFiles */,
@@ -242,7 +239,6 @@
 		1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceOpacitySystem.swift; sourceTree = "<group>"; };
 		169056A12C5A07CA001A1DEC /* TargetScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetScene.swift; sourceTree = "<group>"; };
 		16910D5D2BC90EC600373BAD /* ToolbarViewOnHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewOnHand.swift; sourceTree = "<group>"; };
-		16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorModeDividers.swift; sourceTree = "<group>"; };
 		169333A12B75A7B500B60E0F /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		169C001F2B4A9BE0001242F5 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -347,7 +343,6 @@
 		1671A1582B720747009A87A6 /* Rest */ = {
 			isa = PBXGroup;
 			children = (
-				16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */,
 				168080E82C609D0000416946 /* RecordingRoom.swift */,
 			);
 			path = Rest;
@@ -779,7 +774,6 @@
 				165F69F12C5E60F100604599 /* AboutAppLink.swift in Sources */,
 				168080E92C609D0000416946 /* RecordingRoom.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
-				16910D602BC90EED00373BAD /* FloorModeDividers.swift in Sources */,
 				16312B532B75BB52006A93D1 /* MainMenu.swift in Sources */,
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
 				16780FFB2B689304005A0244 /* Chess.swift in Sources */,

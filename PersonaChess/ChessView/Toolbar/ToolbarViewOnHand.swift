@@ -36,7 +36,7 @@ private extension ToolbarViewOnHand {
                 .buttonStyle(.plain)
                 .glassBackgroundEffect()
                 .offset(x: -20)
-                .opacity(0.3)
+                .opacity(0.5)
                 .opacity(self.isExpanded ? 0 : 1)
                 VStack(spacing: 14) {
                     Button {

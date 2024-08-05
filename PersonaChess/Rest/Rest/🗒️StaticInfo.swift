@@ -62,7 +62,7 @@ enum 🗒️StaticInfo {
                     "ToolbarView.swift",
                     "ToolbarPosition.swift",
                     "ToolbarViewOnHand.swift",
-                    "FloorModeDividers.swift"
+                    "RecordingRoom.swift"
                 ]
                 case .MenuView: [
                     "MainMenu.swift",

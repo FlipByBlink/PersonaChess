@@ -7,6 +7,10 @@ struct PersonaChessApp: App {
         ImmersiveSpace {
             ContentView()
                 .environmentObject(self.model)
+                .task {
+                    try? await Task.sleep(for: .seconds(2))
+                    self.model.lowerToFloor()
+                }
         }
     }
     init() {
