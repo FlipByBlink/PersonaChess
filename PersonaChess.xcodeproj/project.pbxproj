@@ -503,13 +503,6 @@
 			path = "Example rcproject file";
 			sourceTree = "<group>";
 		};
-		168080E32C609BC100416946 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		1690569E2C5A0640001A1DEC /* ver0.x */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,7 +540,6 @@
 				169C00212B4A9BE0001242F5 /* PersonaChess */,
 				16312B592B75D0FB006A93D1 /* iOS for debug */,
 				169C00202B4A9BE0001242F5 /* Products */,
-				168080E32C609BC100416946 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
