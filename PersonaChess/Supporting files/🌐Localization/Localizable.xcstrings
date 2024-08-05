@@ -80,6 +80,9 @@
     "Close app" : {
 
     },
+    "Display an environment for screen recording" : {
+
+    },
     "End\nactivity" : {
 
     },
@@ -264,6 +267,9 @@
 
     },
     "The Undo feature allows you to take back your last move." : {
+
+    },
+    "This option is intended to hide the passthrough view." : {
 
     },
     "Undo" : {

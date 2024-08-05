@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct AboutOptionsMenu: View {
+    @EnvironmentObject var model: AppModel
     var body: some View {
         List {
             Section {
@@ -50,6 +51,14 @@ struct AboutOptionsMenu: View {
                         .clipShape(.rect(cornerRadius: 6))
                 }
                 .padding()
+            }
+            Section {
+                Toggle(isOn: self.$model.showRecordingRoom) {
+                    Label("Display an environment for screen recording",
+                          systemImage: "rectangle.dashed.badge.record")
+                }
+            } footer: {
+                Text("This option is intended to hide the passthrough view.")
             }
         }
         .navigationTitle("About options")

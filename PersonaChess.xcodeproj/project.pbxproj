@@ -93,6 +93,9 @@
 		167948D42BC6A60B004DFF4B /* SoundFeedback.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
 		167948D52BC6A60B004DFF4B /* 🗒️StaticInfo.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489F2BC66BA2004DFF4B /* 🗒️StaticInfo.swift */; };
 		167948D62BC6A60B004DFF4B /* ℹ️AboutApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489E2BC66BA2004DFF4B /* ℹ️AboutApp.swift */; };
+		168080E52C609BC200416946 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 168080E42C609BC200416946 /* RealityKitContent */; };
+		168080E72C609C5500416946 /* RoomItems.reality in Resources */ = {isa = PBXBuildFile; fileRef = 168080E62C609C5500416946 /* RoomItems.reality */; };
+		168080E92C609D0000416946 /* RecordingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168080E82C609D0000416946 /* RecordingRoom.swift */; };
 		1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */; };
 		16910D5E2BC90EC600373BAD /* ToolbarViewOnHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16910D5D2BC90EC600373BAD /* ToolbarViewOnHand.swift */; };
 		16910D602BC90EED00373BAD /* FloorModeDividers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */; };
@@ -231,11 +234,14 @@
 		167C0DFB2BDA14C500229714 /* Reality Composer buildin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer buildin.jpg"; sourceTree = "<group>"; };
 		167C0DFC2BDA14C500229714 /* Reality Composer export2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer export2.jpg"; sourceTree = "<group>"; };
 		167C0DFD2BDA14C500229714 /* Reality Composer editor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer editor.jpg"; sourceTree = "<group>"; };
+		168080E62C609C5500416946 /* RoomItems.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = RoomItems.reality; sourceTree = "<group>"; };
+		168080E82C609D0000416946 /* RecordingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRoom.swift; sourceTree = "<group>"; };
 		1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceOpacitySystem.swift; sourceTree = "<group>"; };
 		169056A12C5A07CA001A1DEC /* TargetScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetScene.swift; sourceTree = "<group>"; };
 		16910D5D2BC90EC600373BAD /* ToolbarViewOnHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewOnHand.swift; sourceTree = "<group>"; };
 		16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorModeDividers.swift; sourceTree = "<group>"; };
 		169333A12B75A7B500B60E0F /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
+		1699317D2C609ADB00B6AA8B /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		169C001F2B4A9BE0001242F5 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		169C00262B4A9BE0001242F5 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -278,6 +284,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				168080E52C609BC200416946 /* RealityKitContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				16910D5F2BC90EED00373BAD /* FloorModeDividers.swift */,
+				168080E82C609D0000416946 /* RecordingRoom.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -448,6 +456,7 @@
 				167948A22BC66BB6004DFF4B /* Developer_Publisher.xcassets */,
 				16EA6A642B6875CA00A3A740 /* Piece */,
 				1671A17D2B74C6B2009A87A6 /* Sound */,
+				1699317E2C609ADB00B6AA8B /* RecordingRoom */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -494,6 +503,13 @@
 			path = "Example rcproject file";
 			sourceTree = "<group>";
 		};
+		168080E32C609BC100416946 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1690569E2C5A0640001A1DEC /* ver0.x */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +531,15 @@
 			path = ver1.0;
 			sourceTree = "<group>";
 		};
+		1699317E2C609ADB00B6AA8B /* RecordingRoom */ = {
+			isa = PBXGroup;
+			children = (
+				168080E62C609C5500416946 /* RoomItems.reality */,
+				1699317D2C609ADB00B6AA8B /* RealityKitContent */,
+			);
+			path = RecordingRoom;
+			sourceTree = "<group>";
+		};
 		169C00162B4A9BE0001242F5 = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +547,7 @@
 				169C00212B4A9BE0001242F5 /* PersonaChess */,
 				16312B592B75D0FB006A93D1 /* iOS for debug */,
 				169C00202B4A9BE0001242F5 /* Products */,
+				168080E32C609BC100416946 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -617,6 +643,7 @@
 			);
 			name = PersonaChess;
 			packageProductDependencies = (
+				168080E42C609BC200416946 /* RealityKitContent */,
 			);
 			productName = SpatialChess;
 			productReference = 169C001F2B4A9BE0001242F5 /* PersonaChess.app */;
@@ -689,6 +716,7 @@
 				167948A82BC66BD1004DFF4B /* 🌐Timeline.xcstrings in Resources */,
 				16EA6A732B6875CA00A3A740 /* bishopW.reality in Resources */,
 				1671A1792B74C63A009A87A6 /* putSound2.m4a in Resources */,
+				168080E72C609C5500416946 /* RoomItems.reality in Resources */,
 				169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */,
 				1671A1752B74C63A009A87A6 /* putSound3.m4a in Resources */,
 				167948A72BC66BD1004DFF4B /* 🌐AboutApp.xcstrings in Resources */,
@@ -754,6 +782,7 @@
 				16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				165F69F12C5E60F100604599 /* AboutAppLink.swift in Sources */,
+				168080E92C609D0000416946 /* RecordingRoom.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
 				16910D602BC90EED00373BAD /* FloorModeDividers.swift in Sources */,
 				16312B532B75BB52006A93D1 /* MainMenu.swift in Sources */,
@@ -1057,6 +1086,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		168080E42C609BC200416946 /* RealityKitContent */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RealityKitContent;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 169C00172B4A9BE0001242F5 /* Project object */;
 }

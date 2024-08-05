@@ -14,5 +14,6 @@ struct ContentView: View {
         .animation(.default, value: self.model.activityState.viewHeight)
         .overlay { ToolbarViewOnHand() }
         .overlay { MainMenu() }
+        .overlay { RecordingRoom() }
     }
 }

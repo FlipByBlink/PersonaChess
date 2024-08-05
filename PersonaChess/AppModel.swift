@@ -16,6 +16,7 @@ class AppModel: ObservableObject {
     @Published private(set) var spatialSharePlaying: Bool?
     
     private let soundFeedback = SoundFeedback()
+    @Published var showRecordingRoom: Bool = false
     
     init() {
         self.configureGroupSessions()
