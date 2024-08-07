@@ -9,7 +9,7 @@ struct AboutOptionsMenu: View {
                     Label("Open the toolbar at the bottom of a board.",
                           systemImage: "ellipsis")
                     Spacer()
-                    Image(systemName: "photo")
+                    Image(.toolbarBottom)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 360)
@@ -20,7 +20,7 @@ struct AboutOptionsMenu: View {
                     Label("Open the toolbar on your left wrist.",
                           systemImage: "line.horizontal.3")
                     Spacer()
-                    Image(systemName: "photo")
+                    Image(.toolbarHand)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 360)
