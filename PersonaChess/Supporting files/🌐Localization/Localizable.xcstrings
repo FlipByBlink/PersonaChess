@@ -2,7 +2,14 @@
   "sourceLanguage" : "en",
   "strings" : {
     "・This option is intended to hide the passthrough view.\n・Please set this option before starting SharePlay.\n・This option will not be applied to the call recipient." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・この オプションはパススルーの映像を隠すためのものです。\n・ carPlayを始める場合に、このオプションを有効にしてください。\n・ このオプションは通話相手側には反映されません。"
+          }
+        }
+      }
     },
     "About App" : {
       "localizations" : {
@@ -25,16 +32,44 @@
       }
     },
     "About options" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オプションについて"
+          }
+        }
+      }
     },
     "Adjust the height of the board." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ボードの高さを調節する。"
+          }
+        }
+      }
     },
     "Adjust the rotation of the board." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ボードの向きを調整する。"
+          }
+        }
+      }
     },
     "Adjust the size of the board." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ボードの大きさを調整する。"
+          }
+        }
+      }
     },
     "Apple official support page" : {
       "localizations" : {
@@ -56,17 +91,6 @@
         }
       }
     },
-    "Back" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "戻る"
-          }
-        }
-      }
-    },
     "By setting the board’s height equal to the floor, the board will seamlessly integrate with the floor." : {
       "localizations" : {
         "ja" : {
@@ -78,49 +102,51 @@
       }
     },
     "Close\napp" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリを\n閉じる"
+          }
+        }
+      }
     },
     "Close app" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリを閉じる"
+          }
+        }
+      }
     },
     "Display an environment for screen recording" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画面収録のための背景環境を表示する"
+          }
+        }
+      }
     },
     "End\nactivity" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アクティビティを\n終了"
+          }
+        }
+      }
     },
     "End activity" : {
-
-    },
-    "Enter full space" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "フルスペースに入る"
-          }
-        }
-      }
-    },
-    "Exit full space" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "フルスペースから抜ける"
-          }
-        }
-      }
-    },
-    "Guide" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ガイド"
+            "value" : "アクティビティを終了"
           }
         }
       }
@@ -176,19 +202,54 @@
       }
     },
     "Larger" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大きくする"
+          }
+        }
+      }
     },
     "Leave\nactivity" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アクティビティ\nを離脱"
+          }
+        }
+      }
     },
     "Leave activity" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アクティビティを離脱"
+          }
+        }
+      }
     },
     "Open the toolbar at the bottom of a board." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ボードの下にあるツールバーを開く。"
+          }
+        }
+      }
     },
     "Open the toolbar on your left wrist." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "左手首にあるツールバーを開く。"
+          }
+        }
+      }
     },
     "PersonaChess" : {
       "localizations" : {
@@ -211,7 +272,14 @@
       }
     },
     "Rotate" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "回転"
+          }
+        }
+      }
     },
     "Set up SharePlay" : {
       "localizations" : {
@@ -234,7 +302,14 @@
       }
     },
     "Smaller" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小さくする"
+          }
+        }
+      }
     },
     "Start \"Share chess\" activity" : {
       "localizations" : {
@@ -267,13 +342,34 @@
       }
     },
     "The Reset feature allows you to restart the chess game from the beginning." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リセット機能でチェスの配置を最初の状態に戻せます。"
+          }
+        }
+      }
     },
     "The Undo feature allows you to take back your last move." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「戻す」機能で一手前の状態に戻せます。"
+          }
+        }
+      }
     },
     "Undo" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "戻す"
+          }
+        }
+      }
     },
     "What's Persona?" : {
       "localizations" : {
@@ -311,17 +407,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "現在、友達と繋がっているようです。友達が立ち上げたアクティビティに参加するか、もしくは自分でアクティビティを起動しましょう。"
-          }
-        }
-      }
-    },
-    "You can change the board’s size and height." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ボードの大きさや高さを変更できます。"
           }
         }
       }
