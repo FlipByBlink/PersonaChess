@@ -18,7 +18,7 @@ struct BoardView: View {
         .padding(self.paddingSize)
         .frame(width: self.boardSize, height: self.boardSize)
         .glassBackgroundEffect()
-        .opacity(self.model.floorMode ? 0.4 : 1)
+        .opacity(self.model.floorMode ? 0.25 : 1)
         .modifier(Self.SharePlayStateLoading())
         .rotation3DEffect(.degrees(90), axis: .x)
     }

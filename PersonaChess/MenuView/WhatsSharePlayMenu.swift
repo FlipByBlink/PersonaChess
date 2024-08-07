@@ -15,7 +15,7 @@ struct WhatsSharePlayMenu: View {
             let url = URL(string: "https://support.apple.com/guide/apple-vision-pro/use-shareplay-in-facetime-calls-tan15b2c7bf9/1.0/visionos/1.0")!
             Section {
                 Link(destination: url) {
-                    Text(verbatim: #"“Use SharePlay in FaceTime calls on Apple Vision Pro - Apple Support”"#)
+                    Text(#"“Use SharePlay in FaceTime calls on Apple Vision Pro - Apple Support”"#)
                 }
             } header: {
                 Text("Apple official support page")
