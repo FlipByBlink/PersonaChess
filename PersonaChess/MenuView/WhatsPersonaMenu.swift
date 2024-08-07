@@ -3,7 +3,15 @@ import SwiftUI
 struct WhatsPersonaMenu: View {
     var body: some View {
         List {
-            Text("The Persona (or Spatial Persona) is displayed as part of SharePlay, in collaboration with this app and FaceTime.")
+            Section {
+                Image(.exampleSpatialPersonas)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 400)
+                    .clipShape(.rect(cornerRadius: 10))
+                    .listRowBackground(Color.clear)
+                    .frame(maxWidth: .infinity)
+            }
             let url1 = URL(string: "https://support.apple.com/guide/apple-vision-pro/use-spatial-persona-tana1ea03f18/visionos")!
             Section {
                 Link(destination: url1) {
@@ -22,6 +30,7 @@ struct WhatsPersonaMenu: View {
             } footer: {
                 Text(verbatim: "\(url2)")
             }
+            Text("The Persona (or Spatial Persona) is displayed as part of SharePlay, in collaboration with this app and FaceTime.")
         }
         .navigationTitle("What's Persona?")
     }
