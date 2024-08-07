@@ -24,13 +24,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "・The app has been modified to use full-space only.\n・Users can now start, leave, and end activities from within the app.\n・A toolbar can now be displayed on the left wrist.\n・Added a virtual environment mode for screen recording purposes.\n・Many minor fixes and improvements."
+            "value" : "・The app has been modified to use full-space only.\n・Users can now start, leave, and end an activity within the app.\n・A toolbar can now be displayed on the left wrist.\n・Added a virtual environment mode for screen recording purposes.\n・Various minor fixes and improvements."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "・フルスペースのみのアプリに仕様変更しました。\n・アプリ内からアクティビティの開始や離脱、終了を出来るようにしました。\n・左手首にツールバーを表示できるようにしました。\n・画面収録を目的とした仮想環境モードを追加しました。\n・多くの軽微な修正や改善をしました。"
+            "value" : "・フルスペースのみのアプリに仕様変更しました。\n・アプリ内からアクティビティの開始や離脱、終了を出来るようにしました。\n・左手首にツールバーを表示できるようにしました。\n・画面収録を目的とした「バーチャル部屋」モードを追加しました。\n・多くの軽微な修正や改善をしました。"
           }
         }
       }
