@@ -43,7 +43,7 @@ extension AppModel {
                         if tappedPiece.side == pickedPiece.side {
                             self.activityState.chess.pick(tappedPiece.id)
                             self.activityState.chess.unpick(pickedPiece.id)
-                            self.soundFeedback.select(tappedPieceEntity)
+                            self.soundFeedback.select(tappedPieceEntity, self.floorMode)
                         } else {
                             self.activityState.chess.appendLog()
                             self.activityState.chess.movePiece(pickedPiece.id,
@@ -53,7 +53,7 @@ extension AppModel {
                     }
                 } else {
                     self.activityState.chess.pick(tappedPiece.id)
-                    self.soundFeedback.select(tappedPieceEntity)
+                    self.soundFeedback.select(tappedPieceEntity, self.floorMode)
                 }
             case .tapSquare(let index):
                 self.activityState.chess.appendLog()
@@ -202,7 +202,7 @@ private extension AppModel {
                              relativeTo: self.rootEntity,
                              duration: duration)
         try? await Task.sleep(for: .seconds(duration))
-        if animation { self.soundFeedback.put(entity) }
+        if animation { self.soundFeedback.put(entity, self.floorMode) }
     }
 #if os(visionOS)
     private func disablePieceHoverEffect() {
