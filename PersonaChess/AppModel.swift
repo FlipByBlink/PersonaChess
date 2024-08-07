@@ -96,6 +96,9 @@ extension AppModel {
     }
     func separateFromFloor() {
         self.activityState.viewHeight = Size.Point.defaultHeight
+        if self.activityState.viewScale > 3.0 {
+            self.activityState.viewScale = 3.0
+        }
         self.sendMessage()
     }
     func rotateBoard() {
@@ -109,6 +112,16 @@ extension AppModel {
     func closeToolbar(_ position: ToolbarPosition) {
         self.activityState.expandedToolbar.removeAll { $0 == position }
         self.sendMessage()
+    }
+    var upScalable: Bool {
+        if self.floorMode {
+            self.activityState.viewScale < 50.0
+        } else {
+            self.activityState.viewScale < 5.0
+        }
+    }
+    var downScalable: Bool {
+        self.activityState.viewScale > 0.6
     }
     var isSharePlayStateNotSet: Bool {
         self.groupSession?.state == .joined

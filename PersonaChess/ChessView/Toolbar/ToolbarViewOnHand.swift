@@ -100,6 +100,7 @@ private extension ToolbarViewOnHand {
                                     .frame(width: Self.circleButtonSize,
                                            height: Self.circleButtonSize)
                             }
+                            .disabled(!self.model.upScalable)
                             Button {
                                 self.model.downScale()
                             } label: {
@@ -108,7 +109,7 @@ private extension ToolbarViewOnHand {
                                     .frame(width: Self.circleButtonSize,
                                            height: Self.circleButtonSize)
                             }
-                            .disabled(self.model.activityState.viewScale < 0.6)
+                            .disabled(!self.model.downScalable)
                         }
                         Button {
                             self.model.rotateBoard()

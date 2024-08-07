@@ -42,6 +42,7 @@ struct ToolbarView: View {
                                 .frame(width: Self.circleButtonSize,
                                        height: Self.circleButtonSize)
                         }
+                        .disabled(!self.model.upScalable)
                         Button {
                             self.model.downScale()
                         } label: {
@@ -49,7 +50,7 @@ struct ToolbarView: View {
                                 .frame(width: Self.circleButtonSize,
                                        height: Self.circleButtonSize)
                         }
-                        .disabled(self.model.activityState.viewScale < 0.6)
+                        .disabled(!self.model.downScalable)
                     }
                     HStack(spacing: 16) {
                         Button {
