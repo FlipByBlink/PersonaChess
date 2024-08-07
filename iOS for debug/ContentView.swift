@@ -5,14 +5,21 @@ struct ContentView: View {
     var body: some View {
         VStack {
             MainMenu()
-            ChessView()
             ToolbarView()
+            if !self.model.floorMode {
+                ChessView()
+                    .offset(y: Size.Point.defaultHeight - self.model.activityState.viewHeight)
+                    .animation(.default, value: self.model.activityState.viewHeight)
+            }
+            Spacer()
         }
-        .scaleEffect(self.model.activityState.viewScale)
-        .offset(y: ActivityState().viewHeight - self.model.activityState.viewHeight)
-        .animation(.default, value: self.model.activityState.viewHeight)
         .overlay { if !self.model.movingPieces.isEmpty { ProgressView() } }
         .task { SharePlayProvider.registerGroupActivity() }
         .environmentObject(self.model)
+        .overlay(alignment: .bottom) {
+            if self.model.floorMode {
+                ChessView().border(.pink, width: 3)
+            }
+        }
     }
 }
