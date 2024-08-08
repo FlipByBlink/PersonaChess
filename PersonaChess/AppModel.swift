@@ -287,8 +287,20 @@ extension AppModel {
                         }
                     }
                 )
-#endif
+                
+                self.tasks.insert(
+                    Task {
+                        if let systemCoordinator = await groupSession.systemCoordinator {
+                            var configuration = SystemCoordinator.Configuration()
+                            configuration.supportsGroupImmersiveSpace = true
+                            systemCoordinator.configuration = configuration
+                            groupSession.join()
+                        }
+                    }
+                )
+#else
                 groupSession.join()
+#endif
             }
         }
     }
