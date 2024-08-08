@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1619D2482B834AA500F7FE0A /* ToolbarPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1642B749F2B009A87A6 /* ToolbarPosition.swift */; };
 		161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A740E2B6A4FC10057FD17 /* ToolbarView.swift */; };
+		1630B3552C64F76000571745 /* SpatialSuggestionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1630B3542C64F75100571745 /* SpatialSuggestionDialog.swift */; };
+		1630B3562C64FD0400571745 /* SpatialSuggestionDialog.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1630B3542C64F75100571745 /* SpatialSuggestionDialog.swift */; };
 		16312B532B75BB52006A93D1 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B522B75BB52006A93D1 /* MainMenu.swift */; };
 		16312B5B2B75D0FB006A93D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* App.swift */; };
 		16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5C2B75D0FB006A93D1 /* ContentView.swift */; };
@@ -138,6 +140,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				1630B3562C64FD0400571745 /* SpatialSuggestionDialog.swift in CopyFiles */,
 				16D376252C60E2E000B13E3B /* RecordingRoom.swift in CopyFiles */,
 				16DEAAD22C5F96A5006A85B5 /* WhatsSharePlayMenu.swift in CopyFiles */,
 				16DEAAD32C5F96A5006A85B5 /* WhatsPersonaMenu.swift in CopyFiles */,
@@ -179,6 +182,7 @@
 		160805FE2C08050F0064FCB2 /* screenshot1280w2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w2.jpg; sourceTree = "<group>"; };
 		160805FF2C08050F0064FCB2 /* screenshot1280w3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w3.jpg; sourceTree = "<group>"; };
 		161A740E2B6A4FC10057FD17 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		1630B3542C64F75100571745 /* SpatialSuggestionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialSuggestionDialog.swift; sourceTree = "<group>"; };
 		16312B522B75BB52006A93D1 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		16312B582B75D0FB006A93D1 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16312B5A2B75D0FB006A93D1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -346,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				168080E82C609D0000416946 /* RecordingRoom.swift */,
+				1630B3542C64F75100571745 /* SpatialSuggestionDialog.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -796,6 +801,7 @@
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,
 				16EA6A802B68769C00A3A740 /* Side.swift in Sources */,
+				1630B3552C64F76000571745 /* SpatialSuggestionDialog.swift in Sources */,
 				16780FFD2B6893CF005A0244 /* Index.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -995,7 +1001,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "PersonaChess/Supporting files/PersonaChess.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
@@ -1024,7 +1030,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "PersonaChess/Supporting files/PersonaChess.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;

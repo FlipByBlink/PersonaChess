@@ -440,6 +440,16 @@
           }
         }
       }
+    },
+    "You are currently not in Spatial mode.\nPlease switch to Spatial mode from Control Center or FaceTime window." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在、あなたは空間モードではありません。\nコントロールセンター(もしくはFaceTimeウインドウ)で空間モードに変更してください。"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
