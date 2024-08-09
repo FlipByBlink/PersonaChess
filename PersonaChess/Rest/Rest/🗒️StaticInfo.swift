@@ -26,7 +26,7 @@ enum 🗒️StaticInfo {
     static let webRepositoryURL: URL = .init(string: "https://github.com/FlipByBlink/PersonaChess")!
     static let webMirrorRepositoryURL: URL = .init(string: "https://gitlab.com/FlipByBlink/PersonaChess_Mirror")!
 
-    static let versionInfos: [(version: String, date: String)] = [("1.1", "2024-08-08"),
+    static let versionInfos: [(version: String, date: String)] = [("1.1", "2024-08-09"),
                                                                   ("1.0", "2024-04-22")] //降順。先頭の方が新しい
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
