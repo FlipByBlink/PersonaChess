@@ -17,12 +17,12 @@ struct SpatialSuggestionDialog: View {
                     .padding(8)
                     .symbolRenderingMode(.multicolor)
             }
-            .fixedSize()
             .padding()
             .padding(.horizontal, 8)
             .glassBackgroundEffect()
             self.dismissButton()
         }
+        .fixedSize()
         .opacity(self.isPresented ? 1.0 : 0)
         .opacity(self.dismissedManually ? 0 : 1.0)
         .animation(.default, value: self.isPresented)

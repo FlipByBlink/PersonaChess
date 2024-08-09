@@ -12,7 +12,7 @@ struct AboutOptionsMenu: View {
                     Image(.toolbarBottom)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 360)
+                        .frame(width: 320)
                         .clipShape(.rect(cornerRadius: 6))
                 }
                 .padding()
@@ -23,7 +23,7 @@ struct AboutOptionsMenu: View {
                     Image(.toolbarHand)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 360)
+                        .frame(width: 320)
                         .clipShape(.rect(cornerRadius: 6))
                 }
                 .padding()
