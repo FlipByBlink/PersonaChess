@@ -8,7 +8,7 @@ struct ContentView: View {
             if !self.model.floorMode { ToolbarsView() }
         }
         .scaleEffect(self.model.activityState.viewScale, anchor: .bottom)
-        .offset(z: self.model.spatialSharePlaying == true ? 0 : -1200)
+        .offset(z: self.model.spatialSharePlaying == true ? 0 : -Size.Point.nonSpatialZOffset)
         .offset(y: -self.model.activityState.viewHeight)
         .animation(.default, value: self.model.activityState.viewScale)
         .animation(.default, value: self.model.activityState.viewHeight)

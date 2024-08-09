@@ -30,15 +30,15 @@ struct MainMenu: View {
         .animation(.default, value: self.isEligibleForGroupSession)
         .frame(width: 1000, height: 700)
         .offset(y: -1800)
-        .offset(z: -1200 - Size.Point.board(self.physicalMetrics))
+        .offset(z: -Size.Point.nonSpatialZOffset - Size.Point.board(self.physicalMetrics))
     }
 }
 
 private extension MainMenu {
-    var isPresented: Bool {
+    private var isPresented: Bool {
         self.model.groupSession == nil
     }
-    var isEligibleForGroupSession: Bool {
+    private var isEligibleForGroupSession: Bool {
 #if targetEnvironment(simulator)
         true
 //        false

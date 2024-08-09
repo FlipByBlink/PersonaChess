@@ -8,9 +8,9 @@ struct SpatialSuggestionDialog: View {
         HStack {
             Label {
                 Text("""
-                You are currently not in Spatial mode.
-                Please switch to Spatial mode from Control Center or FaceTime window.
-                """)
+                    You are currently not in Spatial mode.
+                    Please switch to Spatial mode from Control Center or FaceTime window.
+                    """)
             } icon: {
                 Image(systemName: "exclamationmark.triangle.fill")
                     .imageScale(.large)
@@ -21,28 +21,31 @@ struct SpatialSuggestionDialog: View {
             .padding()
             .padding(.horizontal, 8)
             .glassBackgroundEffect()
-            Button {
-                self.dismissedManually = true
-            } label: {
-                Image(systemName: "xmark")
-                    .padding(10)
-            }
-            .foregroundStyle(.secondary)
-            .buttonStyle(.plain)
-            .buttonBorderShape(.circle)
-            .glassBackgroundEffect()
+            self.dismissButton()
         }
         .opacity(self.isPresented ? 1.0 : 0)
         .opacity(self.dismissedManually ? 0 : 1.0)
         .animation(.default, value: self.isPresented)
         .animation(.default, value: self.dismissedManually)
         .offset(y: -1400)
-        .offset(z: -1200 - (Size.Point.board(self.physicalMetrics) / 2))
+        .offset(z: -Size.Point.nonSpatialZOffset - (Size.Point.board(self.physicalMetrics) / 2))
     }
 }
 
 private extension SpatialSuggestionDialog {
-    var isPresented: Bool {
+    private var isPresented: Bool {
         self.model.spatialSharePlaying == false
+    }
+    private func dismissButton() -> some View {
+        Button {
+            self.dismissedManually = true
+        } label: {
+            Image(systemName: "xmark")
+                .padding(10)
+        }
+        .foregroundStyle(.secondary)
+        .buttonStyle(.plain)
+        .buttonBorderShape(.circle)
+        .glassBackgroundEffect()
     }
 }
