@@ -20,6 +20,16 @@ struct ChessView: View {
                 .targetedToAnyEntity()
                 .onEnded { self.model.execute(.tapPiece($0.entity)) }
         )
+//        .gesture(
+//            DragGesture(minimumDistance: 0)
+//                .targetedToAnyEntity()
+//                .handActivationBehavior(.pinch)
+//                .onChanged { value in
+//                    value.entity.position = value.convert(value.translation3D,
+//                                                          from: .local,
+//                                                          to: value.entity.parent!)
+//                }
+//        )
         .gesture(
             DragGesture()
                 .targetedToAnyEntity()
