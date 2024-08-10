@@ -1,4 +1,5 @@
 import SwiftUI
+import RealityKit
 import GroupActivities
 
 struct MainMenu: View {
@@ -25,12 +26,13 @@ struct MainMenu: View {
         }
         .glassBackgroundEffect()
         .padding(.horizontal, 24)
+        .background { Self.pieceStatues() }
         .opacity(self.isPresented ? 1.0 : 0)
         .animation(.default, value: self.isPresented)
         .animation(.default, value: self.isEligibleForGroupSession)
         .frame(width: 1000, height: 700)
         .offset(y: -1800)
-        .offset(z: -Size.Point.nonSpatialZOffset - Size.Point.board(self.physicalMetrics))
+        .offset(z: self.zOffset)
     }
 }
 
@@ -45,6 +47,9 @@ private extension MainMenu {
 #else
         self.groupStateObserver.isEligibleForGroupSession
 #endif
+    }
+    private var zOffset: CGFloat {
+        -Size.Point.nonSpatialZOffset - Size.Point.board(self.physicalMetrics) - 150
     }
     private func setUpMenu() -> some View {
         List {
@@ -66,5 +71,16 @@ private extension MainMenu {
                 Text("Join SharePlay")
             }
         }
+    }
+    private static func pieceStatues() -> some View {
+        HStack {
+            Model3D(named: "\(Chessmen.king)B")
+                .scaleEffect(6, anchor: .bottom)
+            Spacer()
+                .frame(width: 2200)
+            Model3D(named: "\(Chessmen.queen)W")
+                .scaleEffect(6, anchor: .bottom)
+        }
+        .offset(y: 500)
     }
 }

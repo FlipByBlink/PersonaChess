@@ -25,7 +25,7 @@ enum Size {
         static func boardInFloorMode(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
             physicalMetrics.convert(Size.Meter.boardInFloorMode, from: .meters)
         }
-        static let nonSpatialZOffset: CGFloat = 1200
+        static let nonSpatialZOffset: CGFloat = 1400
 #endif
         static let defaultHeight = 1000.0
     }
