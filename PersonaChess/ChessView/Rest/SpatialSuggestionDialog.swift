@@ -35,6 +35,7 @@ struct SpatialSuggestionDialog: View {
 private extension SpatialSuggestionDialog {
     private var isPresented: Bool {
         self.model.spatialSharePlaying == false
+        //FIXME: アクティビティ起動直後に1人でいる際に空間モードオンなのに表示される不具合あり
     }
     private func dismissButton() -> some View {
         Button {
