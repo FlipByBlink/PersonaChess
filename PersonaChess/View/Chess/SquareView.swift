@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct SquareView: View {
-    @EnvironmentObject var model: AppModel
     private var row: Int
     private var column: Int
+    @EnvironmentObject var model: AppModel
     @State private var inputtable: Bool = false
     var body: some View {
         Group {

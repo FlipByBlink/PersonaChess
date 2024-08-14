@@ -38,6 +38,7 @@ enum 🗒️StaticInfo {
              RealityKitScope,
              Size,
              SharePlay,
+             MenuView,
              Rest
         var id: Self { self }
         var fileNames: [String] {
@@ -58,12 +59,12 @@ enum 🗒️StaticInfo {
                 case .Volume: [
                     "VolumeWindow.swift",
                     "VolumeView.swift",
-                    "SharePlayMenu.swift",
                 ]
                 case .FullSpace: [
                     "FullSpaceView.swift",
-                    "ToolbarViewForFloorMode.swift",
-                    "FloorModeDividers.swift",
+                    "ToolbarViewOnHand.swift",
+                    "RecordingRoom.swift",
+                    "SpatialSuggestionDialog.swift",
                 ]
                 case .ChessView: [
                     "ChessView.swift",
@@ -83,6 +84,13 @@ enum 🗒️StaticInfo {
                 case .SharePlay: [
                     "AppGroupActivity.swift",
                     "SharePlayProvider.swift",
+                ]
+                case .MenuView: [
+                    "MainMenu.swift",
+                    "AboutOptionsMenu.swift",
+                    "WhatsSharePlayMenu.swift",
+                    "WhatsPersonaMenu.swift",
+                    "AboutAppLink.swift",
                 ]
                 case .Rest: [
                     "Action.swift",

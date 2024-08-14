@@ -2,6 +2,7 @@ import SwiftUI
 
 struct VolumeWindow: Scene {
     private var model: AppModel
+    
     var body: some Scene {
         WindowGroup(id: "volume") {
             VolumeView()
@@ -14,6 +15,7 @@ struct VolumeWindow: Scene {
         .windowResizability(.contentSize)
         .windowStyle(.volumetric)
     }
+    
     init(_ model: AppModel) {
         self.model = model
     }

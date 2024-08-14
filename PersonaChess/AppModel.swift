@@ -99,7 +99,7 @@ extension AppModel {
     func separateFromFloor() {
         self.activityState.viewHeight = Size.Point.defaultHeight
         if self.activityState.viewScale > 3.0 {
-            self.activityState.viewScale = 3.0
+            self.activityState.viewScale = 1.0
         }
         self.sendMessage()
     }

@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		1619D2482B834AA500F7FE0A /* ToolbarPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1642B749F2B009A87A6 /* ToolbarPosition.swift */; };
 		161A740F2B6A4FC10057FD17 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A740E2B6A4FC10057FD17 /* ToolbarView.swift */; };
+		162764652C6CDC03008BD825 /* AboutOptionsMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165DD6E12C6C75B300D0E18F /* AboutOptionsMenu.swift */; };
+		162764662C6CDC03008BD825 /* WhatsSharePlayMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165DD6E42C6C75B300D0E18F /* WhatsSharePlayMenu.swift */; };
+		162764672C6CDC03008BD825 /* WhatsPersonaMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165DD6E22C6C75B300D0E18F /* WhatsPersonaMenu.swift */; };
+		162764682C6CDC03008BD825 /* AboutAppLink.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165DD6E32C6C75B300D0E18F /* AboutAppLink.swift */; };
+		162764692C6CDC03008BD825 /* ToolbarViewOnHand.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165DD6F52C6C792800D0E18F /* ToolbarViewOnHand.swift */; };
+		1627646A2C6CDC03008BD825 /* RecordingRoom.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165DD6F12C6C791300D0E18F /* RecordingRoom.swift */; };
+		1627646B2C6CDC03008BD825 /* SpatialSuggestionDialog.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165DD6F22C6C791300D0E18F /* SpatialSuggestionDialog.swift */; };
 		16312B532B75BB52006A93D1 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B522B75BB52006A93D1 /* MainMenu.swift */; };
 		16312B5B2B75D0FB006A93D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* App.swift */; };
 		16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5C2B75D0FB006A93D1 /* ContentView.swift */; };
@@ -142,6 +149,13 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				162764652C6CDC03008BD825 /* AboutOptionsMenu.swift in CopyFiles */,
+				162764662C6CDC03008BD825 /* WhatsSharePlayMenu.swift in CopyFiles */,
+				162764672C6CDC03008BD825 /* WhatsPersonaMenu.swift in CopyFiles */,
+				162764682C6CDC03008BD825 /* AboutAppLink.swift in CopyFiles */,
+				162764692C6CDC03008BD825 /* ToolbarViewOnHand.swift in CopyFiles */,
+				1627646A2C6CDC03008BD825 /* RecordingRoom.swift in CopyFiles */,
+				1627646B2C6CDC03008BD825 /* SpatialSuggestionDialog.swift in CopyFiles */,
 				167948BA2BC6A60B004DFF4B /* App.swift in CopyFiles */,
 				167948BB2BC6A60B004DFF4B /* AppModel.swift in CopyFiles */,
 				167948BC2BC6A60B004DFF4B /* ActivityState.swift in CopyFiles */,

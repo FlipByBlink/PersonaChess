@@ -132,6 +132,7 @@
       }
     },
     "Close app" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -142,6 +143,7 @@
       }
     },
     "Display an environment for screen recording" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -150,6 +152,9 @@
           }
         }
       }
+    },
+    "Display an environment for screen recording in full space" : {
+
     },
     "End\nactivity" : {
       "localizations" : {
@@ -171,12 +176,12 @@
         }
       }
     },
-    "Enter full space" : {
+    "Enter\nfull space" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "フルスペースに入る"
+            "value" : "フルスペース\nに入る"
           }
         }
       }
@@ -187,6 +192,19 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "フルスペース\nから抜ける"
+          }
+        }
+      }
+    },
+    "Exit full space" : {
+
+    },
+    "Full space mode" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フルスペースモード"
           }
         }
       }

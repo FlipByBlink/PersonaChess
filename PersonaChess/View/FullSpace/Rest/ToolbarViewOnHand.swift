@@ -20,6 +20,7 @@ struct ToolbarViewOnHand: View {
 private extension ToolbarViewOnHand {
     private struct ContentView: View {
         @EnvironmentObject var model: AppModel
+        @Environment(\.openWindow) var openWindow
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
         @State private var isExpanded: Bool = false
         private static let circleButtonSize = 40.0
@@ -35,22 +36,9 @@ private extension ToolbarViewOnHand {
                 }
                 .buttonStyle(.plain)
                 .glassBackgroundEffect()
-                .offset(x: -20)
-                .opacity(0.75)
+                .opacity(0.8)
                 .opacity(self.isExpanded ? 0 : 1)
                 VStack(spacing: 14) {
-                    Button {
-                        self.isExpanded = false
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .resizable()
-                            .symbolRenderingMode(.multicolor)
-                            .frame(width: Self.circleButtonSize,
-                                   height: Self.circleButtonSize)
-                    }
-                    .buttonStyle(.plain)
-                    Divider()
-                        .frame(width: Self.dividerSize)
                     HStack(spacing: 28) {
                         HStack(spacing: 12) {
                             Button {
@@ -162,9 +150,12 @@ private extension ToolbarViewOnHand {
                                 .frame(width: Self.dividerSize)
                         }
                         Button {
-                            Task { await self.dismissImmersiveSpace() }
+                            Task {
+                                self.openWindow(id: "volume")
+                                await self.dismissImmersiveSpace()
+                            }
                         } label: {
-                            Label("Close app", systemImage: "power.dotted")
+                            Label("Exit full space", systemImage: "escape")
                         }
                     }
                     .font(.caption)
@@ -174,6 +165,25 @@ private extension ToolbarViewOnHand {
                 .padding()
                 .padding(.horizontal, 8)
                 .glassBackgroundEffect()
+                .overlay(alignment: .top) {
+                    Button {
+                        self.isExpanded = false
+                    } label: {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .fontWeight(.semibold)
+                            .padding(12)
+                            .frame(width: Self.circleButtonSize,
+                                   height: Self.circleButtonSize)
+                            .padding(3)
+                    }
+                    .buttonBorderShape(.circle)
+                    .buttonStyle(.plain)
+                    .foregroundStyle(.secondary)
+                    .glassBackgroundEffect(in: .circle)
+                    .alignmentGuide(.top) { $0.height + 12 }
+                }
+                .offset(x: 50)
                 .opacity(self.isExpanded ? 1 : 0)
             }
             .rotation3DEffect(.degrees(90), axis: .z)

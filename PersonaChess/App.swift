@@ -3,6 +3,7 @@ import SwiftUI
 @main
 struct PersonaChessApp: App {
     @StateObject private var model = AppModel()
+    
     var body: some Scene {
         VolumeWindow(self.model)
         ImmersiveSpace(id: "immersiveSpace") {
@@ -10,6 +11,7 @@ struct PersonaChessApp: App {
                 .environmentObject(self.model)
         }
     }
+    
     init() {
         Piece.registerComponent()
         PieceOpacitySystem.registerSystem()
