@@ -1,6 +1,46 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "・This option is intended to hide the passthrough view.\n・Please set this option before starting SharePlay.\n・This option will not be applied to the call recipient." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・このオプションはパススルーの映像を隠すためのものです。\n・SharePlayを始める前に、このオプションを有効にしてください。\n・このオプションは通話相手側には反映されません。"
+          }
+        }
+      }
+    },
+    "“Capture and edit your Persona (beta) on Apple Vision Pro - Apple Support”" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「Apple Vision ProでPersona（ベータ版）を収録する/編集する - Apple サポート (日本)」"
+          }
+        }
+      }
+    },
+    "“Use SharePlay in FaceTime calls on Apple Vision Pro - Apple Support”" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「Apple Vision ProでのFaceTime通話でSharePlayを使用する - Apple サポート (日本)」"
+          }
+        }
+      }
+    },
+    "\"Use spatial Persona (beta) on Apple Vision Pro - Apple Support”" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「Apple Vision Proで空間Persona（ベータ版）を使用する - Apple サポート (日本)」"
+          }
+        }
+      }
+    },
     "About App" : {
       "localizations" : {
         "ja" : {
@@ -17,6 +57,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "データについて"
+          }
+        }
+      }
+    },
+    "About options" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オプションについて"
+          }
+        }
+      }
+    },
+    "Adjust the height of the board." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ボードの高さを調節できます。"
+          }
+        }
+      }
+    },
+    "Adjust the rotation of the board." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ボードの向きを調整できます。"
+          }
+        }
+      }
+    },
+    "Adjust the size of the board." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ボードの大きさを調整できます。"
           }
         }
       }
@@ -41,32 +121,52 @@
         }
       }
     },
-    "Back" : {
+    "By setting the board’s height equal to the floor, the board will seamlessly integrate with the floor." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "戻る"
+            "value" : "ボードの高さを床と同じ高さにすると、ボードと床が一体化します。"
           }
         }
       }
     },
-    "Chess" : {
+    "Close app" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "チェス"
+            "value" : "アプリを閉じる"
           }
         }
       }
     },
-    "During a FaceTime call, if the person you are speaking with starts SharePlay, you will automatically join SharePlay as well. If you want to join a SharePlay session that has already started, you can do so from the Control Center." : {
+    "Display an environment for screen recording" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "FaceTimeの通話中に誰かがSharePlayを開始すると、通話相手は自動的にSharePlayに参加します。もし既に通話相手がSharePlayを開始している場合は、コントロールセンターから参加できます。"
+            "value" : "画面収録のための「バーチャル部屋」環境を表示する"
+          }
+        }
+      }
+    },
+    "End\nactivity" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アクティビティ\nを終了"
+          }
+        }
+      }
+    },
+    "End activity" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アクティビティを終了"
           }
         }
       }
@@ -81,12 +181,12 @@
         }
       }
     },
-    "Exit full space" : {
+    "Exit\nfull space" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "フルスペースから抜ける"
+            "value" : "フルスペース\nから抜ける"
           }
         }
       }
@@ -101,12 +201,22 @@
         }
       }
     },
-    "If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay." : {
+    "If you launch this application during FaceTime, you can start an activity. When you start an activity, the callers automatically join an activity." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "FaceTime中にこのアプリを立ち上げると、アクティビティを起動することが出来ます。アクティビティを起動すると、通話相手のデバイスではSharePlay参加を促す通知が表示されます。"
+            "value" : "FaceTime中にこのアプリを立ち上げると、アクティビティを起動することが出来ます。誰かがSharePlayを開始すると、通話相手は自動的にSharePlayに参加します。"
+          }
+        }
+      }
+    },
+    "If you want to join a SharePlay session that has already started, you can do so from the Control Center." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "もし既に通話相手がSharePlayを開始している場合は、コントロールセンターから参加できます。"
           }
         }
       }
@@ -121,16 +231,6 @@
         }
       }
     },
-    "invalidated, (%@)" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無効(%@)"
-          }
-        }
-      }
-    },
     "Join SharePlay" : {
       "localizations" : {
         "ja" : {
@@ -141,32 +241,52 @@
         }
       }
     },
-    "joined" : {
+    "Larger" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "参加中"
+            "value" : "大きくする"
           }
         }
       }
     },
-    "none" : {
+    "Leave\nactivity" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "不参加"
+            "value" : "アクティビティ\nを離脱"
           }
         }
       }
     },
-    "Once you have started an activity, encourage your friends to join SharePlay." : {
+    "Leave activity" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アクティビティを起動したら友達にSharePlay参加を促しましょう。"
+            "value" : "アクティビティを離脱"
+          }
+        }
+      }
+    },
+    "Open the toolbar at the bottom of a board." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ツールバーはボードの下のボタンから開くことが出来ます。"
+          }
+        }
+      }
+    },
+    "Open the toolbar on your left wrist." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ツールバーは左手首のボタンから開くことが出来ます。"
           }
         }
       }
@@ -191,6 +311,16 @@
         }
       }
     },
+    "Rotate" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "回転"
+          }
+        }
+      }
+    },
     "Set up SharePlay" : {
       "localizations" : {
         "ja" : {
@@ -201,22 +331,32 @@
         }
       }
     },
-    "SharePlay state:" : {
+    "Share chess" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SharePlayの状況:"
+            "value" : "チェスを共有"
           }
         }
       }
     },
-    "Start SharePlay by oneself" : {
+    "Smaller" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自分からSharePlayを開始する"
+            "value" : "小さくする"
+          }
+        }
+      }
+    },
+    "Start \"Share chess\" activity" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「チェスを共有」アクティビティを開始"
           }
         }
       }
@@ -241,22 +381,32 @@
         }
       }
     },
-    "unknown" : {
+    "The Reset feature allows you to restart the chess game from the beginning." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "想定外"
+            "value" : "リセット機能でチェスの配置を最初の状態に戻せます。"
           }
         }
       }
     },
-    "waiting" : {
+    "The Undo feature allows you to take back your last move." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "待機中"
+            "value" : "「戻す」機能で一手前の状態に戻せます。"
+          }
+        }
+      }
+    },
+    "Undo" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "戻す"
           }
         }
       }
@@ -297,6 +447,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "現在、友達と繋がっているようです。友達が立ち上げたアクティビティに参加するか、もしくは自分でアクティビティを起動しましょう。"
+          }
+        }
+      }
+    },
+    "You are currently not in Spatial mode.\nPlease switch to Spatial mode from Control Center or FaceTime window." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在、あなたは空間モードではありません。\nコントロールセンター(もしくはFaceTimeウインドウ)で空間モードに変更してください。"
           }
         }
       }

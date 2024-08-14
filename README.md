@@ -46,9 +46,15 @@ Notice
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w3.jpg" width="640">
 
 
+<br>
+
+
 App Store link
 --------------
 [apps.apple.com/app/id6482994319](https://apps.apple.com/app/id6482994319)
+
+
+<br>
 
 
 Source code link
@@ -57,6 +63,9 @@ https://github.com/FlipByBlink/PersonaChess
 
 ### Source code (Mirror) link
 https://gitlab.com/FlipByBlink/PersonaChess_Mirror
+
+
+<br>
 
 
 Contact

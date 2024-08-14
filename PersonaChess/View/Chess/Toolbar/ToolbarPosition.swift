@@ -1,5 +1,5 @@
 enum ToolbarPosition {
-    case foreground, 
+    case foreground,
          front,
          right,
          left

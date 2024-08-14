@@ -48,9 +48,9 @@ struct ToolbarView: View {
             }
             .buttonBorderShape(.circle)
             Button {
-                self.model.execute(.back)
+                self.model.execute(.undo)
             } label: {
-                Label("Back", systemImage: "arrow.uturn.backward")
+                Label("Undo", systemImage: "arrow.uturn.backward")
                     .padding(8)
                     .labelStyle(.iconOnly)
                 
@@ -64,13 +64,22 @@ struct ToolbarView: View {
                     .labelStyle(.iconOnly)
             }
             .disabled(self.model.activityState.chess.isPreset)
-            Button {
-            } label: {
-                Label("Exit", systemImage: "escape")
-                    .padding(8)
-                    .labelStyle(.iconOnly)
+            if self.model.groupSession?.state == .joined {
+                Button {
+                    self.model.groupSession?.leave()
+                } label: {
+                    Label("Leave", systemImage: "escape")
+                        .frame(height: Self.circleButtonSize)
+                        .labelStyle(.iconOnly)
+                }
+                Button {
+                    self.model.groupSession?.end()
+                } label: {
+                    Label("End", systemImage: "stop.fill")
+                        .frame(height: Self.circleButtonSize)
+                        .labelStyle(.iconOnly)
+                }
             }
-            .disabled(true)
         }
         .buttonStyle(.plain)
         .font(.caption)

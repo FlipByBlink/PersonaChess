@@ -18,6 +18,7 @@ class AppModel: ObservableObject {
     @Published private(set) var queueToOpenScene: TargetScene?
     
     private let soundFeedback = SoundFeedback()
+    @Published var showRecordingRoom: Bool = false
     
     init() {
         self.configureGroupSessions()
@@ -44,7 +45,7 @@ extension AppModel {
                         if tappedPiece.side == pickedPiece.side {
                             self.activityState.chess.pick(tappedPiece.id)
                             self.activityState.chess.unpick(pickedPiece.id)
-                            self.soundFeedback.select(tappedPieceEntity)
+                            self.soundFeedback.select(tappedPieceEntity, self.floorMode)
                         } else {
                             self.activityState.chess.appendLog()
                             self.activityState.chess.movePiece(pickedPiece.id,
@@ -54,13 +55,13 @@ extension AppModel {
                     }
                 } else {
                     self.activityState.chess.pick(tappedPiece.id)
-                    self.soundFeedback.select(tappedPieceEntity)
+                    self.soundFeedback.select(tappedPieceEntity, self.floorMode)
                 }
             case .tapSquare(let index):
                 self.activityState.chess.appendLog()
                 self.activityState.chess.movePiece(self.pickedPieceEntity()!.components[Piece.self]!.id,
                                                    to: index)
-            case .back:
+            case .undo:
                 if let previousChessValue = self.activityState.chess.log.popLast() {
                     self.activityState.chess.latest = previousChessValue
                 } else {
@@ -72,15 +73,15 @@ extension AppModel {
                 self.activityState.chess.setPreset()
                 if self.groupSession != nil { self.activityState.mode = .sharePlay }
         }
-        self.applyLatestChessToEntities(animation: action != .back)
+        self.applyLatestChessToEntities(animation: action != .undo)
         self.sendMessage()
     }
     func upScale() {
-        self.activityState.viewScale *= self.floorMode ? 1.4 : 1.1
+        self.activityState.viewScale *= (self.floorMode ? 1.4 : 1.1)
         self.sendMessage()
     }
     func downScale() {
-        self.activityState.viewScale *= self.floorMode ? 0.75 : 0.9
+        self.activityState.viewScale *= (self.floorMode ? 0.75 : 0.9)
         self.sendMessage()
     }
     func raiseBoard() {
@@ -96,7 +97,10 @@ extension AppModel {
         self.sendMessage()
     }
     func separateFromFloor() {
-        self.activityState.viewHeight = 1000
+        self.activityState.viewHeight = Size.Point.defaultHeight
+        if self.activityState.viewScale > 3.0 {
+            self.activityState.viewScale = 3.0
+        }
         self.sendMessage()
     }
     func rotateBoard() {
@@ -113,6 +117,16 @@ extension AppModel {
     }
     func clearQueueToOpenScene() {
         self.queueToOpenScene = nil
+    }
+    var upScalable: Bool {
+        if self.floorMode {
+            self.activityState.viewScale < 50.0
+        } else {
+            self.activityState.viewScale < 5.0
+        }
+    }
+    var downScalable: Bool {
+        self.activityState.viewScale > 0.6
     }
     var isSharePlayStateNotSet: Bool {
         self.groupSession?.state == .joined
@@ -195,7 +209,7 @@ private extension AppModel {
                              relativeTo: self.rootEntity,
                              duration: duration)
         try? await Task.sleep(for: .seconds(duration))
-        if animation { self.soundFeedback.put(entity) }
+        if animation { self.soundFeedback.put(entity, self.floorMode) }
     }
 #if os(visionOS)
     private func disablePieceHoverEffect() {
@@ -323,7 +337,6 @@ extension AppModel {
             self.applyLatestChessToEntities()
         }
     }
-#if os(iOS)
     func activateGroupActivity() {
         Task {
             do {
@@ -337,7 +350,6 @@ extension AppModel {
             }
         }
     }
-#endif
 }
 
 //Ref: Drawing content in a group session | Apple Developer Documentation

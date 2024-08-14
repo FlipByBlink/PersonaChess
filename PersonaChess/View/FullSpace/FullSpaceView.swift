@@ -9,12 +9,14 @@ struct FullSpaceView: View {
             ChessView()
             if !self.model.floorMode { ToolbarsView(targetScene: .fullSpace) }
         }
-        .overlay { ToolbarViewForFloorMode() }
         .scaleEffect(self.model.activityState.viewScale, anchor: .bottom)
-        .offset(z: self.model.spatialSharePlaying == true ? 0 : -1200)
+        .offset(z: self.model.spatialSharePlaying == true ? 0 : -Size.Point.nonSpatialZOffset)
         .offset(y: -self.model.activityState.viewHeight)
         .animation(.default, value: self.model.activityState.viewScale)
         .animation(.default, value: self.model.activityState.viewHeight)
+        .overlay { ToolbarViewOnHand() }
+        .overlay { SpatialSuggestionDialog() }
+        .overlay { RecordingRoom() }
         .onChange(of: self.model.queueToOpenScene) { _, newValue in
             if newValue == .volume {
                 Task {

@@ -9,7 +9,7 @@ struct VolumeView: View {
     var body: some View {
         VStack(spacing: 12) {
             if self.showSharePlayMenu {
-                SharePlayMenu()
+                MainMenu()
                     .frame(height: self.boardSize * 0.65)
             }
             Spacer()

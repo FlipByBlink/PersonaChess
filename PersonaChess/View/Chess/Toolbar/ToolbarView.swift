@@ -31,8 +31,33 @@ struct ToolbarView: View {
                             .frame(width: Self.circleButtonSize,
                                    height: Self.circleButtonSize)
                     }
+                    Button {
+                        self.model.rotateBoard()
+                    } label: {
+                        Image(systemName: "arrow.turn.right.up")
+                            .frame(width: Self.circleButtonSize,
+                                   height: Self.circleButtonSize)
+                    }
                     if self.targetScene == .fullSpace {
-                        HStack(spacing: 8) {
+                        HStack(spacing: 16) {
+                            Button {
+                                self.model.upScale()
+                            } label: {
+                                Image(systemName: "plus")
+                                    .frame(width: Self.circleButtonSize,
+                                           height: Self.circleButtonSize)
+                            }
+                            .disabled(!self.model.upScalable)
+                            Button {
+                                self.model.downScale()
+                            } label: {
+                                Image(systemName: "minus")
+                                    .frame(width: Self.circleButtonSize,
+                                           height: Self.circleButtonSize)
+                            }
+                            .disabled(!self.model.downScalable)
+                        }
+                        HStack(spacing: 16) {
                             Button {
                                 self.model.raiseBoard()
                             } label: {
@@ -55,47 +80,61 @@ struct ToolbarView: View {
                                            height: Self.circleButtonSize)
                             }
                         }
-                        HStack(spacing: 8) {
-                            Button {
-                                self.model.upScale()
-                            } label: {
-                                Image(systemName: "plus")
-                                    .frame(width: Self.circleButtonSize,
-                                           height: Self.circleButtonSize)
-                            }
-                            Button {
-                                self.model.downScale()
-                            } label: {
-                                Image(systemName: "minus")
-                                    .frame(width: Self.circleButtonSize,
-                                           height: Self.circleButtonSize)
-                            }
-                            .disabled(self.model.activityState.viewScale < 0.6)
-                        }
                     }
+                    Divider()
+                        .frame(height: Self.circleButtonSize)
                     Button {
-                        self.model.rotateBoard()
+                        self.model.execute(.undo)
                     } label: {
-                        Image(systemName: "arrow.turn.right.up")
+                        Image(systemName: "arrow.uturn.backward")
                             .frame(width: Self.circleButtonSize,
                                    height: Self.circleButtonSize)
                     }
+                    .accessibilityLabel("Undo")
+                    .disabled(self.model.activityState.chess.log.isEmpty)
+                    Button {
+                        self.model.execute(.reset)
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise")
+                            .frame(width: Self.circleButtonSize,
+                                   height: Self.circleButtonSize)
+                    }
+                    .accessibilityLabel("Reset")
+                    .disabled(self.model.activityState.chess.isPreset)
                 }
                 .buttonBorderShape(.circle)
-                Button {
-                    self.model.execute(.back)
-                } label: {
-                    Label("Back", systemImage: "arrow.uturn.backward")
-                        .padding(8)
+                Divider()
+                    .frame(height: Self.circleButtonSize)
+                if self.model.groupSession?.state == .joined {
+                    Button {
+                        self.model.groupSession?.leave()
+                    } label: {
+                        Label("""
+                              Leave
+                              activity
+                              """,
+                              systemImage: "escape")
+                        .minimumScaleFactor(0.5)
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 8)
+                        .frame(height: Self.circleButtonSize)
+                    }
+                    Button {
+                        self.model.groupSession?.end()
+                    } label: {
+                        Label("""
+                              End
+                              activity
+                              """,
+                              systemImage: "stop.fill")
+                        .minimumScaleFactor(0.5)
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 8)
+                        .frame(height: Self.circleButtonSize)
+                    }
+                    Divider()
+                        .frame(height: Self.circleButtonSize)
                 }
-                .disabled(self.model.activityState.chess.log.isEmpty)
-                Button {
-                    self.model.execute(.reset)
-                } label: {
-                    Label("Reset", systemImage: "arrow.counterclockwise")
-                        .padding(8)
-                }
-                .disabled(self.model.activityState.chess.isPreset)
                 switch self.targetScene {
                     case .volume:
                         Button {
@@ -115,8 +154,15 @@ struct ToolbarView: View {
                                 await self.dismissImmersiveSpace()
                             }
                         } label: {
-                            Label("Exit full space", systemImage: "escape")
-                                .padding(8)
+                            Label("""
+                                  Exit
+                                  full space
+                                  """,
+                                  systemImage: "escape")
+                            .minimumScaleFactor(0.5)
+                            .padding(.vertical, 4)
+                            .padding(.horizontal, 8)
+                            .frame(height: Self.circleButtonSize)
                         }
                 }
             }
