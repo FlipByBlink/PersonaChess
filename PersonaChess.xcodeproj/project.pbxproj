@@ -90,7 +90,6 @@
 		167948C02BC6A60B004DFF4B /* Chessmen.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
 		167948C12BC6A60B004DFF4B /* Side.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16EA6A7F2B68769C00A3A740 /* Side.swift */; };
 		167948C22BC6A60B004DFF4B /* Mode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
-		167948C32BC6A60B004DFF4B /* VolumeWindow.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16CB3C8E2B81881C001CA93D /* VolumeWindow.swift */; };
 		167948C42BC6A60B004DFF4B /* VolumeView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16CB3C8B2B7F8907001CA93D /* VolumeView.swift */; };
 		167948C52BC6A60B004DFF4B /* MainMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16312B522B75BB52006A93D1 /* MainMenu.swift */; };
 		167948C62BC6A60B004DFF4B /* FullSpaceView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* FullSpaceView.swift */; };
@@ -120,7 +119,6 @@
 		16C477132B8AC23D00343DD8 /* SharePlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */; };
 		16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */; };
 		16CB3C8C2B7F8907001CA93D /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C8B2B7F8907001CA93D /* VolumeView.swift */; };
-		16CB3C8F2B81881C001CA93D /* VolumeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB3C8E2B81881C001CA93D /* VolumeWindow.swift */; };
 		16EA6A712B6875CA00A3A740 /* rookW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A652B6875CA00A3A740 /* rookW.reality */; };
 		16EA6A722B6875CA00A3A740 /* rookB.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A662B6875CA00A3A740 /* rookB.reality */; };
 		16EA6A732B6875CA00A3A740 /* bishopW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A672B6875CA00A3A740 /* bishopW.reality */; };
@@ -165,7 +163,6 @@
 				167948C02BC6A60B004DFF4B /* Chessmen.swift in CopyFiles */,
 				167948C12BC6A60B004DFF4B /* Side.swift in CopyFiles */,
 				167948C22BC6A60B004DFF4B /* Mode.swift in CopyFiles */,
-				167948C32BC6A60B004DFF4B /* VolumeWindow.swift in CopyFiles */,
 				167948C42BC6A60B004DFF4B /* VolumeView.swift in CopyFiles */,
 				167948C52BC6A60B004DFF4B /* MainMenu.swift in CopyFiles */,
 				167948C62BC6A60B004DFF4B /* FullSpaceView.swift in CopyFiles */,
@@ -267,7 +264,6 @@
 		16AE50272B70FE3100D25197 /* SoundFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundFeedback.swift; sourceTree = "<group>"; };
 		16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePlayProvider.swift; sourceTree = "<group>"; };
 		16CB3C8B2B7F8907001CA93D /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
-		16CB3C8E2B81881C001CA93D /* VolumeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeWindow.swift; sourceTree = "<group>"; };
 		16CB3C902B81B091001CA93D /* HallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallView.swift; sourceTree = "<group>"; };
 		16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrancePiecesView.swift; sourceTree = "<group>"; };
 		16EA6A652B6875CA00A3A740 /* rookW.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = rookW.reality; sourceTree = "<group>"; };
@@ -606,7 +602,6 @@
 		16CB3C882B7F88B4001CA93D /* Volume */ = {
 			isa = PBXGroup;
 			children = (
-				16CB3C8E2B81881C001CA93D /* VolumeWindow.swift */,
 				16CB3C8B2B7F8907001CA93D /* VolumeView.swift */,
 				165DD6E02C6C754400D0E18F /* MenuView */,
 			);
@@ -811,7 +806,6 @@
 				16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
-				16CB3C8F2B81881C001CA93D /* VolumeWindow.swift in Sources */,
 				16312B532B75BB52006A93D1 /* MainMenu.swift in Sources */,
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
 				16780FFB2B689304005A0244 /* Chess.swift in Sources */,
