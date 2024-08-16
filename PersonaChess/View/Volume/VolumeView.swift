@@ -18,6 +18,7 @@ struct VolumeView: View {
         }
         .frame(width: self.boardSize, height: self.boardSize)
         .frame(depth: self.boardSize)
+        .animation(.default, value: self.showSharePlayMenu)
         .onChange(of: self.model.queueToOpenScene) { _, newValue in
             if newValue == .fullSpace {
                 Task {

@@ -131,30 +131,15 @@
         }
       }
     },
-    "Close app" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アプリを閉じる"
-          }
-        }
-      }
-    },
-    "Display an environment for screen recording" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "画面収録のための「バーチャル部屋」環境を表示する"
-          }
-        }
-      }
-    },
     "Display an environment for screen recording in full space" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フルスペース上で画面収録のための「バーチャル部屋」環境を表示する"
+          }
+        }
+      }
     },
     "End\nactivity" : {
       "localizations" : {
@@ -197,7 +182,14 @@
       }
     },
     "Exit full space" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フルスペースから抜ける"
+          }
+        }
+      }
     },
     "Full space mode" : {
       "localizations" : {
@@ -265,26 +257,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "大きくする"
-          }
-        }
-      }
-    },
-    "Leave\nactivity" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アクティビティ\nを離脱"
-          }
-        }
-      }
-    },
-    "Leave activity" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アクティビティを離脱"
           }
         }
       }

@@ -301,8 +301,8 @@ extension AppModel {
                             for await immersionStyle in systemCoordinator.groupImmersionStyle {
                                 if immersionStyle != nil {
                                     self.queueToOpenScene = .fullSpace
-                                } else {
-                                    self.queueToOpenScene = .volume
+                                    //} else {
+                                    //    self.queueToOpenScene = .volume
                                 }
                             }
                         }

@@ -137,25 +137,19 @@ private extension ToolbarViewOnHand {
                     Group {
                         if self.model.groupSession?.state == .joined {
                             Button {
-                                self.model.groupSession?.leave()
-                            } label: {
-                                Label("Leave activity", systemImage: "escape")
-                            }
-                            Button {
                                 self.model.groupSession?.end()
                             } label: {
                                 Label("End activity", systemImage: "stop.fill")
                             }
-                            Divider()
-                                .frame(width: Self.dividerSize)
-                        }
-                        Button {
-                            Task {
-                                self.openWindow(id: "volume")
-                                await self.dismissImmersiveSpace()
+                        } else {
+                            Button {
+                                Task {
+                                    self.openWindow(id: "volume")
+                                    await self.dismissImmersiveSpace()
+                                }
+                            } label: {
+                                Label("Exit full space", systemImage: "escape")
                             }
-                        } label: {
-                            Label("Exit full space", systemImage: "escape")
                         }
                     }
                     .font(.caption)

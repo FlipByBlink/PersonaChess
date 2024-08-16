@@ -43,20 +43,7 @@ struct ToolbarView: View {
                 }
                 .buttonBorderShape(.circle)
                 Self.divider()
-                if self.model.groupSession?.state == .joined {
-                    Button {
-                        self.model.groupSession?.leave()
-                    } label: {
-                        Label("""
-                              Leave
-                              activity
-                              """,
-                              systemImage: "escape")
-                        .minimumScaleFactor(0.5)
-                        .padding(.vertical, 4)
-                        .padding(.horizontal, 8)
-                        .frame(height: Self.circleButtonSize)
-                    }
+                if self.shareplaying {
                     Button {
                         self.model.groupSession?.end()
                     } label: {
@@ -70,7 +57,7 @@ struct ToolbarView: View {
                         .padding(.horizontal, 8)
                         .frame(height: Self.circleButtonSize)
                     }
-                    Self.divider()
+                    if self.targetScene == .volume { Self.divider() }
                 }
                 switch self.targetScene {
                     case .volume:
@@ -91,21 +78,23 @@ struct ToolbarView: View {
                             .frame(height: Self.circleButtonSize)
                         }
                     case .fullSpace:
-                        Button {
-                            Task {
-                                self.openWindow(id: "volume")
-                                await self.dismissImmersiveSpace()
+                        if !self.shareplaying {
+                            Button {
+                                Task {
+                                    self.openWindow(id: "volume")
+                                    await self.dismissImmersiveSpace()
+                                }
+                            } label: {
+                                Label("""
+                                      Exit
+                                      full space
+                                      """,
+                                      systemImage: "escape")
+                                .minimumScaleFactor(0.5)
+                                .padding(.vertical, 4)
+                                .padding(.horizontal, 8)
+                                .frame(height: Self.circleButtonSize)
                             }
-                        } label: {
-                            Label("""
-                                  Exit
-                                  full space
-                                  """,
-                                  systemImage: "escape")
-                            .minimumScaleFactor(0.5)
-                            .padding(.vertical, 4)
-                            .padding(.horizontal, 8)
-                            .frame(height: Self.circleButtonSize)
                         }
                 }
             }
@@ -127,6 +116,9 @@ struct ToolbarView: View {
 private extension ToolbarView {
     private var isExpanded: Bool {
         self.model.activityState.expandedToolbar.contains(self.position)
+    }
+    private var shareplaying: Bool {
+        self.model.groupSession != nil
     }
     private func expandButton() -> some View {
         Button {

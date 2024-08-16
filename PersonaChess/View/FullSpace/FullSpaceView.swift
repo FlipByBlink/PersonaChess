@@ -17,15 +17,6 @@ struct FullSpaceView: View {
         .overlay { ToolbarViewOnHand() }
         .overlay { SpatialSuggestionDialog() }
         .overlay { RecordingRoom() }
-        .onChange(of: self.model.queueToOpenScene) { _, newValue in
-            if newValue == .volume {
-                Task {
-                    self.openWindow(id: "volume")
-                    await self.dismissImmersiveSpace()
-                    self.model.clearQueueToOpenScene()
-                }
-            }
-        }
         .onAppear { self.model.isFullSpaceShown = true }
         .onDisappear { self.model.isFullSpaceShown = false }
     }
