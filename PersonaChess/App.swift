@@ -19,8 +19,6 @@ struct PersonaChessApp: App {
         ImmersiveSpace(id: "immersiveSpace") {
             FullSpaceView()
                 .environmentObject(self.model)
-                .handlesExternalEvents(preferring: [],
-                                       allowing: [])
         }
     }
     
