@@ -13,6 +13,7 @@ enum Size {
             .init(Self.square) * 8
         }
         static let pickedOffset: Float = 0.1
+        static let spatialZOffset: CGFloat = 1.5
     }
     enum Point {
 #if os(visionOS)

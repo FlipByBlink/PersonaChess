@@ -73,9 +73,7 @@ extension AppModel {
                 if self.groupSession != nil { self.activityState.mode = .sharePlay }
         }
         
-        self.applyLatestChessToEntities()
-        //visionOS2.0だとundoでアニメーションなしだとバグるので一旦全てアニメーションありに変更
-        
+        self.applyLatestChessToEntities(isUndoAction: action == .undo)
         self.sendMessage()
     }
     func upScale() {
@@ -133,12 +131,12 @@ private extension AppModel {
         self.activityState.chess.latest.forEach {
             self.rootEntity.addChild(PieceEntity.load($0))
         }
-        self.applyLatestChessToEntities(animation: false)
+        self.applyLatestChessToEntities()
     }
     private func pickedPieceEntity() -> Entity? {
         self.rootEntity.children.first { $0.components[Piece.self]?.picked == true }
     }
-    private func applyLatestChessToEntities(animation: Bool = true) {
+    private func applyLatestChessToEntities(isUndoAction: Bool = false) {
         for pieceEntity in self.rootEntity.children.filter({ $0.components.has(Piece.self) }) {
             let piece: Piece = pieceEntity.components[Piece.self]!
             let latestPiece: Piece = self.activityState.chess.latest.first { $0.id == piece.id }!
@@ -151,19 +149,21 @@ private extension AppModel {
                     self.disablePieceHoverEffect()
                     if piece.index != latestPiece.index {
                         if !piece.picked {
-                            await self.raisePiece(pieceEntity, piece.index, animation)
+                            await self.raisePiece(pieceEntity, piece.index, isUndoAction)
                         }
-                        let duration: TimeInterval = animation ? 1 : 0
+                        var duration: TimeInterval = 1
+                        if isUndoAction { duration /= 2 }
                         pieceEntity.move(to: .init(translation: latestPiece.index.position),
                                          relativeTo: self.rootEntity,
                                          duration: duration)
                         try? await Task.sleep(for: .seconds(duration))
-                        await self.lowerPiece(pieceEntity, latestPiece.index, animation)
+                        await self.lowerPiece(pieceEntity, latestPiece.index, isUndoAction)
                     } else {
                         if piece.picked != latestPiece.picked {
                             var translation = piece.index.position
                             translation.y = latestPiece.picked ? Size.Meter.pickedOffset : 0
-                            let duration: TimeInterval = animation ? 0.6 : 0
+                            var duration: TimeInterval = 0.6
+                            if isUndoAction { duration /= 2 }
                             let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
                             pieceBodyEntity.move(to: .init(translation: translation),
                                                  relativeTo: self.rootEntity,
@@ -179,24 +179,26 @@ private extension AppModel {
             }
         }
     }
-    private func raisePiece(_ entity: Entity, _ index: Index, _ animation: Bool) async {
+    private func raisePiece(_ entity: Entity, _ index: Index, _ isUndoAction: Bool) async {
         var translation = index.position
         translation.y = Size.Meter.pickedOffset
-        let duration: TimeInterval = animation ? 0.6 : 0
+        var duration: TimeInterval = 0.6
+        if isUndoAction { duration /= 2 }
         let pieceBodyEntity = entity.findEntity(named: "body")!
         pieceBodyEntity.move(to: .init(translation: translation),
                              relativeTo: self.rootEntity,
                              duration: duration)
         try? await Task.sleep(for: .seconds(duration))
     }
-    private func lowerPiece(_ entity: Entity, _ index: Index, _ animation: Bool) async {
-        let duration: TimeInterval = animation ? 0.7 : 0
+    private func lowerPiece(_ entity: Entity, _ index: Index, _ isUndoAction: Bool) async {
+        var duration: TimeInterval = 0.7
+        if isUndoAction { duration /= 2 }
         let pieceBodyEntity = entity.findEntity(named: "body")!
         pieceBodyEntity.move(to: .init(translation: index.position),
                              relativeTo: self.rootEntity,
                              duration: duration)
         try? await Task.sleep(for: .seconds(duration))
-        if animation { self.soundFeedback.put(entity, self.floorMode) }
+        if !isUndoAction { self.soundFeedback.put(entity, self.floorMode) }
     }
 #if os(visionOS)
     private func disablePieceHoverEffect() {
@@ -229,7 +231,7 @@ extension AppModel {
             for await groupSession in AppGroupActivity.sessions() {
                 self.activityState.clear()
                 self.activityState.chess.setPreset()
-                self.applyLatestChessToEntities(animation: false)
+                self.applyLatestChessToEntities()
                 
                 self.groupSession = groupSession
                 let messenger = GroupSessionMessenger(session: groupSession)
@@ -247,7 +249,7 @@ extension AppModel {
                             self.activityState.chess.clearLog()
                             self.activityState.chess.setPreset()
                             self.activityState.mode = .localOnly
-                            self.applyLatestChessToEntities(animation: false)//FIXME: OS2.0で不具合
+                            self.applyLatestChessToEntities()
                         }
                     }
                     .store(in: &self.subscriptions)
@@ -301,7 +303,7 @@ extension AppModel {
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             var configuration = SystemCoordinator.Configuration()
                             configuration.supportsGroupImmersiveSpace = true
-                            //configuration.spatialTemplatePreference = .custom()//TODO: 実装
+                            configuration.spatialTemplatePreference = .custom(CustomSpatialTemplate())//TODO: 実装
                             systemCoordinator.configuration = configuration
                             groupSession.join()
                         }
@@ -340,14 +342,17 @@ extension AppModel {
     }
 }
 
+
+
+
 //Ref: Drawing content in a group session | Apple Developer Documentation
 //https://developer.apple.com/documentation/groupactivities/drawing_content_in_a_group_session
-//
+
 //Ref: Design spatial SharePlay experiences - WWDC23 - Videos - Apple Developer
 //https://developer.apple.com/videos/play/wwdc2023/10075
-//
+
 //Ref: Build spatial SharePlay experiences - WWDC23 - Videos - Apple Developer
 //https://developer.apple.com/videos/play/wwdc2023/10087
-//
+
 //Ref: Customizing spatial Persona templates | Apple Developer Documentation
 //https://developer.apple.com/documentation/groupactivities/customizing-spatial-persona-templates

@@ -40,6 +40,8 @@
 		16312B7E2B75D570006A93D1 /* putSound1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A17E2B74C7ED009A87A6 /* putSound1.m4a */; };
 		16312B7F2B75D570006A93D1 /* putSound5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A16E2B74C635009A87A6 /* putSound5.m4a */; };
 		16312B802B75D570006A93D1 /* putSound3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A16D2B74C634009A87A6 /* putSound3.m4a */; };
+		164B839C2C8DC4EE001D9DBA /* CustomSpatialTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */; };
+		164B839D2C8DC4EE001D9DBA /* CustomSpatialTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */; };
 		165EC69E2B68C5E40005172B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
 		165EC6A02B6901670005172B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* AppGroupActivity.swift */; };
@@ -171,6 +173,7 @@
 		16312B742B75D45B006A93D1 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		16312B752B75D45B006A93D1 /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		16312B812B75D581006A93D1 /* iOS for debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS for debug.entitlements"; sourceTree = "<group>"; };
+		164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpatialTemplate.swift; sourceTree = "<group>"; };
 		165EC69D2B68C5E30005172B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		165EC69F2B6901670005172B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		165EC6A12B6913250005172B /* AppGroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGroupActivity.swift; sourceTree = "<group>"; };
@@ -368,6 +371,7 @@
 			children = (
 				165EC6A12B6913250005172B /* AppGroupActivity.swift */,
 				16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */,
+				164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */,
 			);
 			path = SharePlay;
 			sourceTree = "<group>";
@@ -708,6 +712,7 @@
 				16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */,
 				16312B6C2B75D193006A93D1 /* AppGroupActivity.swift in Sources */,
 				16312B6F2B75D193006A93D1 /* Action.swift in Sources */,
+				164B839D2C8DC4EE001D9DBA /* CustomSpatialTemplate.swift in Sources */,
 				16312B692B75D193006A93D1 /* Chess.swift in Sources */,
 				16312B6D2B75D193006A93D1 /* Side.swift in Sources */,
 				16312B6E2B75D193006A93D1 /* Index.swift in Sources */,
@@ -746,6 +751,7 @@
 				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
 				16261D712C8D585700C2822C /* RecordingRoom.swift in Sources */,
+				164B839C2C8DC4EE001D9DBA /* CustomSpatialTemplate.swift in Sources */,
 				16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */,
 				16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
