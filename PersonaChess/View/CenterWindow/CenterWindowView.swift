@@ -18,7 +18,7 @@ struct CenterWindowView: View {
                 }
             }
             .navigationTitle("PersonaChess")
-            .toolbar { OpenChessButton() }
+            .toolbar { OpenButton() }
         }
         .animation(.default, value: self.model.isFullSpaceShown)
         .animation(.default, value: self.model.groupSession == nil)

@@ -1,7 +1,7 @@
 import SwiftUI
 import GroupActivities
 
-struct SharePlayMenu: View {
+struct MainMenu: View {
     @EnvironmentObject var model: AppModel
     @StateObject private var groupStateObserver = GroupStateObserver()
     var body: some View {

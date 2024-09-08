@@ -1,14 +1,16 @@
 import SwiftUI
 
 @main
-struct IOSForDebugApp: App {
-    @StateObject var model: AppModel = .init()
+struct IOSAppForDebug: App {
+    @StateObject private var model = AppModel()
+    
     var body: some Scene {
-        WindowGroup(id: "volume") {
+        WindowGroup(id: "centerWindow") {
             ContentView()
                 .environmentObject(self.model)
         }
     }
+    
     init() {
         Piece.registerComponent()
     }

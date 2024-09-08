@@ -13,7 +13,19 @@ struct GuideMenuView: View {
             }
             if self.model.groupSession == nil {
                 Section {
-                    NavigationLink("Set up SharePlay") { ProgressView() }
+                    NavigationLink("Set up SharePlay") {
+                        if self.groupStateObserver.isEligibleForGroupSession {
+                            Button {
+                                self.model.activateGroupActivity()
+                            } label: {
+                                Label(#"Start "Share chess" activity"#,
+                                      systemImage: "play.fill")
+                                .fontWeight(.semibold)
+                            }
+                        } else {
+                            ProgressView()
+                        }
+                    }
                 }
             }
             Section {

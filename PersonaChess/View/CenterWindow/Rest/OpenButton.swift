@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct OpenChessButton: View {
+struct OpenButton: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     var body: some View {

@@ -13,7 +13,7 @@
 		16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */; };
 		16261D712C8D585700C2822C /* RecordingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6F2C8D585700C2822C /* RecordingRoom.swift */; };
 		16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */; };
-		16261D742C8D61FE00C2822C /* OpenChessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenChessButton.swift */; };
+		16261D742C8D61FE00C2822C /* OpenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenButton.swift */; };
 		16261D762C8D6AB500C2822C /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D752C8D6AAC00C2822C /* PlaceholderView.swift */; };
 		16312B5B2B75D0FB006A93D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* App.swift */; };
 		16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5C2B75D0FB006A93D1 /* ContentView.swift */; };
@@ -30,7 +30,7 @@
 		16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
 		16312B722B75D201006A93D1 /* PieceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1602B72354F009A87A6 /* PieceEntity.swift */; };
 		16312B762B75D45B006A93D1 /* ChessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B732B75D45A006A93D1 /* ChessView.swift */; };
-		16312B772B75D45B006A93D1 /* SharePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B742B75D45B006A93D1 /* SharePlayMenu.swift */; };
+		16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B742B75D45B006A93D1 /* MainMenu.swift */; };
 		16312B782B75D45B006A93D1 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B752B75D45B006A93D1 /* ToolbarView.swift */; };
 		16312B792B75D570006A93D1 /* putSound4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1732B74C638009A87A6 /* putSound4.m4a */; };
 		16312B7A2B75D570006A93D1 /* putSound2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1712B74C637009A87A6 /* putSound2.m4a */; };
@@ -161,14 +161,14 @@
 		16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewOnHand.swift; sourceTree = "<group>"; };
 		16261D6F2C8D585700C2822C /* RecordingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRoom.swift; sourceTree = "<group>"; };
 		16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialSuggestionDialog.swift; sourceTree = "<group>"; };
-		16261D732C8D61F800C2822C /* OpenChessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChessButton.swift; sourceTree = "<group>"; };
+		16261D732C8D61F800C2822C /* OpenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenButton.swift; sourceTree = "<group>"; };
 		16261D752C8D6AAC00C2822C /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		16312B582B75D0FB006A93D1 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16312B5A2B75D0FB006A93D1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		16312B5C2B75D0FB006A93D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16312B5E2B75D0FD006A93D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16312B732B75D45A006A93D1 /* ChessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessView.swift; sourceTree = "<group>"; };
-		16312B742B75D45B006A93D1 /* SharePlayMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePlayMenu.swift; sourceTree = "<group>"; };
+		16312B742B75D45B006A93D1 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		16312B752B75D45B006A93D1 /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		16312B812B75D581006A93D1 /* iOS for debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS for debug.entitlements"; sourceTree = "<group>"; };
 		165EC69D2B68C5E30005172B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
@@ -264,6 +264,7 @@
 			children = (
 				16261D622C8D1CD900C2822C /* CenterWindowView.swift */,
 				16261D652C8D1E5A00C2822C /* MenuView */,
+				16A34CBD2C8D75FA004192AC /* Rest */,
 			);
 			path = CenterWindow;
 			sourceTree = "<group>";
@@ -273,8 +274,6 @@
 			children = (
 				16261D662C8D1E6200C2822C /* GuideMenuView.swift */,
 				16261D6A2C8D2CB400C2822C /* ChessMenuView.swift */,
-				16261D732C8D61F800C2822C /* OpenChessButton.swift */,
-				16261D752C8D6AAC00C2822C /* PlaceholderView.swift */,
 			);
 			path = MenuView;
 			sourceTree = "<group>";
@@ -296,7 +295,7 @@
 				16312B5C2B75D0FB006A93D1 /* ContentView.swift */,
 				16312B732B75D45A006A93D1 /* ChessView.swift */,
 				16312B752B75D45B006A93D1 /* ToolbarView.swift */,
-				16312B742B75D45B006A93D1 /* SharePlayMenu.swift */,
+				16312B742B75D45B006A93D1 /* MainMenu.swift */,
 				16312B5E2B75D0FD006A93D1 /* Assets.xcassets */,
 				16312B812B75D581006A93D1 /* iOS for debug.entitlements */,
 			);
@@ -540,6 +539,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		16A34CBD2C8D75FA004192AC /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				16261D732C8D61F800C2822C /* OpenButton.swift */,
+				16261D752C8D6AAC00C2822C /* PlaceholderView.swift */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
 		16EA6A642B6875CA00A3A740 /* Piece */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,7 +717,7 @@
 				16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */,
 				16312B6B2B75D193006A93D1 /* SoundFeedback.swift in Sources */,
 				16312B762B75D45B006A93D1 /* ChessView.swift in Sources */,
-				16312B772B75D45B006A93D1 /* SharePlayMenu.swift in Sources */,
+				16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */,
 				16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */,
 				16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */,
 				16312B782B75D45B006A93D1 /* ToolbarView.swift in Sources */,
@@ -734,7 +742,7 @@
 				16261D762C8D6AB500C2822C /* PlaceholderView.swift in Sources */,
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
 				16780FFB2B689304005A0244 /* Chess.swift in Sources */,
-				16261D742C8D61FE00C2822C /* OpenChessButton.swift in Sources */,
+				16261D742C8D61FE00C2822C /* OpenButton.swift in Sources */,
 				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
 				16261D712C8D585700C2822C /* RecordingRoom.swift in Sources */,

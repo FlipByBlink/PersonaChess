@@ -247,7 +247,7 @@ extension AppModel {
                             self.activityState.chess.clearLog()
                             self.activityState.chess.setPreset()
                             self.activityState.mode = .localOnly
-                            self.applyLatestChessToEntities(animation: false)
+                            self.applyLatestChessToEntities(animation: false)//FIXME: OS2.0で不具合
                         }
                     }
                     .store(in: &self.subscriptions)
@@ -301,6 +301,7 @@ extension AppModel {
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             var configuration = SystemCoordinator.Configuration()
                             configuration.supportsGroupImmersiveSpace = true
+                            //configuration.spatialTemplatePreference = .custom()//TODO: 実装
                             systemCoordinator.configuration = configuration
                             groupSession.join()
                         }

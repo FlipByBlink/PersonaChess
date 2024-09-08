@@ -79,9 +79,6 @@
         }
       }
     },
-    "End activity" : {
-
-    },
     "Enter full space" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -94,6 +91,7 @@
       }
     },
     "Exit full space" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -254,6 +252,9 @@
       }
     },
     "Smaller" : {
+
+    },
+    "Start \"Share chess\" activity" : {
 
     },
     "Start SharePlay by oneself" : {

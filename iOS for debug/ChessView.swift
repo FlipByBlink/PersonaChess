@@ -23,8 +23,8 @@ struct ChessView: View {
             if self.model.showProgressView { ProgressView() }
         }
         .frame(width: 330, height: 330)
-        .rotationEffect(.degrees(-self.model.activityState.boardAngle))
-        .animation(.default, value: self.model.activityState.boardAngle)
+        .scaleEffect(self.model.activityState.viewScale)
+        .animation(.default, value: self.model.activityState.viewScale)
     }
 }
 
