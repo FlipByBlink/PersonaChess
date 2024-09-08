@@ -16,7 +16,7 @@ enum SharePlayProvider {
             .connectedScenes
             .compactMap { $0 as? UIWindowScene }
             .filter {
-                ($0.session.userInfo?["com.apple.SwiftUI.sceneID"] as? String) == "volume"
+                ($0.session.userInfo?["com.apple.SwiftUI.sceneID"] as? String) == "centerWindow"
             }
             .first!
             .windows

@@ -20,8 +20,6 @@ struct ChessView: View {
                 .targetedToAnyEntity()
                 .onEnded { self.model.execute(.tapPiece($0.entity)) }
         )
-        .rotation3DEffect(.degrees(self.model.activityState.boardAngle), axis: .y)
-        .animation(.default, value: self.model.activityState.boardAngle)
         .frame(width: Size.Point.board(self.physicalMetrics), height: 0)
         .frame(depth: Size.Point.board(self.physicalMetrics))
         .overlay {

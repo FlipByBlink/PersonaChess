@@ -12,6 +12,7 @@
       }
     },
     "About data" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -22,6 +23,7 @@
       }
     },
     "Apple official support page" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -61,7 +63,11 @@
         }
       }
     },
+    "Close chess" : {
+
+    },
     "During a FaceTime call, if the person you are speaking with starts SharePlay, you will automatically join SharePlay as well. If you want to join a SharePlay session that has already started, you can do so from the Control Center." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -72,6 +78,7 @@
       }
     },
     "Enter full space" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -82,6 +89,7 @@
       }
     },
     "Exit full space" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -91,7 +99,14 @@
         }
       }
     },
+    "Floor mode" : {
+
+    },
+    "Height" : {
+
+    },
     "How to start" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -102,6 +117,7 @@
       }
     },
     "If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -112,6 +128,7 @@
       }
     },
     "If your friend has already started chess activity, you can join the activity from the Control Center." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -122,6 +139,7 @@
       }
     },
     "invalidated, (%@)" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -132,6 +150,7 @@
       }
     },
     "Join SharePlay" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -142,6 +161,7 @@
       }
     },
     "joined" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -151,7 +171,11 @@
         }
       }
     },
+    "More" : {
+
+    },
     "none" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -162,6 +186,7 @@
       }
     },
     "Once you have started an activity, encourage your friends to join SharePlay." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -170,6 +195,9 @@
           }
         }
       }
+    },
+    "Open chess" : {
+
     },
     "PersonaChess" : {
       "localizations" : {
@@ -191,6 +219,9 @@
         }
       }
     },
+    "Scale" : {
+
+    },
     "Set up SharePlay" : {
       "localizations" : {
         "ja" : {
@@ -202,6 +233,7 @@
       }
     },
     "SharePlay state:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -212,6 +244,7 @@
       }
     },
     "Start SharePlay by oneself" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -222,6 +255,7 @@
       }
     },
     "The Group Activities framework uses end-to-end encryption on all session data. Developer and Apple doesn’t have the keys to decrypt this data." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -232,6 +266,7 @@
       }
     },
     "The Persona (or Spatial Persona) is displayed as part of SharePlay, in collaboration with this app and FaceTime." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -242,6 +277,7 @@
       }
     },
     "unknown" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -252,6 +288,7 @@
       }
     },
     "waiting" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -282,6 +319,7 @@
       }
     },
     "With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -292,6 +330,7 @@
       }
     },
     "You are currently connected with a friend. Join an activity launched by your friend, or launch an activity by yourself." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -302,6 +341,7 @@
       }
     },
     "You can also start SharePlay yourself. During a FaceTime call, a system menu UI for SharePlay appears at the bottom of the app. You can start SharePlay from the menu." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {

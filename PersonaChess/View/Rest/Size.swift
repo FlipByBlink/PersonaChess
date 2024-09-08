@@ -11,14 +11,15 @@ enum Size {
         }
         static let pickedOffset: Float = 0.1
     }
-#if os(visionOS)
     enum Point {
+#if os(visionOS)
         static func boardInnerPadding(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
             physicalMetrics.convert(Size.Meter.boardInnerPadding, from: .meters)
         }
         static func board(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
             physicalMetrics.convert(Size.Meter.board, from: .meters)
         }
-    }
 #endif
+        static let defaultHeight = 1000.0
+    }
 }

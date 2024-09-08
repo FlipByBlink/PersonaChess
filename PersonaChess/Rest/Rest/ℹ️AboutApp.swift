@@ -233,7 +233,7 @@ private struct 📓SourceCodeLink: View {
             Section {
                 ForEach(self.category.fileNames, id: \.self) { ⓕileName in
                     let ⓤrl = 📓sourceCodeFolderURL.appendingPathComponent(ⓕileName)
-                    if let ⓒode = try? String(contentsOf: ⓤrl) {
+                    if let ⓒode = try? String(contentsOf: ⓤrl, encoding: .utf8) {
                         NavigationLink(ⓕileName) { self.sourceCodeView(ⓒode, ⓕileName) }
                     } else {
                         Text(verbatim: "🐛")

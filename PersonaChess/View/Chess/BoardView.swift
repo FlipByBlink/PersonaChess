@@ -19,7 +19,6 @@ struct BoardView: View {
                 .stroke(Color(white: self.model.floorMode ? 1 : 0.75),
                         lineWidth: 3)
         }
-        .overlay { FloorModeDividers() }
         .padding(Size.Point.boardInnerPadding(self.physicalMetrics))
         .frame(width: Size.Point.board(self.physicalMetrics),
                height: Size.Point.board(self.physicalMetrics))

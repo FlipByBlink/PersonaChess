@@ -15,7 +15,6 @@ class AppModel: ObservableObject {
     private var subscriptions: Set<AnyCancellable> = []
     private var tasks: Set<Task<Void, Never>> = []
     @Published private(set) var spatialSharePlaying: Bool?
-    @Published private(set) var queueToOpenScene: TargetScene?
     
     private let soundFeedback = SoundFeedback()
     
@@ -72,7 +71,10 @@ extension AppModel {
                 self.activityState.chess.setPreset()
                 if self.groupSession != nil { self.activityState.mode = .sharePlay }
         }
-        self.applyLatestChessToEntities(animation: action != .back)
+        
+        self.applyLatestChessToEntities()
+        //visionOS2だとbackでアニメーションなしだとバグるので一旦全てアニメーションアリに変更
+        
         self.sendMessage()
     }
     func upScale() {
@@ -96,23 +98,8 @@ extension AppModel {
         self.sendMessage()
     }
     func separateFromFloor() {
-        self.activityState.viewHeight = 1000
+        self.activityState.viewHeight = Size.Point.defaultHeight
         self.sendMessage()
-    }
-    func rotateBoard() {
-        self.activityState.boardAngle += 90
-        self.sendMessage()
-    }
-    func expandToolbar(_ position: ToolbarPosition) {
-        self.activityState.expandedToolbar.append(position)
-        self.sendMessage()
-    }
-    func closeToolbar(_ position: ToolbarPosition) {
-        self.activityState.expandedToolbar.removeAll { $0 == position }
-        self.sendMessage()
-    }
-    func clearQueueToOpenScene() {
-        self.queueToOpenScene = nil
     }
     var isSharePlayStateNotSet: Bool {
         self.groupSession?.state == .joined
@@ -286,9 +273,9 @@ extension AppModel {
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             for await immersionStyle in systemCoordinator.groupImmersionStyle {
                                 if immersionStyle != nil {
-                                    self.queueToOpenScene = .fullSpace
+                                    //TODO: 実装
                                 } else {
-                                    self.queueToOpenScene = .volume
+                                    //TODO: 実装
                                 }
                             }
                         }
