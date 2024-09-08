@@ -1,40 +1,35 @@
 import SwiftUI
-import GroupActivities
 
 struct CenterWindowView: View {
     @EnvironmentObject var model: AppModel
+    @Environment(\.scenePhase) var scenePhase
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-    @StateObject private var groupStateObserver = GroupStateObserver()
     var body: some View {
         NavigationStack {
             ZStack {
                 if self.model.isFullSpaceShown {
                     ChessMenuView()
                 } else {
-                    GuideMenuView()
+                    if self.model.groupSession == nil {
+                        GuideMenuView()
+                    } else {
+                        PlaceholderView()
+                    }
                 }
             }
+            .navigationTitle("PersonaChess")
             .toolbar { OpenChessButton() }
         }
         .animation(.default, value: self.model.isFullSpaceShown)
-        .animation(.default, value: self.isEligibleForGroupSession)
+        .animation(.default, value: self.model.groupSession == nil)
         .frame(width: 450, height: 400)
         .task { SharePlayProvider.registerGroupActivity() }
-        .onDisappear {
-            if self.model.isFullSpaceShown {
-                Task { await self.dismissImmersiveSpace() }
+        .onChange(of: self.scenePhase) { _, newValue in
+            if newValue == .background {
+                if self.model.isFullSpaceShown {
+                    Task { await self.dismissImmersiveSpace() }
+                }
             }
         }
-    }
-}
-
-private extension CenterWindowView {
-    var isEligibleForGroupSession: Bool {
-#if targetEnvironment(simulator)
-        true
-        //        false
-#else
-        self.groupStateObserver.isEligibleForGroupSession
-#endif
     }
 }

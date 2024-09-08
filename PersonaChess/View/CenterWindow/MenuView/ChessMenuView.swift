@@ -84,7 +84,6 @@ struct ChessMenuView: View {
             Spacer()
         }
         .padding(.bottom)
-        .navigationTitle("PersonaChess")
     }
 }
 

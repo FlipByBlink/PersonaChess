@@ -24,6 +24,5 @@ struct GuideMenuView: View {
                 }
             }
         }
-        .navigationTitle("PersonaChess")
     }
 }

@@ -127,21 +127,10 @@ private extension ToolbarViewOnHand {
                     Divider()
                         .frame(width: Self.dividerSize)
                     Group {
-                        if self.model.groupSession?.state == .joined {
-                            Button {
-                                self.model.groupSession?.end()
-                            } label: {
-                                Label("End activity", systemImage: "stop.fill")
-                            }
-                        } else {
-                            Button {
-                                Task {
-                                    self.openWindow(id: "volume")
-                                    await self.dismissImmersiveSpace()
-                                }
-                            } label: {
-                                Label("Exit full space", systemImage: "escape")
-                            }
+                        Button {
+                            Task { await self.dismissImmersiveSpace() }
+                        } label: {
+                            Label("Close chess", systemImage: "escape")
                         }
                     }
                     .font(.caption)

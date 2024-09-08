@@ -10,12 +10,12 @@ struct OpenChessButton: View {
             HStack {
                 Image(systemName: "arrow.up.left.and.arrow.down.right")
                     .imageScale(.small)
-                Text("Open chess")
+                Text("Open")
             }
             .fontWeight(.bold)
         }
         .buttonStyle(.borderedProminent)
-        .tint(.green)
+        .tint(.blue)
         .opacity(self.model.isFullSpaceShown ? 0 : 1)
         .animation(.default, value: self.model.isFullSpaceShown)
     }
