@@ -13,23 +13,53 @@ struct BoardView: View {
                 }
             }
         }
-        .mask(RoundedRectangle(cornerRadius: 24, style: .continuous))
-        .overlay {
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .stroke(Color(white: self.model.floorMode ? 1 : 0.75),
-                        lineWidth: 3)
-        }
-        .padding(Size.Point.boardInnerPadding(self.physicalMetrics))
-        .frame(width: Size.Point.board(self.physicalMetrics),
-               height: Size.Point.board(self.physicalMetrics))
-        .glassBackgroundEffect(displayMode: self.model.floorMode ? .never : .always)
-        .overlay {
-            if self.model.isSharePlayStateNotSet {
-                ProgressView()
-                    .offset(z: 10)
-            }
-        }
-        .animation(.default, value: self.model.isSharePlayStateNotSet)
+        .mask(alignment: .center) { self.maskView() }
+        .overlay { self.boardOutlineView() }
+        .padding(self.paddingSize)
+        .frame(width: self.boardSize, height: self.boardSize)
+        .glassBackgroundEffect()
+        .opacity(self.model.floorMode ? 0.25 : 1)
+        .modifier(Self.SharePlayStateLoading())
         .rotation3DEffect(.degrees(90), axis: .x)
+    }
+}
+
+
+private extension BoardView {
+    private func maskView() -> some View {
+        RoundedRectangle(cornerRadius: self.model.floorMode ? 0 : 24,
+                         style: .continuous)
+    }
+    private func boardOutlineView() -> some View {
+        RoundedRectangle(cornerRadius: 24, style: .continuous)
+            .stroke(Color(white: 0.75), lineWidth: 3)
+            .opacity(self.model.floorMode ? 0 : 1)
+    }
+    private var paddingSize: CGFloat {
+        if self.model.floorMode {
+            0
+        } else {
+            Size.Point.boardInnerPadding(self.physicalMetrics)
+        }
+    }
+    private var boardSize: CGFloat {
+        if self.model.floorMode {
+            Size.Point.boardInFloorMode(self.physicalMetrics)
+        } else {
+            Size.Point.board(self.physicalMetrics)
+        }
+    }
+    private struct SharePlayStateLoading: ViewModifier {
+        @EnvironmentObject var model: AppModel
+        func body(content: Content) -> some View {
+            content
+                .overlay {
+                    if self.model.isSharePlayStateNotSet {
+                        ProgressView()
+                            .offset(z: 10)
+                    }
+                }
+                .animation(.default, value: self.model.isSharePlayStateNotSet)
+        }
     }
 }

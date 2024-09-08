@@ -44,6 +44,7 @@
       }
     },
     "Back" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -54,6 +55,7 @@
       }
     },
     "Chess" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -77,6 +79,9 @@
         }
       }
     },
+    "End activity" : {
+
+    },
     "Enter full space" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -89,7 +94,6 @@
       }
     },
     "Exit full space" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -171,6 +175,9 @@
         }
       }
     },
+    "Larger" : {
+
+    },
     "More" : {
 
     },
@@ -232,6 +239,9 @@
         }
       }
     },
+    "Share chess" : {
+
+    },
     "SharePlay state:" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -242,6 +252,9 @@
           }
         }
       }
+    },
+    "Smaller" : {
+
     },
     "Start SharePlay by oneself" : {
       "extractionState" : "stale",
@@ -275,6 +288,9 @@
           }
         }
       }
+    },
+    "Undo" : {
+
     },
     "unknown" : {
       "extractionState" : "stale",
@@ -339,6 +355,9 @@
           }
         }
       }
+    },
+    "You are currently not in Spatial mode.\nPlease switch to Spatial mode from Control Center or FaceTime window." : {
+
     },
     "You can also start SharePlay yourself. During a FaceTime call, a system menu UI for SharePlay appears at the bottom of the app. You can start SharePlay from the menu." : {
       "extractionState" : "stale",

@@ -14,12 +14,15 @@ struct ChessMenuView: View {
                     } label: {
                         Image(systemName: "chevron.up")
                     }
+                    .disabled(self.model.activityState.viewHeight > 1600)
                     Button {
                         self.model.lowerBoard()
                     } label: {
                         Image(systemName: "chevron.down")
                     }
                 }
+                .buttonBorderShape(.circle)
+                .disabled(self.model.floorMode)
             }
             Spacer()
             Divider()
@@ -31,30 +34,32 @@ struct ChessMenuView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
+                    .disabled(!self.model.upScalable)
                     Button {
                         self.model.downScale()
                     } label: {
                         Image(systemName: "minus")
                     }
-                    .disabled(self.model.activityState.viewScale < 0.6)
+                    .disabled(!self.model.downScalable)
                 }
+                .buttonBorderShape(.circle)
+            }
+            Spacer()
+            Divider()
+            Spacer()
+            Self.RowView(title: "Floor mode") {
+                Self.FloorModeToggle()
             }
             Spacer()
             Divider()
             Spacer()
             Self.RowView(title: "More") {
                 Menu {
-                    Button {
-                        self.model.lowerToFloor()
-                    } label: {
-                        Label("Floor mode",
-                              systemImage: "arrow.down.to.line")
-                    }
                     Section {
                         Button {
-                            self.model.execute(.back)
+                            self.model.execute(.undo)
                         } label: {
-                            Label("Back", systemImage: "arrow.uturn.backward")
+                            Label("Undo", systemImage: "arrow.uturn.backward")
                         }
                         .disabled(self.model.activityState.chess.log.isEmpty)
                         Button {
@@ -84,6 +89,22 @@ struct ChessMenuView: View {
 }
 
 private extension ChessMenuView {
+    private struct FloorModeToggle: View {
+        @EnvironmentObject var model: AppModel
+        @State private var value: Bool = false
+        var body: some View {
+            Toggle(isOn: self.$value) { EmptyView() }
+                .labelsHidden()
+                .onAppear { self.value = self.model.floorMode }
+                .onChange(of: self.value) { _, newValue in
+                    if newValue {
+                        self.model.lowerToFloor()
+                    } else {
+                        self.model.separateFromFloor()
+                    }
+                }
+        }
+    }
     private struct RowView<Content: View>: View {
         let title: LocalizedStringKey
         @ViewBuilder var content: () -> Content
@@ -94,7 +115,7 @@ private extension ChessMenuView {
                 Text(self.title)
                     .foregroundStyle(.secondary)
             }
-            .padding(.horizontal, 40)
+            .padding(.horizontal, 44)
         }
     }
 }

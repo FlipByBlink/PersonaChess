@@ -25,19 +25,5 @@ struct GuideMenuView: View {
             }
         }
         .navigationTitle("PersonaChess")
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    Task { await self.openImmersiveSpace(id: "immersiveSpace") }
-                } label: {
-                    HStack {
-                        Image(systemName: "arrow.up.left.and.arrow.down.right")
-                            .imageScale(.small)
-                        Text("Open chess")
-                    }
-                }
-                .buttonStyle(.bordered)
-            }
-        }
     }
 }

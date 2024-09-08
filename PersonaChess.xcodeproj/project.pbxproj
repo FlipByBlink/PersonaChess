@@ -10,6 +10,10 @@
 		16261D632C8D1CE200C2822C /* CenterWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D622C8D1CD900C2822C /* CenterWindowView.swift */; };
 		16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D662C8D1E6200C2822C /* GuideMenuView.swift */; };
 		16261D6B2C8D2CBA00C2822C /* ChessMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6A2C8D2CB400C2822C /* ChessMenuView.swift */; };
+		16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */; };
+		16261D712C8D585700C2822C /* RecordingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6F2C8D585700C2822C /* RecordingRoom.swift */; };
+		16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */; };
+		16261D742C8D61FE00C2822C /* OpenChessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenChessButton.swift */; };
 		16312B5B2B75D0FB006A93D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* App.swift */; };
 		16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5C2B75D0FB006A93D1 /* ContentView.swift */; };
 		16312B5F2B75D0FD006A93D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16312B5E2B75D0FD006A93D1 /* Assets.xcassets */; };
@@ -153,6 +157,10 @@
 		16261D622C8D1CD900C2822C /* CenterWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterWindowView.swift; sourceTree = "<group>"; };
 		16261D662C8D1E6200C2822C /* GuideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideMenuView.swift; sourceTree = "<group>"; };
 		16261D6A2C8D2CB400C2822C /* ChessMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessMenuView.swift; sourceTree = "<group>"; };
+		16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewOnHand.swift; sourceTree = "<group>"; };
+		16261D6F2C8D585700C2822C /* RecordingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRoom.swift; sourceTree = "<group>"; };
+		16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialSuggestionDialog.swift; sourceTree = "<group>"; };
+		16261D732C8D61F800C2822C /* OpenChessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChessButton.swift; sourceTree = "<group>"; };
 		16312B582B75D0FB006A93D1 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16312B5A2B75D0FB006A93D1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		16312B5C2B75D0FB006A93D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -263,8 +271,19 @@
 			children = (
 				16261D662C8D1E6200C2822C /* GuideMenuView.swift */,
 				16261D6A2C8D2CB400C2822C /* ChessMenuView.swift */,
+				16261D732C8D61F800C2822C /* OpenChessButton.swift */,
 			);
 			path = MenuView;
+			sourceTree = "<group>";
+		};
+		16261D6C2C8D577E00C2822C /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */,
+				16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */,
+				16261D6F2C8D585700C2822C /* RecordingRoom.swift */,
+			);
+			path = Rest;
 			sourceTree = "<group>";
 		};
 		16312B592B75D0FB006A93D1 /* iOS for debug */ = {
@@ -328,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				16780FF52B6881DB005A0244 /* FullSpaceView.swift */,
+				16261D6C2C8D577E00C2822C /* Rest */,
 			);
 			path = FullSpace;
 			sourceTree = "<group>";
@@ -710,12 +730,16 @@
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
 				16780FFB2B689304005A0244 /* Chess.swift in Sources */,
+				16261D742C8D61FE00C2822C /* OpenChessButton.swift in Sources */,
 				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
+				16261D712C8D585700C2822C /* RecordingRoom.swift in Sources */,
+				16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */,
 				16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				16780FF62B6881DB005A0244 /* FullSpaceView.swift in Sources */,
 				1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */,
+				16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */,
 				169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */,
 				16F972772B68B7FB00711C53 /* Size.swift in Sources */,
 				16C477132B8AC23D00343DD8 /* SharePlayProvider.swift in Sources */,

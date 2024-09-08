@@ -11,9 +11,9 @@ class SoundFeedback {
 }
 
 extension SoundFeedback {
-    func put(_ entity: Entity) {
+    func put(_ entity: Entity, _ isFloorMode: Bool) {
         let player = entity.prepareAudio(self.putSound.randomElement()!)
-        player.gain = -8
+        player.gain = isFloorMode ? 14 : -8
         player.play()
     }
     func reset(_ entity: Entity) {
@@ -21,9 +21,9 @@ extension SoundFeedback {
         player.gain = -8
         player.play()
     }
-    func select(_ entity: Entity) {
+    func select(_ entity: Entity, _ isFloorMode: Bool) {
         let player = entity.prepareAudio(self.selectSound)
-        player.gain = -21
+        player.gain = isFloorMode ? -8 : -21
         player.play()
     }
 }

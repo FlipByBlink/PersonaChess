@@ -7,15 +7,18 @@ struct CenterWindowView: View {
     @StateObject private var groupStateObserver = GroupStateObserver()
     var body: some View {
         NavigationStack {
-            if self.model.isFullSpaceShown {
-                ChessMenuView()
-            } else {
-                GuideMenuView()
+            ZStack {
+                if self.model.isFullSpaceShown {
+                    ChessMenuView()
+                } else {
+                    GuideMenuView()
+                }
             }
+            .toolbar { OpenChessButton() }
         }
         .animation(.default, value: self.model.isFullSpaceShown)
         .animation(.default, value: self.isEligibleForGroupSession)
-        .frame(width: 500, height: 400)
+        .frame(width: 450, height: 400)
         .task { SharePlayProvider.registerGroupActivity() }
         .onDisappear {
             if self.model.isFullSpaceShown {
