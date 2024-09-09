@@ -29,5 +29,6 @@ struct ChessView: View {
                     .scaleEffect(3)
             }
         }
+        .rotation3DEffect(.init(angle: .degrees(270), axis: .y))
     }
 }

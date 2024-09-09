@@ -43,6 +43,9 @@
         }
       }
     },
+    "Audience" : {
+
+    },
     "Back" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -53,6 +56,9 @@
           }
         }
       }
+    },
+    "Black" : {
+
     },
     "Chess" : {
       "extractionState" : "stale",
@@ -224,6 +230,9 @@
         }
       }
     },
+    "Role" : {
+
+    },
     "Scale" : {
 
     },
@@ -334,6 +343,9 @@
           }
         }
       }
+    },
+    "White" : {
+
     },
     "With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time." : {
       "extractionState" : "stale",

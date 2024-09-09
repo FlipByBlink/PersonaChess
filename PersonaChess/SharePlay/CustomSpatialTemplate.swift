@@ -3,8 +3,8 @@ import GroupActivities
 //Work in progress
 struct CustomSpatialTemplate: SpatialTemplate {
     enum Role: String, SpatialTemplateRole {
-        case playerL,
-             playerR
+        case white,
+             black
     }
     
     var elements: [any SpatialTemplateElement] {
@@ -14,12 +14,12 @@ struct CustomSpatialTemplate: SpatialTemplate {
         }()
         
         return [
-            .seat(position: .app.offsetBy(x: -1, z: 2),
+            .seat(position: .app.offsetBy(x: -1, z: Size.Meter.spatialZOffset),
                   direction: direction,
-                  role: Role.playerL),
-            .seat(position: .app.offsetBy(x: 1, z: 2),
+                  role: Role.white),
+            .seat(position: .app.offsetBy(x: 1, z: Size.Meter.spatialZOffset),
                   direction: direction,
-                  role: Role.playerR),
+                  role: Role.black),
             
             // Starting positions:
             .seat(position: .app.offsetBy(x: 0, z: 3), direction: direction),

@@ -15,6 +15,7 @@ class AppModel: ObservableObject {
     private var subscriptions: Set<AnyCancellable> = []
     private var tasks: Set<Task<Void, Never>> = []
     @Published private(set) var spatialSharePlaying: Bool?
+    @Published var myRole: CustomSpatialTemplate.Role? = nil
     
     private let soundFeedback = SoundFeedback()
     @Published var showRecordingRoom: Bool = false
@@ -102,6 +103,18 @@ extension AppModel {
             self.activityState.viewScale = 1.0
         }
         self.sendMessage()
+    }
+    func set(role: CustomSpatialTemplate.Role?) {
+        Task {
+            if let systemCoordinator = await self.groupSession?.systemCoordinator {
+                if let role {
+                    systemCoordinator.assignRole(role)
+                } else {
+                    systemCoordinator.resignRole()
+                }
+                self.myRole = role
+            }
+        }
     }
     var upScalable: Bool {
         if self.floorMode {
@@ -250,6 +263,7 @@ extension AppModel {
                             self.activityState.chess.setPreset()
                             self.activityState.mode = .localOnly
                             self.applyLatestChessToEntities()
+                            self.myRole = nil
                         }
                     }
                     .store(in: &self.subscriptions)

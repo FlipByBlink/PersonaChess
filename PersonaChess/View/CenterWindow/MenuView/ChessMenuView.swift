@@ -53,6 +53,10 @@ struct ChessMenuView: View {
             Spacer()
             Divider()
             Spacer()
+            self.rolePicker()
+            Spacer()
+            Divider()
+            Spacer()
             Self.RowView(title: "More") {
                 Menu {
                     Section {
@@ -102,6 +106,22 @@ private extension ChessMenuView {
                         self.model.separateFromFloor()
                     }
                 }
+        }
+    }
+    private func rolePicker() -> some View {
+        Self.RowView(title: "Role") {
+            Button("White") { self.model.set(role: .white) }
+                .disabled(self.model.myRole == .white)
+            Button("Black") { self.model.set(role: .black) }
+                .disabled(self.model.myRole == .black)
+            Button {
+                self.model.set(role: nil)
+            } label: {
+                Label("Audience", systemImage: "xmark")
+                    .labelStyle(.iconOnly)
+            }
+            .buttonBorderShape(.circle)
+            .disabled(self.model.myRole == nil)
         }
     }
     private struct RowView<Content: View>: View {
