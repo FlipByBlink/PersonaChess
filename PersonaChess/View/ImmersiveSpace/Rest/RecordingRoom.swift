@@ -1,6 +1,7 @@
 import SwiftUI
 import RealityKit
 
+//MARK: Work in progress
 struct RecordingRoom: View {
     @EnvironmentObject var model: AppModel
     @State private var startedFadeIn: Bool = false

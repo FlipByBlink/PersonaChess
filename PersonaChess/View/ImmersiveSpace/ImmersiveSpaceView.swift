@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FullSpaceView: View {
+struct ImmersiveSpaceView: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
@@ -18,7 +18,7 @@ struct FullSpaceView: View {
     }
 }
 
-private extension FullSpaceView {
+private extension ImmersiveSpaceView {
     private var zOffset: CGFloat {
         if self.model.spatialSharePlaying == true {
             self.physicalMetrics.convert(Size.Meter.spatialZOffset,

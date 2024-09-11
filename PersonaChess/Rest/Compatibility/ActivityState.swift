@@ -1,5 +1,6 @@
 //MARK: compatibility, ver1.0 - ver1.0
 
+//MARK: Work in progress
 private struct ActivityState: Codable, Equatable {
     var chess: Chess = .empty
     var boardAngle: Double = 0

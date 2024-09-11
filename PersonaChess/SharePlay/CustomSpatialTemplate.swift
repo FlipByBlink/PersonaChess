@@ -1,6 +1,6 @@
 import GroupActivities
 
-//Work in progress
+//MARK: Work in progress
 #if os(visionOS)
 struct CustomSpatialTemplate: SpatialTemplate {
     enum Role: String, SpatialTemplateRole {
@@ -14,28 +14,49 @@ struct CustomSpatialTemplate: SpatialTemplate {
                                      z: Size.Meter.spatialZOffset))
         }()
         
-        return [
-            .seat(position: .app.offsetBy(x: -1, z: Size.Meter.spatialZOffset),
-                  direction: direction,
-                  role: Role.white),
-            .seat(position: .app.offsetBy(x: 1, z: Size.Meter.spatialZOffset),
-                  direction: direction,
-                  role: Role.black),
-            
-            // Starting positions:
-            .seat(position: .app.offsetBy(x: 0, z: 3), direction: direction),
-            .seat(position: .app.offsetBy(x: 1, z: 3), direction: direction),
-            .seat(position: .app.offsetBy(x: -1, z: 3), direction: direction),
-            .seat(position: .app.offsetBy(x: 2, z: 3), direction: direction),
-            .seat(position: .app.offsetBy(x: -2, z: 3), direction: direction),
-        ]
+        let whiteSeats: [any SpatialTemplateElement] = {
+            [0, 1, 2].map {
+                .seat(position: .app.offsetBy(x: -1,
+                                              z: Size.Meter.spatialZOffset - $0),
+                      direction: direction,
+                      role: Self.Role.white)
+            }
+        }()
+        
+        let blackSeats: [any SpatialTemplateElement] = {
+            [0, 1, 2].map {
+                .seat(position: .app.offsetBy(x: 1,
+                                              z: Size.Meter.spatialZOffset - $0),
+                      direction: direction,
+                      role: Self.Role.black)
+            }
+        }()
+        
+        let defaultSeats: [any SpatialTemplateElement] = {
+            [
+                .seat(position: .app.offsetBy(x: 0, z: 3), direction: direction),
+                .seat(position: .app.offsetBy(x: 1, z: 3), direction: direction),
+                .seat(position: .app.offsetBy(x: -1, z: 3), direction: direction),
+                .seat(position: .app.offsetBy(x: 2, z: 3), direction: direction),
+                .seat(position: .app.offsetBy(x: -2, z: 3), direction: direction),
+            ]
+        }()
+        
+        return whiteSeats + blackSeats + defaultSeats
     }
 }
-#else
+
+
+
+
+
+
+
+
+#elseif os(iOS)
 struct CustomSpatialTemplate {
     enum Role: String {
-        case white,
-             black
+        case white, black
     }
 }
 #endif

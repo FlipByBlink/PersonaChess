@@ -12,7 +12,7 @@ struct PersonaChessApp: App {
         .windowResizability(.contentSize)
         
         ImmersiveSpace(id: "immersiveSpace") {
-            FullSpaceView()
+            ImmersiveSpaceView()
                 .environmentObject(self.model)
         }
     }

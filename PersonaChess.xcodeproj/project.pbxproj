@@ -55,7 +55,7 @@
 		1671A17B2B74C63A009A87A6 /* putSound4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1732B74C638009A87A6 /* putSound4.m4a */; };
 		1671A17C2B74C63A009A87A6 /* resetSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1742B74C639009A87A6 /* resetSound.m4a */; };
 		1671A17F2B74C7ED009A87A6 /* putSound1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A17E2B74C7ED009A87A6 /* putSound1.m4a */; };
-		16780FF62B6881DB005A0244 /* FullSpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* FullSpaceView.swift */; };
+		16780FF62B6881DB005A0244 /* ImmersiveSpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* ImmersiveSpaceView.swift */; };
 		16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
 		16780FFB2B689304005A0244 /* Chess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* Chess.swift */; };
 		16780FFD2B6893CF005A0244 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
@@ -77,7 +77,7 @@
 		167948C02BC6A60B004DFF4B /* Chessmen.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
 		167948C12BC6A60B004DFF4B /* Side.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16EA6A7F2B68769C00A3A740 /* Side.swift */; };
 		167948C22BC6A60B004DFF4B /* Mode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
-		167948C62BC6A60B004DFF4B /* FullSpaceView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* FullSpaceView.swift */; };
+		167948C62BC6A60B004DFF4B /* ImmersiveSpaceView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* ImmersiveSpaceView.swift */; };
 		167948C72BC6A60B004DFF4B /* ChessView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1671A1592B720778009A87A6 /* ChessView.swift */; };
 		167948C82BC6A60B004DFF4B /* BoardView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
 		167948C92BC6A60B004DFF4B /* SquareView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165EC6A42B69153B0005172B /* SquareView.swift */; };
@@ -137,7 +137,7 @@
 				167948C02BC6A60B004DFF4B /* Chessmen.swift in CopyFiles */,
 				167948C12BC6A60B004DFF4B /* Side.swift in CopyFiles */,
 				167948C22BC6A60B004DFF4B /* Mode.swift in CopyFiles */,
-				167948C62BC6A60B004DFF4B /* FullSpaceView.swift in CopyFiles */,
+				167948C62BC6A60B004DFF4B /* ImmersiveSpaceView.swift in CopyFiles */,
 				167948C72BC6A60B004DFF4B /* ChessView.swift in CopyFiles */,
 				167948C82BC6A60B004DFF4B /* BoardView.swift in CopyFiles */,
 				167948C92BC6A60B004DFF4B /* SquareView.swift in CopyFiles */,
@@ -195,7 +195,7 @@
 		1671A1732B74C638009A87A6 /* putSound4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = putSound4.m4a; sourceTree = "<group>"; };
 		1671A1742B74C639009A87A6 /* resetSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = resetSound.m4a; sourceTree = "<group>"; };
 		1671A17E2B74C7ED009A87A6 /* putSound1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = putSound1.m4a; sourceTree = "<group>"; };
-		16780FF52B6881DB005A0244 /* FullSpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSpaceView.swift; sourceTree = "<group>"; };
+		16780FF52B6881DB005A0244 /* ImmersiveSpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveSpaceView.swift; sourceTree = "<group>"; };
 		16780FF82B6892E9005A0244 /* Chessmen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chessmen.swift; sourceTree = "<group>"; };
 		16780FFA2B689304005A0244 /* Chess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chess.swift; sourceTree = "<group>"; };
 		16780FFC2B6893CF005A0244 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
@@ -351,13 +351,13 @@
 			path = Rest;
 			sourceTree = "<group>";
 		};
-		1671A1692B74A866009A87A6 /* FullSpace */ = {
+		1671A1692B74A866009A87A6 /* ImmersiveSpace */ = {
 			isa = PBXGroup;
 			children = (
-				16780FF52B6881DB005A0244 /* FullSpaceView.swift */,
+				16780FF52B6881DB005A0244 /* ImmersiveSpaceView.swift */,
 				16261D6C2C8D577E00C2822C /* Rest */,
 			);
-			path = FullSpace;
+			path = ImmersiveSpace;
 			sourceTree = "<group>";
 		};
 		1671A16A2B74A872009A87A6 /* RealityKit scope */ = {
@@ -540,7 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				16261D642C8D1E1E00C2822C /* CenterWindow */,
-				1671A1692B74A866009A87A6 /* FullSpace */,
+				1671A1692B74A866009A87A6 /* ImmersiveSpace */,
 				1662F1512B89F3C90024763B /* Chess */,
 				1671A1582B720747009A87A6 /* Rest */,
 			);
@@ -769,7 +769,7 @@
 				16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */,
 				16F42C592C91A391006A12E3 /* ActivityState.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
-				16780FF62B6881DB005A0244 /* FullSpaceView.swift in Sources */,
+				16780FF62B6881DB005A0244 /* ImmersiveSpaceView.swift in Sources */,
 				1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */,
 				16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */,
 				169333A22B75A7B500B60E0F /* SharedState.swift in Sources */,

@@ -15,7 +15,7 @@ class AppModel: ObservableObject {
     private var subscriptions: Set<AnyCancellable> = []
     private var tasks: Set<Task<Void, Never>> = []
     @Published private(set) var spatialSharePlaying: Bool?
-    @Published var myRole: CustomSpatialTemplate.Role? = nil
+    @Published private(set) var myRole: CustomSpatialTemplate.Role? = nil
     
     private let soundFeedback = SoundFeedback()
     @Published var showRecordingRoom: Bool = false
@@ -49,7 +49,7 @@ extension AppModel {
                         } else {
                             self.sharedState.chess.appendLog()
                             self.sharedState.chess.movePiece(pickedPiece.id,
-                                                               to: tappedPiece.index)
+                                                             to: tappedPiece.index)
                             self.sharedState.chess.removePiece(tappedPiece.id)
                         }
                     }
@@ -60,7 +60,7 @@ extension AppModel {
             case .tapSquare(let index):
                 self.sharedState.chess.appendLog()
                 self.sharedState.chess.movePiece(self.pickedPieceEntity()!.components[Piece.self]!.id,
-                                                   to: index)
+                                                 to: index)
             case .undo:
                 if let previousChessValue = self.sharedState.chess.log.popLast() {
                     self.sharedState.chess.latest = previousChessValue
@@ -305,7 +305,7 @@ extension AppModel {
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             var configuration = SystemCoordinator.Configuration()
                             configuration.supportsGroupImmersiveSpace = true
-                            configuration.spatialTemplatePreference = .custom(CustomSpatialTemplate())//TODO: 実装
+                            configuration.spatialTemplatePreference = .custom(CustomSpatialTemplate())
                             systemCoordinator.configuration = configuration
                             groupSession.join()
                         }

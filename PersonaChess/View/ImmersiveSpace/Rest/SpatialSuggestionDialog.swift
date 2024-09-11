@@ -1,5 +1,6 @@
 import SwiftUI
 
+//MARK: Work in progress
 struct SpatialSuggestionDialog: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.physicalMetrics) var physicalMetrics

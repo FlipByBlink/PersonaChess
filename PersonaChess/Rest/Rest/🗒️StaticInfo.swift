@@ -26,14 +26,14 @@ enum 🗒️StaticInfo {
     static let webRepositoryURL: URL = .init(string: "https://github.com/FlipByBlink/PersonaChess")!
     static let webMirrorRepositoryURL: URL = .init(string: "https://gitlab.com/FlipByBlink/PersonaChess_Mirror")!
 
-    static let versionInfos: [(version: String, date: String)] = [("2.0", "2024-09-08"),
+    static let versionInfos: [(version: String, date: String)] = [("2.0", "2024-09-11"),
                                                                   ("1.0", "2024-04-22")] //降順。先頭の方が新しい
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main,
-             ActivityState,
-             Volume,
-             FullSpace,
+             SharedState,
+             CenterWindow,
+             ImmersiveSpace,
              ChessView,
              RealityKitScope,
              Size,
@@ -46,8 +46,8 @@ enum 🗒️StaticInfo {
                     "App.swift",
                     "AppModel.swift"
                 ]
-                case .ActivityState: [
-                    "ActivityState.swift",
+                case .SharedState: [
+                    "SharedState.swift",
                     "Chess.swift",
                     "Piece.swift",
                     "Index.swift",
@@ -55,13 +55,12 @@ enum 🗒️StaticInfo {
                     "Side.swift",
                     "Mode.swift",
                 ]
-                case .Volume: [
-                    "VolumeWindow.swift",
-                    "VolumeView.swift",
+                case .CenterWindow: [
+                    "CenterWindowView.swift",
                     "SharePlayMenu.swift",
                 ]
-                case .FullSpace: [
-                    "FullSpaceView.swift",
+                case .ImmersiveSpace: [
+                    "ImmersiveSpaceView.swift",
                     "ToolbarViewForFloorMode.swift",
                     "FloorModeDividers.swift",
                 ]

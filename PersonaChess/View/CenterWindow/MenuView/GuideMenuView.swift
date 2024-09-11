@@ -1,6 +1,7 @@
 import SwiftUI
 import GroupActivities
 
+//MARK: Work in progress
 struct GuideMenuView: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
