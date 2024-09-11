@@ -1,6 +1,7 @@
 import GroupActivities
 
 //Work in progress
+#if os(visionOS)
 struct CustomSpatialTemplate: SpatialTemplate {
     enum Role: String, SpatialTemplateRole {
         case white,
@@ -30,3 +31,11 @@ struct CustomSpatialTemplate: SpatialTemplate {
         ]
     }
 }
+#else
+struct CustomSpatialTemplate {
+    enum Role: String {
+        case white,
+             black
+    }
+}
+#endif

@@ -19,7 +19,7 @@
 		16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5C2B75D0FB006A93D1 /* ContentView.swift */; };
 		16312B5F2B75D0FD006A93D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16312B5E2B75D0FD006A93D1 /* Assets.xcassets */; };
 		16312B672B75D193006A93D1 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
-		16312B682B75D193006A93D1 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
+		16312B682B75D193006A93D1 /* SharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* SharedState.swift */; };
 		16312B692B75D193006A93D1 /* Chess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* Chess.swift */; };
 		16312B6A2B75D193006A93D1 /* Chessmen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
 		16312B6B2B75D193006A93D1 /* SoundFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
@@ -41,7 +41,6 @@
 		16312B7F2B75D570006A93D1 /* putSound5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A16E2B74C635009A87A6 /* putSound5.m4a */; };
 		16312B802B75D570006A93D1 /* putSound3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A16D2B74C634009A87A6 /* putSound3.m4a */; };
 		164B839C2C8DC4EE001D9DBA /* CustomSpatialTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */; };
-		164B839D2C8DC4EE001D9DBA /* CustomSpatialTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */; };
 		165EC69E2B68C5E40005172B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
 		165EC6A02B6901670005172B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* AppGroupActivity.swift */; };
@@ -71,7 +70,7 @@
 		167948B32BC66EAE004DFF4B /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 167948B22BC66EAE004DFF4B /* InfoPlist.xcstrings */; };
 		167948BA2BC6A60B004DFF4B /* App.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
 		167948BB2BC6A60B004DFF4B /* AppModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
-		167948BC2BC6A60B004DFF4B /* ActivityState.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
+		167948BC2BC6A60B004DFF4B /* SharedState.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* SharedState.swift */; };
 		167948BD2BC6A60B004DFF4B /* Chess.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FFA2B689304005A0244 /* Chess.swift */; };
 		167948BE2BC6A60B004DFF4B /* Piece.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
 		167948BF2BC6A60B004DFF4B /* Index.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
@@ -92,7 +91,7 @@
 		167948D52BC6A60B004DFF4B /* 🗒️StaticInfo.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489F2BC66BA2004DFF4B /* 🗒️StaticInfo.swift */; };
 		167948D62BC6A60B004DFF4B /* ℹ️AboutApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489E2BC66BA2004DFF4B /* ℹ️AboutApp.swift */; };
 		1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */; };
-		169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* ActivityState.swift */; };
+		169333A22B75A7B500B60E0F /* SharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* SharedState.swift */; };
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
 		169C002B2B4A9BE2001242F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169C002A2B4A9BE2001242F5 /* Assets.xcassets */; };
@@ -115,6 +114,9 @@
 		16EA6A802B68769C00A3A740 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA6A7F2B68769C00A3A740 /* Side.swift */; };
 		16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
 		16ECC0F22B85ACE100A1A6B6 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
+		16F42C592C91A391006A12E3 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F42C582C91A38D006A12E3 /* ActivityState.swift */; };
+		16F42C5A2C91A391006A12E3 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F42C582C91A38D006A12E3 /* ActivityState.swift */; };
+		16F42C5F2C91A665006A12E3 /* CustomSpatialTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */; };
 		16F972752B68B77C00711C53 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
 		16F972772B68B7FB00711C53 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
 /* End PBXBuildFile section */
@@ -128,7 +130,7 @@
 			files = (
 				167948BA2BC6A60B004DFF4B /* App.swift in CopyFiles */,
 				167948BB2BC6A60B004DFF4B /* AppModel.swift in CopyFiles */,
-				167948BC2BC6A60B004DFF4B /* ActivityState.swift in CopyFiles */,
+				167948BC2BC6A60B004DFF4B /* SharedState.swift in CopyFiles */,
 				167948BD2BC6A60B004DFF4B /* Chess.swift in CopyFiles */,
 				167948BE2BC6A60B004DFF4B /* Piece.swift in CopyFiles */,
 				167948BF2BC6A60B004DFF4B /* Index.swift in CopyFiles */,
@@ -215,7 +217,7 @@
 		167C0DFC2BDA14C500229714 /* Reality Composer export2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer export2.jpg"; sourceTree = "<group>"; };
 		167C0DFD2BDA14C500229714 /* Reality Composer editor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer editor.jpg"; sourceTree = "<group>"; };
 		1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceOpacitySystem.swift; sourceTree = "<group>"; };
-		169333A12B75A7B500B60E0F /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
+		169333A12B75A7B500B60E0F /* SharedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedState.swift; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		169C001F2B4A9BE0001242F5 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		169C00262B4A9BE0001242F5 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 		16EA6A702B6875CA00A3A740 /* pawnW.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = pawnW.reality; sourceTree = "<group>"; };
 		16EA6A7F2B68769C00A3A740 /* Side.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
 		16ECC0F02B85ACE100A1A6B6 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
+		16F42C582C91A38D006A12E3 /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
 		16F972742B68B77C00711C53 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		16F972762B68B7FB00711C53 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -376,10 +379,10 @@
 			path = SharePlay;
 			sourceTree = "<group>";
 		};
-		1671A16C2B74A8A5009A87A6 /* ActivityState */ = {
+		1671A16C2B74A8A5009A87A6 /* SharedState */ = {
 			isa = PBXGroup;
 			children = (
-				169333A12B75A7B500B60E0F /* ActivityState.swift */,
+				169333A12B75A7B500B60E0F /* SharedState.swift */,
 				16780FFA2B689304005A0244 /* Chess.swift */,
 				16F972742B68B77C00711C53 /* Piece.swift */,
 				16780FFC2B6893CF005A0244 /* Index.swift */,
@@ -387,7 +390,7 @@
 				16EA6A7F2B68769C00A3A740 /* Side.swift */,
 				16ECC0F02B85ACE100A1A6B6 /* Mode.swift */,
 			);
-			path = ActivityState;
+			path = SharedState;
 			sourceTree = "<group>";
 		};
 		1671A17D2B74C6B2009A87A6 /* Sound */ = {
@@ -463,6 +466,7 @@
 			children = (
 				165EC69F2B6901670005172B /* Action.swift */,
 				16AE50272B70FE3100D25197 /* SoundFeedback.swift */,
+				16F42C5B2C91A39F006A12E3 /* Compatibility */,
 				1679489D2BC66B88004DFF4B /* Rest */,
 			);
 			path = Rest;
@@ -523,7 +527,7 @@
 			children = (
 				169C00262B4A9BE0001242F5 /* App.swift */,
 				165EC69D2B68C5E30005172B /* AppModel.swift */,
-				1671A16C2B74A8A5009A87A6 /* ActivityState */,
+				1671A16C2B74A8A5009A87A6 /* SharedState */,
 				16A0F0862B89FE2900EC0FE8 /* View */,
 				1671A16B2B74A89B009A87A6 /* SharePlay */,
 				167948B52BC67612004DFF4B /* Rest */,
@@ -570,6 +574,14 @@
 				167C0DF42BDA0EA200229714 /* About */,
 			);
 			path = Piece;
+			sourceTree = "<group>";
+		};
+		16F42C5B2C91A39F006A12E3 /* Compatibility */ = {
+			isa = PBXGroup;
+			children = (
+				16F42C582C91A38D006A12E3 /* ActivityState.swift */,
+			);
+			path = Compatibility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -712,13 +724,13 @@
 				16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */,
 				16312B6C2B75D193006A93D1 /* AppGroupActivity.swift in Sources */,
 				16312B6F2B75D193006A93D1 /* Action.swift in Sources */,
-				164B839D2C8DC4EE001D9DBA /* CustomSpatialTemplate.swift in Sources */,
 				16312B692B75D193006A93D1 /* Chess.swift in Sources */,
 				16312B6D2B75D193006A93D1 /* Side.swift in Sources */,
 				16312B6E2B75D193006A93D1 /* Index.swift in Sources */,
 				16312B722B75D201006A93D1 /* PieceEntity.swift in Sources */,
 				16312B672B75D193006A93D1 /* Piece.swift in Sources */,
-				16312B682B75D193006A93D1 /* ActivityState.swift in Sources */,
+				16F42C5A2C91A391006A12E3 /* ActivityState.swift in Sources */,
+				16312B682B75D193006A93D1 /* SharedState.swift in Sources */,
 				16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */,
 				16312B6B2B75D193006A93D1 /* SoundFeedback.swift in Sources */,
 				16312B762B75D45B006A93D1 /* ChessView.swift in Sources */,
@@ -729,6 +741,7 @@
 				16312B6A2B75D193006A93D1 /* Chessmen.swift in Sources */,
 				16312B5B2B75D0FB006A93D1 /* App.swift in Sources */,
 				16ECC0F22B85ACE100A1A6B6 /* Mode.swift in Sources */,
+				16F42C5F2C91A665006A12E3 /* CustomSpatialTemplate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,11 +767,12 @@
 				164B839C2C8DC4EE001D9DBA /* CustomSpatialTemplate.swift in Sources */,
 				16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */,
 				16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */,
+				16F42C592C91A391006A12E3 /* ActivityState.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				16780FF62B6881DB005A0244 /* FullSpaceView.swift in Sources */,
 				1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */,
 				16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */,
-				169333A22B75A7B500B60E0F /* ActivityState.swift in Sources */,
+				169333A22B75A7B500B60E0F /* SharedState.swift in Sources */,
 				16F972772B68B7FB00711C53 /* Size.swift in Sources */,
 				16C477132B8AC23D00343DD8 /* SharePlayProvider.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,

@@ -23,8 +23,8 @@ struct ChessView: View {
             if self.model.showProgressView { ProgressView() }
         }
         .frame(width: 330, height: 330)
-        .scaleEffect(self.model.activityState.viewScale)
-        .animation(.default, value: self.model.activityState.viewScale)
+        .scaleEffect(self.model.sharedState.viewScale)
+        .animation(.default, value: self.model.sharedState.viewScale)
     }
 }
 
@@ -49,14 +49,14 @@ struct SquareView: View {
                 self.model.execute(.tapSquare(.init(self.row, self.column)))
             }
         }
-        .onChange(of: self.model.activityState.chess) { self.updateInputtable() }
+        .onChange(of: self.model.sharedState.chess) { self.updateInputtable() }
     }
     init(_ row: Int, _ column: Int) {
         self.row = row
         self.column = column
     }
     private func updateInputtable() {
-        let latestActivePieces = self.model.activityState.chess.latest.filter { !$0.removed }
+        let latestActivePieces = self.model.sharedState.chess.latest.filter { !$0.removed }
         if latestActivePieces.contains(where: { $0.picked }),
            !latestActivePieces.contains(where: { $0.index == .init(self.row, self.column) }) {
             self.inputtable = true
@@ -71,7 +71,7 @@ struct PieceView: View {
     private var row: Int
     private var column: Int
     private var piece: Piece? {
-        self.model.activityState.chess.latest.first {
+        self.model.sharedState.chess.latest.first {
             $0.index == .init(self.row, self.column)
             &&
             ($0.removed == false)

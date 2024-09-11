@@ -5,7 +5,7 @@ import Combine
 
 @MainActor
 class AppModel: ObservableObject {
-    @Published private(set) var activityState = ActivityState()
+    @Published private(set) var sharedState = SharedState()
     private(set) var rootEntity = Entity()
     @Published private(set) var movingPieces: [Piece.ID] = []
     @Published var isFullSpaceShown: Bool = false
@@ -34,114 +34,102 @@ extension AppModel {
                 guard let tappedPiece: Piece = tappedPieceEntity.parent?.components[Piece.self] else {
                     return
                 }
-                if self.activityState.chess.latest.contains(where: { $0.picked }) {
+                if self.sharedState.chess.latest.contains(where: { $0.picked }) {
                     guard let pickedPieceEntity = self.pickedPieceEntity() else {
                         assertionFailure(); return
                     }
                     if tappedPieceEntity == pickedPieceEntity {
-                        self.activityState.chess.unpick(tappedPiece.id)
+                        self.sharedState.chess.unpick(tappedPiece.id)
                     } else {
                         let pickedPiece: Piece = pickedPieceEntity.components[Piece.self]!
                         if tappedPiece.side == pickedPiece.side {
-                            self.activityState.chess.pick(tappedPiece.id)
-                            self.activityState.chess.unpick(pickedPiece.id)
+                            self.sharedState.chess.pick(tappedPiece.id)
+                            self.sharedState.chess.unpick(pickedPiece.id)
                             self.soundFeedback.select(tappedPieceEntity, self.floorMode)
                         } else {
-                            self.activityState.chess.appendLog()
-                            self.activityState.chess.movePiece(pickedPiece.id,
+                            self.sharedState.chess.appendLog()
+                            self.sharedState.chess.movePiece(pickedPiece.id,
                                                                to: tappedPiece.index)
-                            self.activityState.chess.removePiece(tappedPiece.id)
+                            self.sharedState.chess.removePiece(tappedPiece.id)
                         }
                     }
                 } else {
-                    self.activityState.chess.pick(tappedPiece.id)
+                    self.sharedState.chess.pick(tappedPiece.id)
                     self.soundFeedback.select(tappedPieceEntity, self.floorMode)
                 }
             case .tapSquare(let index):
-                self.activityState.chess.appendLog()
-                self.activityState.chess.movePiece(self.pickedPieceEntity()!.components[Piece.self]!.id,
+                self.sharedState.chess.appendLog()
+                self.sharedState.chess.movePiece(self.pickedPieceEntity()!.components[Piece.self]!.id,
                                                    to: index)
             case .undo:
-                if let previousChessValue = self.activityState.chess.log.popLast() {
-                    self.activityState.chess.latest = previousChessValue
+                if let previousChessValue = self.sharedState.chess.log.popLast() {
+                    self.sharedState.chess.latest = previousChessValue
                 } else {
                     assertionFailure()
                 }
             case .reset:
-                self.activityState.chess.appendLog()
+                self.sharedState.chess.appendLog()
                 self.soundFeedback.reset(self.rootEntity)
-                self.activityState.chess.setPreset()
-                if self.groupSession != nil { self.activityState.mode = .sharePlay }
+                self.sharedState.chess.setPreset()
+                if self.groupSession != nil { self.sharedState.mode = .sharePlay }
         }
         
         self.applyLatestChessToEntities(isUndoAction: action == .undo)
         self.sendMessage()
     }
     func upScale() {
-        self.activityState.viewScale *= (self.floorMode ? 1.4 : 1.1)
+        self.sharedState.viewScale *= (self.floorMode ? 1.4 : 1.1)
         self.sendMessage()
     }
     func downScale() {
-        self.activityState.viewScale *= (self.floorMode ? 0.75 : 0.9)
+        self.sharedState.viewScale *= (self.floorMode ? 0.75 : 0.9)
         self.sendMessage()
     }
     func raiseBoard() {
-        self.activityState.viewHeight += 50
+        self.sharedState.viewHeight += 50
         self.sendMessage()
     }
     func lowerBoard() {
-        self.activityState.viewHeight -= 50
+        self.sharedState.viewHeight -= 50
         self.sendMessage()
     }
     func lowerToFloor() {
-        self.activityState.viewHeight = 0
+        self.sharedState.viewHeight = 0
         self.sendMessage()
     }
     func separateFromFloor() {
-        self.activityState.viewHeight = Size.Point.defaultHeight
-        if self.activityState.viewScale > 3.0 {
-            self.activityState.viewScale = 1.0
+        self.sharedState.viewHeight = Size.Point.defaultHeight
+        if self.sharedState.viewScale > 3.0 {
+            self.sharedState.viewScale = 1.0
         }
         self.sendMessage()
     }
-    func set(role: CustomSpatialTemplate.Role?) {
-        Task {
-            if let systemCoordinator = await self.groupSession?.systemCoordinator {
-                if let role {
-                    systemCoordinator.assignRole(role)
-                } else {
-                    systemCoordinator.resignRole()
-                }
-                self.myRole = role
-            }
-        }
-    }
     var upScalable: Bool {
         if self.floorMode {
-            self.activityState.viewScale < 50.0
+            self.sharedState.viewScale < 50.0
         } else {
-            self.activityState.viewScale < 5.0
+            self.sharedState.viewScale < 5.0
         }
     }
     var downScalable: Bool {
-        self.activityState.viewScale > 0.6
+        self.sharedState.viewScale > 0.6
     }
     var isSharePlayStateNotSet: Bool {
         self.groupSession?.state == .joined
         &&
-        self.activityState.mode == .localOnly
+        self.sharedState.mode == .localOnly
     }
     var floorMode: Bool {
         self.isFullSpaceShown
         &&
-        self.activityState.viewHeight == 0
+        self.sharedState.viewHeight == 0
     }
 }
 
 private extension AppModel {
     private func setUpEntities() {
-        self.activityState.chess.setPreset()
-        self.activityState.chess.latest.forEach {
+        self.sharedState.chess.setPreset()
+        self.sharedState.chess.latest.forEach {
             self.rootEntity.addChild(PieceEntity.load($0))
         }
         self.applyLatestChessToEntities()
@@ -152,7 +140,7 @@ private extension AppModel {
     private func applyLatestChessToEntities(isUndoAction: Bool = false) {
         for pieceEntity in self.rootEntity.children.filter({ $0.components.has(Piece.self) }) {
             let piece: Piece = pieceEntity.components[Piece.self]!
-            let latestPiece: Piece = self.activityState.chess.latest.first { $0.id == piece.id }!
+            let latestPiece: Piece = self.sharedState.chess.latest.first { $0.id == piece.id }!
             guard piece != latestPiece else { continue }
             if latestPiece.removed {
                 pieceEntity.components[Piece.self] = latestPiece
@@ -237,13 +225,13 @@ extension AppModel {
     var showProgressView: Bool {
         self.groupSession != nil
         &&
-        self.activityState.mode == .localOnly
+        self.sharedState.mode == .localOnly
     }
     private func configureGroupSessions() {
         Task {
             for await groupSession in AppGroupActivity.sessions() {
-                self.activityState.clear()
-                self.activityState.chess.setPreset()
+                self.sharedState.clear()
+                self.sharedState.chess.setPreset()
                 self.applyLatestChessToEntities()
                 
                 self.groupSession = groupSession
@@ -259,9 +247,9 @@ extension AppModel {
                             self.subscriptions = []
                             self.groupSession = nil
                             self.spatialSharePlaying = nil
-                            self.activityState.chess.clearLog()
-                            self.activityState.chess.setPreset()
-                            self.activityState.mode = .localOnly
+                            self.sharedState.chess.clearLog()
+                            self.sharedState.chess.setPreset()
+                            self.sharedState.mode = .localOnly
                             self.applyLatestChessToEntities()
                             self.myRole = nil
                         }
@@ -270,10 +258,10 @@ extension AppModel {
                 
                 groupSession.$activeParticipants
                     .sink {
-                        if $0.count == 1 { self.activityState.mode = .sharePlay }
+                        if $0.count == 1 { self.sharedState.mode = .sharePlay }
                         let newParticipants = $0.subtracting(groupSession.activeParticipants)
                         Task {
-                            try? await messenger.send(self.activityState,
+                            try? await messenger.send(self.sharedState,
                                                       to: .only(newParticipants))
                         }
                     }
@@ -281,7 +269,7 @@ extension AppModel {
                 
                 self.tasks.insert(
                     Task {
-                        for await (message, _) in messenger.messages(of: ActivityState.self) {
+                        for await (message, _) in messenger.messages(of: SharedState.self) {
                             self.receive(message)
                         }
                     }
@@ -331,13 +319,13 @@ extension AppModel {
     }
     private func sendMessage() {
         Task {
-            try? await self.messenger?.send(self.activityState)
+            try? await self.messenger?.send(self.sharedState)
         }
     }
-    private func receive(_ message: ActivityState) {
+    private func receive(_ message: SharedState) {
         guard message.mode == .sharePlay else { return }
         Task { @MainActor in
-            self.activityState = message
+            self.sharedState = message
             self.applyLatestChessToEntities()
         }
     }
@@ -346,7 +334,7 @@ extension AppModel {
             do {
                 let result = try await AppGroupActivity().activate()
                 switch result {
-                    case true: self.activityState.mode = .sharePlay
+                    case true: self.sharedState.mode = .sharePlay
                     default: break
                 }
             } catch {
@@ -354,6 +342,20 @@ extension AppModel {
             }
         }
     }
+#if os(visionOS)
+    func set(role: CustomSpatialTemplate.Role?) {
+        Task {
+            if let systemCoordinator = await self.groupSession?.systemCoordinator {
+                if let role {
+                    systemCoordinator.assignRole(role)
+                } else {
+                    systemCoordinator.resignRole()
+                }
+                self.myRole = role
+            }
+        }
+    }
+#endif
 }
 
 

@@ -36,7 +36,7 @@ struct ToolbarView: View {
                             .frame(width: Self.circleButtonSize,
                                    height: Self.circleButtonSize)
                     }
-                    .disabled(self.model.activityState.viewScale < 0.6)
+                    .disabled(self.model.sharedState.viewScale < 0.6)
                 }
             }
             .buttonBorderShape(.circle)
@@ -48,7 +48,7 @@ struct ToolbarView: View {
                     .labelStyle(.iconOnly)
                 
             }
-            .disabled(self.model.activityState.chess.log.isEmpty)
+            .disabled(self.model.sharedState.chess.log.isEmpty)
             Button {
                 self.model.execute(.reset)
             } label: {
@@ -56,7 +56,7 @@ struct ToolbarView: View {
                     .padding(8)
                     .labelStyle(.iconOnly)
             }
-            .disabled(self.model.activityState.chess.isPreset)
+            .disabled(self.model.sharedState.chess.isPreset)
             if self.model.groupSession?.state == .joined {
                 Button {
                     self.model.groupSession?.leave()

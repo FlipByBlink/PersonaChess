@@ -8,8 +8,8 @@ struct ContentView: View {
             ToolbarView()
             if !self.floorMode {
                 ChessView()
-                    .offset(y: Size.Point.defaultHeight - self.model.activityState.viewHeight)
-                    .animation(.default, value: self.model.activityState.viewHeight)
+                    .offset(y: Size.Point.defaultHeight - self.model.sharedState.viewHeight)
+                    .animation(.default, value: self.model.sharedState.viewHeight)
             }
             Spacer()
         }
@@ -26,6 +26,6 @@ struct ContentView: View {
 
 private extension ContentView {
     private var floorMode: Bool {
-        self.model.activityState.viewHeight == 0
+        self.model.sharedState.viewHeight == 0
     }
 }

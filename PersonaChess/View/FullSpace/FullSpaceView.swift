@@ -5,11 +5,11 @@ struct FullSpaceView: View {
     @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         ChessView()
-            .scaleEffect(self.model.activityState.viewScale, anchor: .bottom)
+            .scaleEffect(self.model.sharedState.viewScale, anchor: .bottom)
             .offset(z: self.zOffset)
-            .offset(y: -self.model.activityState.viewHeight)
-            .animation(.default, value: self.model.activityState.viewScale)
-            .animation(.default, value: self.model.activityState.viewHeight)
+            .offset(y: -self.model.sharedState.viewHeight)
+            .animation(.default, value: self.model.sharedState.viewScale)
+            .animation(.default, value: self.model.sharedState.viewHeight)
             .overlay { ToolbarViewOnHand() }
             .overlay { SpatialSuggestionDialog() }
             .overlay { RecordingRoom() }

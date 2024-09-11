@@ -14,7 +14,7 @@ struct ChessMenuView: View {
                     } label: {
                         Image(systemName: "chevron.up")
                     }
-                    .disabled(self.model.activityState.viewHeight > 1600)
+                    .disabled(self.model.sharedState.viewHeight > 1600)
                     Button {
                         self.model.lowerBoard()
                     } label: {
@@ -65,13 +65,13 @@ struct ChessMenuView: View {
                         } label: {
                             Label("Undo", systemImage: "arrow.uturn.backward")
                         }
-                        .disabled(self.model.activityState.chess.log.isEmpty)
+                        .disabled(self.model.sharedState.chess.log.isEmpty)
                         Button {
                             self.model.execute(.reset)
                         } label: {
                             Label("Reset", systemImage: "arrow.counterclockwise")
                         }
-                        .disabled(self.model.activityState.chess.isPreset)
+                        .disabled(self.model.sharedState.chess.isPreset)
                     }
                     .disabled(!self.model.movingPieces.isEmpty)
                     Section {
