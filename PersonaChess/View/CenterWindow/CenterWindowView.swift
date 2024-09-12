@@ -3,7 +3,6 @@ import SwiftUI
 struct CenterWindowView: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.scenePhase) var scenePhase
-    @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     var body: some View {
         NavigationStack {

@@ -20,7 +20,6 @@ struct ToolbarViewOnHand: View {
 private extension ToolbarViewOnHand {
     private struct ContentView: View {
         @EnvironmentObject var model: AppModel
-        @Environment(\.openWindow) var openWindow
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
         @State private var isExpanded: Bool = false
         private static let circleButtonSize = 40.0

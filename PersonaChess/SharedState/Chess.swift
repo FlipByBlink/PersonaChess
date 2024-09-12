@@ -28,7 +28,9 @@ extension Chess: Codable, Equatable {
             self.latest[index].removed = true
         }
     }
-    var allPiecesRemoved: Bool { self.latest.allSatisfy { $0.removed } }
+    var allPiecesRemoved: Bool {
+        self.latest.allSatisfy { $0.removed }
+    }
     mutating func pick(_ id: Piece.ID) {
         self.latest[self.arrayIndex(id)].picked = true
     }

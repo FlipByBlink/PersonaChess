@@ -361,14 +361,15 @@ extension AppModel {
 
 
 
-//Ref: Drawing content in a group session | Apple Developer Documentation
+//======== Reference ========
+//Drawing content in a group session | Apple Developer Documentation
 //https://developer.apple.com/documentation/groupactivities/drawing_content_in_a_group_session
-
-//Ref: Design spatial SharePlay experiences - WWDC23 - Videos - Apple Developer
+//
+//Design spatial SharePlay experiences - WWDC23 - Videos - Apple Developer
 //https://developer.apple.com/videos/play/wwdc2023/10075
-
-//Ref: Build spatial SharePlay experiences - WWDC23 - Videos - Apple Developer
+//
+//Build spatial SharePlay experiences - WWDC23 - Videos - Apple Developer
 //https://developer.apple.com/videos/play/wwdc2023/10087
-
-//Ref: Customizing spatial Persona templates | Apple Developer Documentation
+//
+//Customizing spatial Persona templates | Apple Developer Documentation
 //https://developer.apple.com/documentation/groupactivities/customizing-spatial-persona-templates

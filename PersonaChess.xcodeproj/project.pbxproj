@@ -28,7 +28,6 @@
 		16312B6E2B75D193006A93D1 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
 		16312B6F2B75D193006A93D1 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
-		16312B722B75D201006A93D1 /* PieceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671A1602B72354F009A87A6 /* PieceEntity.swift */; };
 		16312B762B75D45B006A93D1 /* ChessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B732B75D45A006A93D1 /* ChessView.swift */; };
 		16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B742B75D45B006A93D1 /* MainMenu.swift */; };
 		16312B782B75D45B006A93D1 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B752B75D45B006A93D1 /* ToolbarView.swift */; };
@@ -115,8 +114,8 @@
 		16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
 		16ECC0F22B85ACE100A1A6B6 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
 		16F42C592C91A391006A12E3 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F42C582C91A38D006A12E3 /* ActivityState.swift */; };
-		16F42C5A2C91A391006A12E3 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F42C582C91A38D006A12E3 /* ActivityState.swift */; };
-		16F42C5F2C91A665006A12E3 /* CustomSpatialTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */; };
+		16F42C612C926AB0006A12E3 /* CustomSpatialTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */; };
+		16F42C632C926DF2006A12E3 /* PieceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F42C622C926DF0006A12E3 /* PieceEntity.swift */; };
 		16F972752B68B77C00711C53 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
 		16F972772B68B7FB00711C53 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
 /* End PBXBuildFile section */
@@ -243,6 +242,8 @@
 		16EA6A7F2B68769C00A3A740 /* Side.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
 		16ECC0F02B85ACE100A1A6B6 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		16F42C582C91A38D006A12E3 /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
+		16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpatialTemplate.swift; sourceTree = "<group>"; };
+		16F42C622C926DF0006A12E3 /* PieceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceEntity.swift; sourceTree = "<group>"; };
 		16F972742B68B77C00711C53 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		16F972762B68B7FB00711C53 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,6 +303,8 @@
 				16312B732B75D45A006A93D1 /* ChessView.swift */,
 				16312B752B75D45B006A93D1 /* ToolbarView.swift */,
 				16312B742B75D45B006A93D1 /* MainMenu.swift */,
+				16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */,
+				16F42C622C926DF0006A12E3 /* PieceEntity.swift */,
 				16312B5E2B75D0FD006A93D1 /* Assets.xcassets */,
 				16312B812B75D581006A93D1 /* iOS for debug.entitlements */,
 			);
@@ -433,6 +436,7 @@
 			children = (
 				1679489F2BC66BA2004DFF4B /* 🗒️StaticInfo.swift */,
 				1679489E2BC66BA2004DFF4B /* ℹ️AboutApp.swift */,
+				16F42C5B2C91A39F006A12E3 /* Compatibility */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -466,7 +470,6 @@
 			children = (
 				165EC69F2B6901670005172B /* Action.swift */,
 				16AE50272B70FE3100D25197 /* SoundFeedback.swift */,
-				16F42C5B2C91A39F006A12E3 /* Compatibility */,
 				1679489D2BC66B88004DFF4B /* Rest */,
 			);
 			path = Rest;
@@ -723,13 +726,12 @@
 			files = (
 				16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */,
 				16312B6C2B75D193006A93D1 /* AppGroupActivity.swift in Sources */,
+				16F42C632C926DF2006A12E3 /* PieceEntity.swift in Sources */,
 				16312B6F2B75D193006A93D1 /* Action.swift in Sources */,
 				16312B692B75D193006A93D1 /* Chess.swift in Sources */,
 				16312B6D2B75D193006A93D1 /* Side.swift in Sources */,
 				16312B6E2B75D193006A93D1 /* Index.swift in Sources */,
-				16312B722B75D201006A93D1 /* PieceEntity.swift in Sources */,
 				16312B672B75D193006A93D1 /* Piece.swift in Sources */,
-				16F42C5A2C91A391006A12E3 /* ActivityState.swift in Sources */,
 				16312B682B75D193006A93D1 /* SharedState.swift in Sources */,
 				16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */,
 				16312B6B2B75D193006A93D1 /* SoundFeedback.swift in Sources */,
@@ -740,8 +742,8 @@
 				16312B782B75D45B006A93D1 /* ToolbarView.swift in Sources */,
 				16312B6A2B75D193006A93D1 /* Chessmen.swift in Sources */,
 				16312B5B2B75D0FB006A93D1 /* App.swift in Sources */,
+				16F42C612C926AB0006A12E3 /* CustomSpatialTemplate.swift in Sources */,
 				16ECC0F22B85ACE100A1A6B6 /* Mode.swift in Sources */,
-				16F42C5F2C91A665006A12E3 /* CustomSpatialTemplate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

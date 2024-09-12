@@ -7,10 +7,12 @@ struct Piece {
     var picked: Bool = false
     var removed: Bool = false
     var promotion: Bool = false
-    var id: Self.ID { .init(self.chessmen, self.side) }
 }
 
 extension Piece: Component, Codable, Equatable {
+    var id: Self.ID {
+        .init(self.chessmen, self.side)
+    }
     struct ID: Codable, Equatable {
         var chessmen: Chessmen
         var side: Side
