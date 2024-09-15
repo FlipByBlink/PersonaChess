@@ -8,39 +8,43 @@ struct CustomSpatialTemplate: SpatialTemplate {
     }
     
     var elements: [any SpatialTemplateElement] {
-        let direction: SpatialTemplateElementDirection = {
-            .lookingAt(.app.offsetBy(x: 0,
-                                     z: Size.Meter.spatialZOffset))
-        }()
-        
-        let whiteSeats: [any SpatialTemplateElement] = {
-            [0, 1, 2].map {
-                .seat(position: .app.offsetBy(x: -1,
-                                              z: Size.Meter.spatialZOffset - $0),
-                      direction: direction,
-                      role: Self.Role.white)
-            }
-        }()
-        
-        let blackSeats: [any SpatialTemplateElement] = {
-            [0, 1, 2].map {
-                .seat(position: .app.offsetBy(x: 1,
-                                              z: Size.Meter.spatialZOffset - $0),
-                      direction: direction,
-                      role: Self.Role.black)
-            }
-        }()
-        
-        let defaultSeats: [any SpatialTemplateElement] = {
-            [
-                .seat(position: .app.offsetBy(x: 0, z: 3), direction: direction),
-                .seat(position: .app.offsetBy(x: 1, z: 3), direction: direction),
-                .seat(position: .app.offsetBy(x: -1, z: 3), direction: direction),
-                .seat(position: .app.offsetBy(x: 2, z: 3), direction: direction),
-                .seat(position: .app.offsetBy(x: -2, z: 3), direction: direction),
-            ]
-        }()
-        
-        return whiteSeats + blackSeats + defaultSeats
+        Self.whiteSeats
+        +
+        Self.blackSeats
+        +
+        Self.defaultSeats
+    }
+}
+
+private extension CustomSpatialTemplate {
+    private static var direction: SpatialTemplateElementDirection {
+        .lookingAt(.app.offsetBy(x: 0,
+                                 z: Size.Meter.spatialZOffset))
+    }
+    
+    private static var whiteSeats: [some SpatialTemplateElement] {
+        [0, 1, 2].map {
+            .seat(position: .app.offsetBy(x: -1,
+                                          z: Size.Meter.spatialZOffset - $0),
+                  direction: direction,
+                  role: Self.Role.white)
+        }
+    }
+    
+    private static var blackSeats: [some SpatialTemplateElement] {
+        [0, 1, 2].map {
+            .seat(position: .app.offsetBy(x: 1,
+                                          z: Size.Meter.spatialZOffset - $0),
+                  direction: direction,
+                  role: Self.Role.black)
+        }
+    }
+    
+    private static var defaultSeats: [some SpatialTemplateElement] {
+        [.seat(position: .app.offsetBy(x: 0, z: 3), direction: direction),
+         .seat(position: .app.offsetBy(x: 1, z: 3), direction: direction),
+         .seat(position: .app.offsetBy(x: -1, z: 3), direction: direction),
+         .seat(position: .app.offsetBy(x: 2, z: 3), direction: direction),
+         .seat(position: .app.offsetBy(x: -2, z: 3), direction: direction)]
     }
 }
