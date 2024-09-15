@@ -12,11 +12,7 @@ enum PieceEntity {
         bodyEntity.components.set([
             HoverEffectComponent(),
             InputTargetComponent(),
-            CollisionComponent(shapes: [{
-                var value: ShapeResource = .generateBox(size: bodyEntity.visualBounds(relativeTo: nil).extents)
-                value = value.offsetBy(translation: [0, value.bounds.extents.y / 2, 0])
-                return value
-            }()])
+            Self.collisionComponent(entity: bodyEntity)
         ])
         
         let promotionMarkEntity = Entity()
@@ -40,5 +36,15 @@ enum PieceEntity {
         value.addChild(shadowEntity)
         
         return value
+    }
+    
+    static func collisionComponent(entity: Entity) -> some Component {
+        CollisionComponent(
+            shapes: [{
+                var value: ShapeResource = .generateBox(size: entity.visualBounds(relativeTo: nil).extents)
+                value = value.offsetBy(translation: [0, value.bounds.extents.y / 2, 0])
+                return value
+            }()]
+        )
     }
 }

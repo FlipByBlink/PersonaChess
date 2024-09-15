@@ -176,6 +176,7 @@ private extension AppModel {
                     pieceEntity.components[Piece.self] = latestPiece
                     self.activatePieceHoverEffect()
                     self.movingPieces.removeAll { $0 == piece.id }
+                    self.updateInputtablity(pieceEntity)
                 }
             }
         }
@@ -200,6 +201,19 @@ private extension AppModel {
                              duration: duration)
         try? await Task.sleep(for: .seconds(duration))
         if !isUndoAction { self.soundFeedback.put(entity, self.floorMode) }
+    }
+    private func updateInputtablity(_ pieceEntity: Entity) {
+        let piece: Piece = pieceEntity.components[Piece.self]!
+        let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
+        if piece.picked {
+            pieceBodyEntity.components.remove(CollisionComponent.self)
+            pieceBodyEntity.components.remove(InputTargetComponent.self)
+        } else {
+            pieceBodyEntity.components.set([
+                PieceEntity.collisionComponent(entity: pieceEntity),
+                InputTargetComponent()
+            ])
+        }
     }
 #if os(visionOS)
     private func disablePieceHoverEffect() {

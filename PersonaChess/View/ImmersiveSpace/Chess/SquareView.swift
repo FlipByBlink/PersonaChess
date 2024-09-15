@@ -37,9 +37,17 @@ struct SquareView: View {
 private extension SquareView {
     private func updateInputtable() {
         let latestActivePieces = self.model.sharedState.chess.latest.filter { !$0.removed }
-        if latestActivePieces.contains(where: { $0.picked }),
-           !latestActivePieces.contains(where: { $0.index == .init(self.row, self.column) }) {
-            self.inputtable = true
+        let myIndex = Index(self.row, self.column)
+        if latestActivePieces.contains(where: { $0.picked }) {
+            if !latestActivePieces.contains(where: { $0.index == myIndex }) {
+                self.inputtable = true
+            } else {
+                guard let pickedPiece = latestActivePieces.first(where: { $0.picked }) else {
+                    assertionFailure()
+                    return
+                }
+                self.inputtable = (pickedPiece.index == myIndex)
+            }
         } else {
             self.inputtable = false
         }
