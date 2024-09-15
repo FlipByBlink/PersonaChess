@@ -7,7 +7,7 @@ struct WhatsPersonaMenu: View {
                 Image(.exampleSpatialPersonas)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 400)
+                    .frame(width: 300)
                     .clipShape(.rect(cornerRadius: 10))
                     .listRowBackground(Color.clear)
                     .frame(maxWidth: .infinity)
@@ -17,6 +17,7 @@ struct WhatsPersonaMenu: View {
                 Link(destination: url1) {
                     Text(#""Use spatial Persona (beta) on Apple Vision Pro - Apple Support”"#)
                 }
+                .foregroundStyle(.link)
             } header: {
                 Text("Apple official support page")
             } footer: {
@@ -27,6 +28,7 @@ struct WhatsPersonaMenu: View {
                 Link(destination: url2) {
                     Text(#"“Capture and edit your Persona (beta) on Apple Vision Pro - Apple Support”"#)
                 }
+                .foregroundStyle(.link)
             } footer: {
                 Text(verbatim: "\(url2)")
             }

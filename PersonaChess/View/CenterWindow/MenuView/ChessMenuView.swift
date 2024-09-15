@@ -7,26 +7,6 @@ struct ChessMenuView: View {
     var body: some View {
         VStack {
             Spacer()
-            Self.RowView(title: "Height") {
-                HStack(spacing: 16) {
-                    Button {
-                        self.model.raiseBoard()
-                    } label: {
-                        Image(systemName: "chevron.up")
-                    }
-                    .disabled(self.model.sharedState.viewHeight > 1600)
-                    Button {
-                        self.model.lowerBoard()
-                    } label: {
-                        Image(systemName: "chevron.down")
-                    }
-                }
-                .buttonBorderShape(.circle)
-                .disabled(self.model.floorMode)
-            }
-            Spacer()
-            Divider()
-            Spacer()
             Self.RowView(title: "Scale") {
                 HStack(spacing: 16) {
                     Button {
@@ -43,6 +23,26 @@ struct ChessMenuView: View {
                     .disabled(!self.model.downScalable)
                 }
                 .buttonBorderShape(.circle)
+            }
+            Spacer()
+            Divider()
+            Spacer()
+            Self.RowView(title: "Height") {
+                HStack(spacing: 16) {
+                    Button {
+                        self.model.raiseBoard()
+                    } label: {
+                        Image(systemName: "chevron.up")
+                    }
+                    .disabled(self.model.sharedState.viewHeight > 1600)
+                    Button {
+                        self.model.lowerBoard()
+                    } label: {
+                        Image(systemName: "chevron.down")
+                    }
+                }
+                .buttonBorderShape(.circle)
+                .disabled(self.model.floorMode)
             }
             Spacer()
             Divider()
@@ -96,7 +96,7 @@ private extension ChessMenuView {
         @EnvironmentObject var model: AppModel
         @State private var value: Bool = false
         var body: some View {
-            Toggle(isOn: self.$value) { EmptyView() }
+            Toggle("Floor mode", isOn: self.$value)
                 .labelsHidden()
                 .onAppear { self.value = self.model.floorMode }
                 .onChange(of: self.value) { _, newValue in
@@ -106,22 +106,27 @@ private extension ChessMenuView {
                         self.model.separateFromFloor()
                     }
                 }
+                .onChange(of: self.model.sharedState.viewHeight == 0) { _, newValue in
+                    self.value = newValue
+                }
         }
     }
     private func rolePicker() -> some View {
         Self.RowView(title: "Role") {
+            if self.model.myRole != nil {
+                Button {
+                    self.model.set(role: nil)
+                } label: {
+                    Label("Audience", systemImage: "xmark")
+                        .labelStyle(.iconOnly)
+                }
+                .scaleEffect(0.8, anchor: .trailing)
+                .buttonBorderShape(.circle)
+            }
             Button("White") { self.model.set(role: .white) }
                 .disabled(self.model.myRole == .white)
             Button("Black") { self.model.set(role: .black) }
                 .disabled(self.model.myRole == .black)
-            Button {
-                self.model.set(role: nil)
-            } label: {
-                Label("Audience", systemImage: "xmark")
-                    .labelStyle(.iconOnly)
-            }
-            .buttonBorderShape(.circle)
-            .disabled(self.model.myRole == nil)
         }
     }
     private struct RowView<Content: View>: View {

@@ -291,8 +291,8 @@
 				16261D6A2C8D2CB400C2822C /* ChessMenuView.swift */,
 				161A13912C96733B0075C57B /* AboutOptionsMenu.swift */,
 				161A13932C9674320075C57B /* AboutAppLink.swift */,
-				161A13952C9674990075C57B /* WhatsPersonaMenu.swift */,
 				161A13962C9674990075C57B /* WhatsSharePlayMenu.swift */,
+				161A13952C9674990075C57B /* WhatsPersonaMenu.swift */,
 			);
 			path = MenuView;
 			sourceTree = "<group>";
@@ -358,18 +358,11 @@
 			path = "README assets";
 			sourceTree = "<group>";
 		};
-		1671A1582B720747009A87A6 /* Rest */ = {
-			isa = PBXGroup;
-			children = (
-				16F972762B68B7FB00711C53 /* Size.swift */,
-			);
-			path = Rest;
-			sourceTree = "<group>";
-		};
 		1671A1692B74A866009A87A6 /* ImmersiveSpace */ = {
 			isa = PBXGroup;
 			children = (
 				16780FF52B6881DB005A0244 /* ImmersiveSpaceView.swift */,
+				1662F1512B89F3C90024763B /* Chess */,
 				16261D6C2C8D577E00C2822C /* Rest */,
 			);
 			path = ImmersiveSpace;
@@ -480,6 +473,7 @@
 		167948B52BC67612004DFF4B /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				16F972762B68B7FB00711C53 /* Size.swift */,
 				165EC69F2B6901670005172B /* Action.swift */,
 				16AE50272B70FE3100D25197 /* SoundFeedback.swift */,
 				1679489D2BC66B88004DFF4B /* Rest */,
@@ -556,8 +550,6 @@
 			children = (
 				16261D642C8D1E1E00C2822C /* CenterWindow */,
 				1671A1692B74A866009A87A6 /* ImmersiveSpace */,
-				1662F1512B89F3C90024763B /* Chess */,
-				1671A1582B720747009A87A6 /* Rest */,
 			);
 			path = View;
 			sourceTree = "<group>";
