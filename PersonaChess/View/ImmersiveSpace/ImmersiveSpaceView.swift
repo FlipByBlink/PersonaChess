@@ -13,6 +13,7 @@ struct ImmersiveSpaceView: View {
             .overlay { ToolbarViewOnHand() }
             .overlay { SpatialSuggestionDialog() }
             .overlay { RecordingRoom() }
+            .handlesExternalEvents(preferring: [], allowing: [])
             .onAppear { self.model.isFullSpaceShown = true }
             .onDisappear { self.model.isFullSpaceShown = false }
     }
