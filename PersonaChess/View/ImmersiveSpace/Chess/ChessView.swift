@@ -15,11 +15,8 @@ struct ChessView: View {
                     .environmentObject(self.model)
             }
         }
-        .gesture(
-            TapGesture()
-                .targetedToAnyEntity()
-                .onEnded { self.model.execute(.tapPiece($0.entity)) }
-        )
+        .gesture(ExclusiveGesture(self.tapGesture, self.dragGesture))
+        //.gesture(SimultaneousGesture(self.tapGesture, self.dragGesture))
         .frame(width: Size.Point.board(self.physicalMetrics), height: 0)
         .frame(depth: Size.Point.board(self.physicalMetrics))
         .overlay {
@@ -30,5 +27,28 @@ struct ChessView: View {
             }
         }
         .rotation3DEffect(.init(angle: .degrees(270), axis: .y))
+    }
+}
+
+private extension ChessView {
+    private var tapGesture: some Gesture {
+        TapGesture()
+            .targetedToAnyEntity()
+            .onEnded { self.model.execute(.tapPiece($0.entity)) }
+    }
+    private var dragGesture: some Gesture {
+        DragGesture()
+            .targetedToAnyEntity()
+            .handActivationBehavior(.pinch)
+            .onChanged { value in
+                let dragTranslation = value.convert(value.translation3D,
+                                                    from: .local,
+                                                    to: self.model.rootEntity)
+                self.model.execute(.drag(value.entity,
+                                         translation: dragTranslation))
+            }
+            .onEnded { value in
+                self.model.execute(.drop(value.entity))
+            }
     }
 }

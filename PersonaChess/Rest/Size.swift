@@ -20,6 +20,9 @@ enum Size {
         static func boardInnerPadding(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
             physicalMetrics.convert(Size.Meter.boardInnerPadding, from: .meters)
         }
+        static func square(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
+            CGFloat(physicalMetrics.convert(Size.Meter.square, from: .meters))
+        }
         static func board(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
             physicalMetrics.convert(Size.Meter.board, from: .meters)
         }

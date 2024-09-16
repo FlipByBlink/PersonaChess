@@ -72,9 +72,53 @@ extension AppModel {
                 self.soundFeedback.reset(self.rootEntity)
                 self.sharedState.chess.setPreset()
                 if self.groupSession != nil { self.sharedState.mode = .sharePlay }
+            case .drag(let bodyEntity, translation: let dragTranslation):
+                guard let pieceEntity = bodyEntity.parent,
+                      let pieceIndex = pieceEntity.components[Piece.self]?.index else {
+                    assertionFailure()
+                    return
+                }
+                bodyEntity.position.y = (dragTranslation.y > 0) ? dragTranslation.y : 0
+                let piecePosition = pieceIndex.position + dragTranslation
+                pieceEntity.setPosition(.init(x: piecePosition.x,
+                                              y: 0,
+                                              z: piecePosition.z),
+                                        relativeTo: self.rootEntity)
+            case .drop(let bodyEntity):
+                let draggingPosition = bodyEntity.position(relativeTo: self.rootEntity)
+                var closestIndex = Index(0, 0)
+                for column in 0..<8 {
+                    for row in 0..<8 {
+                        let index = Index(row, column)
+                        if distance(draggingPosition, closestIndex.position)
+                            > distance(draggingPosition, index.position) {
+                            closestIndex = index
+                        }
+                    }
+                }
+                let duration = 0.5
+                bodyEntity.move(to: Transform(),
+                            relativeTo: bodyEntity.parent!,
+                            duration: duration)
+                bodyEntity.parent?.move(to: Transform(translation: closestIndex.position),
+                                    relativeTo: self.rootEntity,
+                                    duration: duration)
+                self.sharedState.chess.appendLog()
+                self.sharedState.chess.movePiece(bodyEntity.parent!.components[Piece.self]!.id,
+                                                 to: closestIndex)
         }
         
-        self.applyLatestChessToEntities(isUndoAction: action == .undo)
+        switch action {
+            case .drop(_):
+                for pieceEntity in self.rootEntity.children.filter({ $0.components.has(Piece.self) }) {
+                    let piece: Piece = pieceEntity.components[Piece.self]!
+                    let latestPiece: Piece = self.sharedState.chess.latest.first { $0.id == piece.id }!
+                    pieceEntity.findEntity(named: "promotionMark")?.isEnabled = latestPiece.promotion
+                    pieceEntity.components[Piece.self] = latestPiece
+                }
+            default:
+                self.applyLatestChessToEntities(isUndoAction: action == .undo)
+        }
         self.sendMessage()
     }
     func upScale() {
