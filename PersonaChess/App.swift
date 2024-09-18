@@ -3,20 +3,26 @@ import SwiftUI
 @main
 struct PersonaChessApp: App {
     @StateObject private var model = AppModel()
-    
+    @AppStorage("userAppleID") var storedAppleID: String = ""
+
     var body: some Scene {
         WindowGroup(id: "centerWindow") {
-            CenterWindowView()
-                .environmentObject(self.model)
+            if storedAppleID.isEmpty {
+                AppleIDEntryView()
+                    .environmentObject(model)
+            } else {
+                ContentView()
+                    .environmentObject(model)
+            }
         }
         .windowResizability(.contentSize)
-        
+
         ImmersiveSpace(id: "immersiveSpace") {
             ImmersiveSpaceView()
-                .environmentObject(self.model)
+                .environmentObject(model)
         }
     }
-    
+
     init() {
         Piece.registerComponent()
         PieceOpacitySystem.registerSystem()

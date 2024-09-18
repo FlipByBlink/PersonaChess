@@ -1,12 +1,16 @@
+// AppGroupActivity.swift
+
 import GroupActivities
-import SwiftUI
 
 struct AppGroupActivity: GroupActivity {
+    static var activityIdentifier = "net.volucam.PersonaChess.AppGroupActivity"
+    
+    let matchedAppleID: String
+
     var metadata: GroupActivityMetadata {
-        var value = GroupActivityMetadata()
-        value.title = String(localized: "Share chess")
-        value.type = .generic
-        value.previewImage = UIImage(resource: .wholeIcon).cgImage
-        return value
+        var metadata = GroupActivityMetadata()
+        metadata.title = "Persona Chess Match"
+        metadata.type = .generic
+        return metadata
     }
 }

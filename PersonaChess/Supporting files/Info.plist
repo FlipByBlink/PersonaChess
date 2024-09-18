@@ -13,5 +13,19 @@
 		<key>UISceneConfigurations</key>
 		<dict/>
 	</dict>
+	<key>NSAppTransportSecurity</key>
+	<dict/>
+	<key>NSAllowsArbitraryLoads</key>
+	<true/>
+	<key>NSExceptionDomains</key>
+	<dict/>
+	<key>24.80.139.76</key>
+	<dict/>
+	<key>NSIncludesSubdomains</key>
+	<true/>
+	<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+	<true/>
+	<key>NSTemporaryExceptionMinimumTLSVersion</key>
+	<string>TLSv1.1</string>
 </dict>
 </plist>

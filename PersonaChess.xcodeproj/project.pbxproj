@@ -118,6 +118,10 @@
 		16F42C632C926DF2006A12E3 /* PieceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F42C622C926DF0006A12E3 /* PieceEntity.swift */; };
 		16F972752B68B77C00711C53 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
 		16F972772B68B7FB00711C53 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
+		210C0BFB2C941CC60097DCD6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C0BFA2C941CC60097DCD6 /* ContentView.swift */; };
+		210C0BFC2C941CC60097DCD6 /* AppleIDEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C0BF92C941CC60097DCD6 /* AppleIDEntryView.swift */; };
+		210C0BFD2C941CC60097DCD6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C0BFA2C941CC60097DCD6 /* ContentView.swift */; };
+		210C0BFE2C941CC60097DCD6 /* AppleIDEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C0BF92C941CC60097DCD6 /* AppleIDEntryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -246,6 +250,8 @@
 		16F42C622C926DF0006A12E3 /* PieceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceEntity.swift; sourceTree = "<group>"; };
 		16F972742B68B77C00711C53 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		16F972762B68B7FB00711C53 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		210C0BF92C941CC60097DCD6 /* AppleIDEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIDEntryView.swift; sourceTree = "<group>"; };
+		210C0BFA2C941CC60097DCD6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +356,8 @@
 			isa = PBXGroup;
 			children = (
 				16F972762B68B7FB00711C53 /* Size.swift */,
+				210C0BF92C941CC60097DCD6 /* AppleIDEntryView.swift */,
+				210C0BFA2C941CC60097DCD6 /* ContentView.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -730,6 +738,8 @@
 				16312B6F2B75D193006A93D1 /* Action.swift in Sources */,
 				16312B692B75D193006A93D1 /* Chess.swift in Sources */,
 				16312B6D2B75D193006A93D1 /* Side.swift in Sources */,
+				210C0BFD2C941CC60097DCD6 /* ContentView.swift in Sources */,
+				210C0BFE2C941CC60097DCD6 /* AppleIDEntryView.swift in Sources */,
 				16312B6E2B75D193006A93D1 /* Index.swift in Sources */,
 				16312B672B75D193006A93D1 /* Piece.swift in Sources */,
 				16312B682B75D193006A93D1 /* SharedState.swift in Sources */,
@@ -757,6 +767,8 @@
 				16261D632C8D1CE200C2822C /* CenterWindowView.swift in Sources */,
 				16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */,
 				16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */,
+				210C0BFB2C941CC60097DCD6 /* ContentView.swift in Sources */,
+				210C0BFC2C941CC60097DCD6 /* AppleIDEntryView.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
 				16261D762C8D6AB500C2822C /* PlaceholderView.swift in Sources */,
@@ -980,21 +992,24 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "PersonaChess/Supporting files/PersonaChess.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 6696GEY228;
+				DEVELOPMENT_TEAM = YGA2D8U488;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Supporting files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = MirageChess;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaChess;
+				PRODUCT_BUNDLE_IDENTIFIER = net.volucam.PersonaChess;
 				PRODUCT_NAME = PersonaChess;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1012,17 +1027,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 6696GEY228;
+				DEVELOPMENT_TEAM = YGA2D8U488;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Supporting files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = MirageChess;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaChess;
+				PRODUCT_BUNDLE_IDENTIFIER = net.volucam.PersonaChess;
 				PRODUCT_NAME = PersonaChess;
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;

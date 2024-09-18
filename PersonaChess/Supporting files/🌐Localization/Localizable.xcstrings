@@ -43,9 +43,6 @@
         }
       }
     },
-    "Audience" : {
-
-    },
     "Back" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -56,9 +53,6 @@
           }
         }
       }
-    },
-    "Black" : {
-
     },
     "Chess" : {
       "extractionState" : "stale",
@@ -72,6 +66,9 @@
       }
     },
     "Close chess" : {
+
+    },
+    "Connected with" : {
 
     },
     "During a FaceTime call, if the person you are speaking with starts SharePlay, you will automatically join SharePlay as well. If you want to join a SharePlay session that has already started, you can do so from the Control Center." : {
@@ -96,6 +93,12 @@
         }
       }
     },
+    "Enter Your Apple ID" : {
+
+    },
+    "example@icloud.com" : {
+
+    },
     "Exit full space" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -106,12 +109,6 @@
           }
         }
       }
-    },
-    "Floor mode" : {
-
-    },
-    "Height" : {
-
     },
     "How to start" : {
       "extractionState" : "stale",
@@ -182,9 +179,6 @@
     "Larger" : {
 
     },
-    "More" : {
-
-    },
     "none" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -220,6 +214,12 @@
         }
       }
     },
+    "Play as Black" : {
+
+    },
+    "Play as White" : {
+
+    },
     "Reset" : {
       "localizations" : {
         "ja" : {
@@ -230,10 +230,10 @@
         }
       }
     },
-    "Role" : {
+    "Searching for a match..." : {
 
     },
-    "Scale" : {
+    "Select Your Role" : {
 
     },
     "Set up SharePlay" : {
@@ -245,9 +245,6 @@
           }
         }
       }
-    },
-    "Share chess" : {
-
     },
     "SharePlay state:" : {
       "extractionState" : "stale",
@@ -266,6 +263,9 @@
     "Start \"Share chess\" activity" : {
 
     },
+    "Start FaceTime Call" : {
+
+    },
     "Start SharePlay by oneself" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -276,6 +276,9 @@
           }
         }
       }
+    },
+    "Submit" : {
+
     },
     "The Group Activities framework uses end-to-end encryption on all session data. Developer and Apple doesn’t have the keys to decrypt this data." : {
       "extractionState" : "stale",
@@ -324,6 +327,9 @@
         }
       }
     },
+    "Waiting for a match..." : {
+
+    },
     "What's Persona?" : {
       "localizations" : {
         "ja" : {
@@ -343,9 +349,6 @@
           }
         }
       }
-    },
-    "White" : {
-
     },
     "With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time." : {
       "extractionState" : "stale",
@@ -382,6 +385,9 @@
           }
         }
       }
+    },
+    "You have selected %@ role" : {
+
     }
   },
   "version" : "1.0"

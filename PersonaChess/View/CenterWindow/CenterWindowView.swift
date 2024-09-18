@@ -23,7 +23,8 @@ struct CenterWindowView: View {
         .animation(.default, value: self.model.isFullSpaceShown)
         .animation(.default, value: self.model.groupSession == nil)
         .frame(width: 450, height: 400)
-        .task { SharePlayProvider.registerGroupActivity() }
+        // Removed the problematic line below
+        // .task { SharePlayProvider.registerGroupActivity() }
         .onChange(of: self.scenePhase) { _, newValue in
             if newValue == .background {
                 if self.model.isFullSpaceShown {

@@ -1,3 +1,5 @@
+// AppModel.swift
+
 import SwiftUI
 import RealityKit
 import GroupActivities
@@ -9,17 +11,21 @@ class AppModel: ObservableObject {
     private(set) var rootEntity = Entity()
     @Published private(set) var movingPieces: [Piece.ID] = []
     @Published var isFullSpaceShown: Bool = false
-    
+
+    // Added properties
+    @Published var isMatched: Bool = false
+    @Published var matchedAppleID: String?
+
     @Published private(set) var groupSession: GroupSession<AppGroupActivity>?
     private var messenger: GroupSessionMessenger?
     private var subscriptions: Set<AnyCancellable> = []
     private var tasks: Set<Task<Void, Never>> = []
-    @Published private(set) var spatialSharePlaying: Bool?
-    @Published private(set) var myRole: CustomSpatialTemplate.Role? = nil
-    
+    @Published var spatialSharePlaying: Bool?
+    @Published var myRole: CustomSpatialTemplate.Role? = nil
+
     private let soundFeedback = SoundFeedback()
     @Published var showRecordingRoom: Bool = false
-    
+
     init() {
         self.configureGroupSessions()
         self.setUpEntities()
@@ -220,7 +226,7 @@ private extension AppModel {
 #endif
 }
 
-//MARK: ==== SharePlay ====
+// MARK: ==== SharePlay ====
 extension AppModel {
     var showProgressView: Bool {
         self.groupSession != nil
@@ -239,8 +245,9 @@ extension AppModel {
                 self.messenger = messenger
                 
                 groupSession.$state
-                    .sink {
-                        if case .invalidated = $0 {
+                    .sink { [weak self] state in
+                        guard let self = self else { return }
+                        if case .invalidated = state {
                             self.messenger = nil
                             self.tasks.forEach { $0.cancel() }
                             self.tasks = []
@@ -257,9 +264,10 @@ extension AppModel {
                     .store(in: &self.subscriptions)
                 
                 groupSession.$activeParticipants
-                    .sink {
-                        if $0.count == 1 { self.sharedState.mode = .sharePlay }
-                        let newParticipants = $0.subtracting(groupSession.activeParticipants)
+                    .sink { [weak self] participants in
+                        guard let self = self else { return }
+                        if participants.count == 1 { self.sharedState.mode = .sharePlay }
+                        let newParticipants = participants.subtracting(groupSession.activeParticipants)
                         Task {
                             try? await messenger.send(self.sharedState,
                                                       to: .only(newParticipants))
@@ -281,20 +289,6 @@ extension AppModel {
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             for await localParticipantState in systemCoordinator.localParticipantStates {
                                 self.spatialSharePlaying = localParticipantState.isSpatial
-                            }
-                        }
-                    }
-                )
-                
-                self.tasks.insert(
-                    Task {
-                        if let systemCoordinator = await groupSession.systemCoordinator {
-                            for await immersionStyle in systemCoordinator.groupImmersionStyle {
-                                if immersionStyle != nil {
-                                    //TODO: 実装
-                                } else {
-                                    //TODO: 実装
-                                }
                             }
                         }
                     }
@@ -330,15 +324,21 @@ extension AppModel {
         }
     }
     func activateGroupActivity() {
+        guard let matchedAppleID = self.matchedAppleID else {
+            print("No matched Apple ID available.")
+            return
+        }
         Task {
             do {
-                let result = try await AppGroupActivity().activate()
-                switch result {
-                    case true: self.sharedState.mode = .sharePlay
-                    default: break
+                let activity = AppGroupActivity(matchedAppleID: matchedAppleID)
+                let activated = try await activity.activate()
+                if activated {
+                    self.sharedState.mode = .sharePlay
+                } else {
+                    print("Activation not preferred.")
                 }
             } catch {
-                print("Failed to activate activity: \(error)")
+                print("Failed to activate activity: \(error.localizedDescription)")
             }
         }
     }
@@ -357,19 +357,3 @@ extension AppModel {
     }
 #endif
 }
-
-
-
-
-//======== Reference ========
-//Drawing content in a group session | Apple Developer Documentation
-//https://developer.apple.com/documentation/groupactivities/drawing_content_in_a_group_session
-//
-//Design spatial SharePlay experiences - WWDC23 - Videos - Apple Developer
-//https://developer.apple.com/videos/play/wwdc2023/10075
-//
-//Build spatial SharePlay experiences - WWDC23 - Videos - Apple Developer
-//https://developer.apple.com/videos/play/wwdc2023/10087
-//
-//Customizing spatial Persona templates | Apple Developer Documentation
-//https://developer.apple.com/documentation/groupactivities/customizing-spatial-persona-templates

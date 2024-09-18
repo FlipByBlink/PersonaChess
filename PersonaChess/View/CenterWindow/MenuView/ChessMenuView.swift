@@ -1,140 +1,69 @@
+// ChessMenuView.swift
+
 import SwiftUI
+
+// Assuming you have these imports
 import GroupActivities
 
 struct ChessMenuView: View {
-    @EnvironmentObject var model: AppModel
-    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    @EnvironmentObject var appModel: AppModel
+    @State private var selectedRole: CustomSpatialTemplate.Role? = nil
+
     var body: some View {
         VStack {
-            Spacer()
-            Self.RowView(title: "Height") {
-                HStack(spacing: 16) {
-                    Button {
-                        self.model.raiseBoard()
-                    } label: {
-                        Image(systemName: "chevron.up")
-                    }
-                    .disabled(self.model.sharedState.viewHeight > 1600)
-                    Button {
-                        self.model.lowerBoard()
-                    } label: {
-                        Image(systemName: "chevron.down")
-                    }
+            Text("Select Your Role")
+                .font(.headline)
+                .padding()
+
+            HStack {
+                // White Role Button
+                Button(action: {
+                    selectedRole = .white
+                    appModel.set(role: .white)
+                }) {
+                    Text("Play as White")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(selectedRole == .white ? Color.blue : Color.gray)
+                        .cornerRadius(8)
                 }
-                .buttonBorderShape(.circle)
-                .disabled(self.model.floorMode)
-            }
-            Spacer()
-            Divider()
-            Spacer()
-            Self.RowView(title: "Scale") {
-                HStack(spacing: 16) {
-                    Button {
-                        self.model.upScale()
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .disabled(!self.model.upScalable)
-                    Button {
-                        self.model.downScale()
-                    } label: {
-                        Image(systemName: "minus")
-                    }
-                    .disabled(!self.model.downScalable)
-                }
-                .buttonBorderShape(.circle)
-            }
-            Spacer()
-            Divider()
-            Spacer()
-            Self.RowView(title: "Floor mode") {
-                Self.FloorModeToggle()
-            }
-            Spacer()
-            Divider()
-            Spacer()
-            self.rolePicker()
-            Spacer()
-            Divider()
-            Spacer()
-            Self.RowView(title: "More") {
-                Menu {
-                    Section {
-                        Button {
-                            self.model.execute(.undo)
-                        } label: {
-                            Label("Undo", systemImage: "arrow.uturn.backward")
-                        }
-                        .disabled(self.model.sharedState.chess.log.isEmpty)
-                        Button {
-                            self.model.execute(.reset)
-                        } label: {
-                            Label("Reset", systemImage: "arrow.counterclockwise")
-                        }
-                        .disabled(self.model.sharedState.chess.isPreset)
-                    }
-                    .disabled(!self.model.movingPieces.isEmpty)
-                    Section {
-                        Button {
-                            Task { await self.dismissImmersiveSpace() }
-                        } label: {
-                            Label("Close chess", systemImage: "escape")
-                        }
-                    }
-                } label: {
-                    Image(systemName: "ellipsis")
+
+                // Black Role Button
+                Button(action: {
+                    selectedRole = .black
+                    appModel.set(role: .black)
+                }) {
+                    Text("Play as Black")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(selectedRole == .black ? Color.blue : Color.gray)
+                        .cornerRadius(8)
                 }
             }
-            Spacer()
+            .padding()
+
+            // Additional UI components...
+
+            // Example of using the role color in your UI
+            if let role = selectedRole {
+                Text("You have selected \(role.rawValue.capitalized) role")
+                    .foregroundColor(role.color)
+                    .padding()
+            }
         }
-        .padding(.bottom)
     }
 }
 
-private extension ChessMenuView {
-    private struct FloorModeToggle: View {
-        @EnvironmentObject var model: AppModel
-        @State private var value: Bool = false
-        var body: some View {
-            Toggle(isOn: self.$value) { EmptyView() }
-                .labelsHidden()
-                .onAppear { self.value = self.model.floorMode }
-                .onChange(of: self.value) { _, newValue in
-                    if newValue {
-                        self.model.lowerToFloor()
-                    } else {
-                        self.model.separateFromFloor()
-                    }
-                }
-        }
-    }
-    private func rolePicker() -> some View {
-        Self.RowView(title: "Role") {
-            Button("White") { self.model.set(role: .white) }
-                .disabled(self.model.myRole == .white)
-            Button("Black") { self.model.set(role: .black) }
-                .disabled(self.model.myRole == .black)
-            Button {
-                self.model.set(role: nil)
-            } label: {
-                Label("Audience", systemImage: "xmark")
-                    .labelStyle(.iconOnly)
-            }
-            .buttonBorderShape(.circle)
-            .disabled(self.model.myRole == nil)
-        }
-    }
-    private struct RowView<Content: View>: View {
-        let title: LocalizedStringKey
-        @ViewBuilder var content: () -> Content
-        var body: some View {
-            LabeledContent {
-                self.content()
-            } label: {
-                Text(self.title)
-                    .foregroundStyle(.secondary)
-            }
-            .padding(.horizontal, 44)
+// Extension to map CustomSpatialTemplate.Role to Color
+extension CustomSpatialTemplate.Role {
+    var color: Color {
+        switch self {
+        case .white:
+            return .white
+        case .black:
+            return .black
+        case .participant:
+            return .gray // Or any color you prefer
         }
     }
 }

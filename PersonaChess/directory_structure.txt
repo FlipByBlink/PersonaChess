@@ -1,0 +1,178 @@
+Folder PATH listing
+Volume serial number is 8CE2-8E5E
+C:.
+|   App.swift
+|   AppModel.swift
+|   directory_structure.txt
+|   
++---Rest
+|   |   Action.swift
+|   |   SoundFeedback.swift
+|   |   
+|   \---Rest
+|       |   ??AboutApp.swift
+|       |   ???StaticInfo.swift
+|       |   
+|       \---Compatibility
+|               ActivityState.swift
+|               
++---SharedState
+|       Chess.swift
+|       Chessmen.swift
+|       Index.swift
+|       Mode.swift
+|       Piece.swift
+|       SharedState.swift
+|       Side.swift
+|       
++---SharePlay
+|       AppGroupActivity.swift
+|       CustomSpatialTemplate.swift
+|       SharePlayProvider.swift
+|       
++---Supporting files
+|   |   Info.plist
+|   |   PersonaChess.entitlements
+|   |   
+|   +---Assets
+|   |   +---Assets.xcassets
+|   |   |   |   Contents.json
+|   |   |   |   
+|   |   |   +---aboutAppIcon.imageset
+|   |   |   |       aboutAppIcon.heic
+|   |   |   |       Contents.json
+|   |   |   |       
+|   |   |   +---AccentColor.colorset
+|   |   |   |       Contents.json
+|   |   |   |       
+|   |   |   +---AppIcon.solidimagestack
+|   |   |   |   |   Contents.json
+|   |   |   |   |   
+|   |   |   |   +---Back.solidimagestacklayer
+|   |   |   |   |   |   Contents.json
+|   |   |   |   |   |   
+|   |   |   |   |   \---Content.imageset
+|   |   |   |   |           Background.png
+|   |   |   |   |           Contents.json
+|   |   |   |   |           
+|   |   |   |   +---Front.solidimagestacklayer
+|   |   |   |   |   |   Contents.json
+|   |   |   |   |   |   
+|   |   |   |   |   \---Content.imageset
+|   |   |   |   |           Contents.json
+|   |   |   |   |           front.png
+|   |   |   |   |           
+|   |   |   |   \---Middle.solidimagestacklayer
+|   |   |   |       |   Contents.json
+|   |   |   |       |   
+|   |   |   |       \---Content.imageset
+|   |   |   |               Contents.json
+|   |   |   |               middle.png
+|   |   |   |               
+|   |   |   +---exampleSharePlay.imageset
+|   |   |   |       Contents.json
+|   |   |   |       exampleSharePlay.jpg
+|   |   |   |       
+|   |   |   \---WholeIcon.imageset
+|   |   |           App Icon - 1024 x 1024 pt.png
+|   |   |           Contents.json
+|   |   |           
+|   |   +---Developer_Publisher.xcassets
+|   |   |   |   Contents.json
+|   |   |   |   
+|   |   |   \---Developer_Publisher.imageset
+|   |   |           Contents.json
+|   |   |           Developer_Publisher.heic
+|   |   |           
+|   |   +---Piece
+|   |   |   |   bishopB.reality
+|   |   |   |   bishopW.reality
+|   |   |   |   kingB.reality
+|   |   |   |   kingW.reality
+|   |   |   |   knightB.reality
+|   |   |   |   knightW.reality
+|   |   |   |   pawnB.reality
+|   |   |   |   pawnW.reality
+|   |   |   |   queenB.reality
+|   |   |   |   queenW.reality
+|   |   |   |   rookB.reality
+|   |   |   |   rookW.reality
+|   |   |   |   
+|   |   |   \---About
+|   |   |       |   About piece assets.md
+|   |   |       |   
+|   |   |       +---Example rcproject file
+|   |   |       |       rookW.rcproject.zip
+|   |   |       |       
+|   |   |       \---Screenshot log
+|   |   |               App Store product page.jpg
+|   |   |               Reality Composer buildin.jpg
+|   |   |               Reality Composer editor.jpg
+|   |   |               Reality Composer export1.jpg
+|   |   |               Reality Composer export2.jpg
+|   |   |               Reality Composer files.jpg
+|   |   |               
+|   |   \---Sound
+|   |           putSound1.m4a
+|   |           putSound2.m4a
+|   |           putSound3.m4a
+|   |           putSound4.m4a
+|   |           putSound5.m4a
+|   |           putSound6.m4a
+|   |           resetSound.m4a
+|   |           selectSound.m4a
+|   |           
+|   +---Rest
+|   |   +---Archive
+|   |   |       ContentView(old).swift
+|   |   |       EntrancePiecesView.swift
+|   |   |       HallView.swift
+|   |   |       ???????.reality
+|   |   |       
+|   |   \---README assets
+|   |           appstore_badge.svg
+|   |           icon.png
+|   |           screenshot1280w.jpg
+|   |           screenshot1280w2.jpg
+|   |           screenshot1280w3.jpg
+|   |           
+|   \---??Localization
+|           InfoPlist.xcstrings
+|           Localizable.xcstrings
+|           ??AboutApp.xcstrings
+|           ??AppStoreDescription.xcstrings
+|           ??Timeline.xcstrings
+|           ??VersionHistory.xcstrings
+|           
+\---View
+    +---CenterWindow
+    |   |   CenterWindowView.swift
+    |   |   
+    |   +---MenuView
+    |   |       ChessMenuView.swift
+    |   |       GuideMenuView.swift
+    |   |       
+    |   \---Rest
+    |           OpenButton.swift
+    |           PlaceholderView.swift
+    |           
+    +---Chess
+    |   |   BoardView.swift
+    |   |   ChessView.swift
+    |   |   SquareView.swift
+    |   |   
+    |   \---RealityKit scope
+    |           PieceEntity.swift
+    |           PieceOpacitySystem.swift
+    |           
+    +---ImmersiveSpace
+    |   |   ImmersiveSpaceView.swift
+    |   |   
+    |   \---Rest
+    |           RecordingRoom.swift
+    |           SpatialSuggestionDialog.swift
+    |           ToolbarViewOnHand.swift
+    |           
+    \---Rest
+            Size.swift
+            
