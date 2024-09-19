@@ -73,52 +73,13 @@ extension AppModel {
                 self.sharedState.chess.setPreset()
                 if self.groupSession != nil { self.sharedState.mode = .sharePlay }
             case .drag(let bodyEntity, translation: let dragTranslation):
-                guard let pieceEntity = bodyEntity.parent,
-                      let pieceIndex = pieceEntity.components[Piece.self]?.index else {
-                    assertionFailure()
-                    return
-                }
-                bodyEntity.position.y = (dragTranslation.y > 0) ? dragTranslation.y : 0
-                let piecePosition = pieceIndex.position + dragTranslation
-                pieceEntity.setPosition(.init(x: piecePosition.x,
-                                              y: 0,
-                                              z: piecePosition.z),
-                                        relativeTo: self.rootEntity)
+                self.sharedState.chess.drag(bodyEntity, dragTranslation)
             case .drop(let bodyEntity):
-                let draggingPosition = bodyEntity.position(relativeTo: self.rootEntity)
-                var closestIndex = Index(0, 0)
-                for column in 0..<8 {
-                    for row in 0..<8 {
-                        let index = Index(row, column)
-                        if distance(draggingPosition, closestIndex.position)
-                            > distance(draggingPosition, index.position) {
-                            closestIndex = index
-                        }
-                    }
-                }
-                let duration = 0.5
-                bodyEntity.move(to: Transform(),
-                            relativeTo: bodyEntity.parent!,
-                            duration: duration)
-                bodyEntity.parent?.move(to: Transform(translation: closestIndex.position),
-                                    relativeTo: self.rootEntity,
-                                    duration: duration)
                 self.sharedState.chess.appendLog()
-                self.sharedState.chess.movePiece(bodyEntity.parent!.components[Piece.self]!.id,
-                                                 to: closestIndex)
+                self.sharedState.chess.drop(bodyEntity)
         }
         
-        switch action {
-            case .drop(_):
-                for pieceEntity in self.rootEntity.children.filter({ $0.components.has(Piece.self) }) {
-                    let piece: Piece = pieceEntity.components[Piece.self]!
-                    let latestPiece: Piece = self.sharedState.chess.latest.first { $0.id == piece.id }!
-                    pieceEntity.findEntity(named: "promotionMark")?.isEnabled = latestPiece.promotion
-                    pieceEntity.components[Piece.self] = latestPiece
-                }
-            default:
-                self.applyLatestChessToEntities(isUndoAction: action == .undo)
-        }
+        self.applyLatestChessToEntities()
         self.sendMessage()
     }
     func upScale() {
@@ -181,70 +142,83 @@ private extension AppModel {
     private func pickedPieceEntity() -> Entity? {
         self.rootEntity.children.first { $0.components[Piece.self]?.picked == true }
     }
-    private func applyLatestChessToEntities(isUndoAction: Bool = false) {
+    private func applyLatestChessToEntities() {
         for pieceEntity in self.rootEntity.children.filter({ $0.components.has(Piece.self) }) {
-            let piece: Piece = pieceEntity.components[Piece.self]!
-            let latestPiece: Piece = self.sharedState.chess.latest.first { $0.id == piece.id }!
-            guard piece != latestPiece else { continue }
-            if latestPiece.removed {
-                pieceEntity.components[Piece.self] = latestPiece
+            let exPiece: Piece = pieceEntity.components[Piece.self]!
+            let newPiece: Piece = self.sharedState.chess.latest.first { $0.id == exPiece.id }!
+            guard exPiece != newPiece else { continue }
+            if newPiece.removed {
+                pieceEntity.components[Piece.self] = newPiece
+                //Fade out by PieceOpacitySystem
             } else {
-                Task { @MainActor in
-                    self.movingPieces.append(piece.id)
-                    self.disablePieceHoverEffect()
-                    if piece.index != latestPiece.index {
-                        if !piece.picked {
-                            await self.raisePiece(pieceEntity, piece.index, isUndoAction)
-                        }
-                        var duration: TimeInterval = 1
-                        if isUndoAction { duration /= 2 }
-                        pieceEntity.move(to: .init(translation: latestPiece.index.position),
-                                         relativeTo: self.rootEntity,
-                                         duration: duration)
-                        try? await Task.sleep(for: .seconds(duration))
-                        await self.lowerPiece(pieceEntity, latestPiece.index, isUndoAction)
-                    } else {
-                        if piece.picked != latestPiece.picked {
-                            var translation = piece.index.position
-                            translation.y = latestPiece.picked ? Size.Meter.pickedOffset : 0
-                            var duration: TimeInterval = 0.6
-                            if isUndoAction { duration /= 2 }
-                            let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
-                            pieceBodyEntity.move(to: .init(translation: translation),
-                                                 relativeTo: self.rootEntity,
-                                                 duration: duration)
+                if newPiece.dragging {
+                    pieceEntity.findEntity(named: "body")!.position.y = newPiece.bodyYOffset
+                    pieceEntity.setPosition(newPiece.position,
+                                            relativeTo: self.rootEntity)
+                    pieceEntity.components[Piece.self] = newPiece
+                } else if exPiece.dragging {
+                    let duration = 0.5
+                    pieceEntity.findEntity(named: "body")!.move(to: Transform(),
+                                                                relativeTo: pieceEntity,
+                                                                duration: duration)
+                    pieceEntity.move(to: Transform(translation: newPiece.position),
+                                     relativeTo: self.rootEntity,
+                                     duration: duration)
+                    pieceEntity.findEntity(named: "promotionMark")?.isEnabled = newPiece.promotion
+                    pieceEntity.components[Piece.self] = newPiece
+                } else {
+                    Task { @MainActor in
+                        self.movingPieces.append(exPiece.id)
+                        self.disablePieceHoverEffect()
+                        if exPiece.index != newPiece.index {
+                            if !exPiece.picked {
+                                await self.raisePiece(pieceEntity, exPiece.index)
+                            }
+                            let duration: TimeInterval = 1
+                            pieceEntity.move(to: .init(translation: newPiece.index.position),
+                                             relativeTo: self.rootEntity,
+                                             duration: duration)
                             try? await Task.sleep(for: .seconds(duration))
+                            await self.lowerPiece(pieceEntity, newPiece.index)
+                        } else {
+                            if exPiece.picked != newPiece.picked {
+                                var translation = exPiece.index.position
+                                translation.y = newPiece.picked ? Size.Meter.pickedOffset : 0
+                                let duration: TimeInterval = 0.6
+                                let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
+                                pieceBodyEntity.move(to: .init(translation: translation),
+                                                     relativeTo: self.rootEntity,
+                                                     duration: duration)
+                                try? await Task.sleep(for: .seconds(duration))
+                            }
                         }
+                        pieceEntity.findEntity(named: "promotionMark")?.isEnabled = newPiece.promotion
+                        pieceEntity.components[Piece.self] = newPiece
+                        self.activatePieceHoverEffect()
+                        self.movingPieces.removeAll { $0 == exPiece.id }
+                        self.updateInputtablity(pieceEntity)
                     }
-                    pieceEntity.findEntity(named: "promotionMark")?.isEnabled = latestPiece.promotion
-                    pieceEntity.components[Piece.self] = latestPiece
-                    self.activatePieceHoverEffect()
-                    self.movingPieces.removeAll { $0 == piece.id }
-                    self.updateInputtablity(pieceEntity)
                 }
             }
         }
     }
-    private func raisePiece(_ entity: Entity, _ index: Index, _ isUndoAction: Bool) async {
+    private func raisePiece(_ entity: Entity, _ index: Index) async {
         var translation = index.position
         translation.y = Size.Meter.pickedOffset
-        var duration: TimeInterval = 0.6
-        if isUndoAction { duration /= 2 }
+        let duration: TimeInterval = 0.6
         let pieceBodyEntity = entity.findEntity(named: "body")!
         pieceBodyEntity.move(to: .init(translation: translation),
                              relativeTo: self.rootEntity,
                              duration: duration)
         try? await Task.sleep(for: .seconds(duration))
     }
-    private func lowerPiece(_ entity: Entity, _ index: Index, _ isUndoAction: Bool) async {
-        var duration: TimeInterval = 0.7
-        if isUndoAction { duration /= 2 }
+    private func lowerPiece(_ entity: Entity, _ index: Index) async {
+        let duration: TimeInterval = 0.7
         let pieceBodyEntity = entity.findEntity(named: "body")!
         pieceBodyEntity.move(to: .init(translation: index.position),
                              relativeTo: self.rootEntity,
                              duration: duration)
         try? await Task.sleep(for: .seconds(duration))
-        if !isUndoAction { self.soundFeedback.put(entity, self.floorMode) }
     }
     private func updateInputtablity(_ pieceEntity: Entity) {
         let piece: Piece = pieceEntity.components[Piece.self]!

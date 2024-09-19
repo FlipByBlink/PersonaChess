@@ -1,4 +1,4 @@
-import Foundation
+import RealityKit
 
 struct Chess {
     var latest: [Piece]
@@ -36,6 +36,37 @@ extension Chess: Codable, Equatable {
     }
     mutating func unpick(_ id: Piece.ID) {
         self.latest[self.arrayIndex(id)].picked = false
+    }
+    mutating func drag(_ bodyEntity: Entity, _ dragTranslation: SIMD3<Float>) {
+        guard let pieceEntity = bodyEntity.parent,
+              let piece = pieceEntity.components[Piece.self] else {
+            fatalError()
+        }
+        var resultTranslation: SIMD3<Float> = dragTranslation
+        if dragTranslation.y > 0 {
+            resultTranslation.y = dragTranslation.y
+        }
+        self.latest[self.arrayIndex(piece.id)].dragTranslation = resultTranslation
+    }
+    mutating func drop(_ bodyEntity: Entity) {
+        let piece = bodyEntity.parent!.components[Piece.self]!
+        let id = piece.id
+        self.latest[self.arrayIndex(id)].dragTranslation = nil
+        let targetingIndex = piece.dragTargetingIndex()
+        let targetingIndexPiece: Piece? = {
+            self.latest
+                .filter { !$0.removed }
+                .first { $0.index == targetingIndex }
+        }()
+        if piece.side == targetingIndexPiece?.side { return }
+        self.latest[self.arrayIndex(id)].index = targetingIndex
+        if self.satisfiedPromotion(id) {
+            self.latest[self.arrayIndex(id)].promotion = true
+        }
+        if let targetingIndexPiece,
+           piece.side != targetingIndexPiece.side {
+            self.removePiece(targetingIndexPiece.id)
+        }
     }
     mutating func appendLog() {
         self.log.append(

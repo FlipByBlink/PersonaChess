@@ -15,8 +15,8 @@ struct ChessView: View {
                     .environmentObject(self.model)
             }
         }
-        .gesture(ExclusiveGesture(self.tapGesture, self.dragGesture))
-        //.gesture(SimultaneousGesture(self.tapGesture, self.dragGesture))
+        //.gesture(ExclusiveGesture(self.tapGesture, self.dragGesture)) これだとdrag判定開始までラグが発生する。
+        .gesture(SimultaneousGesture(self.tapGesture, self.dragGesture))
         .frame(width: Size.Point.board(self.physicalMetrics), height: 0)
         .frame(depth: Size.Point.board(self.physicalMetrics))
         .overlay {
