@@ -39,9 +39,8 @@ private extension PieceOpacitySystem {
         }
     }
     private static func adjustTargetingPieceOpacity(_ pieceEntity: Entity, _ draggingPieceEntity: Entity) {
-        guard draggingPieceEntity != pieceEntity else { return }
-        let draggingPiecePosition = draggingPieceEntity.components[Piece.self]!.position
-        let distance = distance(draggingPiecePosition, pieceEntity.position(relativeTo: pieceEntity.parent!))//TODO: リファクタリング検討
+        guard pieceEntity != draggingPieceEntity else { return }
+        let distance = distance(.zero, pieceEntity.position(relativeTo: draggingPieceEntity))
         switch distance {
             case ..<(Size.Meter.square/2):
                 Self.adjustOpacity(pieceEntity, amount: -0.005, limit: 0.4)
