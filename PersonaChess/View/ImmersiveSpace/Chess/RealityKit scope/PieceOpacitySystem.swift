@@ -10,16 +10,43 @@ struct PieceOpacitySystem: System {
         
         guard !pieceEntities.isEmpty else { return }
         
+        let draggingPieceEntity = pieceEntities.first { $0.components[Piece.self]!.dragging }
+        
         for pieceEntity in pieceEntities {
             if pieceEntity.components[Piece.self]!.removed {
-                if pieceEntity.components[OpacityComponent.self]!.opacity > 0 {
-                    pieceEntity.components[OpacityComponent.self]!.opacity -= 0.04
-                }
+                Self.adjustOpacity(pieceEntity, amount: -0.04, limit: 0)
             } else {
-                if pieceEntity.components[OpacityComponent.self]!.opacity < 1 {
-                    pieceEntity.components[OpacityComponent.self]!.opacity += 0.04
+                if let draggingPieceEntity {
+                    Self.adjustTargetingPieceOpacity(pieceEntity, draggingPieceEntity)
+                } else {
+                    Self.adjustOpacity(pieceEntity, amount: 0.04, limit: 1)
                 }
             }
+        }
+    }
+}
+
+private extension PieceOpacitySystem {
+    private static func adjustOpacity(_ pieceEntity: Entity, amount: Double, limit: Float) {
+        if amount > 0 {
+            if pieceEntity.components[OpacityComponent.self]!.opacity < limit {
+                pieceEntity.components[OpacityComponent.self]!.opacity += 0.04
+            }
+        } else {
+            if pieceEntity.components[OpacityComponent.self]!.opacity > limit {
+                pieceEntity.components[OpacityComponent.self]!.opacity -= 0.04
+            }
+        }
+    }
+    private static func adjustTargetingPieceOpacity(_ pieceEntity: Entity, _ draggingPieceEntity: Entity) {
+        guard draggingPieceEntity != pieceEntity else { return }
+        let draggingPiecePosition = draggingPieceEntity.components[Piece.self]!.position
+        let distance = distance(draggingPiecePosition, pieceEntity.position(relativeTo: pieceEntity.parent!))//TODO: リファクタリング検討
+        switch distance {
+            case ..<(Size.Meter.square/2):
+                Self.adjustOpacity(pieceEntity, amount: -0.005, limit: 0.4)
+            default:
+                Self.adjustOpacity(pieceEntity, amount: 0.005, limit: 1)
         }
     }
 }

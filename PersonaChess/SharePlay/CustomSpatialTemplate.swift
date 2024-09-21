@@ -24,8 +24,8 @@ private extension CustomSpatialTemplate {
     
     private static var whiteSeats: [some SpatialTemplateElement] {
         [0, 1, 2].map {
-            .seat(position: .app.offsetBy(x: -1,
-                                          z: Size.Meter.spatialZOffset - $0),
+            .seat(position: .app.offsetBy(x: -1 - $0,
+                                          z: Size.Meter.spatialZOffset),
                   direction: direction,
                   role: Self.Role.white)
         }
@@ -33,8 +33,8 @@ private extension CustomSpatialTemplate {
     
     private static var blackSeats: [some SpatialTemplateElement] {
         [0, 1, 2].map {
-            .seat(position: .app.offsetBy(x: 1,
-                                          z: Size.Meter.spatialZOffset - $0),
+            .seat(position: .app.offsetBy(x: 1 + $0,
+                                          z: Size.Meter.spatialZOffset),
                   direction: direction,
                   role: Self.Role.black)
         }

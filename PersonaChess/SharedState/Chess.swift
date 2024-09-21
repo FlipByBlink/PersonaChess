@@ -73,6 +73,7 @@ extension Chess: Codable, Equatable {
             self.latest.reduce(into: []) {
                 var piece = $1
                 piece.picked = false
+                piece.dragTranslation = nil
                 $0.append(piece)
             }
         )
