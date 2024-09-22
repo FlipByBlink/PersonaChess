@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1605C2402CA02F3F00725749 /* excuteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C23F2CA02F3B00725749 /* excuteAction.swift */; };
+		1605C2412CA02F3F00725749 /* excuteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C23F2CA02F3B00725749 /* excuteAction.swift */; };
+		1605C2432CA02F4E00725749 /* updateEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C2422CA02F4300725749 /* updateEntities.swift */; };
+		1605C2442CA02F4E00725749 /* updateEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C2422CA02F4300725749 /* updateEntities.swift */; };
+		1605C2462CA02F5500725749 /* sharePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C2452CA02F5100725749 /* sharePlay.swift */; };
+		1605C2472CA02F5500725749 /* sharePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C2452CA02F5100725749 /* sharePlay.swift */; };
+		1605C2492CA02F5A00725749 /* rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C2482CA02F5800725749 /* rest.swift */; };
+		1605C24A2CA02F5A00725749 /* rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C2482CA02F5800725749 /* rest.swift */; };
 		161A13922C96733B0075C57B /* AboutOptionsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A13912C96733B0075C57B /* AboutOptionsMenu.swift */; };
 		161A13942C9674320075C57B /* AboutAppLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A13932C9674320075C57B /* AboutAppLink.swift */; };
 		161A13972C9674990075C57B /* WhatsPersonaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A13952C9674990075C57B /* WhatsPersonaMenu.swift */; };
@@ -161,6 +169,10 @@
 
 /* Begin PBXFileReference section */
 		1601FEF72B4AA42D0050457E /* シンプルボード.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "シンプルボード.reality"; sourceTree = "<group>"; };
+		1605C23F2CA02F3B00725749 /* excuteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = excuteAction.swift; sourceTree = "<group>"; };
+		1605C2422CA02F4300725749 /* updateEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateEntities.swift; sourceTree = "<group>"; };
+		1605C2452CA02F5100725749 /* sharePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharePlay.swift; sourceTree = "<group>"; };
+		1605C2482CA02F5800725749 /* rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rest.swift; sourceTree = "<group>"; };
 		160805FE2C08050F0064FCB2 /* screenshot1280w2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w2.jpg; sourceTree = "<group>"; };
 		160805FF2C08050F0064FCB2 /* screenshot1280w3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w3.jpg; sourceTree = "<group>"; };
 		161A13912C96733B0075C57B /* AboutOptionsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutOptionsMenu.swift; sourceTree = "<group>"; };
@@ -276,6 +288,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1605C23E2CA02F0000725749 /* AppModel */ = {
+			isa = PBXGroup;
+			children = (
+				165EC69D2B68C5E30005172B /* AppModel.swift */,
+				1605C23F2CA02F3B00725749 /* excuteAction.swift */,
+				1605C2422CA02F4300725749 /* updateEntities.swift */,
+				1605C2452CA02F5100725749 /* sharePlay.swift */,
+				1605C2482CA02F5800725749 /* rest.swift */,
+			);
+			path = AppModel;
+			sourceTree = "<group>";
+		};
 		16261D642C8D1E1E00C2822C /* CenterWindow */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,7 +562,7 @@
 			isa = PBXGroup;
 			children = (
 				169C00262B4A9BE0001242F5 /* App.swift */,
-				165EC69D2B68C5E30005172B /* AppModel.swift */,
+				1605C23E2CA02F0000725749 /* AppModel */,
 				1671A16C2B74A8A5009A87A6 /* SharedState */,
 				16A0F0862B89FE2900EC0FE8 /* View */,
 				1671A16B2B74A89B009A87A6 /* SharePlay */,
@@ -732,7 +756,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */,
+				1605C2442CA02F4E00725749 /* updateEntities.swift in Sources */,
 				16312B6C2B75D193006A93D1 /* AppGroupActivity.swift in Sources */,
+				1605C2492CA02F5A00725749 /* rest.swift in Sources */,
 				16F42C632C926DF2006A12E3 /* PieceEntity.swift in Sources */,
 				16312B6F2B75D193006A93D1 /* Action.swift in Sources */,
 				16312B692B75D193006A93D1 /* Pieces.swift in Sources */,
@@ -743,9 +769,11 @@
 				16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */,
 				16312B6B2B75D193006A93D1 /* SoundFeedback.swift in Sources */,
 				16312B762B75D45B006A93D1 /* ChessView.swift in Sources */,
+				1605C2402CA02F3F00725749 /* excuteAction.swift in Sources */,
 				16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */,
 				16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */,
 				16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */,
+				1605C2472CA02F5500725749 /* sharePlay.swift in Sources */,
 				16312B782B75D45B006A93D1 /* ToolbarView.swift in Sources */,
 				16312B6A2B75D193006A93D1 /* Chessmen.swift in Sources */,
 				16312B5B2B75D0FB006A93D1 /* App.swift in Sources */,
@@ -767,11 +795,14 @@
 				16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */,
 				16428EB42C9FAA2D00E93B86 /* Entities.swift in Sources */,
 				16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */,
+				1605C2432CA02F4E00725749 /* updateEntities.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				161A13972C9674990075C57B /* WhatsPersonaMenu.swift in Sources */,
+				1605C2412CA02F3F00725749 /* excuteAction.swift in Sources */,
 				161A13982C9674990075C57B /* WhatsSharePlayMenu.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
 				16261D762C8D6AB500C2822C /* PlaceholderView.swift in Sources */,
+				1605C24A2CA02F5A00725749 /* rest.swift in Sources */,
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
 				16780FFB2B689304005A0244 /* Pieces.swift in Sources */,
 				16261D742C8D61FE00C2822C /* OpenButton.swift in Sources */,
@@ -783,6 +814,7 @@
 				16AE50282B70FE3200D25197 /* SoundFeedback.swift in Sources */,
 				16F42C592C91A391006A12E3 /* ActivityState.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
+				1605C2462CA02F5500725749 /* sharePlay.swift in Sources */,
 				16780FF62B6881DB005A0244 /* ImmersiveSpaceView.swift in Sources */,
 				1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */,
 				16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */,
