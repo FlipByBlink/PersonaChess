@@ -4,6 +4,12 @@ import Foundation
 @MainActor
 class Entities {
     let root = Entity()
+    
+    init() {
+        Pieces.preset.forEach {
+            self.root.addChild(PieceEntity.load($0))
+        }
+    }
 }
 
 extension Entities {

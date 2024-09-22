@@ -37,45 +37,42 @@ extension AppModel {
                 if let pickedPieceEntity = self.entities.pickedPieceEntity {
                     let pickedPiece: Piece = pickedPieceEntity.components[Piece.self]!
                     if tappedPiece.side == pickedPiece.side {
-                        self.sharedState.chess.pick(tappedPiece.id)
-                        self.sharedState.chess.unpick(pickedPiece.id)
+                        self.sharedState.pieces.pick(tappedPiece.id)
+                        self.sharedState.pieces.unpick(pickedPiece.id)
                         self.soundFeedback.select(tappedPieceBodyEntity, self.floorMode)
                     } else {
-                        self.sharedState.chess.appendLog()
-                        self.sharedState.chess.movePiece(pickedPiece.id,
-                                                         to: tappedPiece.index)
-                        self.sharedState.chess.removePiece(tappedPiece.id)
+                        self.sharedState.pieces.appendLog()
+                        self.sharedState.pieces.movePiece(pickedPiece.id,
+                                                          to: tappedPiece.index)
+                        self.sharedState.pieces.removePiece(tappedPiece.id)
                     }
                 } else {
-                    self.sharedState.chess.pick(tappedPiece.id)
+                    self.sharedState.pieces.pick(tappedPiece.id)
                     self.soundFeedback.select(tappedPieceBodyEntity, self.floorMode)
                 }
             case .tapSquare(let index):
                 guard let pickedPieceEntity = self.entities.pickedPieceEntity else {
                     assertionFailure(); return
                 }
-                self.sharedState.chess.appendLog()
-                self.sharedState.chess.movePiece(pickedPieceEntity.components[Piece.self]!.id,
-                                                 to: index)
+                self.sharedState.pieces.appendLog()
+                self.sharedState.pieces.movePiece(pickedPieceEntity.components[Piece.self]!.id,
+                                                  to: index)
             case .drag(let bodyEntity, translation: let dragTranslation):
                 guard self.entities.pickedPieceEntity == nil else { return }
-                self.sharedState.chess.drag(bodyEntity, dragTranslation)
+                self.sharedState.pieces.drag(bodyEntity, dragTranslation)
             case .drop(let bodyEntity):
-                self.sharedState.chess.appendLog()
-                self.sharedState.chess.drop(bodyEntity)
+                self.sharedState.pieces.appendLog()
+                self.sharedState.pieces.drop(bodyEntity)
             case .undo:
-                guard let previousChessValue = self.sharedState.chess.log.popLast() else {
-                    assertionFailure(); return
-                }
-                self.sharedState.chess.latest = previousChessValue
+                self.sharedState.pieces.undo()
             case .reset:
-                self.sharedState.chess.appendLog()
-                self.sharedState.chess.setPreset()
+                self.sharedState.pieces.appendLog()
+                self.sharedState.pieces.setPreset()
                 if self.groupSession != nil { self.sharedState.mode = .sharePlay }
                 self.soundFeedback.reset(self.entities.root)
         }
         
-        self.applyLatestChessToEntities()
+        self.applyCurrentStateToEntities()
         self.sendMessage()
     }
     func upScale() {
@@ -129,16 +126,12 @@ extension AppModel {
 
 private extension AppModel {
     private func setUpEntities() {
-        self.sharedState.chess.setPreset()
-        self.sharedState.chess.latest.forEach {
-            self.entities.root.addChild(PieceEntity.load($0))
-        }
-        self.applyLatestChessToEntities()
+        self.applyCurrentStateToEntities()
     }
-    private func applyLatestChessToEntities() {
+    private func applyCurrentStateToEntities() {
         for pieceEntity in self.entities.root.children.filter({ $0.components.has(Piece.self) }) {
             let exPiece: Piece = pieceEntity.components[Piece.self]!
-            let newPiece: Piece = self.sharedState.chess.latest.first { $0.id == exPiece.id }!
+            let newPiece: Piece = self.sharedState.pieces[exPiece.id]
             guard exPiece != newPiece else { continue }
             if newPiece.removed {
                 pieceEntity.components[Piece.self] = newPiece
@@ -190,8 +183,8 @@ extension AppModel {
         Task {
             for await groupSession in AppGroupActivity.sessions() {
                 self.sharedState.clear()
-                self.sharedState.chess.setPreset()
-                self.applyLatestChessToEntities()
+                self.sharedState.pieces.setPreset()
+                self.applyCurrentStateToEntities()
                 
                 self.groupSession = groupSession
                 let messenger = GroupSessionMessenger(session: groupSession)
@@ -206,10 +199,10 @@ extension AppModel {
                             self.subscriptions = []
                             self.groupSession = nil
                             self.spatialSharePlaying = nil
-                            self.sharedState.chess.clearLog()
-                            self.sharedState.chess.setPreset()
+                            self.sharedState.pieces.clearLog()
+                            self.sharedState.pieces.setPreset()
                             self.sharedState.mode = .localOnly
-                            self.applyLatestChessToEntities()
+                            self.applyCurrentStateToEntities()
                             self.myRole = nil
                         }
                     }
@@ -285,7 +278,7 @@ extension AppModel {
         guard message.mode == .sharePlay else { return }
         Task { @MainActor in
             self.sharedState = message
-            self.applyLatestChessToEntities()
+            self.applyCurrentStateToEntities()
         }
     }
     func activateGroupActivity() {

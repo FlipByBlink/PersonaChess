@@ -26,7 +26,7 @@ struct SquareView: View {
                 self.model.execute(.tapSquare(.init(self.row, self.column)))
             }
         }
-        .onChange(of: self.model.sharedState.chess) { self.updateInputtable() }
+        .onChange(of: self.model.sharedState.pieces) { self.updateInputtable() }
     }
     init(_ row: Int, _ column: Int) {
         self.row = row
@@ -36,13 +36,13 @@ struct SquareView: View {
 
 private extension SquareView {
     private func updateInputtable() {
-        let latestActivePieces = self.model.sharedState.chess.latest.filter { !$0.removed }
+        let activePieces = self.model.sharedState.pieces.activeOnly
         let myIndex = Index(self.row, self.column)
-        if latestActivePieces.contains(where: { $0.picked }) {
-            if !latestActivePieces.contains(where: { $0.index == myIndex }) {
+        if activePieces.contains(where: { $0.picked }) {
+            if !activePieces.contains(where: { $0.index == myIndex }) {
                 self.inputtable = true
             } else {
-                guard let pickedPiece = latestActivePieces.first(where: { $0.picked }) else {
+                guard let pickedPiece = activePieces.first(where: { $0.picked }) else {
                     assertionFailure()
                     return
                 }

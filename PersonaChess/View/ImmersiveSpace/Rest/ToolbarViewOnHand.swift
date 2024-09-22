@@ -111,7 +111,7 @@ private extension ToolbarViewOnHand {
                                 .frame(width: Self.circleButtonSize,
                                        height: Self.circleButtonSize)
                         }
-                        .disabled(self.model.sharedState.chess.log.isEmpty)
+                        .disabled(self.model.sharedState.pieces.log.isEmpty)
                         Button {
                             self.model.execute(.reset)
                         } label: {
@@ -120,7 +120,7 @@ private extension ToolbarViewOnHand {
                                 .frame(width: Self.circleButtonSize,
                                        height: Self.circleButtonSize)
                         }
-                        .disabled(self.model.sharedState.chess.isPreset)
+                        .disabled(self.model.sharedState.pieces.isPreset)
                     }
                     .buttonBorderShape(.circle)
                     Divider()

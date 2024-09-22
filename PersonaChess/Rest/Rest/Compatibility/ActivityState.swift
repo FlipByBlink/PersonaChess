@@ -2,7 +2,7 @@
 
 //MARK: Work in progress
 private struct ActivityState: Codable, Equatable {
-    var chess: Chess = .empty
+    var chess: Pieces = .empty
     var boardAngle: Double = 0
     var viewHeight: Double = 1250
     var viewScale: Double = 1
