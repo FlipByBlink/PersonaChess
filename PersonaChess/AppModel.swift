@@ -61,7 +61,9 @@ extension AppModel {
                 guard self.entities.pickedPieceEntity == nil else { return }
                 self.sharedState.pieces.drag(bodyEntity, dragTranslation)
             case .drop(let bodyEntity):
-                self.sharedState.pieces.appendLog()
+                if Pieces.shouldLog(bodyEntity) {
+                    self.sharedState.pieces.appendLog()
+                }
                 self.sharedState.pieces.drop(bodyEntity)
             case .undo:
                 self.sharedState.pieces.undo()
@@ -199,7 +201,7 @@ extension AppModel {
                             self.subscriptions = []
                             self.groupSession = nil
                             self.spatialSharePlaying = nil
-                            self.sharedState.pieces.clearLog()
+                            self.sharedState.pieces.clearAllLog()
                             self.sharedState.pieces.setPreset()
                             self.sharedState.mode = .localOnly
                             self.applyCurrentStateToEntities()

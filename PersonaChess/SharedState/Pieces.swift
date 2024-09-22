@@ -56,6 +56,11 @@ extension Pieces: Codable, Equatable {
         }
         self[piece.id].dragTranslation = resultTranslation
     }
+    static func shouldLog(_ droppedPieceBodyEntity: Entity) -> Bool {
+        let droppedPiece = droppedPieceBodyEntity.parent!.components[Piece.self]!
+        let targetingIndex = droppedPiece.dragTargetingIndex()
+        return droppedPiece.index != targetingIndex
+    }
     mutating func drop(_ bodyEntity: Entity) {
         let piece = bodyEntity.parent!.components[Piece.self]!
         let id = piece.id
@@ -92,7 +97,7 @@ extension Pieces: Codable, Equatable {
             }
         )
     }
-    mutating func clearLog() {
+    mutating func clearAllLog() {
         self.log.removeAll()
     }
     var activeOnly: [Piece] {
