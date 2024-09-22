@@ -18,7 +18,7 @@ struct OpenButton: View {
         .tint(.blue)
         .opacity(self.model.isFullSpaceShown ? 0 : 1)
         .animation(.default, value: self.model.isFullSpaceShown)
-#if targetEnvironment(simulator)
+#if DEBUG
         .task { await self.openImmersiveSpace(id: "immersiveSpace") }
 #endif
     }

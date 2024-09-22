@@ -43,6 +43,7 @@
 		16312B7E2B75D570006A93D1 /* putSound1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A17E2B74C7ED009A87A6 /* putSound1.m4a */; };
 		16312B7F2B75D570006A93D1 /* putSound5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A16E2B74C635009A87A6 /* putSound5.m4a */; };
 		16312B802B75D570006A93D1 /* putSound3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A16D2B74C634009A87A6 /* putSound3.m4a */; };
+		16428EB42C9FAA2D00E93B86 /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16428EB32C9FAA2600E93B86 /* Entities.swift */; };
 		164B839C2C8DC4EE001D9DBA /* CustomSpatialTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */; };
 		165EC69E2B68C5E40005172B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
 		165EC6A02B6901670005172B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
@@ -182,6 +183,7 @@
 		16312B742B75D45B006A93D1 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		16312B752B75D45B006A93D1 /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		16312B812B75D581006A93D1 /* iOS for debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS for debug.entitlements"; sourceTree = "<group>"; };
+		16428EB32C9FAA2600E93B86 /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpatialTemplate.swift; sourceTree = "<group>"; };
 		165EC69D2B68C5E30005172B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		165EC69F2B6901670005172B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 		1671A16A2B74A872009A87A6 /* RealityKit scope */ = {
 			isa = PBXGroup;
 			children = (
+				16428EB32C9FAA2600E93B86 /* Entities.swift */,
 				1671A1602B72354F009A87A6 /* PieceEntity.swift */,
 				1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */,
 			);
@@ -762,6 +765,7 @@
 				16261D632C8D1CE200C2822C /* CenterWindowView.swift in Sources */,
 				161A13942C9674320075C57B /* AboutAppLink.swift in Sources */,
 				16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */,
+				16428EB42C9FAA2D00E93B86 /* Entities.swift in Sources */,
 				16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				161A13972C9674990075C57B /* WhatsPersonaMenu.swift in Sources */,

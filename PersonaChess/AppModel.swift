@@ -6,7 +6,7 @@ import Combine
 @MainActor
 class AppModel: ObservableObject {
     @Published private(set) var sharedState = SharedState()
-    private(set) var rootEntity = Entity()
+    private(set) var entities = Entities()
     @Published private(set) var movingPieces: [Piece.ID] = []
     @Published var isFullSpaceShown: Bool = false
     
@@ -30,53 +30,49 @@ extension AppModel {
     func execute(_ action: Action) {
         guard self.movingPieces.isEmpty else { return }
         switch action {
-            case .tapPiece(let tappedPieceEntity):
-                guard let tappedPiece: Piece = tappedPieceEntity.parent?.components[Piece.self] else {
+            case .tapPiece(let tappedPieceBodyEntity):
+                guard let tappedPiece: Piece = tappedPieceBodyEntity.parent?.components[Piece.self] else {
                     return
                 }
-                if self.sharedState.chess.latest.contains(where: { $0.picked }) {
-                    guard let pickedPieceEntity = self.pickedPieceEntity() else {
-                        assertionFailure(); return
-                    }
-                    if tappedPieceEntity == pickedPieceEntity {
-                        self.sharedState.chess.unpick(tappedPiece.id)
+                if let pickedPieceEntity = self.entities.pickedPieceEntity {
+                    let pickedPiece: Piece = pickedPieceEntity.components[Piece.self]!
+                    if tappedPiece.side == pickedPiece.side {
+                        self.sharedState.chess.pick(tappedPiece.id)
+                        self.sharedState.chess.unpick(pickedPiece.id)
+                        self.soundFeedback.select(tappedPieceBodyEntity, self.floorMode)
                     } else {
-                        let pickedPiece: Piece = pickedPieceEntity.components[Piece.self]!
-                        if tappedPiece.side == pickedPiece.side {
-                            self.sharedState.chess.pick(tappedPiece.id)
-                            self.sharedState.chess.unpick(pickedPiece.id)
-                            self.soundFeedback.select(tappedPieceEntity, self.floorMode)
-                        } else {
-                            self.sharedState.chess.appendLog()
-                            self.sharedState.chess.movePiece(pickedPiece.id,
-                                                             to: tappedPiece.index)
-                            self.sharedState.chess.removePiece(tappedPiece.id)
-                        }
+                        self.sharedState.chess.appendLog()
+                        self.sharedState.chess.movePiece(pickedPiece.id,
+                                                         to: tappedPiece.index)
+                        self.sharedState.chess.removePiece(tappedPiece.id)
                     }
                 } else {
                     self.sharedState.chess.pick(tappedPiece.id)
-                    self.soundFeedback.select(tappedPieceEntity, self.floorMode)
+                    self.soundFeedback.select(tappedPieceBodyEntity, self.floorMode)
                 }
             case .tapSquare(let index):
-                self.sharedState.chess.appendLog()
-                self.sharedState.chess.movePiece(self.pickedPieceEntity()!.components[Piece.self]!.id,
-                                                 to: index)
-            case .undo:
-                if let previousChessValue = self.sharedState.chess.log.popLast() {
-                    self.sharedState.chess.latest = previousChessValue
-                } else {
-                    assertionFailure()
+                guard let pickedPieceEntity = self.entities.pickedPieceEntity else {
+                    assertionFailure(); return
                 }
-            case .reset:
                 self.sharedState.chess.appendLog()
-                self.soundFeedback.reset(self.rootEntity)
-                self.sharedState.chess.setPreset()
-                if self.groupSession != nil { self.sharedState.mode = .sharePlay }
+                self.sharedState.chess.movePiece(pickedPieceEntity.components[Piece.self]!.id,
+                                                 to: index)
             case .drag(let bodyEntity, translation: let dragTranslation):
+                guard self.entities.pickedPieceEntity == nil else { return }
                 self.sharedState.chess.drag(bodyEntity, dragTranslation)
             case .drop(let bodyEntity):
                 self.sharedState.chess.appendLog()
                 self.sharedState.chess.drop(bodyEntity)
+            case .undo:
+                guard let previousChessValue = self.sharedState.chess.log.popLast() else {
+                    assertionFailure(); return
+                }
+                self.sharedState.chess.latest = previousChessValue
+            case .reset:
+                self.sharedState.chess.appendLog()
+                self.sharedState.chess.setPreset()
+                if self.groupSession != nil { self.sharedState.mode = .sharePlay }
+                self.soundFeedback.reset(self.entities.root)
         }
         
         self.applyLatestChessToEntities()
@@ -135,15 +131,12 @@ private extension AppModel {
     private func setUpEntities() {
         self.sharedState.chess.setPreset()
         self.sharedState.chess.latest.forEach {
-            self.rootEntity.addChild(PieceEntity.load($0))
+            self.entities.root.addChild(PieceEntity.load($0))
         }
         self.applyLatestChessToEntities()
     }
-    private func pickedPieceEntity() -> Entity? {
-        self.rootEntity.children.first { $0.components[Piece.self]?.picked == true }
-    }
     private func applyLatestChessToEntities() {
-        for pieceEntity in self.rootEntity.children.filter({ $0.components.has(Piece.self) }) {
+        for pieceEntity in self.entities.root.children.filter({ $0.components.has(Piece.self) }) {
             let exPiece: Piece = pieceEntity.components[Piece.self]!
             let newPiece: Piece = self.sharedState.chess.latest.first { $0.id == exPiece.id }!
             guard exPiece != newPiece else { continue }
@@ -152,104 +145,38 @@ private extension AppModel {
                 //Fade out by PieceOpacitySystem
             } else {
                 if newPiece.dragging {
-                    pieceEntity.findEntity(named: "body")!.position.y = newPiece.bodyYOffset
-                    pieceEntity.setPosition(newPiece.position,
-                                            relativeTo: self.rootEntity)
-                    pieceEntity.components[Piece.self] = newPiece
+                    self.entities.applyDraggingPiecePosition(pieceEntity, newPiece)
                 } else if exPiece.dragging {
-                    let duration = 0.5
-                    pieceEntity.findEntity(named: "body")!.move(to: Transform(),
-                                                                relativeTo: pieceEntity,
-                                                                duration: duration)
-                    pieceEntity.move(to: Transform(translation: newPiece.position),
-                                     relativeTo: self.rootEntity,
-                                     duration: duration)
-                    pieceEntity.findEntity(named: "promotionMark")?.isEnabled = newPiece.promotion
-                    pieceEntity.components[Piece.self] = newPiece
-                } else {
                     Task { @MainActor in
                         self.movingPieces.append(exPiece.id)
-                        self.disablePieceHoverEffect()
+                        await self.entities.applyPieceDrop(pieceEntity, newPiece)
                         if exPiece.index != newPiece.index {
-                            if !exPiece.picked {
-                                await self.raisePiece(pieceEntity, exPiece.index)
-                            }
-                            let duration: TimeInterval = 1
-                            pieceEntity.move(to: .init(translation: newPiece.index.position),
-                                             relativeTo: self.rootEntity,
-                                             duration: duration)
-                            try? await Task.sleep(for: .seconds(duration))
-                            await self.lowerPiece(pieceEntity, newPiece.index)
+                            self.soundFeedback.put(pieceEntity, self.floorMode)
+                        }
+                        self.movingPieces.removeAll { $0 == exPiece.id }
+                    }
+                } else {
+                    Task { @MainActor in
+                        self.entities.disablePieceHoverEffect()
+                        self.movingPieces.append(exPiece.id)
+                        if exPiece.index != newPiece.index {
+                            await self.entities.applyPieceMove(pieceEntity, exPiece, newPiece)
+                            self.soundFeedback.put(pieceEntity, self.floorMode)
                         } else {
                             if exPiece.picked != newPiece.picked {
-                                var translation = exPiece.index.position
-                                translation.y = newPiece.picked ? Size.Meter.pickedOffset : 0
-                                let duration: TimeInterval = 0.6
-                                let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
-                                pieceBodyEntity.move(to: .init(translation: translation),
-                                                     relativeTo: self.rootEntity,
-                                                     duration: duration)
-                                try? await Task.sleep(for: .seconds(duration))
+                                await self.entities.applyPiecePickingState(pieceEntity, exPiece, newPiece)
                             }
                         }
-                        pieceEntity.findEntity(named: "promotionMark")?.isEnabled = newPiece.promotion
-                        pieceEntity.components[Piece.self] = newPiece
-                        self.activatePieceHoverEffect()
                         self.movingPieces.removeAll { $0 == exPiece.id }
-                        self.updateInputtablity(pieceEntity)
+                        self.entities.applyPiecePromotion(pieceEntity, newPiece)
+                        pieceEntity.components[Piece.self] = newPiece
+                        self.entities.activatePieceHoverEffect()
+                        Entities.updateInputtablity(pieceEntity)
                     }
                 }
             }
         }
     }
-    private func raisePiece(_ entity: Entity, _ index: Index) async {
-        var translation = index.position
-        translation.y = Size.Meter.pickedOffset
-        let duration: TimeInterval = 0.6
-        let pieceBodyEntity = entity.findEntity(named: "body")!
-        pieceBodyEntity.move(to: .init(translation: translation),
-                             relativeTo: self.rootEntity,
-                             duration: duration)
-        try? await Task.sleep(for: .seconds(duration))
-    }
-    private func lowerPiece(_ entity: Entity, _ index: Index) async {
-        let duration: TimeInterval = 0.7
-        let pieceBodyEntity = entity.findEntity(named: "body")!
-        pieceBodyEntity.move(to: .init(translation: index.position),
-                             relativeTo: self.rootEntity,
-                             duration: duration)
-        try? await Task.sleep(for: .seconds(duration))
-    }
-    private func updateInputtablity(_ pieceEntity: Entity) {
-        let piece: Piece = pieceEntity.components[Piece.self]!
-        let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
-        if piece.picked {
-            pieceBodyEntity.components.remove(CollisionComponent.self)
-            pieceBodyEntity.components.remove(InputTargetComponent.self)
-        } else {
-            pieceBodyEntity.components.set([
-                PieceEntity.collisionComponent(entity: pieceEntity),
-                InputTargetComponent()
-            ])
-        }
-    }
-#if os(visionOS)
-    private func disablePieceHoverEffect() {
-        self.rootEntity
-            .children
-            .filter { $0.components.has(Piece.self) }
-            .forEach { $0.findEntity(named: "body")!.components.remove(HoverEffectComponent.self) }
-    }
-    private func activatePieceHoverEffect() {
-        self.rootEntity
-            .children
-            .filter { $0.components.has(Piece.self) }
-            .forEach { $0.findEntity(named: "body")!.components.set(HoverEffectComponent()) }
-    }
-#else
-    private func disablePieceHoverEffect() {}
-    private func activatePieceHoverEffect() {}
-#endif
 }
 
 //MARK: ==== SharePlay ====
