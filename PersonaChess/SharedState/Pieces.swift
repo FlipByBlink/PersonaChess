@@ -56,6 +56,9 @@ extension Pieces: Codable, Equatable {
         }
         self[piece.id].dragTranslation = resultTranslation
     }
+    static func shouldPlaySound(_ draggedPieceBodyEntity: Entity) -> Bool {
+        draggedPieceBodyEntity.parent!.components[Piece.self]!.dragging == false
+    }
     static func shouldLog(_ droppedPieceBodyEntity: Entity) -> Bool {
         let droppedPiece = droppedPieceBodyEntity.parent!.components[Piece.self]!
         let targetingIndex = droppedPiece.dragTargetingIndex()

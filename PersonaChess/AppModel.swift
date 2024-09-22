@@ -59,6 +59,9 @@ extension AppModel {
                                                   to: index)
             case .drag(let bodyEntity, translation: let dragTranslation):
                 guard self.entities.pickedPieceEntity == nil else { return }
+                if Pieces.shouldPlaySound(bodyEntity) {
+                    self.soundFeedback.select(bodyEntity, self.floorMode)
+                }
                 self.sharedState.pieces.drag(bodyEntity, dragTranslation)
             case .drop(let bodyEntity):
                 if Pieces.shouldLog(bodyEntity) {
