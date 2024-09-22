@@ -17,7 +17,7 @@ struct PieceOpacitySystem: System {
                 Self.adjustOpacity(pieceEntity, amount: -0.04, limit: 0)
             } else {
                 if let draggingPieceEntity {
-                    Self.adjustTargetingPieceOpacity(pieceEntity, draggingPieceEntity)
+                    Self.adjustDropTargetingPieceOpacity(pieceEntity, draggingPieceEntity)
                 } else {
                     Self.adjustOpacity(pieceEntity, amount: 0.04, limit: 1)
                 }
@@ -38,7 +38,8 @@ private extension PieceOpacitySystem {
             }
         }
     }
-    private static func adjustTargetingPieceOpacity(_ pieceEntity: Entity, _ draggingPieceEntity: Entity) {
+    private static func adjustDropTargetingPieceOpacity(_ pieceEntity: Entity,
+                                                        _ draggingPieceEntity: Entity) {
         guard pieceEntity != draggingPieceEntity else { return }
         let distance = distance(.zero, pieceEntity.position(relativeTo: draggingPieceEntity))
         switch distance {
