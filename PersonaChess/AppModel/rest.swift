@@ -42,7 +42,7 @@ extension AppModel {
         self.sharedState.mode == .localOnly
     }
     var floorMode: Bool {
-        self.isFullSpaceShown
+        self.isImmersiveSpaceShown
         &&
         self.sharedState.viewHeight == 0
     }

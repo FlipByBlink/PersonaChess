@@ -7,7 +7,7 @@ struct CenterWindowView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                if self.model.isFullSpaceShown {
+                if self.model.isImmersiveSpaceShown {
                     ChessMenuView()
                 } else {
                     if self.model.groupSession == nil {
@@ -20,13 +20,13 @@ struct CenterWindowView: View {
             .navigationTitle("PersonaChess")
             .toolbar { OpenButton() }
         }
-        .animation(.default, value: self.model.isFullSpaceShown)
+        .animation(.default, value: self.model.isImmersiveSpaceShown)
         .animation(.default, value: self.model.groupSession == nil)
         .frame(width: 450, height: 400)
         .task { SharePlayProvider.registerGroupActivity() }
         .onChange(of: self.scenePhase) { _, newValue in
             if newValue == .background {
-                if self.model.isFullSpaceShown {
+                if self.model.isImmersiveSpaceShown {
                     Task { await self.dismissImmersiveSpace() }
                 }
             }

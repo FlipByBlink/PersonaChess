@@ -14,8 +14,8 @@ struct ImmersiveSpaceView: View {
             .overlay { SpatialSuggestionDialog() }
             .overlay { RecordingRoom() }
             .handlesExternalEvents(preferring: [], allowing: [])
-            .onAppear { self.model.isFullSpaceShown = true }
-            .onDisappear { self.model.isFullSpaceShown = false }
+            .onAppear { self.model.isImmersiveSpaceShown = true }
+            .onDisappear { self.model.isImmersiveSpaceShown = false }
     }
 }
 

@@ -57,7 +57,16 @@ extension Entities {
         try? await Task.sleep(for: .seconds(duration))
     }
     func applyPiecePromotion(_ pieceEntity: Entity, _ newPiece: Piece) {
-        pieceEntity.findEntity(named: "promotionMark")?.isEnabled = newPiece.promotion
+        guard newPiece.chessmen.role == .pawn else {
+            return
+        }
+        if newPiece.promotion {
+            if pieceEntity.findEntity(named: "promotionMark") == nil {
+                PieceEntity.addPromotionMarkEntity(pieceEntity, newPiece.side)
+            }
+        } else {
+            PieceEntity.removePromotionMarkEntity(pieceEntity)
+        }
     }
     func disablePieceHoverEffect() {
         self.root
@@ -75,13 +84,9 @@ extension Entities {
         let piece: Piece = pieceEntity.components[Piece.self]!
         let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
         if piece.picked {
-            pieceBodyEntity.components.remove(CollisionComponent.self)
             pieceBodyEntity.components.remove(InputTargetComponent.self)
         } else {
-            pieceBodyEntity.components.set([
-                PieceEntity.collisionComponent(entity: pieceEntity),
-                InputTargetComponent()
-            ])
+            pieceBodyEntity.components.set(InputTargetComponent())
         }
     }
 }

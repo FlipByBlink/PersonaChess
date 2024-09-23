@@ -134,3 +134,19 @@ private extension AppModel {
         }
     }
 }
+
+
+
+
+//======== Reference ========
+//Drawing content in a group session | Apple Developer Documentation
+//https://developer.apple.com/documentation/groupactivities/drawing_content_in_a_group_session
+//
+//Design spatial SharePlay experiences - WWDC23 - Videos - Apple Developer
+//https://developer.apple.com/videos/play/wwdc2023/10075
+//
+//Build spatial SharePlay experiences - WWDC23 - Videos - Apple Developer
+//https://developer.apple.com/videos/play/wwdc2023/10087
+//
+//Customizing spatial Persona templates | Apple Developer Documentation
+//https://developer.apple.com/documentation/groupactivities/customizing-spatial-persona-templates
