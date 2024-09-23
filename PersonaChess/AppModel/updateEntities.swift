@@ -35,7 +35,7 @@ extension AppModel {
                         self.entities.applyPiecePromotion(pieceEntity, newPiece)
                         pieceEntity.components[Piece.self] = newPiece
                         self.entities.activatePieceHoverEffect()
-                        Entities.updateInputtablity(pieceEntity)
+                        Entities.updatePickingInputtablity(pieceEntity)
                     }
                 }
             }

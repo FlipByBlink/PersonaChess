@@ -80,7 +80,7 @@ extension Entities {
             .filter { $0.components.has(Piece.self) }
             .forEach { $0.findEntity(named: "body")!.components.set(HoverEffectComponent()) }
     }
-    static func updateInputtablity(_ pieceEntity: Entity) {
+    static func updatePickingInputtablity(_ pieceEntity: Entity) {
         let piece: Piece = pieceEntity.components[Piece.self]!
         let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
         if piece.picked {
