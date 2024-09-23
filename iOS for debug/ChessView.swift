@@ -49,16 +49,16 @@ struct SquareView: View {
                 self.model.execute(.tapSquare(.init(self.row, self.column)))
             }
         }
-        .onChange(of: self.model.sharedState.chess) { self.updateInputtable() }
+        .onChange(of: self.model.sharedState.pieces) { self.updateInputtable() }
     }
     init(_ row: Int, _ column: Int) {
         self.row = row
         self.column = column
     }
     private func updateInputtable() {
-        let latestActivePieces = self.model.sharedState.chess.latest.filter { !$0.removed }
-        if latestActivePieces.contains(where: { $0.picked }),
-           !latestActivePieces.contains(where: { $0.index == .init(self.row, self.column) }) {
+        let activePieces = self.model.sharedState.pieces.activeOnly
+        if activePieces.contains(where: { $0.picked }),
+           !activePieces.contains(where: { $0.index == .init(self.row, self.column) }) {
             self.inputtable = true
         } else {
             self.inputtable = false
@@ -71,10 +71,8 @@ struct PieceView: View {
     private var row: Int
     private var column: Int
     private var piece: Piece? {
-        self.model.sharedState.chess.latest.first {
+        self.model.sharedState.pieces.activeOnly.first {
             $0.index == .init(self.row, self.column)
-            &&
-            ($0.removed == false)
         }
     }
     var body: some View {
@@ -94,9 +92,10 @@ struct PieceView: View {
             .onTapGesture {
                 let entity = {
                     self.model
-                        .rootEntity
+                        .entities
+                        .root
                         .children
-                        .first { ($0.components[Piece.self] as? Piece)?.id == piece.id }!
+                        .first { ($0.components[Piece.self])?.id == piece.id }!
                         .findEntity(named: "body")
                 }()!
                 self.model.execute(.tapPiece(entity))

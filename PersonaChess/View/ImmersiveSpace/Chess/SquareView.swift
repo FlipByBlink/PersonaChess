@@ -27,6 +27,7 @@ struct SquareView: View {
             }
         }
         .onChange(of: self.model.sharedState.pieces) { self.updateInputtable() }
+        .task { self.updateInputtable() }
     }
     init(_ row: Int, _ column: Int) {
         self.row = row

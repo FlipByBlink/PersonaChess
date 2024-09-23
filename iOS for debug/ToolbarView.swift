@@ -48,7 +48,7 @@ struct ToolbarView: View {
                     .labelStyle(.iconOnly)
                 
             }
-            .disabled(self.model.sharedState.chess.log.isEmpty)
+            .disabled(self.model.sharedState.pieces.log.isEmpty)
             Button {
                 self.model.execute(.reset)
             } label: {
@@ -56,7 +56,7 @@ struct ToolbarView: View {
                     .padding(8)
                     .labelStyle(.iconOnly)
             }
-            .disabled(self.model.sharedState.chess.isPreset)
+            .disabled(self.model.sharedState.pieces.isPreset)
             if self.model.groupSession?.state == .joined {
                 Button {
                     self.model.groupSession?.leave()
