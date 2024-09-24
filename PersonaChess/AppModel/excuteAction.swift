@@ -3,9 +3,7 @@ extension AppModel {
         guard self.movingPieces.isEmpty else { return }
         switch action {
             case .tapPiece(let tappedPieceBodyEntity):
-                guard let tappedPiece: Piece = tappedPieceBodyEntity.parent?.components[Piece.self] else {
-                    return
-                }
+                let tappedPiece: Piece = tappedPieceBodyEntity.parent!.components[Piece.self]!
                 if let pickedPieceEntity = self.entities.pickedPieceEntity {
                     let pickedPiece: Piece = pickedPieceEntity.components[Piece.self]!
                     if tappedPiece.side == pickedPiece.side {
@@ -23,9 +21,7 @@ extension AppModel {
                     self.soundFeedback.select(tappedPieceBodyEntity, self.floorMode)
                 }
             case .tapSquare(let index):
-                guard let pickedPieceEntity = self.entities.pickedPieceEntity else {
-                    assertionFailure(); return
-                }
+                let pickedPieceEntity = self.entities.pickedPieceEntity!
                 self.sharedState.pieces.appendLog()
                 self.sharedState.pieces.movePiece(pickedPieceEntity.components[Piece.self]!.id,
                                                   to: index)

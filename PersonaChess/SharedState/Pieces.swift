@@ -7,12 +7,8 @@ struct Pieces {
 
 extension Pieces: Codable, Equatable {
     subscript(_ id: Piece.ID) -> Piece {
-        get {
-            self.current[self.current.firstIndex { $0.id == id }!]
-        }
-        set {
-            self.current[self.current.firstIndex { $0.id == id }!] = newValue
-        }
+        get { self.current[self.current.firstIndex { $0.id == id }!] }
+        set { self.current[self.current.firstIndex { $0.id == id }!] = newValue }
     }
     static var empty: Self { .init(current: Self.preset, log: []) }
     mutating func setPreset() {
@@ -31,14 +27,6 @@ extension Pieces: Codable, Equatable {
     mutating func removePiece(_ id: Piece.ID) {
         self[id].removed = true
     }
-    mutating func removeAllPieces() {
-        for piece in self.current {
-            self[piece.id].removed = true
-        }
-    }
-    var allPiecesRemoved: Bool {
-        self.current.allSatisfy { $0.removed }
-    }
     mutating func pick(_ id: Piece.ID) {
         self[id].picked = true
     }
@@ -56,14 +44,6 @@ extension Pieces: Codable, Equatable {
         }
         self[piece.id].dragTranslation = resultTranslation
     }
-    static func shouldPlaySound(_ draggedPieceBodyEntity: Entity) -> Bool {
-        draggedPieceBodyEntity.parent!.components[Piece.self]!.dragging == false
-    }
-    static func shouldLog(_ droppedPieceBodyEntity: Entity) -> Bool {
-        let droppedPiece = droppedPieceBodyEntity.parent!.components[Piece.self]!
-        let targetingIndex = droppedPiece.dragTargetingIndex()
-        return droppedPiece.index != targetingIndex
-    }
     mutating func drop(_ bodyEntity: Entity) {
         let piece = bodyEntity.parent!.components[Piece.self]!
         let id = piece.id
@@ -72,7 +52,7 @@ extension Pieces: Codable, Equatable {
         let targetingIndexPiece: Piece? = {
             self.current
                 .filter { !$0.removed }
-                .first { $0.index == targetingIndex }
+                .first { $0.index == targetingIndex }//TODO: リファクタリング
         }()
         if piece.side == targetingIndexPiece?.side { return }
         self[id].index = targetingIndex
@@ -90,6 +70,11 @@ extension Pieces: Codable, Equatable {
         }
         self.current = previousChessValue
     }
+    static func shouldLog(_ droppedPieceBodyEntity: Entity) -> Bool {
+        let droppedPiece = droppedPieceBodyEntity.parent!.components[Piece.self]!
+        let targetingIndex = droppedPiece.dragTargetingIndex()
+        return droppedPiece.index != targetingIndex
+    }
     mutating func appendLog() {
         self.log.append(
             self.current.reduce(into: []) {
@@ -105,6 +90,9 @@ extension Pieces: Codable, Equatable {
     }
     var activeOnly: [Piece] {
         self.current.filter { !$0.removed }
+    }
+    static func shouldPlaySound(_ draggedPieceBodyEntity: Entity) -> Bool {
+        draggedPieceBodyEntity.parent!.components[Piece.self]!.dragging == false
     }
     static var preset: [Piece] {
         var value: [Piece] = []
