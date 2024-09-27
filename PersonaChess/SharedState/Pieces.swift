@@ -1,98 +1,88 @@
 import RealityKit
 
 struct Pieces {
-    private var current: [Piece]
+    private var value: [Piece]
+    private(set) var currentAction: Action? = nil
     private(set) var log: [[Piece]]
 }
 
 extension Pieces: Codable, Equatable {
     subscript(_ id: Piece.ID) -> Piece {
-        get { self.current[self.current.firstIndex { $0.id == id }!] }
-        set { self.current[self.current.firstIndex { $0.id == id }!] = newValue }
+        get { self.value[self.value.firstIndex { $0.id == id }!] }
+        set { self.value[self.value.firstIndex { $0.id == id }!] = newValue }
     }
-    static var empty: Self { .init(current: Self.preset, log: []) }
-    mutating func setPreset() {
-        self.current = Self.preset
+    subscript(_ index: Index) -> Piece? {
+        self.value[self.value.firstIndex { $0.index == index }!]
     }
-    var isPreset: Bool {
-        self.current == Self.preset
-    }
-    mutating func movePiece(_ id: Piece.ID, to index: Index) {
-        self.unpick(id)
-        self[id].index = index
-        if self.satisfiedPromotion(id) {
-            self[id].promotion = true
+    static var empty: Self { .init(value: Self.preset, log: []) }
+    mutating func setPreset() { self.value = Self.preset }
+    var isPreset: Bool { self.value == Self.preset }
+    mutating func apply(_ action: Action) {
+        self.currentAction = action
+        switch action {
+            case .tapPieceAndPick(let id):
+                self[id].picked = true
+            case .tapSquareAndUnpick(let id):
+                self[id].picked = false
+            case .tapPieceAndChangePickingPiece(let pickedPieceID, let tappedPieceID):
+                self[tappedPieceID].picked = true
+                self[pickedPieceID].picked = false
+            case .tapSquareAndMove(let id, let index):
+                self.appendLog()
+                self[id].picked = false
+                self[id].index = index
+                if self.satisfiedPromotion(id) {
+                    self[id].promotion = true
+                }
+            case .tapPieceAndMoveAndCapture(let id, let index, let capturedPieceID):
+                self.appendLog()
+                self[id].picked = false
+                self[id].index = index
+                if self.satisfiedPromotion(id) {
+                    self[id].promotion = true
+                }
+                self[capturedPieceID].removed = true
+            case .drag(let pieceID, let dragTranslation):
+                var resultTranslation: SIMD3<Float> = dragTranslation
+                if dragTranslation.y > 0 {
+                    resultTranslation.y = dragTranslation.y
+                }
+                self[pieceID].dragTranslation = resultTranslation
+            case .dropAndBack(let pieceID, let from):
+                self[pieceID].dragTranslation = nil
+            case .dropAndMove(let pieceID, let from, let to):
+                self.appendLog()
+                self[pieceID].dragTranslation = nil
+                self[pieceID].index = self[pieceID].dragTargetingIndex()
+                if self.satisfiedPromotion(pieceID) {
+                    self[pieceID].promotion = true
+                }
+            case .dropAndMoveAndCapture(let pieceID, let from, let to, let capturedPiece):
+                self.appendLog()
+                self[pieceID].dragTranslation = nil
+                self[pieceID].index = self[pieceID].dragTargetingIndex()
+                if self.satisfiedPromotion(pieceID) {
+                    self[pieceID].promotion = true
+                }
+                self[capturedPiece]
+            case .undo:
+                guard let previousValue = self.log.popLast() else {
+                    assertionFailure(); return
+                }
+                self.value = previousValue
+            case .reset:
+                self.appendLog()
+                self.setPreset()
         }
-    }
-    mutating func removePiece(_ id: Piece.ID) {
-        self[id].removed = true
-    }
-    mutating func pick(_ id: Piece.ID) {
-        self[id].picked = true
-    }
-    mutating func unpick(_ id: Piece.ID) {
-        self[id].picked = false
-    }
-    mutating func drag(_ bodyEntity: Entity, _ dragTranslation: SIMD3<Float>) {
-        guard let pieceEntity = bodyEntity.parent,
-              let piece = pieceEntity.components[Piece.self] else {
-            fatalError()
-        }
-        var resultTranslation: SIMD3<Float> = dragTranslation
-        if dragTranslation.y > 0 {
-            resultTranslation.y = dragTranslation.y
-        }
-        self[piece.id].dragTranslation = resultTranslation
-    }
-    mutating func drop(_ bodyEntity: Entity) {
-        let piece = bodyEntity.parent!.components[Piece.self]!
-        let id = piece.id
-        self[id].dragTranslation = nil
-        let targetingIndex = piece.dragTargetingIndex()
-        let targetingIndexPiece: Piece? = {
-            self.current
-                .filter { !$0.removed }
-                .first { $0.index == targetingIndex }//TODO: リファクタリング
-        }()
-        if piece.side == targetingIndexPiece?.side { return }
-        self[id].index = targetingIndex
-        if self.satisfiedPromotion(id) {
-            self[id].promotion = true
-        }
-        if let targetingIndexPiece,
-           piece.side != targetingIndexPiece.side {
-            self.removePiece(targetingIndexPiece.id)
-        }
-    }
-    mutating func undo() {
-        guard let previousChessValue = self.log.popLast() else {
-            assertionFailure(); return
-        }
-        self.current = previousChessValue
-    }
-    static func shouldLog(_ droppedPieceBodyEntity: Entity) -> Bool {
-        let droppedPiece = droppedPieceBodyEntity.parent!.components[Piece.self]!
-        let targetingIndex = droppedPiece.dragTargetingIndex()
-        return droppedPiece.index != targetingIndex
-    }
-    mutating func appendLog() {
-        self.log.append(
-            self.current.reduce(into: []) {
-                var piece = $1
-                piece.picked = false
-                piece.dragTranslation = nil
-                $0.append(piece)
-            }
-        )
-    }
-    mutating func clearAllLog() {
-        self.log.removeAll()
     }
     var activeOnly: [Piece] {
-        self.current.filter { !$0.removed }
+        self.value.filter { !$0.removed }
     }
     static func shouldPlaySound(_ draggedPieceBodyEntity: Entity) -> Bool {
         draggedPieceBodyEntity.parent!.components[Piece.self]!.dragging == false
+    }
+    mutating func clearAllLog() {
+        self.log.removeAll()
     }
     static var preset: [Piece] {
         var value: [Piece] = []
@@ -129,6 +119,21 @@ extension Pieces: Codable, Equatable {
 }
 
 private extension Pieces {
+    static func shouldLog(_ droppedPieceBodyEntity: Entity) -> Bool {
+        let droppedPiece = droppedPieceBodyEntity.parent!.components[Piece.self]!
+        let targetingIndex = droppedPiece.dragTargetingIndex()
+        return droppedPiece.index != targetingIndex
+    }
+    mutating func appendLog() {
+        self.log.append(
+            self.value.reduce(into: []) {
+                var piece = $1
+                piece.picked = false
+                piece.dragTranslation = nil
+                $0.append(piece)
+            }
+        )
+    }
     private func satisfiedPromotion(_ id: Piece.ID) -> Bool {
         let piece = self[id]
         if piece.chessmen.role == .pawn {

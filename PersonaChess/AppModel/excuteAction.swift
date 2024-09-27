@@ -1,51 +1,46 @@
 extension AppModel {
-    func execute(_ action: Action) {
+    func execute(_ action: Action, _ shouldSendMessage: Bool = true) {
         guard self.movingPieces.isEmpty else { return }
         switch action {
-            case .tapPiece(let tappedPieceBodyEntity):
-                let tappedPiece: Piece = tappedPieceBodyEntity.parent!.components[Piece.self]!
-                if let pickedPieceEntity = self.entities.pickedPieceEntity {
-                    let pickedPiece: Piece = pickedPieceEntity.components[Piece.self]!
-                    if tappedPiece.side == pickedPiece.side {
-                        self.sharedState.pieces.pick(tappedPiece.id)
-                        self.sharedState.pieces.unpick(pickedPiece.id)
-                        self.soundFeedback.select(tappedPieceBodyEntity, self.floorMode)
-                    } else {
-                        self.sharedState.pieces.appendLog()
-                        self.sharedState.pieces.movePiece(pickedPiece.id,
-                                                          to: tappedPiece.index)
-                        self.sharedState.pieces.removePiece(tappedPiece.id)
-                    }
-                } else {
-                    self.sharedState.pieces.pick(tappedPiece.id)
-                    self.soundFeedback.select(tappedPieceBodyEntity, self.floorMode)
-                }
-            case .tapSquare(let index):
-                let pickedPieceEntity = self.entities.pickedPieceEntity!
-                self.sharedState.pieces.appendLog()
-                self.sharedState.pieces.movePiece(pickedPieceEntity.components[Piece.self]!.id,
-                                                  to: index)
-            case .drag(let bodyEntity, translation: let dragTranslation):
-                guard self.entities.pickedPieceEntity == nil else { return }
-                if Pieces.shouldPlaySound(bodyEntity) {
-                    self.soundFeedback.select(bodyEntity, self.floorMode)
-                }
-                self.sharedState.pieces.drag(bodyEntity, dragTranslation)
-            case .drop(let bodyEntity):
-                if Pieces.shouldLog(bodyEntity) {
-                    self.sharedState.pieces.appendLog()
-                }
-                self.sharedState.pieces.drop(bodyEntity)
+            case .tapPieceAndPick(let pieceID):
+                self.sharedState.pieces.apply(action)
+                //self.soundFeedback.select(tappedPieceBodyEntity, self.floorMode)
+            case .tapSquareAndUnpick(_):
+                self.sharedState.pieces.apply(action)
+            case .tapPieceAndChangePickingPiece(let pickedPieceID, let tappedPieceID):
+                self.sharedState.pieces.apply(action)
+                //self.soundFeedback.select(tappedPieceBodyEntity, self.floorMode)
+            case .tapSquareAndMove(let pieceID, to: let index):
+                self.sharedState.pieces.apply(action)
+            case .tapPieceAndMoveAndCapture(let pieceID, to: let index, let capturedPieceID):
+                self.sharedState.pieces.apply(action)
+            case .drag(let pieceID, let dragTranslation):
+                //if Pieces.shouldPlaySound(bodyEntity) {
+                //    self.soundFeedback.select(bodyEntity, self.floorMode)
+                //}
+                self.sharedState.pieces.apply(action)
+            case .dropAndBack(_, _):
+                self.sharedState.pieces.apply(action)
+            case .dropAndMove(let pieceID, let draggingPosition, let index):
+                self.sharedState.pieces.apply(action)
+            case .dropAndMoveAndCapture(let pieceID, let sourceIndex, let targetIndex, let capturedPiece):
+                self.sharedState.pieces.apply(action)
             case .undo:
-                self.sharedState.pieces.undo()
+                self.sharedState.pieces.apply(action)
             case .reset:
-                self.sharedState.pieces.appendLog()
-                self.sharedState.pieces.setPreset()
+                self.sharedState.pieces.apply(action)
                 if self.groupSession != nil { self.sharedState.mode = .sharePlay }
                 self.soundFeedback.reset(self.entities.root)
         }
         
         self.updateEntities()
-        self.sendMessage()
+        
+        if shouldSendMessage {
+            self.sendMessage()
+        }
+    }
+    
+    private func playSound(_ action: Action) {
+        
     }
 }

@@ -23,7 +23,7 @@ struct SquareView: View {
         .hoverEffect(isEnabled: self.inputtable)
         .onTapGesture {
             if self.inputtable {
-                self.model.execute(.tapSquare(.init(self.row, self.column)))
+                self.model.handle(.tapSquare(.init(self.row, self.column)))
             }
         }
         .onChange(of: self.model.sharedState.pieces) { self.updateInputtable() }
