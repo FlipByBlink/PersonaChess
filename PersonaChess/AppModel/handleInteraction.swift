@@ -1,60 +1,97 @@
+import simd
+
 extension AppModel {
     func handle(_ interaction: Interaction) {
         let action: Action
         
         switch interaction {
             case .tapPiece(let tappedPieceBodyEntity):
-                let tappedPiece: Piece = tappedPieceBodyEntity.parent!.components[Piece.self]!
-                if let pickedPiece = self.sharedState.pieces.activeOnly.first(where: { $0.picked }) {
-                    if tappedPiece.side == pickedPiece.side {
-                        action = .tapPieceAndChangePickingPiece(ex: pickedPiece.id, new: tappedPiece.id)
+                let tappedPieceID = tappedPieceBodyEntity.parent!.components[Piece.ID.self]!
+                let tappedPiece = self.sharedState.pieces[tappedPieceID]
+                if self.sharedState.pieces.currentAction?.isPicking == true {
+                    guard let pickingPiece = self.sharedState.pieces.pickingPiece else {
+                        assertionFailure(); return
+                    }
+                    if tappedPiece.side == pickingPiece.side {
+                        action = .tapPieceAndChangePickingPiece(exPickedPieceID: pickingPiece.id,
+                                                                exPickedPieceIndex: pickingPiece.index,
+                                                                newPickedPieceID: tappedPiece.id,
+                                                                newPickedPieceIndex: tappedPiece.index)
                     } else {
-                        action = .tapPieceAndMoveAndCapture(tappedPiece.id,
-                                                      to: tappedPiece.index,
-                                                      capturedPiece: tappedPiece.id)
+                        action = .tapPieceAndMoveAndCapture(pickedPieceID: pickingPiece.id,
+                                                            pickedPieceIndex: pickingPiece.index,
+                                                            capturedPieceID: tappedPiece.id,
+                                                            capturedPieceIndex: tappedPiece.index)
                     }
                 } else {
-                    action = .tapPieceAndPick(tappedPiece.id)
+                    action = .tapPieceAndPick(tappedPiece.id, tappedPiece.index)
                 }
-            case .tapSquare(let index):
-                guard let pickedPiece = self.sharedState.pieces.activeOnly.first(where: { $0.picked }) else {
-                    fatalError()
+            case .tapSquare(let tappedIndex):
+                guard let pickedPiece = self.sharedState.pieces.pickingPiece else {
+                    assertionFailure(); return
                 }
-                if index == pickedPiece.index {
-                    action = .tapSquareAndUnpick(pickedPiece.id)
+                if tappedIndex == pickedPiece.index {
+                    action = .tapSquareAndUnpick(pickedPiece.id,
+                                                 pickedPiece.index)
                 } else {
-                    action = .tapSquareAndMove(pickedPiece.id, to: index)
+                    action = .tapSquareAndMove(pickedPiece.id,
+                                               exIndex: pickedPiece.index,
+                                               newIndex: tappedIndex)
                 }
             case .drag(let gestureValue):
                 let dragTranslation = gestureValue.convert(gestureValue.translation3D,
                                                            from: .local,
                                                            to: self.entities.root)
-                let draggedPiece = gestureValue.entity.parent!.components[Piece.self]!
+                let draggedPieceID = gestureValue.entity.parent!.components[Piece.ID.self]!
+                let draggedPiece = self.sharedState.pieces[draggedPieceID]
                 action = .drag(draggedPiece.id,
-                               translation: dragTranslation)
+                               sourceIndex: draggedPiece.index,
+                               dragTranslation: dragTranslation)
             case .drop(let gestureValue):
                 let dragTranslation = gestureValue.convert(gestureValue.translation3D,
                                                            from: .local,
                                                            to: self.entities.root)
-                let droppedPiece = gestureValue.entity.parent!.components[Piece.self]!
-                let targetingIndex = droppedPiece.dragTargetingIndex()
+                let droppedPieceID = gestureValue.entity.parent!.components[Piece.ID.self]!
+                let droppedPiece = self.sharedState.pieces[droppedPieceID]
+                let targetingIndex = self.dragTargetingIndex(dragTranslation: dragTranslation,
+                                                             sourceIndex: droppedPiece.index)
                 if droppedPiece.index == targetingIndex {
                     action = .dropAndBack(droppedPiece.id,
-                                           from: dragTranslation)
+                                          sourceIndex: droppedPiece.index,
+                                          dragTranslation: dragTranslation)
                 } else {
-                    if let capturedPiece = self.sharedState.pieces.activeOnly.first(where: { $0.index == targetingIndex }) {
+                    if let capturedPiece = self.sharedState.pieces[targetingIndex] {
                         action = .dropAndMoveAndCapture(droppedPiece.id,
-                                                       from: dragTranslation,
-                                                       to: targetingIndex,
-                                                       capturedPiece: capturedPiece.id)
+                                                        sourceIndex: droppedPiece.index,
+                                                        dragTranslation: dragTranslation,
+                                                        capturedPieceID: capturedPiece.id,
+                                                        capturedPieceIndex: capturedPiece.index)
                     } else {
                         action = .dropAndMove(droppedPiece.id,
-                                             from: dragTranslation,
-                                             to: targetingIndex)
+                                              sourceIndex: droppedPiece.index,
+                                              dragTranslation: dragTranslation,
+                                              newIndex: targetingIndex)
                     }
                 }
         }
         
         self.execute(action)
+    }
+}
+
+private extension AppModel {
+    func dragTargetingIndex(dragTranslation: SIMD3<Float>, sourceIndex: Index) -> Index {
+        var closestIndex = Index(0, 0)
+        let bodyPosition = sourceIndex.position + dragTranslation
+        for column in 0..<8 {
+            for row in 0..<8 {
+                let index = Index(row, column)
+                if distance(bodyPosition, closestIndex.position)
+                    > distance(bodyPosition, index.position) {
+                    closestIndex = index
+                }
+            }
+        }
+        return closestIndex
     }
 }

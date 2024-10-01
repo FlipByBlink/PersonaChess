@@ -4,58 +4,65 @@ import Foundation
 @MainActor
 class Entities {
     let root = Entity()
+    private let pieces: [Entity] = Pieces.preset.map { PieceEntity.load($0) }
     
     init() {
-        Pieces.preset.forEach {
-            self.root.addChild(PieceEntity.load($0))
+        self.pieces.forEach {
+            self.root.addChild($0)
         }
     }
 }
 
 extension Entities {
-    var pickedPieceEntity: Entity? {
-        self.root.children.first { $0.components[Piece.self]?.picked == true }
+    func piece(_ pieceID: Piece.ID) -> Entity {
+        self.pieces.first { $0.components[Piece.ID.self]! == pieceID }!
     }
-    func applyDraggingPiecePosition(_ pieceEntity: Entity, _ newPiece: Piece) {
-        self.disablePieceHoverEffect()
-        pieceEntity.findEntity(named: "body")!.position.y = newPiece.bodyYOffset
-        pieceEntity.setPosition(newPiece.position, relativeTo: self.root)
-        pieceEntity.components[Piece.self] = newPiece
+    func pieceBody(_ pieceID: Piece.ID) -> Entity {
+        self.piece(pieceID).findEntity(named: "body")!   
     }
-    func applyPieceDrop(_ pieceEntity: Entity, _ newPiece: Piece) async {
-        let duration = 0.5
-        pieceEntity.findEntity(named: "body")!.move(to: Transform(),
-                                                    relativeTo: pieceEntity,
-                                                    duration: duration)
-        pieceEntity.move(to: Transform(translation: newPiece.position),
-                         relativeTo: self.root,
-                         duration: duration)
-        pieceEntity.components[Piece.self] = newPiece
-        try? await Task.sleep(for: .seconds(duration))
-        self.applyPiecePromotion(pieceEntity, newPiece)
-        self.activatePieceHoverEffect()
-    }
-    func applyPieceMove(_ pieceEntity: Entity, _ exPiece: Piece, _ newPiece: Piece) async {
-        if !exPiece.picked {
-            await self.raisePiece(pieceEntity, exPiece.index)
-        }
-        let duration: TimeInterval = 1
-        pieceEntity.move(to: .init(translation: newPiece.index.position),
-                         relativeTo: self.root,
-                         duration: duration)
-        try? await Task.sleep(for: .seconds(duration))
-        await self.lowerPiece(pieceEntity, newPiece.index)
-    }
-    func applyPiecePickingState(_ pieceEntity: Entity, _ exPiece: Piece, _ newPiece: Piece) async {
-        var translation = exPiece.index.position
-        translation.y = newPiece.picked ? Size.Meter.pickedOffset : 0
-        let duration: TimeInterval = 0.6
-        pieceEntity.findEntity(named: "body")!.move(to: .init(translation: translation),
-                                                    relativeTo: self.root,
-                                                    duration: duration)
-        pieceEntity.setPosition(newPiece.position, relativeTo: self.root)
-        try? await Task.sleep(for: .seconds(duration))
-    }
+//    var pickedPieceEntity: Entity? {
+//        self.root.children.first { $0.components[Piece.self]?.picked == true }
+//    }
+//    func applyDraggingPiecePosition(_ pieceEntity: Entity, _ newPiece: Piece) {
+//        self.disablePieceHoverEffect()
+//        pieceEntity.findEntity(named: "body")!.position.y = newPiece.bodyYOffset
+//        pieceEntity.setPosition(newPiece.position, relativeTo: self.root)
+//        pieceEntity.components[Piece.self] = newPiece
+//    }
+//    func applyPieceDrop(_ pieceEntity: Entity, _ newPiece: Piece) async {
+//        let duration = 0.5
+//        pieceEntity.findEntity(named: "body")!.move(to: Transform(),
+//                                                    relativeTo: pieceEntity,
+//                                                    duration: duration)
+//        pieceEntity.move(to: Transform(translation: newPiece.position),
+//                         relativeTo: self.root,
+//                         duration: duration)
+//        pieceEntity.components[Piece.self] = newPiece
+//        try? await Task.sleep(for: .seconds(duration))
+//        self.applyPiecePromotion(pieceEntity, newPiece)
+//        self.activatePieceHoverEffect()
+//    }
+//    func applyPieceMove(_ pieceEntity: Entity, _ exPiece: Piece, _ newPiece: Piece) async {
+//        if !exPiece.picked {
+//            await self.raisePiece(pieceEntity, exPiece.index)
+//        }
+//        let duration: TimeInterval = 1
+//        pieceEntity.move(to: .init(translation: newPiece.index.position),
+//                         relativeTo: self.root,
+//                         duration: duration)
+//        try? await Task.sleep(for: .seconds(duration))
+//        await self.lowerPiece(pieceEntity, newPiece.index)
+//    }
+//    func applyPiecePickingState(_ pieceEntity: Entity, _ exPiece: Piece, _ newPiece: Piece) async {
+//        var translation = exPiece.index.position
+//        translation.y = newPiece.picked ? Size.Meter.pickedOffset : 0
+//        let duration: TimeInterval = 0.6
+//        pieceEntity.findEntity(named: "body")!.move(to: .init(translation: translation),
+//                                                    relativeTo: self.root,
+//                                                    duration: duration)
+//        pieceEntity.setPosition(newPiece.position, relativeTo: self.root)
+//        try? await Task.sleep(for: .seconds(duration))
+//    }
     func applyPiecePromotion(_ pieceEntity: Entity, _ newPiece: Piece) {
         guard newPiece.chessmen.role == .pawn else {
             return
@@ -71,24 +78,24 @@ extension Entities {
     func disablePieceHoverEffect() {
         self.root
             .children
-            .filter { $0.components.has(Piece.self) }
+            .filter { $0.components.has(Piece.ID.self) }
             .forEach { $0.findEntity(named: "body")!.components.remove(HoverEffectComponent.self) }
     }
     func activatePieceHoverEffect() {
         self.root
             .children
-            .filter { $0.components.has(Piece.self) }
+            .filter { $0.components.has(Piece.ID.self) }
             .forEach { $0.findEntity(named: "body")!.components.set(HoverEffectComponent()) }
     }
-    static func updatePickingInputtablity(_ pieceEntity: Entity) {
-        let piece: Piece = pieceEntity.components[Piece.self]!
-        let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
-        if piece.picked {
-            pieceBodyEntity.components.remove(InputTargetComponent.self)
-        } else {
-            pieceBodyEntity.components.set(InputTargetComponent())
-        }
-    }
+//    static func updatePickingInputtablity(_ pieceEntity: Entity) {
+//        let piece: Piece = pieceEntity.components[Piece.self]!
+//        let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
+//        if piece.picked {
+//            pieceBodyEntity.components.remove(InputTargetComponent.self)
+//        } else {
+//            pieceBodyEntity.components.set(InputTargetComponent())
+//        }
+//    }
 }
 
 private extension Entities {

@@ -96,7 +96,6 @@
 		167948C82BC6A60B004DFF4B /* BoardView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
 		167948C92BC6A60B004DFF4B /* SquareView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165EC6A42B69153B0005172B /* SquareView.swift */; };
 		167948CD2BC6A60B004DFF4B /* PieceEntity.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1671A1602B72354F009A87A6 /* PieceEntity.swift */; };
-		167948CE2BC6A60B004DFF4B /* PieceOpacitySystem.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */; };
 		167948CF2BC6A60B004DFF4B /* Size.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
 		167948D02BC6A60B004DFF4B /* AppGroupActivity.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* AppGroupActivity.swift */; };
 		167948D12BC6A60B004DFF4B /* SharePlayProvider.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */; };
@@ -104,7 +103,6 @@
 		167948D42BC6A60B004DFF4B /* SoundFeedback.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* SoundFeedback.swift */; };
 		167948D52BC6A60B004DFF4B /* 🗒️StaticInfo.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489F2BC66BA2004DFF4B /* 🗒️StaticInfo.swift */; };
 		167948D62BC6A60B004DFF4B /* ℹ️AboutApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489E2BC66BA2004DFF4B /* ℹ️AboutApp.swift */; };
-		1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */; };
 		169333A22B75A7B500B60E0F /* SharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169333A12B75A7B500B60E0F /* SharedState.swift */; };
 		169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
 		169C00272B4A9BE0001242F5 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C00262B4A9BE0001242F5 /* App.swift */; };
@@ -159,7 +157,6 @@
 				167948C82BC6A60B004DFF4B /* BoardView.swift in CopyFiles */,
 				167948C92BC6A60B004DFF4B /* SquareView.swift in CopyFiles */,
 				167948CD2BC6A60B004DFF4B /* PieceEntity.swift in CopyFiles */,
-				167948CE2BC6A60B004DFF4B /* PieceOpacitySystem.swift in CopyFiles */,
 				167948CF2BC6A60B004DFF4B /* Size.swift in CopyFiles */,
 				167948D02BC6A60B004DFF4B /* AppGroupActivity.swift in CopyFiles */,
 				167948D12BC6A60B004DFF4B /* SharePlayProvider.swift in CopyFiles */,
@@ -243,7 +240,6 @@
 		167C0DFB2BDA14C500229714 /* Reality Composer buildin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer buildin.jpg"; sourceTree = "<group>"; };
 		167C0DFC2BDA14C500229714 /* Reality Composer export2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer export2.jpg"; sourceTree = "<group>"; };
 		167C0DFD2BDA14C500229714 /* Reality Composer editor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer editor.jpg"; sourceTree = "<group>"; };
-		1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceOpacitySystem.swift; sourceTree = "<group>"; };
 		169333A12B75A7B500B60E0F /* SharedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedState.swift; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		169C001F2B4A9BE0001242F5 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -407,7 +403,6 @@
 			children = (
 				16428EB32C9FAA2600E93B86 /* Entities.swift */,
 				1671A1602B72354F009A87A6 /* PieceEntity.swift */,
-				1685BE3A2B69CAE6005E944B /* PieceOpacitySystem.swift */,
 			);
 			path = "RealityKit scope";
 			sourceTree = "<group>";
@@ -828,7 +823,6 @@
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				1605C2462CA02F5500725749 /* sharePlay.swift in Sources */,
 				16780FF62B6881DB005A0244 /* ImmersiveSpaceView.swift in Sources */,
-				1685BE3B2B69CAE6005E944B /* PieceOpacitySystem.swift in Sources */,
 				16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */,
 				169333A22B75A7B500B60E0F /* SharedState.swift in Sources */,
 				16F972772B68B7FB00711C53 /* Size.swift in Sources */,

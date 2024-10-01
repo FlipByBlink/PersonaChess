@@ -39,15 +39,15 @@ private extension SquareView {
     private func updateInputtable() {
         let activePieces = self.model.sharedState.pieces.activeOnly
         let myIndex = Index(self.row, self.column)
-        if activePieces.contains(where: { $0.picked }) {
+        if self.model.sharedState.pieces.currentAction?.isPicking == true {
             if !activePieces.contains(where: { $0.index == myIndex }) {
                 self.inputtable = true
             } else {
-                guard let pickedPiece = activePieces.first(where: { $0.picked }) else {
+                guard let pickingPiece = self.model.sharedState.pieces.pickingPiece else {
                     assertionFailure()
                     return
                 }
-                self.inputtable = (pickedPiece.index == myIndex)
+                self.inputtable = (pickingPiece.index == myIndex)
             }
         } else {
             self.inputtable = false

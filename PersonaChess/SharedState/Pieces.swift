@@ -17,54 +17,48 @@ extension Pieces: Codable, Equatable {
     static var empty: Self { .init(value: Self.preset, log: []) }
     mutating func setPreset() { self.value = Self.preset }
     var isPreset: Bool { self.value == Self.preset }
+    var withEffect: [Piece] {
+        self.value.filter { self.hasEffects($0.id) }
+    }
+    var withNoEffect: [Piece] {
+        self.value.filter { !self.hasEffects($0.id) }
+    }
+    func hasEffects(_ pieceID: Piece.ID) -> Bool {
+        if let currentAction {
+            currentAction.effectedPieceID.contains(pieceID)
+        } else {
+            false
+        }
+    }
     mutating func apply(_ action: Action) {
         self.currentAction = action
         switch action {
-            case .tapPieceAndPick(let id):
-                self[id].picked = true
-            case .tapSquareAndUnpick(let id):
-                self[id].picked = false
-            case .tapPieceAndChangePickingPiece(let pickedPieceID, let tappedPieceID):
-                self[tappedPieceID].picked = true
-                self[pickedPieceID].picked = false
-            case .tapSquareAndMove(let id, let index):
+            case .tapSquareAndMove(let id, _, let newIndex):
                 self.appendLog()
-                self[id].picked = false
-                self[id].index = index
+                self[id].index = newIndex
                 if self.satisfiedPromotion(id) {
                     self[id].promotion = true
                 }
-            case .tapPieceAndMoveAndCapture(let id, let index, let capturedPieceID):
+            case .tapPieceAndMoveAndCapture(let pickedPieceID, _, let capturedPieceID, let targetIndex):
                 self.appendLog()
-                self[id].picked = false
-                self[id].index = index
-                if self.satisfiedPromotion(id) {
-                    self[id].promotion = true
+                self[pickedPieceID].index = targetIndex
+                if self.satisfiedPromotion(pickedPieceID) {
+                    self[pickedPieceID].promotion = true
                 }
                 self[capturedPieceID].removed = true
-            case .drag(let pieceID, let dragTranslation):
-                var resultTranslation: SIMD3<Float> = dragTranslation
-                if dragTranslation.y > 0 {
-                    resultTranslation.y = dragTranslation.y
-                }
-                self[pieceID].dragTranslation = resultTranslation
-            case .dropAndBack(let pieceID, let from):
-                self[pieceID].dragTranslation = nil
-            case .dropAndMove(let pieceID, let from, let to):
+            case .dropAndMove(let pieceID, _, _, let newIndex):
                 self.appendLog()
-                self[pieceID].dragTranslation = nil
-                self[pieceID].index = self[pieceID].dragTargetingIndex()
+                self[pieceID].index = newIndex
                 if self.satisfiedPromotion(pieceID) {
                     self[pieceID].promotion = true
                 }
-            case .dropAndMoveAndCapture(let pieceID, let from, let to, let capturedPiece):
+            case .dropAndMoveAndCapture(let pieceID, _, _, let capturedPieceID, let newIndex):
                 self.appendLog()
-                self[pieceID].dragTranslation = nil
-                self[pieceID].index = self[pieceID].dragTargetingIndex()
+                self[pieceID].index = newIndex
                 if self.satisfiedPromotion(pieceID) {
                     self[pieceID].promotion = true
                 }
-                self[capturedPiece]
+                self[capturedPieceID].removed = true
             case .undo:
                 guard let previousValue = self.log.popLast() else {
                     assertionFailure(); return
@@ -73,66 +67,79 @@ extension Pieces: Codable, Equatable {
             case .reset:
                 self.appendLog()
                 self.setPreset()
+            case .tapPieceAndPick(_, _),
+                    .tapSquareAndUnpick(_, _),
+                    .tapPieceAndChangePickingPiece(_, _, _, _),
+                    .drag(_, _, _),
+                    .dropAndBack(_, _, _):
+                break
         }
     }
     var activeOnly: [Piece] {
         self.value.filter { !$0.removed }
     }
-    static func shouldPlaySound(_ draggedPieceBodyEntity: Entity) -> Bool {
-        draggedPieceBodyEntity.parent!.components[Piece.self]!.dragging == false
-    }
     mutating func clearAllLog() {
         self.log.removeAll()
+    }
+    var pickingPiece: Piece? {
+        switch self.currentAction {
+            case .tapPieceAndPick(let id, _),
+                    .tapPieceAndChangePickingPiece(_, _, let id, _):
+                self[id]
+            default:
+                nil
+        }
+    }
+    var draggedPiece: Piece? {
+        switch self.currentAction {
+            case .drag(let id, _, _):
+                self[id]
+            default:
+                nil
+        }
     }
     static var preset: [Piece] {
         var value: [Piece] = []
         [Chessmen.rook0, .knight0, .bishop0, .queen, .king, .bishop1, .knight1, .rook1]
             .enumerated()
             .forEach {
-                value.append(.init(index: .init(0, $0.offset),
-                                   chessmen: $0.element,
-                                   side: .black))
+                value.append(.init(chessmen: $0.element,
+                                   side: .black,
+                                   index: .init(0, $0.offset)))
             }
         [Chessmen.pawn0, .pawn1, .pawn2, .pawn3, .pawn4, .pawn5, .pawn6, .pawn7]
             .enumerated()
             .forEach {
-                value.append(.init(index: .init(1, $0),
-                                   chessmen: $1,
-                                   side: .black))
+                value.append(.init(chessmen: $1,
+                                   side: .black,
+                                   index: .init(1, $0)))
             }
         [Chessmen.pawn0, .pawn1, .pawn2, .pawn3, .pawn4, .pawn5, .pawn6, .pawn7]
             .enumerated()
             .forEach {
-                value.append(.init(index: .init(6, $0),
-                                   chessmen: $1,
-                                   side: .white))
+                value.append(.init(chessmen: $1,
+                                   side: .white,
+                                   index: .init(6, $0)))
             }
         [Chessmen.rook0, .knight0, .bishop0, .queen, .king, .bishop1, .knight1, .rook1]
             .enumerated()
             .forEach {
-                value.append(.init(index: .init(7, $0.offset),
-                                   chessmen: $0.element,
-                                   side: .white))
+                value.append(.init(chessmen: $0.element,
+                                   side: .white,
+                                   index: .init(7, $0.offset)))
             }
         return value
     }
 }
 
 private extension Pieces {
-    static func shouldLog(_ droppedPieceBodyEntity: Entity) -> Bool {
-        let droppedPiece = droppedPieceBodyEntity.parent!.components[Piece.self]!
-        let targetingIndex = droppedPiece.dragTargetingIndex()
-        return droppedPiece.index != targetingIndex
-    }
+//    static func shouldLog(_ droppedPieceBodyEntity: Entity) -> Bool {
+//        let droppedPiece = droppedPieceBodyEntity.parent!.components[Piece.self]!
+//        let targetingIndex = droppedPiece.dragTargetingIndex()
+//        return droppedPiece.index != targetingIndex
+//    }
     mutating func appendLog() {
-        self.log.append(
-            self.value.reduce(into: []) {
-                var piece = $1
-                piece.picked = false
-                piece.dragTranslation = nil
-                $0.append(piece)
-            }
-        )
+        self.log.append(self.value)
     }
     private func satisfiedPromotion(_ id: Piece.ID) -> Bool {
         let piece = self[id]

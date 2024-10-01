@@ -1,54 +1,46 @@
 import RealityKit
 
 struct Piece {
-    var index: Index
     let chessmen: Chessmen
     let side: Side
-    var picked: Bool = false
-    var dragTranslation: SIMD3<Float>? = nil
+    var index: Index
     var removed: Bool = false
     var promotion: Bool = false
 }
 
-extension Piece: Component, Codable, Equatable {
-    var id: Self.ID {
-        .init(self.chessmen, self.side)
-    }
-    struct ID: Codable, Equatable {
+extension Piece: Codable, Equatable {
+    var id: Self.ID { .init(self.chessmen, self.side) }
+    
+    struct ID: Codable, Equatable, Component {
         var chessmen: Chessmen
         var side: Side
         init(_ chessmen: Chessmen, _ side: Side) {
             self.chessmen = chessmen
             self.side = side
         }
+        static var allCases: [Piece.ID] {
+            Chessmen.allCases.flatMap { chessmen in
+                Side.allCases.map { side in
+                        .init(chessmen, side)
+                }
+            }
+        }
     }
+    
     var assetName: String {
         "\(self.chessmen.role)"
         +
         (self.side == .black ? "B" : "W")
     }
-    var dragging: Bool {
-        self.dragTranslation != nil
-    }
-    var bodyYOffset: Float {
-        if self.bodyPosition.y > 0 {
-            self.bodyPosition.y
-        } else {
-            0
-        }
-    }
-    var position: SIMD3<Float> {
-        .init(x: self.bodyPosition.x,
-              y: 0,
-              z: self.bodyPosition.z)
-    }
-    func dragTargetingIndex() -> Index {
+    
+    func dragTargetingIndex(_ dragTranslation: SIMD3<Float>) -> Index {
         var closestIndex = Index(0, 0)
+        let bodyPosition = self.index.position + dragTranslation
         for column in 0..<8 {
             for row in 0..<8 {
                 let index = Index(row, column)
-                if distance(self.bodyPosition, closestIndex.position)
-                    > distance(self.bodyPosition, index.position) {
+                if distance(bodyPosition, closestIndex.position)
+                    > distance(bodyPosition, index.position) {
                     closestIndex = index
                 }
             }
@@ -57,12 +49,24 @@ extension Piece: Component, Codable, Equatable {
     }
 }
 
-private extension Piece {
-    private var bodyPosition: SIMD3<Float> {
-        if let dragTranslation {
-            self.index.position + dragTranslation
-        } else {
-            self.index.position
-        }
-    }
-}
+//    var bodyYOffset: Float {
+//        if self.bodyPosition.y > 0 {
+//            self.bodyPosition.y
+//        } else {
+//            0
+//        }
+//    }
+//    func position(_ dragTranslation: SIMD3<Float>? = nil) -> SIMD3<Float> {
+//        let bodyPosition = self.bodyPosition(dragTranslation)
+//        return .init(x: bodyPosition.x,
+//                     y: 0,
+//                     z: bodyPosition.z)
+//    }
+//    func bodyPosition(_ dragTranslation: SIMD3<Float>? = nil) -> SIMD3<Float> {
+//        if let dragTranslation {
+//            self.index.position + dragTranslation
+//        } else {
+//            self.index.position
+//        }
+//    }
+//}
