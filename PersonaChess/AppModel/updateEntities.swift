@@ -2,19 +2,21 @@ import RealityKit
 
 extension AppModel {
     func updateEntities() {
-        for piece in self.sharedState.pieces.withoutCapturedPieceInProgress {
-            let pieceEntity = self.entities.piece(piece.id)
-            if piece.isActive {
-                self.entities.root.addChild(pieceEntity)
-                pieceEntity.components[OpacityComponent.self]?.opacity = 1.0
+        for pieceID in Piece.ID.allCases {
+            if self.sharedState.pieces.isCapturedPieceInProgress(pieceID) {
+                let capturedPieceInProgressEntity = self.entities.piece(pieceID)
+                self.entities.root.addChild(capturedPieceInProgressEntity)
+                capturedPieceInProgressEntity.components[OpacityComponent.self]?.opacity = 1.0
             } else {
-                pieceEntity.removeFromParent()
+                let piece = self.sharedState.pieces[pieceID]
+                let pieceEntity = self.entities.piece(pieceID)
+                if piece.isActive {
+                    self.entities.root.addChild(pieceEntity)
+                    pieceEntity.components[OpacityComponent.self]?.opacity = 1.0
+                } else {
+                    pieceEntity.removeFromParent()
+                }
             }
-        }
-        if let capturedPieceInProgress = self.sharedState.pieces.capturedPieceInProgress {
-            let capturedPieceInProgressEntity = self.entities.piece(capturedPieceInProgress.id)
-            self.entities.root.addChild(capturedPieceInProgressEntity)
-            capturedPieceInProgressEntity.components[OpacityComponent.self]?.opacity = 1.0
         }
         
         for piece in self.sharedState.pieces.withNoAnimation {

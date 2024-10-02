@@ -15,15 +15,8 @@ extension Pieces: Codable, Equatable {
         self.value.first { $0.index == index }
     }
     static var empty: Self { .init(value: Self.preset, log: []) }
-    mutating func setPreset() {
-        self.value = Self.preset
-        self.currentAction = nil
-    }
-    var isPreset: Bool {
-        self.value == Self.preset
-        &&
-        self.currentAction == nil
-    }
+    mutating func setPreset() { self.value = Self.preset }
+    var isPreset: Bool { self.value == Self.preset }
     var withAnimation: [Piece] {
         self.value.filter { self.hasAnimation($0.id) }
     }
@@ -91,6 +84,15 @@ extension Pieces: Codable, Equatable {
                 self[id]
             default:
                 nil
+        }
+    }
+    func isCapturedPieceInProgress(_ pieceID: Piece.ID) -> Bool {
+        switch self.currentAction {
+            case .dropAndMoveAndCapture(_, _, _, let capturedPieceID, _),
+                    .tapPieceAndMoveAndCapture(_, _, let capturedPieceID, _):
+                pieceID == capturedPieceID
+            default:
+                false
         }
     }
     var capturedPieceInProgress: Piece? {

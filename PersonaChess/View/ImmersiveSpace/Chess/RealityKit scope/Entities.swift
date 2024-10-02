@@ -20,9 +20,6 @@ extension Entities {
     func pieceBody(_ pieceID: Piece.ID) -> Entity {
         self.piece(pieceID).findEntity(named: "body")!   
     }
-//    var pickedPieceEntity: Entity? {
-//        self.root.children.first { $0.components[Piece.self]?.picked == true }
-//    }
 //    func applyDraggingPiecePosition(_ pieceEntity: Entity, _ newPiece: Piece) {
 //        self.disablePieceHoverEffect()
 //        pieceEntity.findEntity(named: "body")!.position.y = newPiece.bodyYOffset
