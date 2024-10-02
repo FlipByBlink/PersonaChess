@@ -10,8 +10,7 @@ extension AppModel {
             //}
         }
         
-        if case .reset = action,
-           self.groupSession != nil {
+        if action == .reset, self.groupSession != nil {
             self.sharedState.mode = .sharePlay
         }
         

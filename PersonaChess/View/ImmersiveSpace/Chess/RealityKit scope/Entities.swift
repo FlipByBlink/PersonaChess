@@ -67,7 +67,7 @@ extension Entities {
         guard newPiece.chessmen.role == .pawn else {
             return
         }
-        if newPiece.promotion {
+        if newPiece.isPromoted {
             if pieceEntity.findEntity(named: "promotionMark") == nil {
                 PieceEntity.addPromotionMarkEntity(pieceEntity, newPiece.side)
             }

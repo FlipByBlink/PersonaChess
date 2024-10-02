@@ -14,17 +14,17 @@ extension AppModel {
                     }
                     if tappedPiece.side == pickingPiece.side {
                         action = .tapPieceAndChangePickingPiece(exPickedPieceID: pickingPiece.id,
-                                                                exPickedPieceIndex: pickingPiece.index,
+                                                                exPickedPieceIndex: pickingPiece.index!,
                                                                 newPickedPieceID: tappedPiece.id,
-                                                                newPickedPieceIndex: tappedPiece.index)
+                                                                newPickedPieceIndex: tappedPiece.index!)
                     } else {
                         action = .tapPieceAndMoveAndCapture(pickedPieceID: pickingPiece.id,
-                                                            pickedPieceIndex: pickingPiece.index,
+                                                            pickedPieceIndex: pickingPiece.index!,
                                                             capturedPieceID: tappedPiece.id,
-                                                            capturedPieceIndex: tappedPiece.index)
+                                                            capturedPieceIndex: tappedPiece.index!)
                     }
                 } else {
-                    action = .tapPieceAndPick(tappedPiece.id, tappedPiece.index)
+                    action = .tapPieceAndPick(tappedPiece.id, tappedPiece.index!)
                 }
             case .tapSquare(let tappedIndex):
                 guard let pickedPiece = self.sharedState.pieces.pickingPiece else {
@@ -32,10 +32,10 @@ extension AppModel {
                 }
                 if tappedIndex == pickedPiece.index {
                     action = .tapSquareAndUnpick(pickedPiece.id,
-                                                 pickedPiece.index)
+                                                 pickedPiece.index!)
                 } else {
                     action = .tapSquareAndMove(pickedPiece.id,
-                                               exIndex: pickedPiece.index,
+                                               exIndex: pickedPiece.index!,
                                                newIndex: tappedIndex)
                 }
             case .drag(let gestureValue):
@@ -45,7 +45,7 @@ extension AppModel {
                 let draggedPieceID = gestureValue.entity.parent!.components[Piece.ID.self]!
                 let draggedPiece = self.sharedState.pieces[draggedPieceID]
                 action = .drag(draggedPiece.id,
-                               sourceIndex: draggedPiece.index,
+                               sourceIndex: draggedPiece.index!,
                                dragTranslation: dragTranslation)
             case .drop(let gestureValue):
                 let dragTranslation = gestureValue.convert(gestureValue.translation3D,
@@ -54,21 +54,21 @@ extension AppModel {
                 let droppedPieceID = gestureValue.entity.parent!.components[Piece.ID.self]!
                 let droppedPiece = self.sharedState.pieces[droppedPieceID]
                 let targetingIndex = self.dragTargetingIndex(dragTranslation: dragTranslation,
-                                                             sourceIndex: droppedPiece.index)
+                                                             sourceIndex: droppedPiece.index!)
                 if droppedPiece.index == targetingIndex {
                     action = .dropAndBack(droppedPiece.id,
-                                          sourceIndex: droppedPiece.index,
+                                          sourceIndex: droppedPiece.index!,
                                           dragTranslation: dragTranslation)
                 } else {
                     if let capturedPiece = self.sharedState.pieces[targetingIndex] {
                         action = .dropAndMoveAndCapture(droppedPiece.id,
-                                                        sourceIndex: droppedPiece.index,
+                                                        sourceIndex: droppedPiece.index!,
                                                         dragTranslation: dragTranslation,
                                                         capturedPieceID: capturedPiece.id,
-                                                        capturedPieceIndex: capturedPiece.index)
+                                                        capturedPieceIndex: capturedPiece.index!)
                     } else {
                         action = .dropAndMove(droppedPiece.id,
-                                              sourceIndex: droppedPiece.index,
+                                              sourceIndex: droppedPiece.index!,
                                               dragTranslation: dragTranslation,
                                               newIndex: targetingIndex)
                     }

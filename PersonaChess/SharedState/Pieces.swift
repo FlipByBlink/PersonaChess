@@ -12,20 +12,27 @@ extension Pieces: Codable, Equatable {
         set { self.value[self.value.firstIndex { $0.id == id }!] = newValue }
     }
     subscript(_ index: Index) -> Piece? {
-        self.value[self.value.firstIndex { $0.index == index }!]
+        self.value.first { $0.index == index }
     }
     static var empty: Self { .init(value: Self.preset, log: []) }
-    mutating func setPreset() { self.value = Self.preset }
-    var isPreset: Bool { self.value == Self.preset }
-    var withEffect: [Piece] {
-        self.value.filter { self.hasEffects($0.id) }
+    mutating func setPreset() {
+        self.value = Self.preset
+        self.currentAction = nil
     }
-    var withNoEffect: [Piece] {
-        self.value.filter { !self.hasEffects($0.id) }
+    var isPreset: Bool {
+        self.value == Self.preset
+        &&
+        self.currentAction == nil
     }
-    func hasEffects(_ pieceID: Piece.ID) -> Bool {
+    var withAnimation: [Piece] {
+        self.value.filter { self.hasAnimation($0.id) }
+    }
+    var withNoAnimation: [Piece] {
+        self.value.filter { !self.hasAnimation($0.id) }
+    }
+    func hasAnimation(_ pieceID: Piece.ID) -> Bool {
         if let currentAction {
-            currentAction.effectedPieceID.contains(pieceID)
+            currentAction.animatingPieceIDs.contains(pieceID)
         } else {
             false
         }
@@ -35,30 +42,18 @@ extension Pieces: Codable, Equatable {
         switch action {
             case .tapSquareAndMove(let id, _, let newIndex):
                 self.appendLog()
-                self[id].index = newIndex
-                if self.satisfiedPromotion(id) {
-                    self[id].promotion = true
-                }
+                self[id].setNew(index: newIndex)
             case .tapPieceAndMoveAndCapture(let pickedPieceID, _, let capturedPieceID, let targetIndex):
                 self.appendLog()
-                self[pickedPieceID].index = targetIndex
-                if self.satisfiedPromotion(pickedPieceID) {
-                    self[pickedPieceID].promotion = true
-                }
-                self[capturedPieceID].removed = true
+                self[pickedPieceID].setNew(index: targetIndex)
+                self[capturedPieceID].state = .removed
             case .dropAndMove(let pieceID, _, _, let newIndex):
                 self.appendLog()
-                self[pieceID].index = newIndex
-                if self.satisfiedPromotion(pieceID) {
-                    self[pieceID].promotion = true
-                }
+                self[pieceID].setNew(index: newIndex)
             case .dropAndMoveAndCapture(let pieceID, _, _, let capturedPieceID, let newIndex):
                 self.appendLog()
-                self[pieceID].index = newIndex
-                if self.satisfiedPromotion(pieceID) {
-                    self[pieceID].promotion = true
-                }
-                self[capturedPieceID].removed = true
+                self[pieceID].setNew(index: newIndex)
+                self[capturedPieceID].state = .removed
             case .undo:
                 guard let previousValue = self.log.popLast() else {
                     assertionFailure(); return
@@ -76,7 +71,7 @@ extension Pieces: Codable, Equatable {
         }
     }
     var activeOnly: [Piece] {
-        self.value.filter { !$0.removed }
+        self.value.filter { !$0.isRemoved }
     }
     mutating func clearAllLog() {
         self.log.removeAll()
@@ -98,6 +93,22 @@ extension Pieces: Codable, Equatable {
                 nil
         }
     }
+    var capturedPieceInProgress: Piece? {
+        switch self.currentAction {
+            case .dropAndMoveAndCapture(_, _, _, let capturedPieceID, _),
+                    .tapPieceAndMoveAndCapture(_, _, let capturedPieceID, _):
+                self[capturedPieceID]
+            default:
+                nil
+        }
+    }
+    var withoutCapturedPieceInProgress: [Piece] {
+        if let capturedPieceInProgress {
+            self.value.filter { $0 != capturedPieceInProgress }
+        } else {
+            self.value
+        }
+    }
     static var preset: [Piece] {
         var value: [Piece] = []
         [Chessmen.rook0, .knight0, .bishop0, .queen, .king, .bishop1, .knight1, .rook1]
@@ -105,28 +116,28 @@ extension Pieces: Codable, Equatable {
             .forEach {
                 value.append(.init(chessmen: $0.element,
                                    side: .black,
-                                   index: .init(0, $0.offset)))
+                                   state: .active(index: .init(0, $0.offset))))
             }
         [Chessmen.pawn0, .pawn1, .pawn2, .pawn3, .pawn4, .pawn5, .pawn6, .pawn7]
             .enumerated()
             .forEach {
                 value.append(.init(chessmen: $1,
                                    side: .black,
-                                   index: .init(1, $0)))
+                                   state: .active(index: .init(1, $0))))
             }
         [Chessmen.pawn0, .pawn1, .pawn2, .pawn3, .pawn4, .pawn5, .pawn6, .pawn7]
             .enumerated()
             .forEach {
                 value.append(.init(chessmen: $1,
                                    side: .white,
-                                   index: .init(6, $0)))
+                                   state: .active(index: .init(6, $0))))
             }
         [Chessmen.rook0, .knight0, .bishop0, .queen, .king, .bishop1, .knight1, .rook1]
             .enumerated()
             .forEach {
                 value.append(.init(chessmen: $0.element,
                                    side: .white,
-                                   index: .init(7, $0.offset)))
+                                   state: .active(index: .init(7, $0.offset))))
             }
         return value
     }
@@ -140,16 +151,5 @@ private extension Pieces {
 //    }
     mutating func appendLog() {
         self.log.append(self.value)
-    }
-    private func satisfiedPromotion(_ id: Piece.ID) -> Bool {
-        let piece = self[id]
-        if piece.chessmen.role == .pawn {
-            switch piece.side {
-                case .white: return piece.index.row == 0
-                case .black: return piece.index.row == 7
-            }
-        } else {
-            return false
-        }
     }
 }

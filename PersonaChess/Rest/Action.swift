@@ -34,7 +34,7 @@ enum Action: Codable, Equatable {
 }
 
 extension Action {
-    var effectedPieceID: [Piece.ID] {
+    var animatingPieceIDs: [Piece.ID] {
         switch self {
             case .tapPieceAndPick(let id, _):
                 [id]
@@ -54,10 +54,8 @@ extension Action {
                 [id]
             case .dropAndMoveAndCapture(let id, _, _, let capturedPieceID, _):
                 [id, capturedPieceID]
-            case .undo:
+            case .undo, .reset:
                 []
-            case .reset:
-                Piece.ID.allCases
         }
     }
     var isPicking: Bool {

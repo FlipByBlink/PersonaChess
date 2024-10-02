@@ -3,12 +3,16 @@ import RealityKit
 struct Piece {
     let chessmen: Chessmen
     let side: Side
-    var index: Index
-    var removed: Bool = false
-    var promotion: Bool = false
+    var state: Self.State
 }
 
 extension Piece: Codable, Equatable {
+    enum State: Codable, Equatable {
+        case active(index: Index,
+                    promotion: Bool = false)
+        case removed
+    }
+    
     var id: Self.ID { .init(self.chessmen, self.side) }
     
     struct ID: Codable, Equatable, Component {
@@ -27,6 +31,52 @@ extension Piece: Codable, Equatable {
         }
     }
     
+    var index: Index? {
+        if case .active(let value, _) = self.state {
+            value
+        } else {
+            nil
+        }
+    }
+    
+    var isActive: Bool {
+        switch self.state {
+            case .active(_, _): true
+            case .removed: false
+        }
+    }
+    
+    var isRemoved: Bool {
+        switch self.state {
+            case .active(_, _): false
+            case .removed: true
+        }
+    }
+    
+    var isPromoted: Bool {
+        switch self.state {
+            case .active(_, let value): value
+            case .removed:false
+        }
+    }
+    
+    mutating func setNew(index: Index) {
+        let satisfiedPromotion: Bool = {
+            if self.isPromoted {
+                return true
+            }
+            if self.chessmen.role == .pawn {
+                switch self.side {
+                    case .white: return index.row == 0
+                    case .black: return index.row == 7
+                }
+            } else {
+                return false
+            }
+        }()
+        self.state = .active(index: index, promotion: satisfiedPromotion)
+    }
+    
     var assetName: String {
         "\(self.chessmen.role)"
         +
@@ -34,8 +84,9 @@ extension Piece: Codable, Equatable {
     }
     
     func dragTargetingIndex(_ dragTranslation: SIMD3<Float>) -> Index {
+        guard let index else { return .init(0, 0) }
         var closestIndex = Index(0, 0)
-        let bodyPosition = self.index.position + dragTranslation
+        let bodyPosition = index.position + dragTranslation
         for column in 0..<8 {
             for row in 0..<8 {
                 let index = Index(row, column)
