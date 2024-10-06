@@ -1,3 +1,5 @@
+import simd
+
 struct Index {
     var row: Int
     var column: Int
@@ -25,5 +27,19 @@ extension Index: Hashable, Codable {
         .init(x: Float(self.column - 4) * Size.Meter.square + (Size.Meter.square / 2),
               y: 0,
               z: Float(self.row - 4) * Size.Meter.square + (Size.Meter.square / 2))
+    }
+    static func calculateFromDrag(dragTranslation: SIMD3<Float>, sourceIndex: Index) -> Self {
+        var closestIndex = Index(0, 0)
+        let bodyPosition = sourceIndex.position + dragTranslation
+        for column in 0..<8 {
+            for row in 0..<8 {
+                let index = Index(row, column)
+                if distance(bodyPosition, closestIndex.position)
+                    > distance(bodyPosition, index.position) {
+                    closestIndex = index
+                }
+            }
+        }
+        return closestIndex
     }
 }

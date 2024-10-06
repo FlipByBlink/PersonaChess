@@ -21,7 +21,7 @@ extension AppModel {
                             self.subscriptions = []
                             self.groupSession = nil
                             self.spatialSharePlaying = nil
-                            self.sharedState.pieces.clearAllLog()
+                            self.sharedState.clearAllLog()
                             self.sharedState.pieces.setPreset()
                             self.sharedState.mode = .localOnly
                             self.updateEntities()

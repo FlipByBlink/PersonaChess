@@ -48,7 +48,7 @@ enum 🗒️StaticInfo {
                 ]
                 case .SharedState: [
                     "SharedState.swift",
-                    "Pieces.swift",
+                    "Game.swift",
                     "Piece.swift",
                     "Index.swift",
                     "Chessmen.swift",

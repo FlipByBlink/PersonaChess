@@ -37,17 +37,12 @@ struct SquareView: View {
 
 private extension SquareView {
     private func updateInputtable() {
-        let activePieces = self.model.sharedState.pieces.activeOnly
         let myIndex = Index(self.row, self.column)
         if self.model.sharedState.pieces.currentAction?.isPicking == true {
-            if !activePieces.contains(where: { $0.index == myIndex }) {
+            if !self.model.sharedState.pieces.indices.values.contains(myIndex) {
                 self.inputtable = true
             } else {
-                guard let pickingPiece = self.model.sharedState.pieces.pickingPiece else {
-                    assertionFailure()
-                    return
-                }
-                self.inputtable = (pickingPiece.index == myIndex)
+                self.inputtable = (self.model.sharedState.pieces.pickingPieceIndex! == myIndex)
             }
         } else {
             self.inputtable = false

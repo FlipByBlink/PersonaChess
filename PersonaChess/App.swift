@@ -18,6 +18,6 @@ struct PersonaChessApp: App {
     }
     
     init() {
-        Piece.ID.registerComponent()
+        Piece.registerComponent()
     }
 }

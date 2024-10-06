@@ -111,7 +111,7 @@ private extension ToolbarViewOnHand {
                                 .frame(width: Self.circleButtonSize,
                                        height: Self.circleButtonSize)
                         }
-                        .disabled(self.model.sharedState.pieces.log.isEmpty)
+                        .disabled(self.model.sharedState.logs.isEmpty)
                         Button {
                             self.model.execute(.reset)
                         } label: {

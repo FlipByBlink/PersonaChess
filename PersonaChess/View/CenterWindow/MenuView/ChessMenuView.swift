@@ -65,7 +65,7 @@ struct ChessMenuView: View {
                         } label: {
                             Label("Undo", systemImage: "arrow.uturn.backward")
                         }
-                        .disabled(self.model.sharedState.pieces.log.isEmpty)
+                        .disabled(self.model.sharedState.logs.isEmpty)
                         Button {
                             self.model.execute(.reset)
                         } label: {

@@ -426,6 +426,7 @@
 				16780FFC2B6893CF005A0244 /* Index.swift */,
 				16780FF82B6892E9005A0244 /* Chessmen.swift */,
 				16EA6A7F2B68769C00A3A740 /* Side.swift */,
+				165EC69F2B6901670005172B /* Action.swift */,
 				16ECC0F02B85ACE100A1A6B6 /* Mode.swift */,
 			);
 			path = SharedState;
@@ -505,7 +506,6 @@
 			children = (
 				16F972762B68B7FB00711C53 /* Size.swift */,
 				16B70FC82CA41DFF00DF33C9 /* Interaction.swift */,
-				165EC69F2B6901670005172B /* Action.swift */,
 				16AE50272B70FE3100D25197 /* SoundFeedback.swift */,
 				1679489D2BC66B88004DFF4B /* Rest */,
 			);

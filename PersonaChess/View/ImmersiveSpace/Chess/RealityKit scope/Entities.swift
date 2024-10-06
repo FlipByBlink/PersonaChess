@@ -4,21 +4,36 @@ import Foundation
 @MainActor
 class Entities {
     let root = Entity()
-    private let pieces: [Entity] = Pieces.preset.map { PieceEntity.load($0) }
     
     init() {
-        self.pieces.forEach {
-            self.root.addChild($0)
+        Pieces.preset.indices.forEach {
+            self.root.addChild(PieceEntity.load($0.key, $0.value))
         }
     }
 }
 
 extension Entities {
-    func piece(_ pieceID: Piece.ID) -> Entity {
-        self.pieces.first { $0.components[Piece.ID.self]! == pieceID }!
+    private var pieces: [Entity] {
+        self.root
+            .scene?
+            .performQuery(.init(where: .has(Piece.self)))
+            .map { $0 } ?? []
     }
-    func pieceBody(_ pieceID: Piece.ID) -> Entity {
-        self.piece(pieceID).findEntity(named: "body")!   
+    func piece(_ piece: Piece) -> Entity? {//TODO: リファクタリング
+        self.pieces.first { $0.components[Piece.self]! == piece }
+    }
+    func pieceBody(_ piece: Piece) -> Entity? {
+        self.piece(piece)?.findEntity(named: "body")
+    }
+    func add(_ piece: Piece, index: Index) {
+        if !self.root.children.contains(where: { $0.components[Piece.self] == piece }) {
+            self.root.addChild(PieceEntity.load(piece, index))
+        }
+    }
+    func remove(_ piece: Piece) {
+        if let entity = self.root.children.first(where: { $0.components[Piece.self] == piece }) {
+            entity.removeFromParent()
+        }
     }
 //    func applyDraggingPiecePosition(_ pieceEntity: Entity, _ newPiece: Piece) {
 //        self.disablePieceHoverEffect()
@@ -60,13 +75,16 @@ extension Entities {
 //        pieceEntity.setPosition(newPiece.position, relativeTo: self.root)
 //        try? await Task.sleep(for: .seconds(duration))
 //    }
-    func applyPiecePromotion(_ pieceEntity: Entity, _ newPiece: Piece) {
-        guard newPiece.chessmen.role == .pawn else {
+    func applyPiecePromotion(_ piece: Piece, _ promotion: Bool) {
+        guard piece.chessmen.role == .pawn else {
             return
         }
-        if newPiece.isPromoted {
+        guard let pieceEntity = self.piece(piece) else {
+            assertionFailure(); return
+        }
+        if promotion {
             if pieceEntity.findEntity(named: "promotionMark") == nil {
-                PieceEntity.addPromotionMarkEntity(pieceEntity, newPiece.side)
+                PieceEntity.addPromotionMarkEntity(pieceEntity, piece.side)
             }
         } else {
             PieceEntity.removePromotionMarkEntity(pieceEntity)
@@ -75,13 +93,13 @@ extension Entities {
     func disablePieceHoverEffect() {
         self.root
             .children
-            .filter { $0.components.has(Piece.ID.self) }
+            .filter { $0.components.has(Piece.self) }
             .forEach { $0.findEntity(named: "body")!.components.remove(HoverEffectComponent.self) }
     }
     func activatePieceHoverEffect() {
         self.root
             .children
-            .filter { $0.components.has(Piece.ID.self) }
+            .filter { $0.components.has(Piece.self) }
             .forEach { $0.findEntity(named: "body")!.components.set(HoverEffectComponent()) }
     }
 //    static func updatePickingInputtablity(_ pieceEntity: Entity) {

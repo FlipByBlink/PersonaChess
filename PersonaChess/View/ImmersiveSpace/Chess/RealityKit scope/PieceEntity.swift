@@ -1,10 +1,10 @@
 import RealityKit
 
 enum PieceEntity {
-    static func load(_ piece: Piece) -> Entity {
+    static func load(_ piece: Piece, _ index: Index) -> Entity {
         let value = Entity()
-        value.position = piece.index!.position
-        value.components.set([piece.id,
+        value.position = index.position
+        value.components.set([piece,
                               OpacityComponent()])
         let bodyEntity = try! Entity.load(named: piece.assetName)
         bodyEntity.name = "body"

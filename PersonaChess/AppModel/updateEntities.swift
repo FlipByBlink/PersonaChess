@@ -2,37 +2,37 @@ import RealityKit
 
 extension AppModel {
     func updateEntities() {
-        for pieceID in Piece.ID.allCases {
-            if self.sharedState.pieces.isCapturedPieceInProgress(pieceID) {
-                let capturedPieceInProgressEntity = self.entities.piece(pieceID)
-                self.entities.root.addChild(capturedPieceInProgressEntity)
-                capturedPieceInProgressEntity.components[OpacityComponent.self]?.opacity = 1.0
+        //MARK: Add or Remove entity
+        for piece in Piece.allCases {
+            if let index = self.sharedState.pieces.indices[piece] {
+                self.entities.add(piece,
+                                  index: index)
             } else {
-                let piece = self.sharedState.pieces[pieceID]
-                let pieceEntity = self.entities.piece(pieceID)
-                if piece.isActive {
-                    self.entities.root.addChild(pieceEntity)
-                    pieceEntity.components[OpacityComponent.self]?.opacity = 1.0
+                if let capturedPieceInProgress = self.sharedState.pieces.capturedPieceInProgress {
+                    self.entities.add(capturedPieceInProgress.piece,
+                                      index: capturedPieceInProgress.index)
                 } else {
-                    pieceEntity.removeFromParent()
+                    self.entities.remove(piece)
                 }
             }
         }
         
-        for piece in self.sharedState.pieces.withNoAnimation {
-            if let index = piece.index {
-                self.entities.piece(piece.id).setPosition(index.position,
-                                                          relativeTo: self.entities.root)
-                self.entities.pieceBody(piece.id).setPosition(.zero,
-                                                              relativeTo: self.entities.piece(piece.id))
-            }
+        //MARK: Set no-animation-piece position
+        for piece in self.sharedState.pieces.list {
+            guard !self.sharedState.pieces.hasAnimation(piece) else { continue }
+            let index = self.sharedState.pieces.indices[piece]!
+            self.entities.piece(piece)?.setPosition(index.position,
+                                                    relativeTo: self.entities.root)
+            self.entities.pieceBody(piece)?.setPosition(.zero,
+                                                        relativeTo: self.entities.piece(piece))
         }
         
+        //MARK: Apply action
         switch self.sharedState.pieces.currentAction {
-            case .tapPieceAndPick(let id, let index):
-                self.entities.piece(id).setPosition(index.position,
-                                                    relativeTo: self.entities.root)
-                self.entities.pieceBody(id).playAnimation(
+            case .tapPieceAndPick(let piece, let index):
+                self.entities.piece(piece)!.setPosition(index.position,
+                                                        relativeTo: self.entities.root)
+                self.entities.pieceBody(piece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(to: Transform(translation: [0, Size.Meter.pickedOffset, 0]),
                                             mode: .parent,
@@ -41,15 +41,15 @@ extension AppModel {
                         bindTarget: .transform
                     )
                 )
-            case .tapPieceAndChangePickingPiece(let exPickedPieceID,
+            case .tapPieceAndChangePickingPiece(let exPickedPiece,
                                                 let exPickedPieceIndex,
-                                                let newPickedPieceID,
+                                                let newPickedPiece,
                                                 let newPickedPieceIndex):
-                self.entities.piece(exPickedPieceID).setPosition(exPickedPieceIndex.position,
+                self.entities.piece(exPickedPiece)!.setPosition(exPickedPieceIndex.position,
+                                                                relativeTo: self.entities.root)
+                self.entities.piece(newPickedPiece)!.setPosition(newPickedPieceIndex.position,
                                                                  relativeTo: self.entities.root)
-                self.entities.piece(newPickedPieceID).setPosition(newPickedPieceIndex.position,
-                                                                  relativeTo: self.entities.root)
-                self.entities.pieceBody(newPickedPieceID).playAnimation(
+                self.entities.pieceBody(newPickedPiece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(to: Transform(translation: [0, Size.Meter.pickedOffset, 0]),
                                             mode: .parent,
@@ -58,7 +58,7 @@ extension AppModel {
                         bindTarget: .transform
                     )
                 )
-                self.entities.pieceBody(exPickedPieceID).playAnimation(
+                self.entities.pieceBody(exPickedPiece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(to: .identity,
                                             mode: .parent,
@@ -67,19 +67,19 @@ extension AppModel {
                         bindTarget: .transform
                     )
                 )
-            case .tapPieceAndMoveAndCapture(let pickedPieceID,
+            case .tapPieceAndMoveAndCapture(let pickedPiece,
                                             let pickedPieceIndex,
-                                            let capturedPieceID,
+                                            let capturedPiece,
                                             let capturedPieceIndex):
-                let pickedPieceEntity = self.entities.piece(pickedPieceID)
+                let pickedPieceEntity = self.entities.piece(pickedPiece)!
                 pickedPieceEntity.setPosition(pickedPieceIndex.position,
                                               relativeTo: self.entities.root)
                 pickedPieceEntity.setPosition([0, Size.Meter.pickedOffset, 0],
                                               relativeTo: pickedPieceEntity)
-                self.entities.piece(capturedPieceID).setPosition(capturedPieceIndex.position,
-                                                                 relativeTo: self.entities.root)
+                self.entities.piece(capturedPiece)!.setPosition(capturedPieceIndex.position,
+                                                                relativeTo: self.entities.root)
                 let slideDuration = 1.0
-                self.entities.piece(pickedPieceID).playAnimation(
+                self.entities.piece(pickedPiece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(from: Transform(translation: pickedPieceIndex.position),
                                             to: Transform(translation: capturedPieceIndex.position),
@@ -89,7 +89,7 @@ extension AppModel {
                         bindTarget: .transform
                     )
                 )
-                self.entities.pieceBody(pickedPieceID).playAnimation(
+                self.entities.pieceBody(pickedPiece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(to: .identity,
                                             mode: .parent,
@@ -100,7 +100,7 @@ extension AppModel {
                     )
                 )
                 let fadeOutDuration = 0.6
-                self.entities.piece(capturedPieceID).playAnimation(
+                self.entities.piece(capturedPiece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction<Float>(to: 0.0),
                         duration: fadeOutDuration,
@@ -110,10 +110,10 @@ extension AppModel {
                 )
                 Task {
                     try? await Task.sleep(for: .seconds(slideDuration + fadeOutDuration))
-                    self.entities.piece(capturedPieceID).removeFromParent()
+                    self.entities.remove(capturedPiece)
                 }
-            case .tapSquareAndUnpick(let id, _):
-                self.entities.pieceBody(id).playAnimation(
+            case .tapSquareAndUnpick(let piece, _):
+                self.entities.pieceBody(piece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(from: Transform(translation: [0, Size.Meter.pickedOffset, 0]),
                                             to: .identity,
@@ -124,8 +124,8 @@ extension AppModel {
                         bindTarget: .transform
                     )
                 )
-            case .tapSquareAndMove(let id, let exIndex, let newIndex):
-                self.entities.piece(id).playAnimation(
+            case .tapSquareAndMove(let piece, let exIndex, let newIndex):
+                self.entities.piece(piece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(from: Transform(translation: exIndex.position),
                                             to: Transform(translation: newIndex.position),
@@ -136,7 +136,7 @@ extension AppModel {
                         bindTarget: .transform
                     )
                 )
-                self.entities.pieceBody(id).playAnimation(
+                self.entities.pieceBody(piece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(from: Transform(translation: [0, Size.Meter.pickedOffset, 0]),
                                             to: .identity,
@@ -148,7 +148,7 @@ extension AppModel {
                         delay: 1
                     )
                 )
-            case .drag(let id, let sourceIndex, let dragTranslation):
+            case .drag(let piece, let sourceIndex, let dragTranslation):
                 let draggedPieceBodyPosition = {
                     var resultTranslation = dragTranslation
                     if dragTranslation.y < 0 {
@@ -156,12 +156,12 @@ extension AppModel {
                     }
                     return sourceIndex.position + resultTranslation
                 }()
-                self.entities.pieceBody(id).position.y = draggedPieceBodyPosition.y
-                self.entities.piece(id).setPosition(.init(x: draggedPieceBodyPosition.x,
-                                                          y: 0,
-                                                          z: draggedPieceBodyPosition.z),
-                                                    relativeTo: self.entities.root)
-            case .dropAndBack(let id, let sourceIndex, let dragTranslation):
+                self.entities.pieceBody(piece)!.position.y = draggedPieceBodyPosition.y
+                self.entities.piece(piece)!.setPosition(.init(x: draggedPieceBodyPosition.x,
+                                                              y: 0,
+                                                              z: draggedPieceBodyPosition.z),
+                                                        relativeTo: self.entities.root)
+            case .dropAndBack(let piece, let sourceIndex, let dragTranslation):
                 let draggedPieceBodyPosition = {
                     var resultTranslation = dragTranslation
                     if dragTranslation.y < 0 {
@@ -169,14 +169,14 @@ extension AppModel {
                     }
                     return sourceIndex.position + resultTranslation
                 }()
-                self.entities.pieceBody(id).position.y = draggedPieceBodyPosition.y
+                self.entities.pieceBody(piece)!.position.y = draggedPieceBodyPosition.y
                 let draggedPiecePosition: SIMD3<Float> = .init(x: draggedPieceBodyPosition.x,
                                                                y: 0,
                                                                z: draggedPieceBodyPosition.z)
-                self.entities.piece(id).setPosition(draggedPiecePosition,
-                                                    relativeTo: self.entities.root)
+                self.entities.piece(piece)!.setPosition(draggedPiecePosition,
+                                                        relativeTo: self.entities.root)
                 let duration = 0.7
-                self.entities.pieceBody(id).playAnimation(
+                self.entities.pieceBody(piece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(from: Transform(translation: [0, draggedPieceBodyPosition.y, 0]),
                                             to: .identity,
@@ -187,7 +187,7 @@ extension AppModel {
                         bindTarget: .transform
                     )
                 )
-                self.entities.piece(id).playAnimation(
+                self.entities.piece(piece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(from: Transform(translation: draggedPiecePosition),
                                             to: Transform(translation: sourceIndex.position),
@@ -198,7 +198,7 @@ extension AppModel {
                         bindTarget: .transform
                     )
                 )
-            case .dropAndMove(let id,
+            case .dropAndMove(let piece,
                               let sourceIndex,
                               let dragTranslation,
                               let newIndex):
@@ -209,14 +209,14 @@ extension AppModel {
                     }
                     return sourceIndex.position + resultTranslation
                 }()
-                self.entities.pieceBody(id).position.y = draggedPieceBodyPosition.y
+                self.entities.pieceBody(piece)!.position.y = draggedPieceBodyPosition.y
                 let draggedPiecePosition: SIMD3<Float> = .init(x: draggedPieceBodyPosition.x,
                                                                y: 0,
                                                                z: draggedPieceBodyPosition.z)
-                self.entities.piece(id).setPosition(draggedPiecePosition,
-                                                    relativeTo: self.entities.root)
+                self.entities.piece(piece)!.setPosition(draggedPiecePosition,
+                                                        relativeTo: self.entities.root)
                 let duration = 0.7
-                self.entities.pieceBody(id).playAnimation(
+                self.entities.pieceBody(piece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(from: Transform(translation: [0, draggedPieceBodyPosition.y, 0]),
                                             to: .identity,
@@ -227,7 +227,7 @@ extension AppModel {
                         bindTarget: .transform
                     )
                 )
-                self.entities.piece(id).playAnimation(
+                self.entities.piece(piece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(from: Transform(translation: draggedPiecePosition),
                                             to: Transform(translation: newIndex.position),
@@ -238,10 +238,10 @@ extension AppModel {
                         bindTarget: .transform
                     )
                 )
-            case .dropAndMoveAndCapture(let id,
+            case .dropAndMoveAndCapture(let piece,
                                         let sourceIndex,
                                         let dragTranslation,
-                                        let capturedPieceID,
+                                        let capturedPiece,
                                         let capturedPieceIndex):
                 let draggedPieceBodyPosition = {
                     var resultTranslation = dragTranslation
@@ -250,14 +250,14 @@ extension AppModel {
                     }
                     return sourceIndex.position + resultTranslation
                 }()
-                self.entities.pieceBody(id).position.y = draggedPieceBodyPosition.y
+                self.entities.pieceBody(piece)!.position.y = draggedPieceBodyPosition.y
                 let draggedPiecePosition: SIMD3<Float> = .init(x: draggedPieceBodyPosition.x,
                                                                y: 0,
                                                                z: draggedPieceBodyPosition.z)
-                self.entities.piece(id).setPosition(draggedPiecePosition,
-                                                    relativeTo: self.entities.root)
+                self.entities.piece(piece)!.setPosition(draggedPiecePosition,
+                                                        relativeTo: self.entities.root)
                 let duration = 0.7
-                self.entities.pieceBody(id).playAnimation(
+                self.entities.pieceBody(piece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(from: Transform(translation: [0, draggedPieceBodyPosition.y, 0]),
                                             to: .identity,
@@ -268,7 +268,7 @@ extension AppModel {
                         bindTarget: .transform
                     )
                 )
-                self.entities.piece(id).playAnimation(
+                self.entities.piece(piece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction(from: Transform(translation: draggedPiecePosition),
                                             to: Transform(translation: capturedPieceIndex.position),
@@ -279,7 +279,7 @@ extension AppModel {
                         bindTarget: .transform
                     )
                 )
-                self.entities.piece(capturedPieceID).playAnimation(
+                self.entities.piece(capturedPiece)!.playAnimation(
                     try! .makeActionAnimation(
                         for: FromToByAction<Float>(to: 0.0),
                         duration: duration,
@@ -288,7 +288,7 @@ extension AppModel {
                 )
                 Task {
                     try? await Task.sleep(for: .seconds(duration))
-                    self.entities.piece(capturedPieceID).removeFromParent()
+                    self.entities.remove(capturedPiece)
                 }
             case .undo, .reset, .none:
                 break
