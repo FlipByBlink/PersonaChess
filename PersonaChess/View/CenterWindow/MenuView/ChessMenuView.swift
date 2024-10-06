@@ -57,30 +57,12 @@ struct ChessMenuView: View {
             Spacer()
             Divider()
             Spacer()
+#if DEBUG
+            HStack { self.menuButtons() }
+#endif
             Self.RowView(title: "More") {
                 Menu {
-                    Section {
-                        Button {
-                            self.model.execute(.undo)
-                        } label: {
-                            Label("Undo", systemImage: "arrow.uturn.backward")
-                        }
-                        .disabled(self.model.sharedState.logs.isEmpty)
-                        Button {
-                            self.model.execute(.reset)
-                        } label: {
-                            Label("Reset", systemImage: "arrow.counterclockwise")
-                        }
-                        .disabled(self.model.sharedState.pieces.isPreset)
-                    }
-                    .disabled(!self.model.movingPieces.isEmpty)
-                    Section {
-                        Button {
-                            Task { await self.dismissImmersiveSpace() }
-                        } label: {
-                            Label("Close chess", systemImage: "escape")
-                        }
-                    }
+                    self.menuButtons()
                 } label: {
                     Image(systemName: "ellipsis")
                 }
@@ -127,6 +109,32 @@ private extension ChessMenuView {
                 .disabled(self.model.myRole == .white)
             Button("Black") { self.model.set(role: .black) }
                 .disabled(self.model.myRole == .black)
+        }
+    }
+    private func menuButtons() -> some View {
+        Group {
+            Section {
+                Button {
+                    self.model.execute(.undo)
+                } label: {
+                    Label("Undo", systemImage: "arrow.uturn.backward")
+                }
+                .disabled(self.model.sharedState.logs.isEmpty)
+                Button {
+                    self.model.execute(.reset)
+                } label: {
+                    Label("Reset", systemImage: "arrow.counterclockwise")
+                }
+                .disabled(self.model.sharedState.pieces.isPreset)
+            }
+            .disabled(!self.model.movingPieces.isEmpty)
+            Section {
+                Button {
+                    Task { await self.dismissImmersiveSpace() }
+                } label: {
+                    Label("Close chess", systemImage: "escape")
+                }
+            }
         }
     }
     private struct RowView<Content: View>: View {

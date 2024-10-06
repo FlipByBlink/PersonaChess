@@ -12,28 +12,20 @@ extension Pieces: Codable, Equatable {
     var list: [Piece] { self.indices.map(\.key) }
     func piece(_ index: Index) -> Piece? {
         self.indices
-            .first(where: { $0.value == index })?
+            .first { $0.value == index }?
             .key
     }
     mutating func apply(_ action: Action) {
         self.currentAction = action
         switch action {
-            case .tapSquareAndMove(let piece, _, let newIndex):
-                self.move(piece, newIndex)
-            case .tapPieceAndMoveAndCapture(let pickedPiece, _, _, let targetIndex):
-                self.move(pickedPiece, targetIndex)
-            case .dropAndMove(let piece, _, _, let newIndex):
-                self.move(piece, newIndex)
-            case .dropAndMoveAndCapture(let piece, _, _, _, let newIndex):
+            case .tapSquareAndMove(let piece, _, let newIndex),
+                    .tapPieceAndMoveAndCapture(let piece, _, _, let newIndex),
+                    .dropAndMove(let piece, _, _, let newIndex),
+                    .dropAndMoveAndCapture(let piece, _, _, _, let newIndex):
                 self.move(piece, newIndex)
             case .reset:
                 self.setPreset()
-            case .tapPieceAndPick(_, _),
-                    .tapSquareAndUnpick(_, _),
-                    .tapPieceAndChangePickingPiece(_, _, _, _),
-                    .drag(_, _, _),
-                    .dropAndBack(_, _, _),
-                    .undo:
+            default:
                 break
         }
     }
@@ -60,23 +52,6 @@ extension Pieces: Codable, Equatable {
             nil
         }
     }
-    var draggedPiece: Piece? {
-        switch self.currentAction {
-            case .drag(let piece, _, _):
-                piece
-            default:
-                nil
-        }
-    }
-    func isCapturedPieceInProgress(_ piece: Piece) -> Bool {
-        switch self.currentAction {
-            case .dropAndMoveAndCapture(_, _, _, let capturedPiece, _),
-                    .tapPieceAndMoveAndCapture(_, _, let capturedPiece, _):
-                piece == capturedPiece
-            default:
-                false
-        }
-    }
     var capturedPieceInProgress: (piece: Piece, index: Index)? {
         switch self.currentAction {
             case .dropAndMoveAndCapture(_, _, _, let capturedPiece, let capturedPieceIndex),
@@ -85,10 +60,6 @@ extension Pieces: Codable, Equatable {
             default:
                 nil
         }
-    }
-    func dragTargetingIndex() -> Index? {
-        guard case .drag(_, let sourceIndex, let dragTranslation) = self.currentAction else { return nil }
-        return .calculateFromDrag(dragTranslation: dragTranslation, sourceIndex: sourceIndex)
     }
     var asLog: Self {
         var value = self

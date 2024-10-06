@@ -16,6 +16,7 @@ enum PieceEntity {
         return value
     }
     static func addPromotionMarkEntity(_ pieceEntity: Entity, _ side: Side) {
+        guard pieceEntity.findEntity(named: "promotionMark") == nil else { return }
         let promotionMarkEntity = Entity()
         promotionMarkEntity.name = "promotionMark"
         let material = SimpleMaterial(color: .init(white: side == .white ? 0.9 : 0.15,

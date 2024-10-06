@@ -22,7 +22,7 @@ struct Index {
 //(7,0)(7,1)(7,2)...
 //============== White side ==============
 
-extension Index: Hashable, Codable {
+extension Index: Codable, Hashable {
     var position: SIMD3<Float> {
         .init(x: Float(self.column - 4) * Size.Meter.square + (Size.Meter.square / 2),
               y: 0,
