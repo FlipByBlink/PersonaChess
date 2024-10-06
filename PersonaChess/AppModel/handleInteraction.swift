@@ -8,7 +8,7 @@ extension AppModel {
             case .tapPiece(let tappedPieceBodyEntity):
                 let tappedPiece = tappedPieceBodyEntity.parent!.components[Piece.self]!
                 guard let tappedPieceIndex = self.sharedState.pieces.indices[tappedPiece] else {
-                    assertionFailure(); return
+                    assertionFailure(); return //TODO: ここを通る場合がある。要確認。
                 }
                 if self.sharedState.pieces.currentAction?.isPicking == true {
                     guard let pickingPiece = self.sharedState.pieces.pickingPiece,

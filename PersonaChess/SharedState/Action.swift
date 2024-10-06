@@ -66,4 +66,30 @@ extension Action {
                 false
         }
     }
+    var draggedPiecePosition: SIMD3<Float> {
+        .init(x: self.draggedPieceBodyPosition.x,
+              y: 0,
+              z: self.draggedPieceBodyPosition.z)
+    }
+    var draggedPieceBodyYOffset: Float {
+        self.draggedPieceBodyPosition.y
+    }
+}
+
+private extension Action {
+    private var draggedPieceBodyPosition: SIMD3<Float> {
+        switch self {
+            case .drag(_, let index, let dragTranslation),
+                    .dropAndBack(_, let index, let dragTranslation),
+                    .dropAndMove(_, let index, let dragTranslation, _),
+                    .dropAndMoveAndCapture(_, let index, let dragTranslation, _, _):
+                var value = dragTranslation
+                if dragTranslation.y < 0 {
+                    value.y = 0
+                }
+                return index.position + value
+            default:
+                return .zero
+        }
+    }
 }
