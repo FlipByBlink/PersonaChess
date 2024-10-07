@@ -21,6 +21,6 @@ class AppModel: ObservableObject {
     
     init() {
         self.configureGroupSessions()
-        self.updateEntities()
+        self.entities.update(self.sharedState.pieces)
     }
 }

@@ -18,7 +18,7 @@ extension AppModel {
             self.sharedState.mode = .sharePlay
         }
         
-        self.updateEntities()
+        self.entities.update(self.sharedState.pieces)
         
         if shouldSendMessage { self.sendMessage() }
     }

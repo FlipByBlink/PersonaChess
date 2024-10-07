@@ -6,7 +6,7 @@ extension AppModel {
             for await groupSession in AppGroupActivity.sessions() {
                 self.sharedState.clear()
                 self.sharedState.pieces.setPreset()
-                self.updateEntities()
+                self.entities.update(self.sharedState.pieces)
                 
                 self.groupSession = groupSession
                 let messenger = GroupSessionMessenger(session: groupSession)
@@ -24,7 +24,7 @@ extension AppModel {
                             self.sharedState.clearAllLog()
                             self.sharedState.pieces.setPreset()
                             self.sharedState.mode = .localOnly
-                            self.updateEntities()
+                            self.entities.update(self.sharedState.pieces)
                             self.myRole = nil
                         }
                     }
@@ -130,7 +130,7 @@ private extension AppModel {
         guard message.mode == .sharePlay else { return }
         Task { @MainActor in
             self.sharedState = message
-            self.updateEntities()
+            self.entities.update(self.sharedState.pieces)
         }
     }
 }

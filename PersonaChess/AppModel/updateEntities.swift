@@ -1,59 +1,5 @@
 import RealityKit
 
-extension AppModel {
-    func updateEntities() {
-        self.addOrRemovePieceEntities()
-        
-        self.setPawnPromotion()
-        
-        self.entities.updateHoverEffect(disabled: self.sharedState.pieces.isDragging)
-        
-        self.updatePickedPieceInputability()
-        
-        self.setPiecesPositionWithoutAnimation()
-        
-        self.entities.updateWithAnimation(self.sharedState.pieces.currentAction)
-    }
-}
-
-private extension AppModel {
-    private func addOrRemovePieceEntities() {
-        for piece in Piece.allCases {
-            if let index = self.sharedState.pieces.indices[piece] {
-                self.entities.add(piece,
-                                  index: index)
-            } else {
-                if let capturedPieceInProgress = self.sharedState.pieces.capturedPieceInProgress {
-                    self.entities.add(capturedPieceInProgress.piece,
-                                      index: capturedPieceInProgress.index)
-                } else {
-                    self.entities.remove(piece)
-                }
-            }
-        }
-    }
-    private func setPawnPromotion() {
-        for piece in self.sharedState.pieces.list {
-            let promotion = self.sharedState.pieces.promotions[piece]
-            self.entities.applyPiecePromotion(piece, promotion)
-        }
-    }
-    private func updatePickedPieceInputability() {
-        for piece in self.sharedState.pieces.list {
-            let isPicking = (self.sharedState.pieces.pickingPiece == piece)
-            self.entities.updatePickedPieceInputability(piece,
-                                                        isEnabled: !isPicking)
-        }
-    }
-    private func setPiecesPositionWithoutAnimation() {
-        for piece in self.sharedState.pieces.list {
-            guard !self.sharedState.pieces.hasAnimation(piece) else { continue }
-            let index = self.sharedState.pieces.indices[piece]!
-            self.entities.setPositionWithoutAnimation(piece, index)
-        }
-    }
-}
-
 //extension AppModel {
 //    func updateEntities_old() {
 //        for pieceEntity in self.entities.root.children.filter({ $0.components.has(Piece.self) }) {
