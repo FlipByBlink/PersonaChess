@@ -52,6 +52,13 @@ extension Pieces: Codable, Equatable {
             nil
         }
     }
+    var isDragging: Bool {
+        if case .drag(_, _, _) = self.currentAction {
+            true
+        } else {
+            false
+        }
+    }
     var capturedPieceInProgress: (piece: Piece, index: Index)? {
         switch self.currentAction {
             case .dropAndMoveAndCapture(_, _, _, let capturedPiece, let capturedPieceIndex),

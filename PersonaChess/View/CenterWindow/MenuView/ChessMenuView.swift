@@ -57,9 +57,6 @@ struct ChessMenuView: View {
             Spacer()
             Divider()
             Spacer()
-#if DEBUG
-            HStack { self.menuButtons() }
-#endif
             Self.RowView(title: "More") {
                 Menu {
                     self.menuButtons()
@@ -67,6 +64,9 @@ struct ChessMenuView: View {
                     Image(systemName: "ellipsis")
                 }
             }
+#if DEBUG
+            .ornament(attachmentAnchor: .scene(.top)) { HStack { self.menuButtons() } }
+#endif
             Spacer()
         }
         .padding(.bottom)

@@ -20,8 +20,6 @@ extension AppModel {
         
         self.updateEntities()
         
-        if shouldSendMessage {
-            self.sendMessage()
-        }
+        if shouldSendMessage { self.sendMessage() }
     }
 }

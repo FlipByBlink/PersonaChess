@@ -2,7 +2,22 @@ import RealityKit
 
 extension AppModel {
     func updateEntities() {
-        //MARK: Add or Remove entity
+        self.addOrRemovePieceEntities()
+        
+        self.setPawnPromotion()
+        
+        self.entities.updateHoverEffect(disabled: self.sharedState.pieces.isDragging)
+        
+        self.updatePickedPieceInputability()
+        
+        self.setPiecesPositionWithoutAnimation()
+        
+        self.entities.updateWithAnimation(self.sharedState.pieces.currentAction)
+    }
+}
+
+private extension AppModel {
+    private func addOrRemovePieceEntities() {
         for piece in Piece.allCases {
             if let index = self.sharedState.pieces.indices[piece] {
                 self.entities.add(piece,
@@ -16,22 +31,26 @@ extension AppModel {
                 }
             }
         }
-        
-        //MARK: Set promotion
+    }
+    private func setPawnPromotion() {
         for piece in self.sharedState.pieces.list {
             let promotion = self.sharedState.pieces.promotions[piece]
             self.entities.applyPiecePromotion(piece, promotion)
         }
-        
-        //MARK: Set position without animation
+    }
+    private func updatePickedPieceInputability() {
+        for piece in self.sharedState.pieces.list {
+            let isPicking = (self.sharedState.pieces.pickingPiece == piece)
+            self.entities.updatePickedPieceInputability(piece,
+                                                        isEnabled: !isPicking)
+        }
+    }
+    private func setPiecesPositionWithoutAnimation() {
         for piece in self.sharedState.pieces.list {
             guard !self.sharedState.pieces.hasAnimation(piece) else { continue }
             let index = self.sharedState.pieces.indices[piece]!
             self.entities.setPositionWithoutAnimation(piece, index)
         }
-        
-        //MARK: Apply action with animation
-        self.entities.updateWithAnimation(self.sharedState.pieces.currentAction)
     }
 }
 

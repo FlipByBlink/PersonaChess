@@ -137,17 +137,28 @@ extension Entities {
             PieceEntity.removePromotionMarkEntity(pieceEntity)
         }
     }
-    func disablePieceHoverEffect() {
+    func updateHoverEffect(disabled: Bool) {
         self.root
             .children
             .filter { $0.components.has(Piece.self) }
-            .forEach { $0.findEntity(named: "body")!.components.remove(HoverEffectComponent.self) }
+            .map { $0.findEntity(named: "body")! }
+            .forEach {
+                if disabled {
+                    $0.components.remove(HoverEffectComponent.self)
+                } else {
+                    $0.components.set(HoverEffectComponent())
+                }
+            }
     }
-    func activatePieceHoverEffect() {
-        self.root
-            .children
-            .filter { $0.components.has(Piece.self) }
-            .forEach { $0.findEntity(named: "body")!.components.set(HoverEffectComponent()) }
+    func updatePickedPieceInputability(_ pickedPiece: Piece, isEnabled: Bool) {
+        guard let pieceBodyEntity = self.pieceBodyEntity(pickedPiece) else {
+            assertionFailure(); return
+        }
+        if isEnabled {
+            pieceBodyEntity.components.set(InputTargetComponent())
+        } else {
+            pieceBodyEntity.components.remove(InputTargetComponent.self)
+        }
     }
     //func applyDraggingPiecePosition(_ pieceEntity: Entity, _ newPiece: Piece) {
     //    self.disablePieceHoverEffect()
@@ -188,15 +199,6 @@ extension Entities {
     //                                                duration: duration)
     //    pieceEntity.setPosition(newPiece.position, relativeTo: self.root)
     //    try? await Task.sleep(for: .seconds(duration))
-    //}
-    //static func updatePickingInputtablity(_ pieceEntity: Entity) {
-    //    let piece: Piece = pieceEntity.components[Piece.self]!
-    //    let pieceBodyEntity = pieceEntity.findEntity(named: "body")!
-    //    if piece.picked {
-    //        pieceBodyEntity.components.remove(InputTargetComponent.self)
-    //    } else {
-    //        pieceBodyEntity.components.set(InputTargetComponent())
-    //    }
     //}
 }
 
