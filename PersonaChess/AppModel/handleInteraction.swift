@@ -52,7 +52,9 @@ extension AppModel {
                 }
                 action = .drag(draggedPiece,
                                sourceIndex: draggedPieceIndex,
-                               dragTranslation: dragTranslation)
+                               dragTranslation: dragTranslation,
+                               isDragStarted: !self.isDragging)
+                self.isDragging = true
             case .drop(let gestureValue):
                 let dragTranslation = gestureValue.convert(gestureValue.translation3D,
                                                            from: .local,
@@ -87,6 +89,7 @@ extension AppModel {
                                               newIndex: targetingIndex)
                     }
                 }
+                self.isDragging = false
         }
         
         self.execute(action)

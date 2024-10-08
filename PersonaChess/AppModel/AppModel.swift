@@ -6,7 +6,8 @@ import Combine
 class AppModel: ObservableObject {
     @Published var sharedState = SharedState()
     let entities = Entities()
-    @Published var movingPieces: [Piece] = []
+    @Published var movingPieces: [Piece] = []//TODO: 削除検討
+    @Published var isDragging: Bool = false
     @Published var isImmersiveSpaceShown: Bool = false
     
     @Published var groupSession: GroupSession<AppGroupActivity>?

@@ -139,7 +139,7 @@ private extension Entities {
                 self.setPosition(piece: piece,
                                  index: exIndex,
                                  picked: true)
-            case .drag(let piece, _, _),
+            case .drag(let piece, _, _, _),
                     .dropAndBack(let piece, _, _),
                     .dropAndMove(let piece, _, _, _),
                     .dropAndMoveAndCapture(let piece, _, _, _, _):
@@ -214,9 +214,12 @@ private extension Entities {
                                    .put,
                                    delay: downDuration)
                 }
-            case .drag(let piece, _, _):
+            case .drag(let piece, _, _, let isDragStarted):
                 self.setPosition(piece: piece,
                                  dragAction: action)
+                if isDragStarted {
+                    self.playSound(piece, .select)
+                }
             case .dropAndBack(let piece, let sourceIndex, _):
                 self.drop(piece: piece,
                           index: sourceIndex,

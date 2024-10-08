@@ -8,12 +8,6 @@ extension AppModel {
         
         if case .undo = action { self.sharedState.undo() }
         
-        if case .drag(_, _, _) = action {
-            //if Pieces.shouldPlaySound(bodyEntity) {
-            //    self.soundFeedback.select(bodyEntity, self.floorMode)
-            //}
-        }
-        
         if action == .reset, self.groupSession != nil {
             self.sharedState.mode = .sharePlay
         }

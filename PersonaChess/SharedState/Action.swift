@@ -16,7 +16,8 @@ enum Action: Codable, Equatable {
                           newIndex: Index)
     case drag(Piece,
               sourceIndex: Index,
-              dragTranslation: SIMD3<Float>)
+              dragTranslation: SIMD3<Float>,
+              isDragStarted: Bool)
     case dropAndBack(Piece,
                      sourceIndex: Index,
                      dragTranslation: SIMD3<Float>)
@@ -46,7 +47,7 @@ extension Action {
                 [piece]
             case .tapSquareAndMove(let piece, _, _):
                 [piece]
-            case .drag(let piece, _, _):
+            case .drag(let piece, _, _, _):
                 [piece]
             case .dropAndBack(let piece, _, _):
                 [piece]
@@ -79,7 +80,7 @@ extension Action {
 private extension Action {
     private var draggedPieceBodyPosition: SIMD3<Float> {
         switch self {
-            case .drag(_, let index, let dragTranslation),
+            case .drag(_, let index, let dragTranslation, _),
                     .dropAndBack(_, let index, let dragTranslation),
                     .dropAndMove(_, let index, let dragTranslation, _),
                     .dropAndMoveAndCapture(_, let index, let dragTranslation, _, _):

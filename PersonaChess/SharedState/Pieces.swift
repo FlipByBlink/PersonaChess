@@ -53,7 +53,7 @@ extension Pieces: Codable, Equatable {
         }
     }
     var isDragging: Bool {
-        if case .drag(_, _, _) = self.currentAction {
+        if case .drag(_, _, _, _) = self.currentAction {
             true
         } else {
             false
