@@ -29,6 +29,8 @@ extension Entities {
         self.setPositionBeforeAnimation(currentAction)
         
         self.updateWithAnimation(currentAction)
+        
+        if currentAction == .reset { Sound.Board.playReset(self.root) }
     }
 }
 
@@ -153,16 +155,21 @@ private extension Entities {
                 self.moveUp(piece: piece,
                             index: index,
                             duration: 0.6)
+                self.playSound(piece,
+                               .select)
             case .tapPieceAndChangePickingPiece(let exPickedPiece,
                                                 let exPickedPieceIndex,
                                                 let newPickedPiece,
                                                 let newPickedPieceIndex):
+                let duration = 0.6
                 self.moveDown(piece: exPickedPiece,
                               index: exPickedPieceIndex,
-                              duration: 0.6)
+                              duration: duration)
                 self.moveUp(piece: newPickedPiece,
                             index: newPickedPieceIndex,
-                            duration: 0.6)
+                            duration: duration)
+                self.playSound(newPickedPiece,
+                               .select)
             case .tapPieceAndMoveAndCapture(let pickedPiece,
                                             let pickedPieceIndex,
                                             let capturedPiece,
@@ -179,6 +186,9 @@ private extension Entities {
                     self.moveDown(piece: pickedPiece,
                                   index: capturedPieceIndex,
                                   duration: downDuration)
+                    self.playSound(pickedPiece,
+                                   .put,
+                                   delay: downDuration)
                     self.fadeout(piece: capturedPiece,
                                  duration: fadeoutDuration)
                     try? await Task.sleep(for: .seconds(horizontalDuration + fadeoutDuration))
@@ -190,6 +200,7 @@ private extension Entities {
                               duration: 0.6)
             case .tapSquareAndMove(let piece, let exIndex, let newIndex):
                 let horizontalDuration = 1.0
+                let downDuration = 0.6
                 Task {
                     self.moveHorizontally(piece: piece,
                                           exIndex: exIndex,
@@ -198,7 +209,10 @@ private extension Entities {
                     try? await Task.sleep(for: .seconds(horizontalDuration))
                     self.moveDown(piece: piece,
                                   index: newIndex,
-                                  duration: 0.6)
+                                  duration: downDuration)
+                    self.playSound(piece,
+                                   .put,
+                                   delay: downDuration)
                 }
             case .drag(let piece, _, _):
                 self.setPosition(piece: piece,
@@ -209,22 +223,30 @@ private extension Entities {
                           dropAction: action,
                           duration: 0.7)
             case .dropAndMove(let piece, _, _, let newIndex):
+                let duration = 0.7
                 self.drop(piece: piece,
                           index: newIndex,
                           dropAction: action,
-                          duration: 0.7)
+                          duration: duration)
+                self.playSound(piece,
+                               .put,
+                               delay: duration)
             case .dropAndMoveAndCapture(let piece,
                                         _,
                                         _,
                                         let capturedPiece,
                                         let capturedPieceIndex):
+                let dropDuration = 0.7
                 let fadeoutDuration = 0.3
                 self.drop(piece: piece,
                           index: capturedPieceIndex,
                           dropAction: action,
-                          duration: 0.7)
+                          duration: dropDuration)
                 self.fadeout(piece: capturedPiece,
                              duration: fadeoutDuration)
+                self.playSound(piece,
+                               .put,
+                               delay: dropDuration)
                 Task {
                     try? await Task.sleep(for: .seconds(fadeoutDuration))
                     self.remove(capturedPiece)
@@ -319,6 +341,14 @@ private extension Entities {
                                     timing: .easeInOut),
                 duration: duration,
                 bindTarget: .transform
+            )
+        )
+    }
+    private func playSound(_ piece: Piece, _ kind: Sound.Piece, delay: TimeInterval = .zero) {
+        self.pieceEntity(piece)!.playAnimation(
+            try! .makeActionAnimation(
+                for: Sound.asAction(kind),
+                delay: delay
             )
         )
     }

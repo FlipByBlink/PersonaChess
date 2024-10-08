@@ -86,7 +86,7 @@ enum 🗒️StaticInfo {
                 case .Rest: [
                     "Action.swift",
                     "TargetScene.swift",
-                    "SoundFeedback.swift",
+                    "Sound.swift",
                     "🗒️StaticInfo.swift",
                     "ℹ️AboutApp.swift",
                 ]

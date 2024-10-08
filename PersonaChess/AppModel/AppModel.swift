@@ -16,7 +16,6 @@ class AppModel: ObservableObject {
     @Published var spatialSharePlaying: Bool?
     @Published var myRole: CustomSpatialTemplate.Role? = nil
     
-    let soundFeedback = SoundFeedback()
     @Published var showRecordingRoom: Bool = false
     
     init() {

@@ -5,7 +5,8 @@ enum PieceEntity {
         let value = Entity()
         value.position = index.position
         value.components.set([piece,
-                              OpacityComponent()])
+                              OpacityComponent(),
+                              Sound.Piece.audioLibraryComponent])
         let bodyEntity = try! Entity.load(named: piece.assetName)
         bodyEntity.name = "body"
         bodyEntity.components.set([HoverEffectComponent(),
