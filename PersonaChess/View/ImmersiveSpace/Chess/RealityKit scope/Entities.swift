@@ -14,6 +14,8 @@ class Entities {
 
 extension Entities {
     func update(_ pieces: Pieces) {
+        self.stopAnimations()
+        
         self.addOrRemovePieceEntities(pieces)
         
         self.setPawnPromotion(pieces)
@@ -35,6 +37,15 @@ extension Entities {
 }
 
 private extension Entities {
+    private func stopAnimations() {
+        self.root
+            .children
+            .filter { $0.components.has(Piece.self) }
+            .forEach {
+                $0.stopAllAnimations(recursive: false)
+                $0.findEntity(named: "body")!.stopAllAnimations()
+            }
+    }
     private func pieceEntity(_ piece: Piece) -> Entity? {
         self.root
             .children
@@ -156,7 +167,7 @@ private extension Entities {
                             index: index,
                             duration: 0.6)
                 self.playSound(piece,
-                               .select)
+                               kind: .select)
             case .tapPieceAndChangePickingPiece(let exPickedPiece,
                                                 let exPickedPieceIndex,
                                                 let newPickedPiece,
@@ -169,7 +180,7 @@ private extension Entities {
                             index: newPickedPieceIndex,
                             duration: duration)
                 self.playSound(newPickedPiece,
-                               .select)
+                               kind: .select)
             case .tapPieceAndMoveAndCapture(let pickedPiece,
                                             let pickedPieceIndex,
                                             let capturedPiece,
@@ -177,20 +188,21 @@ private extension Entities {
                 let horizontalDuration = 1.0
                 let downDuration = 0.6
                 let fadeoutDuration = 0.3
+                self.moveHorizontally(piece: pickedPiece,
+                                      exIndex: pickedPieceIndex,
+                                      newIndex: capturedPieceIndex,
+                                      duration: horizontalDuration)
+                self.moveDown(piece: pickedPiece,
+                              index: capturedPieceIndex,
+                              duration: downDuration,
+                              delay: horizontalDuration)
+                self.playSound(pickedPiece,
+                               kind: .put,
+                               delay: horizontalDuration + downDuration)
+                self.fadeout(piece: capturedPiece,
+                             duration: fadeoutDuration,
+                             delay: horizontalDuration)
                 Task {
-                    self.moveHorizontally(piece: pickedPiece,
-                                          exIndex: pickedPieceIndex,
-                                          newIndex: capturedPieceIndex,
-                                          duration: horizontalDuration)
-                    try? await Task.sleep(for: .seconds(horizontalDuration))
-                    self.moveDown(piece: pickedPiece,
-                                  index: capturedPieceIndex,
-                                  duration: downDuration)
-                    self.playSound(pickedPiece,
-                                   .put,
-                                   delay: downDuration)
-                    self.fadeout(piece: capturedPiece,
-                                 duration: fadeoutDuration)
                     try? await Task.sleep(for: .seconds(horizontalDuration + fadeoutDuration))
                     self.remove(capturedPiece)
                 }
@@ -211,14 +223,15 @@ private extension Entities {
                                   index: newIndex,
                                   duration: downDuration)
                     self.playSound(piece,
-                                   .put,
+                                   kind: .put,
                                    delay: downDuration)
                 }
             case .drag(let piece, _, _, let isDragStarted):
                 self.setPosition(piece: piece,
                                  dragAction: action)
                 if isDragStarted {
-                    self.playSound(piece, .select)
+                    self.playSound(piece,
+                                   kind: .select)
                 }
             case .dropAndBack(let piece, let sourceIndex, _):
                 self.drop(piece: piece,
@@ -232,7 +245,7 @@ private extension Entities {
                           dropAction: action,
                           duration: duration)
                 self.playSound(piece,
-                               .put,
+                               kind: .put,
                                delay: duration)
             case .dropAndMoveAndCapture(let piece,
                                         _,
@@ -248,7 +261,7 @@ private extension Entities {
                 self.fadeout(piece: capturedPiece,
                              duration: fadeoutDuration)
                 self.playSound(piece,
-                               .put,
+                               kind: .put,
                                delay: dropDuration)
                 Task {
                     try? await Task.sleep(for: .seconds(fadeoutDuration))
@@ -258,7 +271,9 @@ private extension Entities {
                 break
         }
     }
-    private func setPosition(piece: Piece, index: Index, picked: Bool) {
+    private func setPosition(piece: Piece,
+                             index: Index,
+                             picked: Bool) {
         let pieceEntity = self.pieceEntity(piece)!
         pieceEntity.setPosition(index.position, relativeTo: self.root)
         self.pieceBodyEntity(piece)!.setPosition([0,
@@ -288,14 +303,18 @@ private extension Entities {
             )
         )
     }
-    private func moveDown(piece: Piece, index: Index, duration: TimeInterval) {
+    private func moveDown(piece: Piece,
+                          index: Index,
+                          duration: TimeInterval,
+                          delay: TimeInterval = 0) {
         self.pieceBodyEntity(piece)!.playAnimation(
             try! .makeActionAnimation(
                 for: FromToByAction(to: .identity,
                                     mode: .parent,
                                     timing: .easeInOut),
                 duration: duration,
-                bindTarget: .transform
+                bindTarget: .transform,
+                delay: delay
             )
         )
     }
@@ -314,16 +333,20 @@ private extension Entities {
             )
         )
     }
-    private func fadeout(piece: Piece, duration: TimeInterval) {
+    private func fadeout(piece: Piece,
+                         duration: TimeInterval,
+                         delay: TimeInterval = 0) {
         self.pieceEntity(piece)!.playAnimation(
-            try! .makeActionAnimation(
-                for: FromToByAction<Float>(to: 0.0),
-                duration: duration,
-                bindTarget: .opacity
-            )
+            try! .makeActionAnimation(for: FromToByAction<Float>(to: 0.0),
+                                      duration: duration,
+                                      bindTarget: .opacity,
+                                      delay: delay)
         )
     }
-    private func drop(piece: Piece, index: Index, dropAction: Action, duration: TimeInterval) {
+    private func drop(piece: Piece,
+                      index: Index,
+                      dropAction: Action,
+                      duration: TimeInterval) {
         self.pieceBodyEntity(piece)!.playAnimation(
             try! .makeActionAnimation(
                 for: FromToByAction(from: Transform(translation: [0,
@@ -347,13 +370,16 @@ private extension Entities {
             )
         )
     }
-    private func playSound(_ piece: Piece, _ kind: Sound.Piece, delay: TimeInterval = .zero) {
-        self.pieceEntity(piece)!.playAnimation(
-            try! .makeActionAnimation(
-                for: Sound.asAction(kind),
-                delay: delay
+    private func playSound(_ piece: Piece,
+                           kind: Sound.Piece,
+                           delay: TimeInterval = .zero) {
+        self.pieceEntity(piece)?
+            .findEntity(named: "sound")!
+            .playAnimation(
+                try! .makeActionAnimation(for: Sound.asAction(kind),
+                                          name: "mySound",
+                                          delay: delay)
             )
-        )
     }
     //func applyDraggingPiecePosition(_ pieceEntity: Entity, _ newPiece: Piece) {
     //    self.disablePieceHoverEffect()

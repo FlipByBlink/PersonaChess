@@ -5,8 +5,7 @@ enum PieceEntity {
         let value = Entity()
         value.position = index.position
         value.components.set([piece,
-                              OpacityComponent(),
-                              Sound.Piece.audioLibraryComponent])
+                              OpacityComponent()])
         let bodyEntity = try! Entity.load(named: piece.assetName)
         bodyEntity.name = "body"
         bodyEntity.components.set([HoverEffectComponent(),
@@ -14,6 +13,7 @@ enum PieceEntity {
                                    Self.collisionComponent(bodyEntity)])
         value.addChild(bodyEntity)
         value.addChild(Self.shadowEntity(bodyEntity))
+        value.addChild(Self.soundEntity())
         return value
     }
     static func addPromotionMarkEntity(_ pieceEntity: Entity, _ side: Side) {
@@ -41,6 +41,12 @@ private extension PieceEntity {
                                 materials: [UnlitMaterial(color: .black,
                                                           applyPostProcessToneMap: true)])
         value.components.set(OpacityComponent(opacity: 0.3))
+        return value
+    }
+    private static func soundEntity() -> Entity {
+        let value = Entity()
+        value.name = "sound"
+        value.components.set(Sound.Piece.audioLibraryComponent)
         return value
     }
     private static func collisionComponent(_ bodyEntity: Entity) -> some Component {
