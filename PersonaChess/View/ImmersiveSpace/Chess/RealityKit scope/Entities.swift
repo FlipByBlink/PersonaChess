@@ -22,7 +22,7 @@ extension Entities {
         
         self.updateHoverEffect(disabled: pieces.isDragging)
         
-        self.updatePickedPieceInput(pieces)
+        self.disableInputDuringAnimation(pieces)
         
         self.setPiecesPositionWithoutAnimation(pieces)
         
@@ -81,7 +81,7 @@ private extension Entities {
             }
     }
     private func setPawnPromotion(_ pieces: Pieces) {
-        for piece in pieces.list {
+        for piece in pieces.all {
             guard piece.chessmen.role == .pawn,
                   let pieceEntity = self.pieceEntity(piece) else {
                 continue
@@ -106,21 +106,8 @@ private extension Entities {
                 }
             }
     }
-    private func updatePickedPieceInput(_ pieces: Pieces) {
-        for piece in pieces.list {
-            let isPicking = (piece == pieces.pickingPiece)
-            guard let pieceBodyEntity = self.pieceBodyEntity(piece) else {
-                assertionFailure(); continue
-            }
-            if isPicking {
-                pieceBodyEntity.components.remove(InputTargetComponent.self)
-            } else {
-                pieceBodyEntity.components.set(InputTargetComponent())
-            }
-        }
-    }
     private func setPiecesPositionWithoutAnimation(_ pieces: Pieces) {
-        for piece in pieces.list {
+        for piece in pieces.all {
             guard !pieces.hasAnimation(piece) else { continue }
             let index = pieces.indices[piece]!
             self.pieceEntity(piece)?.setPosition(index.position,
@@ -380,11 +367,60 @@ private extension Entities {
                                           delay: delay)
             )
     }
-    private func turnOffInputDuringAnimation(_ duration: TimeInterval) {
+    private func disableInputDuringAnimation(_ pieces: Pieces) {
+        guard let duration = Self.Move.wholeDuration(pieces.currentAction) else {
+            self.enableInputWithoutPickedPiece(pieces)
+            return
+        }
+        pieces.all.forEach {
+            self.pieceBodyEntity($0)?
+                .components
+                .remove(InputTargetComponent.self)
+        }
         Task {
-            self.root.children.forEach { $0.components.remove(InputTargetComponent.self) }
             try? await Task.sleep(for: .seconds(duration))
-            self.root.children.forEach { $0.components.set(InputTargetComponent()) }
+            self.enableInputWithoutPickedPiece(pieces)
+        }
+    }
+    private func enableInputWithoutPickedPiece(_ pieces: Pieces) {
+        pieces
+            .all
+            .filter { $0 != pieces.pickingPiece }
+            .forEach {
+                self.pieceBodyEntity($0)?
+                    .components
+                    .set(InputTargetComponent())
+            }
+    }
+    private enum Move {
+        case vertical,
+             horizontal,
+             drop
+        var duration: TimeInterval {
+            switch self {
+                case .vertical: 0.6
+                case .horizontal: 1.0
+                case .drop: 0.7
+            }
+        }
+        static func wholeDuration(_ action: Action?) -> TimeInterval? {
+            switch action {
+                case .tapPieceAndPick(_, _),
+                        .tapPieceAndChangePickingPiece(_, _, _, _),
+                        .tapSquareAndUnpick(_, _):
+                    Self.vertical.duration
+                case .tapPieceAndMoveAndCapture(_, _, _, _),
+                        .tapSquareAndMove(_, _, _):
+                    Self.horizontal.duration
+                    +
+                    Self.vertical.duration
+                case .dropAndBack(_, _, _),
+                        .dropAndMove(_, _, _, _),
+                        .dropAndMoveAndCapture(_, _, _, _, _):
+                    Self.drop.duration
+                default:
+                    nil
+            }
         }
     }
     //func applyDraggingPiecePosition(_ pieceEntity: Entity, _ newPiece: Piece) {

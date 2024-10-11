@@ -9,7 +9,7 @@ struct Pieces {
 extension Pieces: Codable, Equatable {
     mutating func setPreset() { self = Self.preset }
     var isPreset: Bool { self == Self.preset }
-    var list: [Piece] { self.indices.map(\.key) }
+    var all: [Piece] { self.indices.map(\.key) }
     func piece(_ index: Index) -> Piece? {
         self.indices
             .first { $0.value == index }?
