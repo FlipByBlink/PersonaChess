@@ -5,7 +5,7 @@ struct Piece {
     let side: Side
 }
 
-extension Piece: Codable, Equatable, Component, Hashable {
+extension Piece: Codable, Equatable, Component, Hashable, Identifiable {
     static var allCases: [Self] {
         Chessmen.allCases.flatMap { chessmen in
             Side.allCases.map { side in
@@ -20,4 +20,6 @@ extension Piece: Codable, Equatable, Component, Hashable {
         +
         (self.side == .black ? "B" : "W")
     }
+    
+    var id: Self { self }
 }

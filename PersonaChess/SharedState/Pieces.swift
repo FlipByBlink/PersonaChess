@@ -1,4 +1,5 @@
 import RealityKit
+import SwiftUI
 
 struct Pieces {
     private(set) var indices: [Piece: Index]
@@ -81,6 +82,18 @@ extension Pieces: Codable, Equatable {
         var value = self
         value.currentAction = nil
         return value
+    }
+    func offset2DMode(_ piece: Piece) -> CGSize {
+        if case .drag(let draggedPiece, _, _, _) = self.currentAction,
+           draggedPiece == piece,
+           let draggedPiecePosition = self.currentAction?.draggedPiecePosition {
+            return CGSize(width: Size.Point.convertFromMeter_2DMode(draggedPiecePosition.x),
+                          height: Size.Point.convertFromMeter_2DMode(draggedPiecePosition.z))
+        } else {
+            guard let index = self.indices[piece] else { return .zero }
+            return CGSize(width: Size.Point.convertFromMeter_2DMode(index.position.x),
+                          height: Size.Point.convertFromMeter_2DMode(index.position.z))
+        }
     }
     static var preset: Self {
         var indices: [Piece: Index] = [:]

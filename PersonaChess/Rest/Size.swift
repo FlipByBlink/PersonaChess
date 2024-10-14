@@ -30,7 +30,21 @@ enum Size {
             physicalMetrics.convert(Size.Meter.boardInFloorMode, from: .meters)
         }
         static let nonSpatialZOffset: CGFloat = 1400
+        static let squareSize2DMode: CGFloat = 60.0
 #endif
+        static func convertFromMeter_2DMode(_ meterValue: Float) -> CGFloat {
+            let ratio = Float(Self.squareSize2DMode) / Size.Meter.square
+            return CGFloat(meterValue * ratio)
+        }
         static let defaultHeight = 1000.0
     }
 }
+
+
+
+
+#if os(iOS)
+extension Size.Point {
+    static let squareSize2DMode: CGFloat = 40.0
+}
+#endif

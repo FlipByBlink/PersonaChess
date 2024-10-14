@@ -9,20 +9,29 @@ struct ChessView: View {
                 VStack(spacing: 0) {
                     ForEach(0..<8, id: \.self) { row in
                         SquareView(row, column)
-                            .overlay { PieceView(row, column) }
+                            .frame(width: Size.Point.squareSize2DMode,
+                                   height: Size.Point.squareSize2DMode)
                     }
                 }
             }
         }
-        .mask(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .overlay {
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
+            ZStack {
+                ForEach(self.model.sharedState.pieces.all) {
+                    PieceView(piece: $0)
+                        .frame(width: Size.Point.squareSize2DMode,
+                               height: Size.Point.squareSize2DMode)
+                }
+            }
+        }
+        .mask(RoundedRectangle(cornerRadius: 12, style: .continuous))
+        .overlay {
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
                 .stroke(Color(white: 0.75), lineWidth: 3)
         }
         .overlay {
             if self.model.showProgressView { ProgressView() }
         }
-        .frame(width: 330, height: 330)
         .scaleEffect(self.model.sharedState.viewScale)
         .animation(.default, value: self.model.sharedState.viewScale)
     }
@@ -71,42 +80,34 @@ struct SquareView: View {
 
 struct PieceView: View {
     @EnvironmentObject var model: AppModel
-    private var row: Int
-    private var column: Int
-    private var piece: Piece? {
-        self.model.sharedState.pieces.piece(Index(self.row, self.column))
-    }
+    var piece: Piece
     var body: some View {
-        if let piece {
-            ZStack {
-                Color.clear
-                Text(piece.icon)
-                    .font(.system(size: 60))
-                    .minimumScaleFactor(0.2)
-            }
-            .overlay(alignment: .topTrailing) {
-                if self.model.sharedState.pieces.promotions[piece] == true {
-                    Circle().frame(width: 10, height: 10).padding(4)
-                }
-            }
-            .contentShape(.rect)
-            .onTapGesture {
-                guard let entity = {
-                    self.model
-                        .entities
-                        .root
-                        .children
-                        .first { $0.components[Piece.self] == piece }?
-                        .findEntity(named: "body")
-                }() else { return }
-                self.model.handle(.tapPiece(entity))
-            }
-            .border(.pink, width: self.model.sharedState.pieces.pickingPiece == piece ? 3 : 0)
+        ZStack {
+            Color.clear
+            Text(self.piece.icon)
+                .font(.system(size: 60))
+                .minimumScaleFactor(0.2)
         }
-    }
-    init(_ row: Int, _ column: Int) {
-        self.row = row
-        self.column = column
+        .overlay(alignment: .topTrailing) {
+            if self.model.sharedState.pieces.promotions[self.piece] == true {
+                Circle().frame(width: 10, height: 10).padding(4)
+            }
+        }
+        .contentShape(.rect)
+        .onTapGesture {
+            guard let entity = {
+                self.model
+                    .entities
+                    .root
+                    .children
+                    .first { $0.components[Piece.self] == self.piece }?
+                    .findEntity(named: "body")
+            }() else { return }
+            self.model.handle(.tapPiece(entity))
+        }
+        .border(.pink, width: self.model.sharedState.pieces.pickingPiece == self.piece ? 3 : 0)
+        .offset(self.model.sharedState.pieces.offset2DMode(self.piece))
+        .animation(.default, value: self.model.sharedState.pieces.isDragging)
     }
 }
 
