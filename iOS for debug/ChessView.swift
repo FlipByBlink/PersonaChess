@@ -46,7 +46,7 @@ struct SquareView: View {
         .hoverEffect(isEnabled: self.inputtable)
         .onTapGesture {
             if self.inputtable {
-                self.model.execute(.tapSquare(.init(self.row, self.column)))
+                self.model.handle(.tapSquare(.init(self.row, self.column)))
             }
         }
         .onChange(of: self.model.sharedState.pieces) { self.updateInputtable() }
@@ -56,10 +56,13 @@ struct SquareView: View {
         self.column = column
     }
     private func updateInputtable() {
-        let activePieces = self.model.sharedState.pieces.activeOnly
-        if activePieces.contains(where: { $0.picked }),
-           !activePieces.contains(where: { $0.index == .init(self.row, self.column) }) {
-            self.inputtable = true
+        let myIndex = Index(self.row, self.column)
+        if self.model.sharedState.pieces.currentAction?.isPicking == true {
+            if !self.model.sharedState.pieces.indices.values.contains(myIndex) {
+                self.inputtable = true
+            } else {
+                self.inputtable = (self.model.sharedState.pieces.pickingPieceIndex! == myIndex)
+            }
         } else {
             self.inputtable = false
         }
@@ -71,9 +74,7 @@ struct PieceView: View {
     private var row: Int
     private var column: Int
     private var piece: Piece? {
-        self.model.sharedState.pieces.activeOnly.first {
-            $0.index == .init(self.row, self.column)
-        }
+        self.model.sharedState.pieces.piece(Index(self.row, self.column))
     }
     var body: some View {
         if let piece {
@@ -84,23 +85,23 @@ struct PieceView: View {
                     .minimumScaleFactor(0.2)
             }
             .overlay(alignment: .topTrailing) {
-                if piece.promotion {
+                if self.model.sharedState.pieces.promotions[piece] == true {
                     Circle().frame(width: 10, height: 10).padding(4)
                 }
             }
             .contentShape(.rect)
             .onTapGesture {
-                let entity = {
+                guard let entity = {
                     self.model
                         .entities
                         .root
                         .children
-                        .first { ($0.components[Piece.self])?.id == piece.id }!
+                        .first { $0.components[Piece.self] == piece }?
                         .findEntity(named: "body")
-                }()!
-                self.model.execute(.tapPiece(entity))
+                }() else { return }
+                self.model.handle(.tapPiece(entity))
             }
-            .border(.pink, width: piece.picked ? 3 : 0)
+            .border(.pink, width: self.model.sharedState.pieces.pickingPiece == piece ? 3 : 0)
         }
     }
     init(_ row: Int, _ column: Int) {

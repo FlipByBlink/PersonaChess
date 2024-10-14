@@ -48,7 +48,7 @@ struct ToolbarView: View {
                     .labelStyle(.iconOnly)
                 
             }
-            .disabled(self.model.sharedState.pieces.log.isEmpty)
+            .disabled(self.model.sharedState.logs.isEmpty)
             Button {
                 self.model.execute(.reset)
             } label: {
