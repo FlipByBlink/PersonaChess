@@ -3,23 +3,31 @@ import SwiftUI
 struct OpenButton: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
+    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     var body: some View {
         Button {
-            Task { await self.openImmersiveSpace(id: "immersiveSpace") }
+            Task {
+                if self.model.isImmersiveSpaceShown {
+                    await self.dismissImmersiveSpace()
+                } else {
+                    await self.openImmersiveSpace(id: "immersiveSpace")
+                }
+            }
         } label: {
             HStack {
                 Image(systemName: "arrow.up.left.and.arrow.down.right")
                     .imageScale(.small)
-                Text("Open")
+                Text(self.model.isImmersiveSpaceShown ? "Dismiss 3D space" : "Open 3D space")
             }
-            .fontWeight(.bold)
+            .padding(12)
+            .padding(.horizontal, 2)
+            .frame(minHeight: 42)
         }
-        .buttonStyle(.borderedProminent)
-        .tint(.blue)
-        .opacity(self.model.isImmersiveSpaceShown ? 0 : 1)
+        .glassBackgroundEffect()
+        .opacity(self.model.isImmersiveSpaceShown ? 0.7 : 1)
         .animation(.default, value: self.model.isImmersiveSpaceShown)
-#if DEBUG
-        .task { await self.openImmersiveSpace(id: "immersiveSpace") }
-#endif
+//#if DEBUG
+//        .task { await self.openImmersiveSpace(id: "immersiveSpace") }
+//#endif
     }
 }

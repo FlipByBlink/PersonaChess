@@ -20,6 +20,9 @@
 		161A13972C9674990075C57B /* WhatsPersonaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A13952C9674990075C57B /* WhatsPersonaMenu.swift */; };
 		161A13982C9674990075C57B /* WhatsSharePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A13962C9674990075C57B /* WhatsSharePlayMenu.swift */; };
 		162145872CBD070900A6A87E /* handleInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B70FCB2CA41E6400DF33C9 /* handleInteraction.swift */; };
+		162145892CBD0BA400A6A87E /* ChessView_2DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162145882CBD0B9F00A6A87E /* ChessView_2DMode.swift */; };
+		1621458C2CBD1F9600A6A87E /* SquareView_2DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458B2CBD1F9600A6A87E /* SquareView_2DMode.swift */; };
+		1621458E2CBD1FC300A6A87E /* PieceView_2DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458D2CBD1FC300A6A87E /* PieceView_2DMode.swift */; };
 		16261D632C8D1CE200C2822C /* CenterWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D622C8D1CD900C2822C /* CenterWindowView.swift */; };
 		16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D662C8D1E6200C2822C /* GuideMenuView.swift */; };
 		16261D6B2C8D2CBA00C2822C /* ChessMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6A2C8D2CB400C2822C /* ChessMenuView.swift */; };
@@ -190,6 +193,9 @@
 		161A13932C9674320075C57B /* AboutAppLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppLink.swift; sourceTree = "<group>"; };
 		161A13952C9674990075C57B /* WhatsPersonaMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsPersonaMenu.swift; sourceTree = "<group>"; };
 		161A13962C9674990075C57B /* WhatsSharePlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsSharePlayMenu.swift; sourceTree = "<group>"; };
+		162145882CBD0B9F00A6A87E /* ChessView_2DMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessView_2DMode.swift; sourceTree = "<group>"; };
+		1621458B2CBD1F9600A6A87E /* SquareView_2DMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView_2DMode.swift; sourceTree = "<group>"; };
+		1621458D2CBD1FC300A6A87E /* PieceView_2DMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceView_2DMode.swift; sourceTree = "<group>"; };
 		16261D622C8D1CD900C2822C /* CenterWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterWindowView.swift; sourceTree = "<group>"; };
 		16261D662C8D1E6200C2822C /* GuideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideMenuView.swift; sourceTree = "<group>"; };
 		16261D6A2C8D2CB400C2822C /* ChessMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessMenuView.swift; sourceTree = "<group>"; };
@@ -311,10 +317,21 @@
 			path = AppModel;
 			sourceTree = "<group>";
 		};
+		1621458A2CBD1F7A00A6A87E /* ChessView_2DMode */ = {
+			isa = PBXGroup;
+			children = (
+				162145882CBD0B9F00A6A87E /* ChessView_2DMode.swift */,
+				1621458B2CBD1F9600A6A87E /* SquareView_2DMode.swift */,
+				1621458D2CBD1FC300A6A87E /* PieceView_2DMode.swift */,
+			);
+			path = ChessView_2DMode;
+			sourceTree = "<group>";
+		};
 		16261D642C8D1E1E00C2822C /* CenterWindow */ = {
 			isa = PBXGroup;
 			children = (
 				16261D622C8D1CD900C2822C /* CenterWindowView.swift */,
+				1621458A2CBD1F7A00A6A87E /* ChessView_2DMode */,
 				16261D652C8D1E5A00C2822C /* MenuView */,
 				16A34CBD2C8D75FA004192AC /* Rest */,
 			);
@@ -822,6 +839,7 @@
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				161A13972C9674990075C57B /* WhatsPersonaMenu.swift in Sources */,
 				1605C2412CA02F3F00725749 /* excuteAction.swift in Sources */,
+				162145892CBD0BA400A6A87E /* ChessView_2DMode.swift in Sources */,
 				161A13982C9674990075C57B /* WhatsSharePlayMenu.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
 				16261D762C8D6AB500C2822C /* PlaceholderView.swift in Sources */,
@@ -836,6 +854,7 @@
 				16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */,
 				16AE50282B70FE3200D25197 /* Sound.swift in Sources */,
 				16F42C592C91A391006A12E3 /* ActivityState.swift in Sources */,
+				1621458E2CBD1FC300A6A87E /* PieceView_2DMode.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				1605C2462CA02F5500725749 /* sharePlay.swift in Sources */,
 				16780FF62B6881DB005A0244 /* ImmersiveSpaceView.swift in Sources */,
@@ -848,6 +867,7 @@
 				16B70FCD2CA41E6800DF33C9 /* handleInteraction.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,
+				1621458C2CBD1F9600A6A87E /* SquareView_2DMode.swift in Sources */,
 				16EA6A802B68769C00A3A740 /* Side.swift in Sources */,
 				16780FFD2B6893CF005A0244 /* Index.swift in Sources */,
 				16261D6B2C8D2CBA00C2822C /* ChessMenuView.swift in Sources */,

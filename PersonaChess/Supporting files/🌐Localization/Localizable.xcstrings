@@ -96,6 +96,12 @@
     "Close chess" : {
 
     },
+    "Dismiss" : {
+
+    },
+    "Dismiss 3D space" : {
+
+    },
     "Display an environment for screen recording in full space" : {
 
     },
@@ -214,6 +220,9 @@
     "Larger" : {
 
     },
+    "Menu" : {
+
+    },
     "More" : {
 
     },
@@ -239,7 +248,7 @@
         }
       }
     },
-    "Open" : {
+    "Open 3D space" : {
 
     },
     "Open the toolbar on your left wrist." : {

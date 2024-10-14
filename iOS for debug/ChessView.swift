@@ -9,8 +9,8 @@ struct ChessView: View {
                 VStack(spacing: 0) {
                     ForEach(0..<8, id: \.self) { row in
                         SquareView(row, column)
-                            .frame(width: Size.Point.squareSize2DMode,
-                                   height: Size.Point.squareSize2DMode)
+                            .frame(width: Size.Point.squareSize_2DMode,
+                                   height: Size.Point.squareSize_2DMode)
                     }
                 }
             }
@@ -18,9 +18,11 @@ struct ChessView: View {
         .overlay {
             ZStack {
                 ForEach(self.model.sharedState.pieces.all) {
-                    PieceView(piece: $0)
-                        .frame(width: Size.Point.squareSize2DMode,
-                               height: Size.Point.squareSize2DMode)
+                    if let index = self.model.sharedState.pieces.indices[$0] {
+                        PieceView(piece: $0, index: index)
+                            .frame(width: Size.Point.squareSize_2DMode,
+                                   height: Size.Point.squareSize_2DMode)
+                    }
                 }
             }
         }
@@ -104,10 +106,11 @@ struct SquareView: View {
 struct PieceView: View {
     @EnvironmentObject var model: AppModel
     var piece: Piece
+    var index: Index
     var body: some View {
         ZStack {
             Color.clear
-            Text(self.piece.icon)
+            Text(self.piece.chessmen.icon(isFilled: self.piece.side == .black))
                 .font(.system(size: 60))
                 .minimumScaleFactor(0.2)
         }
@@ -129,32 +132,7 @@ struct PieceView: View {
             self.model.handle(.tapPiece(entity))
         }
         .border(.pink, width: self.model.sharedState.pieces.pickingPiece == self.piece ? 3 : 0)
-        .offset(self.model.sharedState.pieces.offset2DMode(self.piece))
+        .offset(self.model.sharedState.pieces.offset_2DMode(self.piece, index))
         .animation(.default, value: self.model.sharedState.pieces.isDragging)
-    }
-}
-
-extension Piece {
-    var icon: String {
-        switch self.side {
-            case .white:
-                switch self.chessmen {
-                    case .pawn0, .pawn1, .pawn2, .pawn3, .pawn4, .pawn5, .pawn6, .pawn7: "♙"
-                    case .rook0, .rook1: "♖"
-                    case .knight0, .knight1: "♘"
-                    case .bishop0, .bishop1: "♗"
-                    case .queen: "♕"
-                    case .king: "♔"
-                }
-            case .black:
-                switch self.chessmen {
-                    case .pawn0, .pawn1, .pawn2, .pawn3, .pawn4, .pawn5, .pawn6, .pawn7: "♟\u{FE0E}"
-                    case .rook0, .rook1: "♜"
-                    case .knight0, .knight1: "♞"
-                    case .bishop0, .bishop1: "♝"
-                    case .queen: "♛"
-                    case .king: "♚"
-                }
-        }
     }
 }

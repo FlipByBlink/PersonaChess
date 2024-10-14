@@ -6,15 +6,27 @@ struct GuideMenuView: View {
     @EnvironmentObject var model: AppModel
     @StateObject private var groupStateObserver = GroupStateObserver()
     var body: some View {
-        List {
-            Section {
-                NavigationLink("What's SharePlay?") { WhatsSharePlayMenu() }
-                NavigationLink("What's Persona?") { WhatsPersonaMenu() }
+        NavigationStack {
+            List {
+                Section {
+                    NavigationLink("What's SharePlay?") { WhatsSharePlayMenu() }
+                    NavigationLink("What's Persona?") { WhatsPersonaMenu() }
+                }
+                if self.model.groupSession == nil {
+                    Section { NavigationLink("Set up SharePlay") { self.setUpMenu() } }
+                }
+                Section { AboutAppLink() }
             }
-            if self.model.groupSession == nil {
-                Section { NavigationLink("Set up SharePlay") { self.setUpMenu() } }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        self.model.isMenuSheetShown = false
+                    } label: {
+                        Label("Dismiss", systemImage: "xmark")
+                    }
+                }
             }
-            Section { AboutAppLink() }
+            .navigationTitle("Menu")
         }
     }
 }
@@ -26,7 +38,7 @@ private extension GuideMenuView {
     var isEligibleForGroupSession: Bool {
 #if targetEnvironment(simulator)
         true
-//        false
+        //false
 #else
         self.groupStateObserver.isEligibleForGroupSession
 #endif
