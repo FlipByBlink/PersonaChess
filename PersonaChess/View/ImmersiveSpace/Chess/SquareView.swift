@@ -38,7 +38,7 @@ struct SquareView: View {
 private extension SquareView {
     private func updateInputtable() {
         let myIndex = Index(self.row, self.column)
-        if self.model.sharedState.pieces.currentAction?.isPicking == true {
+        if self.model.sharedState.pieces.isPicking {
             if !self.model.sharedState.pieces.indices.values.contains(myIndex) {
                 self.inputtable = true
             } else {

@@ -59,14 +59,6 @@ extension Action {
                 []
         }
     }
-    var isPicking: Bool {
-        switch self {
-            case .tapPieceAndPick(_, _), .tapPieceAndChangePickingPiece(_, _, _, _):
-                true
-            default:
-                false
-        }
-    }
     var draggedPiecePosition: SIMD3<Float> {
         .init(x: self.draggedPieceBodyPosition.x,
               y: 0,

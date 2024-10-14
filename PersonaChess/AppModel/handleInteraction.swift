@@ -10,7 +10,7 @@ extension AppModel {
                 guard let tappedPieceIndex = self.sharedState.pieces.indices[tappedPiece] else {
                     assertionFailure(); return //TODO: ここを通る場合がある。要確認。
                 }
-                if self.sharedState.pieces.currentAction?.isPicking == true {
+                if self.sharedState.pieces.isPicking {
                     guard let pickingPiece = self.sharedState.pieces.pickingPiece,
                           let pickingPieceIndex = self.sharedState.pieces.indices[pickingPiece] else {
                         assertionFailure(); return

@@ -36,6 +36,15 @@ extension Pieces: Codable, Equatable {
             false
         }
     }
+    var isPicking: Bool {
+        switch self.currentAction {
+            case .tapPieceAndPick(_, _),
+                    .tapPieceAndChangePickingPiece(_, _, _, _):
+                true
+            default:
+                false
+        }
+    }
     var pickingPiece: Piece? {
         switch self.currentAction {
             case .tapPieceAndPick(let piece, _),
