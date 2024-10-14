@@ -19,6 +19,7 @@
 		161A13942C9674320075C57B /* AboutAppLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A13932C9674320075C57B /* AboutAppLink.swift */; };
 		161A13972C9674990075C57B /* WhatsPersonaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A13952C9674990075C57B /* WhatsPersonaMenu.swift */; };
 		161A13982C9674990075C57B /* WhatsSharePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A13962C9674990075C57B /* WhatsSharePlayMenu.swift */; };
+		162145872CBD070900A6A87E /* handleInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B70FCB2CA41E6400DF33C9 /* handleInteraction.swift */; };
 		16261D632C8D1CE200C2822C /* CenterWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D622C8D1CD900C2822C /* CenterWindowView.swift */; };
 		16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D662C8D1E6200C2822C /* GuideMenuView.swift */; };
 		16261D6B2C8D2CBA00C2822C /* ChessMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6A2C8D2CB400C2822C /* ChessMenuView.swift */; };
@@ -101,7 +102,6 @@
 		167948D42BC6A60B004DFF4B /* Sound.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16AE50272B70FE3100D25197 /* Sound.swift */; };
 		167948D52BC6A60B004DFF4B /* 🗒️StaticInfo.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489F2BC66BA2004DFF4B /* 🗒️StaticInfo.swift */; };
 		167948D62BC6A60B004DFF4B /* ℹ️AboutApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1679489E2BC66BA2004DFF4B /* ℹ️AboutApp.swift */; };
-		168D33612CBCC21C00216A16 /* AppModel_handleInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D33602CBCC20F00216A16 /* AppModel_handleInteraction.swift */; };
 		168D33622CBCC28800216A16 /* kingW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A6D2B6875CA00A3A740 /* kingW.reality */; };
 		168D33632CBCC28800216A16 /* rookW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A652B6875CA00A3A740 /* rookW.reality */; };
 		168D33642CBCC28800216A16 /* bishopW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A672B6875CA00A3A740 /* bishopW.reality */; };
@@ -248,7 +248,6 @@
 		167C0DFB2BDA14C500229714 /* Reality Composer buildin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer buildin.jpg"; sourceTree = "<group>"; };
 		167C0DFC2BDA14C500229714 /* Reality Composer export2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer export2.jpg"; sourceTree = "<group>"; };
 		167C0DFD2BDA14C500229714 /* Reality Composer editor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Reality Composer editor.jpg"; sourceTree = "<group>"; };
-		168D33602CBCC20F00216A16 /* AppModel_handleInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel_handleInteraction.swift; sourceTree = "<group>"; };
 		169333A12B75A7B500B60E0F /* SharedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedState.swift; sourceTree = "<group>"; };
 		169B9E812B68BEA70025FCEB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		169C001F2B4A9BE0001242F5 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -353,7 +352,6 @@
 				16312B732B75D45A006A93D1 /* ChessView.swift */,
 				16312B752B75D45B006A93D1 /* ToolbarView.swift */,
 				16312B742B75D45B006A93D1 /* MainMenu.swift */,
-				168D33602CBCC20F00216A16 /* AppModel_handleInteraction.swift */,
 				16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */,
 				16312B5E2B75D0FD006A93D1 /* Assets.xcassets */,
 				16312B812B75D581006A93D1 /* iOS for debug.entitlements */,
@@ -783,6 +781,7 @@
 				16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */,
 				16312B6C2B75D193006A93D1 /* AppGroupActivity.swift in Sources */,
 				1605C2492CA02F5A00725749 /* rest.swift in Sources */,
+				162145872CBD070900A6A87E /* handleInteraction.swift in Sources */,
 				16312B6F2B75D193006A93D1 /* Action.swift in Sources */,
 				16B70FC92CA41E0300DF33C9 /* Interaction.swift in Sources */,
 				16312B692B75D193006A93D1 /* Pieces.swift in Sources */,
@@ -793,7 +792,6 @@
 				16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */,
 				16312B6B2B75D193006A93D1 /* Sound.swift in Sources */,
 				16312B762B75D45B006A93D1 /* ChessView.swift in Sources */,
-				168D33612CBCC21C00216A16 /* AppModel_handleInteraction.swift in Sources */,
 				1605C2402CA02F3F00725749 /* excuteAction.swift in Sources */,
 				16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */,
 				16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */,

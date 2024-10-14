@@ -95,6 +95,11 @@ extension Pieces: Codable, Equatable {
                           height: Size.Point.convertFromMeter_2DMode(index.position.z))
         }
     }
+    func piece_2DMode(_ location: CGPoint) -> Piece? {
+        let row = Int(location.y / Size.Point.squareSize2DMode)
+        let column = Int(location.x / Size.Point.squareSize2DMode)
+        return self.piece(Index(row, column))
+    }
     static var preset: Self {
         var indices: [Piece: Index] = [:]
         [Chessmen.rook0, .knight0, .bishop0, .queen, .king, .bishop1, .knight1, .rook1]

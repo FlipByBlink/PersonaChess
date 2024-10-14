@@ -14,6 +14,10 @@ enum Size {
         }
         static let pickedOffset: Float = 0.1
         static let spatialZOffset: CGFloat = 1.5
+        static func convertFromPoint_2DMode(_ pointValue: CGFloat) -> Float {
+            let ratio = Self.square / Float(Size.Point.squareSize2DMode)
+            return Float(pointValue) * ratio
+        }
     }
     enum Point {
 #if os(visionOS)

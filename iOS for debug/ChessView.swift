@@ -29,6 +29,29 @@ struct ChessView: View {
             RoundedRectangle(cornerRadius: 12, style: .continuous)
                 .stroke(Color(white: 0.75), lineWidth: 3)
         }
+        .gesture(
+            DragGesture()
+                .onChanged {
+                    guard let piece = self.model.sharedState.pieces.piece_2DMode($0.startLocation) else {
+                        return
+                    }
+                    let dragTranslation = SIMD3<Float>(x: Size.Meter.convertFromPoint_2DMode($0.translation.width),
+                                                       y: 0,
+                                                       z: Size.Meter.convertFromPoint_2DMode($0.translation.height))
+                    self.model.handle(.drag(piece,
+                                            translation: dragTranslation))
+                }
+                .onEnded {
+                    guard let piece = self.model.sharedState.pieces.piece_2DMode($0.startLocation) else {
+                        return
+                    }
+                    let dragTranslation = SIMD3<Float>(x: Size.Meter.convertFromPoint_2DMode($0.translation.width),
+                                                       y: 0,
+                                                       z: Size.Meter.convertFromPoint_2DMode($0.translation.height))
+                    self.model.handle(.drop(piece,
+                                            dragTranslation: dragTranslation))
+                }
+        )
         .overlay {
             if self.model.showProgressView { ProgressView() }
         }

@@ -42,11 +42,7 @@ extension AppModel {
                                                exIndex: pickedPieceIndex,
                                                newIndex: tappedIndex)
                 }
-            case .drag(let gestureValue):
-                let dragTranslation = gestureValue.convert(gestureValue.translation3D,
-                                                           from: .local,
-                                                           to: self.entities.root)
-                let draggedPiece = gestureValue.entity.parent!.components[Piece.self]!
+            case .drag(let draggedPiece, let dragTranslation):
                 guard let draggedPieceIndex = self.sharedState.pieces.indices[draggedPiece] else {
                     assertionFailure(); return
                 }
@@ -55,11 +51,7 @@ extension AppModel {
                                dragTranslation: dragTranslation,
                                isDragStarted: !self.isDragging)
                 self.isDragging = true
-            case .drop(let gestureValue):
-                let dragTranslation = gestureValue.convert(gestureValue.translation3D,
-                                                           from: .local,
-                                                           to: self.entities.root)
-                let droppedPiece = gestureValue.entity.parent!.components[Piece.self]!
+            case .drop(let droppedPiece, let dragTranslation):
                 guard let droppedPieceIndex = self.sharedState.pieces.indices[droppedPiece] else {
                     assertionFailure(); return
                 }

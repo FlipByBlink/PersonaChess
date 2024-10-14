@@ -36,8 +36,22 @@ private extension ChessView {
         DragGesture()
             .targetedToAnyEntity()
             .handActivationBehavior(.pinch)
-            .onChanged { self.model.handle(.drag($0)) }
-            .onEnded { self.model.handle(.drop($0)) }
+            .onChanged {
+                let draggedPiece = $0.entity.parent!.components[Piece.self]!
+                let dragTranslation = $0.convert($0.translation3D,
+                                                 from: .local,
+                                                 to: self.model.entities.root)
+                self.model.handle(.drag(draggedPiece,
+                                        translation: dragTranslation))
+            }
+            .onEnded {
+                let droppedPiece = $0.entity.parent!.components[Piece.self]!
+                let dragTranslation = $0.convert($0.translation3D,
+                                                 from: .local,
+                                                 to: self.model.entities.root)
+                self.model.handle(.drop(droppedPiece,
+                                        dragTranslation: dragTranslation))
+            }
     }
     private var tapGesture: some Gesture {
         TapGesture()
