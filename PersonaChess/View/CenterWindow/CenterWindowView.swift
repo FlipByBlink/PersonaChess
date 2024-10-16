@@ -11,7 +11,11 @@ struct CenterWindowView: View {
                 ChessMenuView()
                     .navigationTitle("PersonaChess")
             } else {
-                ChessView_2DMode()
+                if self.model.isMenuSheetShown {
+                    GuideMenuView()
+                } else {
+                    ChessView_2DMode()
+                }
             }
         }
         .glassBackgroundEffect(in: .rect(cornerRadius: 20, style: .continuous))
@@ -22,12 +26,13 @@ struct CenterWindowView: View {
                 OpenButton()
                 if !self.model.isImmersiveSpaceShown {
                     self.openMenuButton()
+                        .disabled(self.model.isMenuSheetShown)
                 }
             }
             .padding()
         }
-        .sheet(isPresented: self.$model.isMenuSheetShown) { GuideMenuView() }
         .animation(.default, value: self.model.isImmersiveSpaceShown)
+        .animation(.default, value: self.model.isMenuSheetShown)
         .animation(.default, value: self.model.groupSession == nil)
         .task { SharePlayProvider.registerGroupActivity() }
         .onChange(of: self.scenePhase) { _, newValue in

@@ -11,7 +11,7 @@ struct PieceView_2DMode: View {
             Rectangle()
                 .opacity(0.001)
             Text(self.icon)
-                .font(.system(size: 54))
+                .font(.system(size: 54 * (self.isPicking ? 1.4 : 1)))
                 .minimumScaleFactor(0.2)
         }
         .overlay(alignment: .topTrailing) {
@@ -33,11 +33,11 @@ struct PieceView_2DMode: View {
             }() else { return }
             self.model.handle(.tapPiece(entity))
         }
-        .border(.primary, width: self.isPicking ? 3 : 0)
+        //.hoverEffect(isEnabled: !(self.model.isDragging || self.isPicking))
+        .offset(z: self.isPicking ? 30 : 0)
         .offset(self.model.sharedState.pieces.offset_2DMode(self.piece, index))
         .animation(.default, value: self.model.sharedState.pieces.isDragging)
-        .animation(.default.speed(2), value: self.isPicking)
-        .transition(.opacity)
+        .animation(.default, value: self.isPicking)
         .frame(width: Size.Point.squareSize_2DMode,
                height: Size.Point.squareSize_2DMode)
     }

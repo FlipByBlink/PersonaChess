@@ -22,9 +22,10 @@ struct ChessView_2DMode: View {
                     }
                 }
             }
-            .animation(.default, value: self.model.sharedState.pieces.indices)
+            .animation(.default.speed(0.5),
+                       value: self.model.sharedState.pieces.indices)
         }
-        .gesture(self.dragGesture)
+        .highPriorityGesture(self.dragGesture)
         .overlay {
             if self.model.showProgressView { ProgressView() }
         }
