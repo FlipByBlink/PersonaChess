@@ -47,17 +47,18 @@ extension Action {
                 [piece]
             case .tapSquareAndMove(let piece, _, _):
                 [piece]
-            case .drag(let piece, _, _, _):
-                [piece]
             case .dropAndBack(let piece, _, _):
                 [piece]
             case .dropAndMove(let piece, _, _, _):
                 [piece]
             case .dropAndMoveAndCapture(let piece, _, _, let capturedPiece, _):
                 [piece, capturedPiece]
-            case .undo, .reset:
+            case .drag(_, _, _, _), .undo, .reset:
                 []
         }
+    }
+    var hasAnimation: Bool {
+        !self.animatingPieces.isEmpty
     }
     var draggedPiecePosition: SIMD3<Float> {
         .init(x: self.draggedPieceBodyPosition.x,
