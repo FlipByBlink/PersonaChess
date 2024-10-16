@@ -22,8 +22,6 @@ struct ChessView_2DMode: View {
                     }
                 }
             }
-            .animation(.default.speed(0.5),
-                       value: self.model.sharedState.pieces.indices)
         }
         .highPriorityGesture(self.dragGesture)
         .overlay {

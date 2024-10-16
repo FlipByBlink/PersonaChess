@@ -333,6 +333,7 @@ private extension Entities {
     private func playSound(_ piece: Piece,
                            kind: Sound.Piece,
                            delay: TimeInterval = 0) {
+        guard self.root.isActive else { return }
         self.pieceEntity(piece)?
             .findEntity(named: "sound")!
             .playAnimation(
