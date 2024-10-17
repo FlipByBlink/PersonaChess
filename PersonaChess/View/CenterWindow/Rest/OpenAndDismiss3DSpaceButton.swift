@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct OpenButton: View {
+struct OpenAndDismiss3DSpaceButton: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
@@ -25,12 +25,13 @@ struct OpenButton: View {
                 .imageScale(.small)
                 Text(self.model.isImmersiveSpaceShown ? "Dismiss 3D space" : "Open 3D space")
             }
+            .fontWeight(self.model.isImmersiveSpaceShown ? .regular : nil)
             .padding(12)
             .padding(.horizontal, 2)
             .frame(minHeight: 42)
         }
-        .glassBackgroundEffect()
         .opacity(self.model.isImmersiveSpaceShown ? 0.7 : 1)
+        .glassBackgroundEffect()
         .animation(.default, value: self.model.isImmersiveSpaceShown)
 //#if DEBUG
 //        .task { await self.openImmersiveSpace(id: "immersiveSpace") }

@@ -68,10 +68,7 @@ extension Action {
     var draggedPieceBodyYOffset: Float {
         self.draggedPieceBodyPosition.y
     }
-}
-
-private extension Action {
-    private var draggedPieceBodyPosition: SIMD3<Float> {
+    var draggedPieceBodyPosition: SIMD3<Float> {
         switch self {
             case .drag(_, let index, let dragTranslation, _),
                     .dropAndBack(_, let index, let dragTranslation),

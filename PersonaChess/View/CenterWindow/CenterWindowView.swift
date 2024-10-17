@@ -23,7 +23,7 @@ struct CenterWindowView: View {
                height: Size.Point.boardSize_2DMode)
         .ornament(attachmentAnchor: .scene(.bottom), contentAlignment: .top) {
             HStack(spacing: 24) {
-                OpenButton()
+                OpenAndDismiss3DSpaceButton()
                 if !self.model.isImmersiveSpaceShown {
                     self.openMenuButton()
                         .disabled(self.model.isMenuSheetShown)

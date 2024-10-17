@@ -4,12 +4,6 @@ import Foundation
 @MainActor
 class Entities {
     let root = Entity()
-    
-    init() {
-        Pieces.preset.indices.forEach {
-            self.root.addChild(PieceEntity.load($0.key, $0.value))
-        }
-    }
 }
 
 extension Entities {
@@ -23,6 +17,8 @@ extension Entities {
         self.updateHoverEffect(disabled: pieces.isDragging)
         
         self.disableInputDuringAnimation(pieces)
+        
+        self.updatePieceOpacityDuringDragging(pieces)
         
         self.setPiecesPositionWithoutAnimation(pieces)
         
@@ -367,6 +363,33 @@ private extension Entities {
                     .components
                     .set(InputTargetComponent())
             }
+    }
+    private func updatePieceOpacityDuringDragging(_ pieces: Pieces) {
+        for piece in pieces.all {
+            guard piece != pieces.draggingPiece else { continue }
+            self.pieceEntity(piece)?.components[OpacityComponent.self]!.opacity = 1.0
+        }
+        guard let draggingPiece = pieces.draggingPiece,
+              let draggedPieceBodyPosition = pieces.currentAction?.draggedPieceBodyPosition else {
+            return
+        }
+        let closestIndex = Index.calculateFromDrag(bodyPosition: draggedPieceBodyPosition)
+        guard let closestPiece = pieces.piece(closestIndex),
+              draggingPiece != closestPiece,
+              let closestPieceEntity = self.pieceEntity(closestPiece) else {
+            return
+        }
+        let draggedPieceBodyPosition2D = SIMD2<Float>(x: draggedPieceBodyPosition.x,
+                                                      y: draggedPieceBodyPosition.z)
+        let closestIndexPosition2D = SIMD2<Float>(x: closestIndex.position.x,
+                                                  y: closestIndex.position.z)
+        let distance = distance(draggedPieceBodyPosition2D, closestIndexPosition2D)
+        let radius = Size.Meter.square / 2
+        if distance < radius {
+            closestPieceEntity.components[OpacityComponent.self]!.opacity = distance / radius
+        } else {
+            closestPieceEntity.components[OpacityComponent.self]!.opacity = 1.0
+        }
     }
     private func playResetSoundFromBoard(_ currentAction: Action) {
         if currentAction == .reset { Sound.Board.playReset(self.root) }

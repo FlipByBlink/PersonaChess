@@ -3,9 +3,10 @@ import RealityKit
 
 struct SquareView_2DMode: View {
     @EnvironmentObject var model: AppModel
-    private var row: Int
-    private var column: Int
+    var row: Int
+    var column: Int
     @State private var inputtable: Bool = false
+    
     var body: some View {
         Group {
             if (self.column + self.row) % 2 == 1 {
@@ -27,10 +28,9 @@ struct SquareView_2DMode: View {
         .frame(width: Size.Point.squareSize_2DMode,
                height: Size.Point.squareSize_2DMode)
     }
-    init(_ row: Int, _ column: Int) {
-        self.row = row
-        self.column = column
-    }
+}
+
+private extension SquareView_2DMode {
     private func updateInputtable() {
         let myIndex = Index(self.row, self.column)
         if self.model.sharedState.pieces.isPicking {

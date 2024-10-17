@@ -31,8 +31,7 @@
 		16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */; };
 		16261D712C8D585700C2822C /* RecordingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6F2C8D585700C2822C /* RecordingRoom.swift */; };
 		16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */; };
-		16261D742C8D61FE00C2822C /* OpenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenButton.swift */; };
-		16261D762C8D6AB500C2822C /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D752C8D6AAC00C2822C /* PlaceholderView.swift */; };
+		16261D742C8D61FE00C2822C /* OpenAndDismiss3DSpaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */; };
 		16312B5B2B75D0FB006A93D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* App.swift */; };
 		16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5C2B75D0FB006A93D1 /* ContentView.swift */; };
 		16312B5F2B75D0FD006A93D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16312B5E2B75D0FD006A93D1 /* Assets.xcassets */; };
@@ -205,8 +204,7 @@
 		16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewOnHand.swift; sourceTree = "<group>"; };
 		16261D6F2C8D585700C2822C /* RecordingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRoom.swift; sourceTree = "<group>"; };
 		16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialSuggestionDialog.swift; sourceTree = "<group>"; };
-		16261D732C8D61F800C2822C /* OpenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenButton.swift; sourceTree = "<group>"; };
-		16261D752C8D6AAC00C2822C /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
+		16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAndDismiss3DSpaceButton.swift; sourceTree = "<group>"; };
 		16312B582B75D0FB006A93D1 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16312B5A2B75D0FB006A93D1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		16312B5C2B75D0FB006A93D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -615,8 +613,7 @@
 		16A34CBD2C8D75FA004192AC /* Rest */ = {
 			isa = PBXGroup;
 			children = (
-				16261D732C8D61F800C2822C /* OpenButton.swift */,
-				16261D752C8D6AAC00C2822C /* PlaceholderView.swift */,
+				16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -847,11 +844,10 @@
 				162145892CBD0BA400A6A87E /* ChessView_2DMode.swift in Sources */,
 				161A13982C9674990075C57B /* WhatsSharePlayMenu.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
-				16261D762C8D6AB500C2822C /* PlaceholderView.swift in Sources */,
 				1605C24A2CA02F5A00725749 /* rest.swift in Sources */,
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
 				16780FFB2B689304005A0244 /* Pieces.swift in Sources */,
-				16261D742C8D61FE00C2822C /* OpenButton.swift in Sources */,
+				16261D742C8D61FE00C2822C /* OpenAndDismiss3DSpaceButton.swift in Sources */,
 				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
 				16261D712C8D585700C2822C /* RecordingRoom.swift in Sources */,

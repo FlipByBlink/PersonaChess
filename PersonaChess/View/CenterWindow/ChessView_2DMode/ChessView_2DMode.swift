@@ -8,7 +8,8 @@ struct ChessView_2DMode: View {
             ForEach(0..<8, id: \.self) { column in
                 VStack(spacing: 0) {
                     ForEach(0..<8, id: \.self) { row in
-                        SquareView_2DMode(row, column)
+                        SquareView_2DMode(row: row,
+                                          column: column)
                     }
                 }
             }
