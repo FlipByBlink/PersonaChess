@@ -58,15 +58,15 @@ struct ChessMenuView: View {
             Divider()
             Spacer()
             Self.RowView(title: "More") {
-                Menu {
+                HStack {
                     self.menuButtons()
-                } label: {
-                    Image(systemName: "ellipsis")
+                    Menu {
+                        self.menuButtons()
+                    } label: {
+                        Image(systemName: "ellipsis")
+                    }
                 }
             }
-#if DEBUG
-            .ornament(attachmentAnchor: .scene(.top)) { HStack { self.menuButtons() } }
-#endif
             Spacer()
         }
         .padding(.bottom)
@@ -112,30 +112,21 @@ private extension ChessMenuView {
         }
     }
     private func menuButtons() -> some View {
-        Group {
-            Section {
-                Button {
-                    self.model.execute(.undo)
-                } label: {
-                    Label("Undo", systemImage: "arrow.uturn.backward")
-                }
-                .disabled(self.model.sharedState.logs.isEmpty)
-                Button {
-                    self.model.execute(.reset)
-                } label: {
-                    Label("Reset", systemImage: "arrow.counterclockwise")
-                }
-                .disabled(self.model.sharedState.pieces.isPreset)
+        Section {
+            Button {
+                self.model.execute(.undo)
+            } label: {
+                Label("Undo", systemImage: "arrow.uturn.backward")
             }
-            .disabled(!self.model.movingPieces.isEmpty)
-            Section {
-                Button {
-                    Task { await self.dismissImmersiveSpace() }
-                } label: {
-                    Label("Close chess", systemImage: "escape")
-                }
+            .disabled(self.model.sharedState.logs.isEmpty)
+            Button {
+                self.model.execute(.reset)
+            } label: {
+                Label("Reset", systemImage: "arrow.counterclockwise")
             }
+            .disabled(self.model.sharedState.pieces.isPreset)
         }
+        .disabled(!self.model.movingPieces.isEmpty)
     }
     private struct RowView<Content: View>: View {
         let title: LocalizedStringKey

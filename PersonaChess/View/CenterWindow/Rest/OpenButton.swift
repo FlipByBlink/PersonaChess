@@ -15,8 +15,14 @@ struct OpenButton: View {
             }
         } label: {
             HStack {
-                Image(systemName: "arrow.up.left.and.arrow.down.right")
-                    .imageScale(.small)
+                Image(systemName: {
+                    if self.model.isImmersiveSpaceShown {
+                        "arrow.up.forward.and.arrow.down.backward"
+                    } else {
+                        "arrow.up.left.and.arrow.down.right"
+                    }
+                }())
+                .imageScale(.small)
                 Text(self.model.isImmersiveSpaceShown ? "Dismiss 3D space" : "Open 3D space")
             }
             .padding(12)

@@ -22,17 +22,7 @@ struct PieceView_2DMode: View {
             }
         }
         .contentShape(.rect)
-        .onTapGesture {
-            guard let entity = {
-                self.model
-                    .entities
-                    .root
-                    .children
-                    .first { $0.components[Piece.self] == self.piece }?
-                    .findEntity(named: "body")
-            }() else { return }
-            self.model.handle(.tapPiece(entity))
-        }
+        .onTapGesture { self.model.handle(.tapPiece(self.piece)) }
         //.hoverEffect(isEnabled: !(self.model.isDragging || self.isPicking))
         .offset(z: self.isPicking ? 30 : 0)
         .offset(self.model.sharedState.pieces.offset_2DMode(self.piece, index))

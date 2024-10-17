@@ -5,8 +5,7 @@ extension AppModel {
         let action: Action
         
         switch interaction {
-            case .tapPiece(let tappedPieceBodyEntity):
-                let tappedPiece = tappedPieceBodyEntity.parent!.components[Piece.self]!
+            case .tapPiece(let tappedPiece):
                 guard let tappedPieceIndex = self.sharedState.pieces.indices[tappedPiece] else {
                     assertionFailure(); return //TODO: ここを通る場合がある。要確認。
                 }

@@ -56,6 +56,12 @@ private extension ChessView {
     private var tapGesture: some Gesture {
         TapGesture()
             .targetedToAnyEntity()
-            .onEnded { self.model.handle(.tapPiece($0.entity)) }
+            .onEnded {
+                guard let tappedPiece = $0.entity.parent?.components[Piece.self] else {
+                    assertionFailure()
+                    return
+                }
+                self.model.handle(.tapPiece(tappedPiece))
+            }
     }
 }
