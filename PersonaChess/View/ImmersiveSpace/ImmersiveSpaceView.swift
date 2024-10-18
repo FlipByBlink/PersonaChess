@@ -7,7 +7,8 @@ struct ImmersiveSpaceView: View {
         ChessView()
             .scaleEffect(self.model.sharedState.viewScale, anchor: .bottom)
             .offset(z: self.zOffset)
-            .offset(y: -self.model.sharedState.viewHeight)
+            .offset(x: self.model.groupSession == nil ? 1000 : 0,
+                    y: -self.model.sharedState.viewHeight)
             .animation(.default, value: self.model.sharedState.viewScale)
             .animation(.default, value: self.model.sharedState.viewHeight)
             .overlay { ToolbarViewOnHand() }

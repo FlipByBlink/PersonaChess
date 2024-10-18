@@ -13,7 +13,6 @@ struct ContentView: View {
             }
             Spacer()
         }
-        .overlay { if !self.model.movingPieces.isEmpty { ProgressView() } }
         .task { SharePlayProvider.registerGroupActivity() }
         .overlay(alignment: .bottom) {
             if self.floorMode {

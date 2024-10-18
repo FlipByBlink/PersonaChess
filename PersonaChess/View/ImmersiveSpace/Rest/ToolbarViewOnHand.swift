@@ -134,7 +134,7 @@ private extension ToolbarViewOnHand {
                     }
                     .font(.caption)
                 }
-                .disabled(!self.model.movingPieces.isEmpty)
+                .disabled(self.model.isAnimating)
                 .fixedSize()
                 .padding()
                 .padding(.horizontal, 8)

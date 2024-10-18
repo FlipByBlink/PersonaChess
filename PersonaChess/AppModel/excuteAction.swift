@@ -1,6 +1,8 @@
 extension AppModel {
-    func execute(_ action: Action, _ shouldSendMessage: Bool = true) {
-        guard self.movingPieces.isEmpty else { return }
+    func execute(_ action: Action,
+                 _ shouldSendMessage: Bool = true) {
+        
+        guard !self.isAnimating else { return }
         
         self.sharedState.logIfNecessary(action)
         
@@ -11,6 +13,8 @@ extension AppModel {
         if action == .reset, self.groupSession != nil {
             self.sharedState.mode = .sharePlay
         }
+        
+        self.disableInteractionDuringAnimation(action)
         
         self.entities.update(self.sharedState.pieces)
         

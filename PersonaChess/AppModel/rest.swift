@@ -26,6 +26,11 @@ extension AppModel {
         }
         self.sendMessage()
     }
+    func changeExtraLargeMode() {
+        self.lowerToFloor()
+        self.sharedState.viewScale = 10.0
+        self.sendMessage()
+    }
     var upScalable: Bool {
         if self.floorMode {
             self.sharedState.viewScale < 50.0
@@ -50,5 +55,13 @@ extension AppModel {
         self.groupSession != nil
         &&
         self.sharedState.mode == .localOnly
+    }
+    func disableInteractionDuringAnimation(_ action: Action) {
+        guard action.hasAnimation else { return }
+        Task {
+            self.isAnimating = true
+            try? await Task.sleep(for: .seconds(PieceAnimation.wholeDuration(action)))
+            self.isAnimating = false
+        }
     }
 }

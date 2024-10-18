@@ -1,6 +1,6 @@
 import simd
 
-enum Action: Codable, Equatable {
+enum Action {
     case tapPieceAndPick(Piece, Index)
     case tapPieceAndChangePickingPiece(exPickedPiece: Piece,
                                        exPickedPieceIndex: Index,
@@ -34,7 +34,7 @@ enum Action: Codable, Equatable {
     case reset
 }
 
-extension Action {
+extension Action: Codable, Equatable {
     var animatingPieces: [Piece] {
         switch self {
             case .tapPieceAndPick(let piece, _):

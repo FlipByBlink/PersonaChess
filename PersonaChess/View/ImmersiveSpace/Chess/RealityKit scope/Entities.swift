@@ -334,7 +334,7 @@ private extension Entities {
             .findEntity(named: "sound")!
             .playAnimation(
                 try! .makeActionAnimation(for: Sound.asAction(kind,
-                                                              gain: kind == .put ? 14 : 0), //TODO: 再検討
+                                                              gain: kind == .put ? 18 : 0), //TODO: 再検討
                                           delay: delay)
             )
     }

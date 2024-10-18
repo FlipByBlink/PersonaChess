@@ -25,9 +25,10 @@
 		1621458E2CBD1FC300A6A87E /* PieceView_2DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458D2CBD1FC300A6A87E /* PieceView_2DMode.swift */; };
 		162145902CBFD0C700A6A87E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* Animation.swift */; };
 		162145912CBFD0C700A6A87E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* Animation.swift */; };
+		162145932CC2649400A6A87E /* OpenMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162145922CC2649000A6A87E /* OpenMenuButton.swift */; };
 		16261D632C8D1CE200C2822C /* CenterWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D622C8D1CD900C2822C /* CenterWindowView.swift */; };
 		16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D662C8D1E6200C2822C /* GuideMenuView.swift */; };
-		16261D6B2C8D2CBA00C2822C /* ChessMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6A2C8D2CB400C2822C /* ChessMenuView.swift */; };
+		16261D6B2C8D2CBA00C2822C /* MenuViewDuring3DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6A2C8D2CB400C2822C /* MenuViewDuring3DMode.swift */; };
 		16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */; };
 		16261D712C8D585700C2822C /* RecordingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6F2C8D585700C2822C /* RecordingRoom.swift */; };
 		16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */; };
@@ -198,9 +199,10 @@
 		1621458B2CBD1F9600A6A87E /* SquareView_2DMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView_2DMode.swift; sourceTree = "<group>"; };
 		1621458D2CBD1FC300A6A87E /* PieceView_2DMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceView_2DMode.swift; sourceTree = "<group>"; };
 		1621458F2CBFD0C200A6A87E /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		162145922CC2649000A6A87E /* OpenMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMenuButton.swift; sourceTree = "<group>"; };
 		16261D622C8D1CD900C2822C /* CenterWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterWindowView.swift; sourceTree = "<group>"; };
 		16261D662C8D1E6200C2822C /* GuideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideMenuView.swift; sourceTree = "<group>"; };
-		16261D6A2C8D2CB400C2822C /* ChessMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessMenuView.swift; sourceTree = "<group>"; };
+		16261D6A2C8D2CB400C2822C /* MenuViewDuring3DMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewDuring3DMode.swift; sourceTree = "<group>"; };
 		16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewOnHand.swift; sourceTree = "<group>"; };
 		16261D6F2C8D585700C2822C /* RecordingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRoom.swift; sourceTree = "<group>"; };
 		16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialSuggestionDialog.swift; sourceTree = "<group>"; };
@@ -328,6 +330,16 @@
 			path = ChessView_2DMode;
 			sourceTree = "<group>";
 		};
+		162145942CC2801F00A6A87E /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				161A13932C9674320075C57B /* AboutAppLink.swift */,
+				161A13962C9674990075C57B /* WhatsSharePlayMenu.swift */,
+				161A13952C9674990075C57B /* WhatsPersonaMenu.swift */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
 		16261D642C8D1E1E00C2822C /* CenterWindow */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,12 +354,11 @@
 		16261D652C8D1E5A00C2822C /* MenuView */ = {
 			isa = PBXGroup;
 			children = (
+				162145922CC2649000A6A87E /* OpenMenuButton.swift */,
 				16261D662C8D1E6200C2822C /* GuideMenuView.swift */,
-				16261D6A2C8D2CB400C2822C /* ChessMenuView.swift */,
 				161A13912C96733B0075C57B /* AboutOptionsMenu.swift */,
-				161A13932C9674320075C57B /* AboutAppLink.swift */,
-				161A13962C9674990075C57B /* WhatsSharePlayMenu.swift */,
-				161A13952C9674990075C57B /* WhatsPersonaMenu.swift */,
+				16261D6A2C8D2CB400C2822C /* MenuViewDuring3DMode.swift */,
+				162145942CC2801F00A6A87E /* Rest */,
 			);
 			path = MenuView;
 			sourceTree = "<group>";
@@ -866,13 +877,14 @@
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
 				16B70FCA2CA41E0300DF33C9 /* Interaction.swift in Sources */,
 				16B70FCD2CA41E6800DF33C9 /* handleInteraction.swift in Sources */,
+				162145932CC2649400A6A87E /* OpenMenuButton.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,
 				1621458C2CBD1F9600A6A87E /* SquareView_2DMode.swift in Sources */,
 				16EA6A802B68769C00A3A740 /* Side.swift in Sources */,
 				16780FFD2B6893CF005A0244 /* Index.swift in Sources */,
 				162145902CBFD0C700A6A87E /* Animation.swift in Sources */,
-				16261D6B2C8D2CBA00C2822C /* ChessMenuView.swift in Sources */,
+				16261D6B2C8D2CBA00C2822C /* MenuViewDuring3DMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

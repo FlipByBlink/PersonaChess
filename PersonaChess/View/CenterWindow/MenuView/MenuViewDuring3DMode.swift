@@ -1,7 +1,7 @@
 import SwiftUI
 import GroupActivities
 
-struct ChessMenuView: View {
+struct MenuViewDuring3DMode: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     var body: some View {
@@ -59,21 +59,24 @@ struct ChessMenuView: View {
             Spacer()
             Self.RowView(title: "More") {
                 HStack {
-                    self.menuButtons()
+                    self.subButtons()
                     Menu {
-                        self.menuButtons()
+                        self.subButtons()
                     } label: {
                         Image(systemName: "ellipsis")
                     }
                 }
             }
             Spacer()
+            Button("ExtraLargeMode") {
+                self.model.changeExtraLargeMode()
+            }
         }
         .padding(.bottom)
     }
 }
 
-private extension ChessMenuView {
+private extension MenuViewDuring3DMode {
     private struct FloorModeToggle: View {
         @EnvironmentObject var model: AppModel
         @State private var value: Bool = false
@@ -111,7 +114,7 @@ private extension ChessMenuView {
                 .disabled(self.model.myRole == .black)
         }
     }
-    private func menuButtons() -> some View {
+    private func subButtons() -> some View {
         Section {
             Button {
                 self.model.execute(.undo)
@@ -126,7 +129,7 @@ private extension ChessMenuView {
             }
             .disabled(self.model.sharedState.pieces.isPreset)
         }
-        .disabled(!self.model.movingPieces.isEmpty)
+        .disabled(self.model.isAnimating)
     }
     private struct RowView<Content: View>: View {
         let title: LocalizedStringKey

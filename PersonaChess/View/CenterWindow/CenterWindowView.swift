@@ -8,8 +8,7 @@ struct CenterWindowView: View {
         ZStack {
             Color.clear
             if self.model.isImmersiveSpaceShown {
-                ChessMenuView()
-                    .navigationTitle("PersonaChess")
+                MenuViewDuring3DMode()
             } else {
                 if self.model.isMenuSheetShown {
                     GuideMenuView()
@@ -25,8 +24,7 @@ struct CenterWindowView: View {
             HStack(spacing: 24) {
                 OpenAndDismiss3DSpaceButton()
                 if !self.model.isImmersiveSpaceShown {
-                    self.openMenuButton()
-                        .disabled(self.model.isMenuSheetShown)
+                    OpenMenuButton()
                 }
             }
             .padding()
@@ -42,35 +40,5 @@ struct CenterWindowView: View {
                 }
             }
         }
-    }
-}
-
-private extension CenterWindowView {
-    private func openMenuButton() -> some View {
-        Menu {
-            Group {
-                Button {
-                    self.model.execute(.undo)
-                } label: {
-                    Label("Undo", systemImage: "arrow.uturn.backward")
-                }
-                .disabled(self.model.sharedState.logs.isEmpty)
-                Button {
-                    self.model.execute(.reset)
-                } label: {
-                    Label("Reset", systemImage: "arrow.counterclockwise")
-                }
-                .disabled(self.model.sharedState.pieces.isPreset)
-            }
-            .disabled(!self.model.movingPieces.isEmpty)
-        } label: {
-            Text("Menu")
-                .padding(12)
-                .padding(.horizontal, 2)
-                .frame(minHeight: 42)
-        } primaryAction: {
-            self.model.isMenuSheetShown = true
-        }
-        .glassBackgroundEffect()
     }
 }

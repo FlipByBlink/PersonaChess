@@ -1,4 +1,4 @@
-struct SharedState: Codable, Equatable {
+struct SharedState {
     var pieces: Pieces = .preset
     var logs: [Pieces] = []
     var viewHeight: Double = Size.Point.defaultHeight
@@ -6,7 +6,7 @@ struct SharedState: Codable, Equatable {
     var mode: Mode = .localOnly
 }
 
-extension SharedState {
+extension SharedState: Codable, Equatable {
     mutating func clear() {
         self.pieces = .preset
         self.logs = []
