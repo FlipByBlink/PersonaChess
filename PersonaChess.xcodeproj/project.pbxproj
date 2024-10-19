@@ -46,7 +46,7 @@
 		16312B6E2B75D193006A93D1 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
 		16312B6F2B75D193006A93D1 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
-		16312B762B75D45B006A93D1 /* ChessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B732B75D45A006A93D1 /* ChessView.swift */; };
+		16312B762B75D45B006A93D1 /* ChessView_2DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B732B75D45A006A93D1 /* ChessView_2DMode.swift */; };
 		16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B742B75D45B006A93D1 /* MainMenu.swift */; };
 		16312B782B75D45B006A93D1 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B752B75D45B006A93D1 /* ToolbarView.swift */; };
 		16312B792B75D570006A93D1 /* putSound4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1732B74C638009A87A6 /* putSound4.m4a */; };
@@ -130,6 +130,8 @@
 		16B70FCD2CA41E6800DF33C9 /* handleInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B70FCB2CA41E6400DF33C9 /* handleInteraction.swift */; };
 		16C477132B8AC23D00343DD8 /* SharePlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */; };
 		16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */; };
+		16C5D1C22CC479000074F0A1 /* SquareView_2DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C5D1C12CC478FF0074F0A1 /* SquareView_2DMode.swift */; };
+		16C5D1C42CC479410074F0A1 /* PieceView_2DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C5D1C32CC479410074F0A1 /* PieceView_2DMode.swift */; };
 		16EA6A712B6875CA00A3A740 /* rookW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A652B6875CA00A3A740 /* rookW.reality */; };
 		16EA6A722B6875CA00A3A740 /* rookB.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A662B6875CA00A3A740 /* rookB.reality */; };
 		16EA6A732B6875CA00A3A740 /* bishopW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A672B6875CA00A3A740 /* bishopW.reality */; };
@@ -211,7 +213,7 @@
 		16312B5A2B75D0FB006A93D1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		16312B5C2B75D0FB006A93D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16312B5E2B75D0FD006A93D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		16312B732B75D45A006A93D1 /* ChessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessView.swift; sourceTree = "<group>"; };
+		16312B732B75D45A006A93D1 /* ChessView_2DMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessView_2DMode.swift; sourceTree = "<group>"; };
 		16312B742B75D45B006A93D1 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		16312B752B75D45B006A93D1 /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		16312B812B75D581006A93D1 /* iOS for debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS for debug.entitlements"; sourceTree = "<group>"; };
@@ -268,6 +270,8 @@
 		16B70FC82CA41DFF00DF33C9 /* Interaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
 		16B70FCB2CA41E6400DF33C9 /* handleInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = handleInteraction.swift; sourceTree = "<group>"; };
 		16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePlayProvider.swift; sourceTree = "<group>"; };
+		16C5D1C12CC478FF0074F0A1 /* SquareView_2DMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView_2DMode.swift; sourceTree = "<group>"; };
+		16C5D1C32CC479410074F0A1 /* PieceView_2DMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceView_2DMode.swift; sourceTree = "<group>"; };
 		16CB3C902B81B091001CA93D /* HallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallView.swift; sourceTree = "<group>"; };
 		16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrancePiecesView.swift; sourceTree = "<group>"; };
 		16EA6A652B6875CA00A3A740 /* rookW.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = rookW.reality; sourceTree = "<group>"; };
@@ -378,12 +382,9 @@
 			children = (
 				16312B5A2B75D0FB006A93D1 /* App.swift */,
 				16312B5C2B75D0FB006A93D1 /* ContentView.swift */,
-				16312B732B75D45A006A93D1 /* ChessView.swift */,
-				16312B752B75D45B006A93D1 /* ToolbarView.swift */,
-				16312B742B75D45B006A93D1 /* MainMenu.swift */,
-				16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */,
-				16312B5E2B75D0FD006A93D1 /* Assets.xcassets */,
-				16312B812B75D581006A93D1 /* iOS for debug.entitlements */,
+				16C5D1BE2CC4786E0074F0A1 /* ChessView_2DMode */,
+				16C5D1BF2CC478760074F0A1 /* Rest */,
+				16C5D1C02CC4787F0074F0A1 /* Supporting files */,
 			);
 			path = "iOS for debug";
 			sourceTree = "<group>";
@@ -629,6 +630,35 @@
 			path = Rest;
 			sourceTree = "<group>";
 		};
+		16C5D1BE2CC4786E0074F0A1 /* ChessView_2DMode */ = {
+			isa = PBXGroup;
+			children = (
+				16312B732B75D45A006A93D1 /* ChessView_2DMode.swift */,
+				16C5D1C12CC478FF0074F0A1 /* SquareView_2DMode.swift */,
+				16C5D1C32CC479410074F0A1 /* PieceView_2DMode.swift */,
+			);
+			path = ChessView_2DMode;
+			sourceTree = "<group>";
+		};
+		16C5D1BF2CC478760074F0A1 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				16312B742B75D45B006A93D1 /* MainMenu.swift */,
+				16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */,
+				16312B752B75D45B006A93D1 /* ToolbarView.swift */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
+		16C5D1C02CC4787F0074F0A1 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				16312B5E2B75D0FD006A93D1 /* Assets.xcassets */,
+				16312B812B75D581006A93D1 /* iOS for debug.entitlements */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		16EA6A642B6875CA00A3A740 /* Piece */ = {
 			isa = PBXGroup;
 			children = (
@@ -810,6 +840,7 @@
 				16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */,
 				16312B6C2B75D193006A93D1 /* AppGroupActivity.swift in Sources */,
 				1605C2492CA02F5A00725749 /* rest.swift in Sources */,
+				16C5D1C22CC479000074F0A1 /* SquareView_2DMode.swift in Sources */,
 				162145872CBD070900A6A87E /* handleInteraction.swift in Sources */,
 				16312B6F2B75D193006A93D1 /* Action.swift in Sources */,
 				16B70FC92CA41E0300DF33C9 /* Interaction.swift in Sources */,
@@ -821,10 +852,11 @@
 				16312B682B75D193006A93D1 /* SharedState.swift in Sources */,
 				16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */,
 				16312B6B2B75D193006A93D1 /* Sound.swift in Sources */,
-				16312B762B75D45B006A93D1 /* ChessView.swift in Sources */,
+				16312B762B75D45B006A93D1 /* ChessView_2DMode.swift in Sources */,
 				1605C2402CA02F3F00725749 /* excuteAction.swift in Sources */,
 				16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */,
 				16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */,
+				16C5D1C42CC479410074F0A1 /* PieceView_2DMode.swift in Sources */,
 				16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */,
 				1619528C2CBC9CA600E6F171 /* PieceEntity.swift in Sources */,
 				1605C2472CA02F5500725749 /* sharePlay.swift in Sources */,
@@ -896,7 +928,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "iOS for debug/iOS for debug.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS for debug/Supporting files/iOS for debug.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -928,7 +960,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "iOS for debug/iOS for debug.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS for debug/Supporting files/iOS for debug.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";

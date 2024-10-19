@@ -7,7 +7,7 @@ struct ContentView: View {
             MainMenu()
             ToolbarView()
             if !self.floorMode {
-                ChessView()
+                ChessView_2DMode()
                     .offset(y: Size.Point.defaultHeight - self.model.sharedState.viewHeight)
                     .animation(.default, value: self.model.sharedState.viewHeight)
             }
@@ -16,7 +16,8 @@ struct ContentView: View {
         .task { SharePlayProvider.registerGroupActivity() }
         .overlay(alignment: .bottom) {
             if self.floorMode {
-                ChessView().border(.pink, width: 3)
+                ChessView_2DMode()
+                    .border(.pink, width: 3)
             }
         }
         .environmentObject(self.model)
