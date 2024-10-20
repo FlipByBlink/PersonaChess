@@ -2,16 +2,18 @@ import SwiftUI
 
 struct SquareView_2DMode: View {
     @EnvironmentObject var model: AppModel
-    private var row: Int
-    private var column: Int
+    var row: Int
+    var column: Int
     @State private var inputtable: Bool = false
+    
     var body: some View {
         Group {
             if (self.column + self.row) % 2 == 1 {
                 Rectangle()
-                    .fill(.gray.secondary)
+                    .fill(.background)
             } else {
-                Color.clear
+                Rectangle()
+                    .opacity(0.001)
             }
         }
         .contentShape(.rect)
@@ -22,10 +24,8 @@ struct SquareView_2DMode: View {
             }
         }
         .onChange(of: self.model.sharedState.pieces) { self.updateInputtable() }
-    }
-    init(_ row: Int, _ column: Int) {
-        self.row = row
-        self.column = column
+        .frame(width: Size.Point.squareSize_2DMode,
+               height: Size.Point.squareSize_2DMode)
     }
 }
 

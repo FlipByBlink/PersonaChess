@@ -1,5 +1,4 @@
 import SwiftUI
-import RealityKit
 
 struct ChessView_2DMode: View {
     @EnvironmentObject var model: AppModel

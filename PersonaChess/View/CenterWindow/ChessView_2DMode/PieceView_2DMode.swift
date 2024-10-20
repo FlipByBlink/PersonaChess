@@ -1,5 +1,4 @@
 import SwiftUI
-import RealityKit
 
 struct PieceView_2DMode: View {
     @EnvironmentObject var model: AppModel

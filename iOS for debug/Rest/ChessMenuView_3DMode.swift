@@ -4,9 +4,9 @@ struct MenuViewDuring3DMode: View {
     @EnvironmentObject var model: AppModel
     var body: some View {
         VStack {
-            Spacer()
             Self.RowView(title: "Scale") {
                 HStack(spacing: 16) {
+                    Text(self.model.sharedState.viewScale.formatted())
                     Button {
                         self.model.upScale()
                     } label: {
@@ -22,11 +22,10 @@ struct MenuViewDuring3DMode: View {
                 }
                 .buttonBorderShape(.circle)
             }
-            Spacer()
             Divider()
-            Spacer()
             Self.RowView(title: "Height") {
                 HStack(spacing: 16) {
+                    Text(self.model.sharedState.viewHeight.formatted())
                     Button {
                         self.model.raiseBoard()
                     } label: {
@@ -42,19 +41,14 @@ struct MenuViewDuring3DMode: View {
                 .buttonBorderShape(.circle)
                 .disabled(self.model.floorMode)
             }
-            Spacer()
             Divider()
-            Spacer()
             Self.RowView(title: "Floor mode") {
-                Self.FloorModeToggle()
+                HStack(spacing: 16) {
+                    Text(self.model.floorMode.description)
+                    Self.FloorModeToggle()
+                }
             }
-            Spacer()
             Divider()
-            Spacer()
-            self.rolePicker()
-            Spacer()
-            Divider()
-            Spacer()
             Self.RowView(title: "More") {
                 HStack {
                     self.subButtons()
@@ -65,12 +59,14 @@ struct MenuViewDuring3DMode: View {
                     }
                 }
             }
-            Spacer()
+            Divider()
             Button("ExtraLargeMode") {
                 self.model.changeExtraLargeMode()
             }
         }
-        .padding(.bottom)
+        .padding()
+        .border(.gray)
+        .padding(.horizontal)
     }
 }
 
@@ -92,24 +88,6 @@ private extension MenuViewDuring3DMode {
                 .onChange(of: self.model.sharedState.viewHeight == 0) { _, newValue in
                     self.value = newValue
                 }
-        }
-    }
-    private func rolePicker() -> some View {
-        Self.RowView(title: "Role") {
-            if self.model.myRole != nil {
-                Button {
-                    self.model.set(role: nil)
-                } label: {
-                    Label("Audience", systemImage: "xmark")
-                        .labelStyle(.iconOnly)
-                }
-                .scaleEffect(0.8, anchor: .trailing)
-                .buttonBorderShape(.circle)
-            }
-            Button("White") { self.model.set(role: .white) }
-                .disabled(self.model.myRole == .white)
-            Button("Black") { self.model.set(role: .black) }
-                .disabled(self.model.myRole == .black)
         }
     }
     private func subButtons() -> some View {
@@ -139,7 +117,7 @@ private extension MenuViewDuring3DMode {
                 Text(self.title)
                     .foregroundStyle(.secondary)
             }
-            .padding(.horizontal, 44)
+            .padding(.horizontal, 0)
         }
     }
 }
