@@ -22,7 +22,7 @@ struct ChessView_2DMode: View {
                     }
                 }
             }
-            .animation(.default, value: self.model.sharedState.pieces.all)
+//            .animation(.default, value: self.model.sharedState.pieces.all)
         }
         .highPriorityGesture(self.dragGesture)
         .overlay {
