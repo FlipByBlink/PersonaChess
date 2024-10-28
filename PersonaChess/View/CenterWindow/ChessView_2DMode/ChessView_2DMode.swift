@@ -14,16 +14,12 @@ struct ChessView_2DMode: View {
             }
         }
         .overlay {
-            ZStack {
-                ForEach(self.model.sharedState.pieces.all) {
-                    if let index = self.model.sharedState.pieces.indices[$0] {
-                        PieceView_2DMode(piece: $0,
-                                         index: index)
-                    }
-                }
+            ForEach(Piece.allCases) {
+                PieceView_2DMode(piece: $0)
             }
-            .animation(.default, value: self.model.sharedState.pieces.all)
         }
+        .animation(self.animation,
+                   value: self.model.sharedState.pieces.currentAction)
         .highPriorityGesture(self.dragGesture)
         .overlay {
             if self.model.showProgressView { ProgressView() }
@@ -31,7 +27,6 @@ struct ChessView_2DMode: View {
     }
 }
 
-#if os(visionOS)
 private extension ChessView_2DMode {
     private var dragGesture: some Gesture {
         DragGesture()
@@ -60,39 +55,8 @@ private extension ChessView_2DMode {
                                         dragTranslation: dragTranslation))
             }
     }
-}
-
-
-
-
-#elseif os(iOS)
-private extension ChessView_2DMode {
-    private var dragGesture: some Gesture {
-        DragGesture()
-            .onChanged {
-                guard let piece = self.model.sharedState.pieces.piece_2DMode($0.startLocation) else {
-                    return
-                }
-                let dragTranslation = SIMD3<Float>(
-                    x: Size.Meter.convertFromPoint_2DMode($0.translation.width),
-                    y: 0,
-                    z: Size.Meter.convertFromPoint_2DMode($0.translation.height)
-                )
-                self.model.handle(.drag(piece,
-                                        translation: dragTranslation))
-            }
-            .onEnded {
-                guard let piece = self.model.sharedState.pieces.piece_2DMode($0.startLocation) else {
-                    return
-                }
-                let dragTranslation = SIMD3<Float>(
-                    x: Size.Meter.convertFromPoint_2DMode($0.translation.width),
-                    y: 0,
-                    z: Size.Meter.convertFromPoint_2DMode($0.translation.height)
-                )
-                self.model.handle(.drop(piece,
-                                        dragTranslation: dragTranslation))
-            }
+    
+    private var animation: Animation? {
+        PieceAnimation.swiftUIAnimation_2DMode(self.model.sharedState.pieces.currentAction)
     }
 }
-#endif

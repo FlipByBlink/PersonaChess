@@ -1,4 +1,4 @@
-import Foundation
+import SwiftUI
 
 enum PieceAnimation {
     case vertical,
@@ -37,6 +37,27 @@ extension PieceAnimation {
                 
             default:
                 { assertionFailure(); return 0.0 }()
+        }
+    }
+    
+    static func swiftUIAnimation_2DMode(_ action: Action?) -> Animation? {
+        switch action {
+            case .tapPieceAndPick(_, _),
+                    .tapPieceAndChangePickingPiece(_, _, _, _),
+                    .tapSquareAndUnpick(_, _):
+                Animation.easeInOut(duration: Self.vertical.duration)
+            case .tapPieceAndMoveAndCapture(_, _, _, _),
+                    .tapSquareAndMove(_, _, _):
+                Animation.easeInOut(duration: Self.horizontal.duration + Self.vertical.duration)
+            case .dropAndBack(_, _, _),
+                    .dropAndMove(_, _, _, _),
+                    .dropAndMoveAndCapture(_, _, _, _, _):
+                Animation.easeInOut(duration: Self.drop.duration)
+            case .drag(_, _, _, _),
+                    .undo,
+                    .reset,
+                    .none:
+                nil
         }
     }
 }

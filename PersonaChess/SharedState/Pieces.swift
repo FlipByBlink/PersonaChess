@@ -90,7 +90,10 @@ extension Pieces: Codable, Equatable {
         value.currentAction = nil
         return value
     }
-    func offset_2DMode(_ piece: Piece, _ index: Index) -> CGSize {
+    func offset_2DMode(_ piece: Piece) -> CGSize? {
+        guard let index = self.indices[piece] else {
+            return nil
+        }
         if case .drag(let draggedPiece, _, _, _) = self.currentAction,
            draggedPiece == piece,
            let draggedPiecePosition = self.currentAction?.draggedPiecePosition {
