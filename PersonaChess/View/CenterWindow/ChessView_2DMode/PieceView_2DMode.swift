@@ -10,8 +10,7 @@ struct PieceView_2DMode: View {
             Rectangle()
                 .opacity(0.001)
             Text(self.icon)
-                .font(.system(size: 54 * (self.isPicking ? 1.4 : 1)))
-                .minimumScaleFactor(0.2)
+                .font(.system(size: 28 * (self.isPicking ? 1.4 : 1)))
         }
         .overlay(alignment: .topTrailing) {
             if self.model.sharedState.pieces.promotions[self.piece] == true {
@@ -23,7 +22,7 @@ struct PieceView_2DMode: View {
         .contentShape(.rect)
         .onTapGesture { self.model.handle(.tapPiece(self.piece)) }
         //.hoverEffect(isEnabled: !(self.model.isDragging || self.isPicking))
-        .offset(z: self.isPicking ? 30 : 0)
+        .modifier(Self.OffsetZ(isPicking: self.isPicking))
         .offset(self.model.sharedState.pieces.offset_2DMode(self.piece, index))
         .animation(.default, value: self.model.sharedState.pieces.isDragging)
         .animation(.default, value: self.isPicking)
@@ -38,5 +37,14 @@ private extension PieceView_2DMode {
     }
     private var isPicking: Bool {
         self.piece == self.model.sharedState.pieces.pickingPiece
+    }
+    private struct OffsetZ: ViewModifier {
+        var isPicking: Bool
+        func body(content: Content) -> some View {
+            content
+#if os(visionOS)
+                .offset(z: self.isPicking ? 30 : 0)
+#endif
+        }
     }
 }

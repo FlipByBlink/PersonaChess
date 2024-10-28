@@ -31,6 +31,7 @@ struct ChessView_2DMode: View {
     }
 }
 
+#if os(visionOS)
 private extension ChessView_2DMode {
     private var dragGesture: some Gesture {
         DragGesture()
@@ -60,3 +61,38 @@ private extension ChessView_2DMode {
             }
     }
 }
+
+
+
+
+#elseif os(iOS)
+private extension ChessView_2DMode {
+    private var dragGesture: some Gesture {
+        DragGesture()
+            .onChanged {
+                guard let piece = self.model.sharedState.pieces.piece_2DMode($0.startLocation) else {
+                    return
+                }
+                let dragTranslation = SIMD3<Float>(
+                    x: Size.Meter.convertFromPoint_2DMode($0.translation.width),
+                    y: 0,
+                    z: Size.Meter.convertFromPoint_2DMode($0.translation.height)
+                )
+                self.model.handle(.drag(piece,
+                                        translation: dragTranslation))
+            }
+            .onEnded {
+                guard let piece = self.model.sharedState.pieces.piece_2DMode($0.startLocation) else {
+                    return
+                }
+                let dragTranslation = SIMD3<Float>(
+                    x: Size.Meter.convertFromPoint_2DMode($0.translation.width),
+                    y: 0,
+                    z: Size.Meter.convertFromPoint_2DMode($0.translation.height)
+                )
+                self.model.handle(.drop(piece,
+                                        dragTranslation: dragTranslation))
+            }
+    }
+}
+#endif
