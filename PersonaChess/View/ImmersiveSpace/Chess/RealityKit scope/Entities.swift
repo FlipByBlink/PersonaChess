@@ -30,6 +30,19 @@ extension Entities {
         
         self.playResetSoundFromBoard(currentAction)
     }
+    
+    func dragUpdate(_ pieces: Pieces,
+                    _ dragAction: Action) {
+        self.stopAllAnimations()
+        
+        self.updateHoverEffect(disabled: true)
+        
+        self.updatePieceOpacityDuringDragging(pieces)
+        
+        self.setPositionBeforeAnimation(dragAction)
+        
+        self.updateWithAnimation(dragAction)
+    }
 }
 
 private extension Entities {

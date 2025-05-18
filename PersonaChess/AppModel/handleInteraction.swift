@@ -49,7 +49,9 @@ extension AppModel {
                                sourceIndex: draggedPieceIndex,
                                dragTranslation: dragTranslation,
                                isDragStarted: !self.isDragging)
-                self.isDragging = true
+                if self.isDragging == false {
+                    self.isDragging = true
+                }
             case .drop(let droppedPiece, let dragTranslation):
                 guard let droppedPieceIndex = self.sharedState.pieces.indices[droppedPiece] else {
                     assertionFailure(); return
@@ -83,6 +85,10 @@ extension AppModel {
                 self.isDragging = false
         }
         
-        self.execute(action)
+        if self.isDragging {
+            self.execute(dragAction: action)
+        } else {
+            self.execute(action)
+        }
     }
 }

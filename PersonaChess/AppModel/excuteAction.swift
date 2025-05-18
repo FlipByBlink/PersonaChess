@@ -20,4 +20,15 @@ extension AppModel {
         
         if shouldSendMessage { self.sendMessage() }
     }
+    
+    func execute(dragAction: Action,
+                 _ shouldSendMessage: Bool = true) {
+        
+        self.sharedState.pieces.apply(dragAction)
+        
+        self.entities.dragUpdate(self.sharedState.pieces,
+                                 dragAction)
+        
+        if shouldSendMessage { self.sendMessage() }
+    }
 }
