@@ -23,13 +23,9 @@
 		161A13972C9674990075C57B /* WhatsPersonaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A13952C9674990075C57B /* WhatsPersonaMenu.swift */; };
 		161A13982C9674990075C57B /* WhatsSharePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A13962C9674990075C57B /* WhatsSharePlayMenu.swift */; };
 		162145872CBD070900A6A87E /* handleInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B70FCB2CA41E6400DF33C9 /* handleInteraction.swift */; };
-		162145892CBD0BA400A6A87E /* ChessView_2DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162145882CBD0B9F00A6A87E /* ChessView_2DMode.swift */; };
-		1621458C2CBD1F9600A6A87E /* SquareView_2DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458B2CBD1F9600A6A87E /* SquareView_2DMode.swift */; };
-		1621458E2CBD1FC300A6A87E /* PieceView_2DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458D2CBD1FC300A6A87E /* PieceView_2DMode.swift */; };
 		162145902CBFD0C700A6A87E /* PieceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		162145912CBFD0C700A6A87E /* PieceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		162145932CC2649400A6A87E /* OpenMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162145922CC2649000A6A87E /* OpenMenuButton.swift */; };
-		16261D632C8D1CE200C2822C /* CenterWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D622C8D1CD900C2822C /* CenterWindowView.swift */; };
 		16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D662C8D1E6200C2822C /* GuideMenuView.swift */; };
 		16261D6B2C8D2CBA00C2822C /* MenuViewDuring3DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6A2C8D2CB400C2822C /* MenuViewDuring3DMode.swift */; };
 		16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */; };
@@ -151,6 +147,7 @@
 		16F42C612C926AB0006A12E3 /* CustomSpatialTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */; };
 		16F972752B68B77C00711C53 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
 		16F972772B68B7FB00711C53 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
+		1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -289,6 +286,7 @@
 		16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpatialTemplate.swift; sourceTree = "<group>"; };
 		16F972742B68B77C00711C53 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		16F972762B68B7FB00711C53 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeWindowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,16 +319,6 @@
 			path = AppModel;
 			sourceTree = "<group>";
 		};
-		1621458A2CBD1F7A00A6A87E /* ChessView_2DMode */ = {
-			isa = PBXGroup;
-			children = (
-				162145882CBD0B9F00A6A87E /* ChessView_2DMode.swift */,
-				1621458B2CBD1F9600A6A87E /* SquareView_2DMode.swift */,
-				1621458D2CBD1FC300A6A87E /* PieceView_2DMode.swift */,
-			);
-			path = ChessView_2DMode;
-			sourceTree = "<group>";
-		};
 		162145942CC2801F00A6A87E /* Rest */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,17 +327,6 @@
 				161A13952C9674990075C57B /* WhatsPersonaMenu.swift */,
 			);
 			path = Rest;
-			sourceTree = "<group>";
-		};
-		16261D642C8D1E1E00C2822C /* CenterWindow */ = {
-			isa = PBXGroup;
-			children = (
-				16261D622C8D1CD900C2822C /* CenterWindowView.swift */,
-				1621458A2CBD1F7A00A6A87E /* ChessView_2DMode */,
-				16261D652C8D1E5A00C2822C /* MenuView */,
-				16A34CBD2C8D75FA004192AC /* Rest */,
-			);
-			path = CenterWindow;
 			sourceTree = "<group>";
 		};
 		16261D652C8D1E5A00C2822C /* MenuView */ = {
@@ -379,6 +356,9 @@
 			children = (
 				16312B5A2B75D0FB006A93D1 /* App.swift */,
 				16312B5C2B75D0FB006A93D1 /* ContentView.swift */,
+				162145882CBD0B9F00A6A87E /* ChessView_2DMode.swift */,
+				1621458B2CBD1F9600A6A87E /* SquareView_2DMode.swift */,
+				1621458D2CBD1FC300A6A87E /* PieceView_2DMode.swift */,
 				16C5D1BF2CC478760074F0A1 /* Rest */,
 				16C5D1C02CC4787F0074F0A1 /* Supporting files */,
 			);
@@ -424,7 +404,6 @@
 			isa = PBXGroup;
 			children = (
 				16780FF52B6881DB005A0244 /* ImmersiveSpaceView.swift */,
-				1662F1512B89F3C90024763B /* Chess */,
 				16261D6C2C8D577E00C2822C /* Rest */,
 			);
 			path = ImmersiveSpace;
@@ -492,6 +471,7 @@
 		16780FF72B6887B9005A0244 /* Archive */ = {
 			isa = PBXGroup;
 			children = (
+				16261D622C8D1CD900C2822C /* CenterWindowView.swift */,
 				16CB3C902B81B091001CA93D /* HallView.swift */,
 				16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */,
 				169C00282B4A9BE0001242F5 /* ContentView(old).swift */,
@@ -612,7 +592,8 @@
 		16A0F0862B89FE2900EC0FE8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				16261D642C8D1E1E00C2822C /* CenterWindow */,
+				1662F1512B89F3C90024763B /* Chess */,
+				1DD18A272DD9967100CF0645 /* VolumeWindow */,
 				1671A1692B74A866009A87A6 /* ImmersiveSpace */,
 			);
 			path = View;
@@ -673,6 +654,16 @@
 			path = Compatibility;
 			sourceTree = "<group>";
 		};
+		1DD18A272DD9967100CF0645 /* VolumeWindow */ = {
+			isa = PBXGroup;
+			children = (
+				1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */,
+				16261D652C8D1E5A00C2822C /* MenuView */,
+				16A34CBD2C8D75FA004192AC /* Rest */,
+			);
+			path = VolumeWindow;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -721,7 +712,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					16312B572B75D0FB006A93D1 = {
 						CreatedOnToolsVersion = 15.2;
@@ -862,7 +853,6 @@
 				169B9E822B68BEA80025FCEB /* BoardView.swift in Sources */,
 				165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */,
 				161A13922C96733B0075C57B /* AboutOptionsMenu.swift in Sources */,
-				16261D632C8D1CE200C2822C /* CenterWindowView.swift in Sources */,
 				161A13942C9674320075C57B /* AboutAppLink.swift in Sources */,
 				16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */,
 				16428EB42C9FAA2D00E93B86 /* Entities.swift in Sources */,
@@ -870,7 +860,6 @@
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				161A13972C9674990075C57B /* WhatsPersonaMenu.swift in Sources */,
 				1605C2412CA02F3F00725749 /* excuteAction.swift in Sources */,
-				162145892CBD0BA400A6A87E /* ChessView_2DMode.swift in Sources */,
 				161A13982C9674990075C57B /* WhatsSharePlayMenu.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
 				1605C24A2CA02F5A00725749 /* rest.swift in Sources */,
@@ -884,7 +873,6 @@
 				16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */,
 				16AE50282B70FE3200D25197 /* Sound.swift in Sources */,
 				16F42C592C91A391006A12E3 /* ActivityState.swift in Sources */,
-				1621458E2CBD1FC300A6A87E /* PieceView_2DMode.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				1605C2462CA02F5500725749 /* sharePlay.swift in Sources */,
 				16780FF62B6881DB005A0244 /* ImmersiveSpaceView.swift in Sources */,
@@ -896,9 +884,9 @@
 				16B70FCA2CA41E0300DF33C9 /* Interaction.swift in Sources */,
 				16B70FCD2CA41E6800DF33C9 /* handleInteraction.swift in Sources */,
 				162145932CC2649400A6A87E /* OpenMenuButton.swift in Sources */,
+				1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,
-				1621458C2CBD1F9600A6A87E /* SquareView_2DMode.swift in Sources */,
 				16EA6A802B68769C00A3A740 /* Side.swift in Sources */,
 				16780FFD2B6893CF005A0244 /* Index.swift in Sources */,
 				162145902CBFD0C700A6A87E /* PieceAnimation.swift in Sources */,
@@ -918,7 +906,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -950,7 +937,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1009,6 +995,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1073,6 +1060,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1103,7 +1091,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Supporting files/Info.plist";
@@ -1119,7 +1106,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.0;
+				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Debug;
 		};
@@ -1132,7 +1119,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Supporting files/Info.plist";
@@ -1148,7 +1134,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.0;
+				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Release;
 		};

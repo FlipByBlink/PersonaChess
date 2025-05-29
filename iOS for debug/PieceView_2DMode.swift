@@ -9,7 +9,7 @@ struct PieceView_2DMode: View {
                 Rectangle()
                     .opacity(0.001)
                 Text(self.icon)
-                    .font(.system(size: 54 * (self.isPicking ? 1.8 : 1)))
+                    .font(.system(size: 36 * (self.isPicking ? 1.6 : 1)))
             }
             .overlay(alignment: .topTrailing) {
                 if self.model.sharedState.pieces.promotions[self.piece] == true {

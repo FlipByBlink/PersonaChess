@@ -5,17 +5,18 @@ struct PersonaChessApp: App {
     @StateObject private var model = AppModel()
     
     var body: some Scene {
-        WindowGroup(id: "centerWindow") {
-            CenterWindowView()
-                .environmentObject(self.model)
+        WindowGroup(id: "volumeWindow") {
+            VolumeWindowView()
         }
-        .windowResizability(.contentSize)
-        .windowStyle(.plain)
+        .windowStyle(.volumetric)
+        .volumeWorldAlignment(.gravityAligned)
+        //.defaultWorldScaling(.dynamic) TODO: 検討
+        .environmentObject(self.model)
         
         ImmersiveSpace(id: "immersiveSpace") {
             ImmersiveSpaceView()
-                .environmentObject(self.model)
         }
+        .environmentObject(self.model)
     }
     
     init() {

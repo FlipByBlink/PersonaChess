@@ -26,12 +26,9 @@ struct OpenAndDismiss3DSpaceButton: View {
                 Text(self.model.isImmersiveSpaceShown ? "Dismiss 3D space" : "Open 3D space")
             }
             .fontWeight(self.model.isImmersiveSpaceShown ? .regular : nil)
-            .padding(12)
-            .padding(.horizontal, 2)
-            .frame(minHeight: 42)
         }
         .opacity(self.model.isImmersiveSpaceShown ? 0.7 : 1)
-        .glassBackgroundEffect()
+        .buttonStyle(.borderless)
         .animation(.default, value: self.model.isImmersiveSpaceShown)
 //#if DEBUG
 //        .task { await self.openImmersiveSpace(id: "immersiveSpace") }

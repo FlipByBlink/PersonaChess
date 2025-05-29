@@ -79,7 +79,7 @@ extension AppModel {
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             var configuration = SystemCoordinator.Configuration()
                             configuration.supportsGroupImmersiveSpace = true
-                            configuration.spatialTemplatePreference = .custom(CustomSpatialTemplate())
+                            //configuration.spatialTemplatePreference = .custom(CustomSpatialTemplate())
                             systemCoordinator.configuration = configuration
                             groupSession.join()
                         }

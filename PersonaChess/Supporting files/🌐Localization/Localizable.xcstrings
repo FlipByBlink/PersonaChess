@@ -13,6 +13,16 @@
     "\"Use spatial Persona (beta) on Apple Vision Pro - Apple Support”" : {
 
     },
+    "%lf, %lf" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lf, %2$lf"
+          }
+        }
+      }
+    },
     "About App" : {
       "localizations" : {
         "ja" : {
@@ -252,6 +262,9 @@
       }
     },
     "Open 3D space" : {
+
+    },
+    "Open menu" : {
 
     },
     "Open the toolbar on your left wrist." : {

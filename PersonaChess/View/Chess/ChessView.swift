@@ -7,8 +7,12 @@ struct ChessView: View {
     var body: some View {
         RealityView { content, attachments in
             attachments.entity(for: "board")!.name = "board"
-            self.model.entities.root.addChild(attachments.entity(for: "board")!)
+            content.add(attachments.entity(for: "board")!)
             content.add(self.model.entities.root)
+        } update: { content, _ in
+            if !self.model.isImmersiveSpaceShown {
+                content.add(self.model.entities.root)
+            }
         } attachments: {
             Attachment(id: "board") {
                 BoardView()

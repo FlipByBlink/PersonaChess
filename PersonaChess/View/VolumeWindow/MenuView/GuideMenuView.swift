@@ -25,9 +25,13 @@ struct GuideMenuView: View {
                         Label("Dismiss", systemImage: "xmark")
                     }
                 }
+                ToolbarItem(placement: .topBarTrailing) {
+                    OpenAndDismiss3DSpaceButton()
+                }
             }
             .navigationTitle("Menu")
         }
+        .padding(.bottom, 300)
     }
 }
 
