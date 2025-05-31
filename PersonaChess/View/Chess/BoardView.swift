@@ -19,7 +19,7 @@ struct BoardView: View {
         .padding(self.paddingSize)
         .frame(width: self.boardSize, height: self.boardSize)
         .glassBackgroundEffect()
-        .modifier(Self.MenuDuringLargeMode())
+        .modifier(Self.MenuDuringFloorMode())
         .opacity(self.sceneKind == .immersiveSpace ? 0.25 : 1)
         .modifier(Self.SharePlayStateLoading())
         .rotation3DEffect(.degrees(90), axis: .x)
@@ -65,9 +65,10 @@ private extension BoardView {
                 .animation(.default, value: self.model.isSharePlayStateNotSet)
         }
     }
-    private struct MenuDuringLargeMode: ViewModifier { //MARK: WIP
+    private struct MenuDuringFloorMode: ViewModifier { //MARK: WIP
         @EnvironmentObject var model: AppModel
         @Environment(\.sceneKind) var sceneKind
+        @Environment(\.physicalMetrics) var physicalMetrics
         private var isEnabled: Bool {
             self.sceneKind == .volume
             &&
@@ -78,7 +79,6 @@ private extension BoardView {
                 .overlay {
                     if self.isEnabled {
                         VStack(spacing: 24) {
-                            Image(systemName: "chevron.up")
                             HStack(spacing: 16) {
                                 Button {
                                     self.model.upScale()
@@ -94,16 +94,46 @@ private extension BoardView {
                                 .disabled(!self.model.downScalable)
                             }
                             .buttonBorderShape(.circle)
-                            Button("ExtraLargeMode") {
-                                self.model.changeExtraLargeMode()
-                            }
                         }
                         .font(.largeTitle)
-                        .padding(130)
+                        .frame(width: Size.Point.board(self.physicalMetrics)/2,
+                               height: Size.Point.board(self.physicalMetrics)/2)
+                        .modifier(Self.BoardPositionButtons())
                         .glassBackgroundEffect(in: .circle)
                         .offset(z: 32)
                     }
                 }
+        }
+        private struct BoardPositionButtons: ViewModifier {
+            @EnvironmentObject var model: AppModel
+            
+            func body(content: Content) -> some View {
+                content
+                    .overlay(alignment: .top) { self.button(.up) }
+                    .overlay(alignment: .leading) { self.button(.left) }
+                    .overlay(alignment: .trailing) { self.button(.right) }
+                    .overlay(alignment: .bottom) { self.button(.down) }
+            }
+            
+            private func button(_ boardPosition: BoardPosition) -> some View {
+                Button {
+                    if self.model.sharedState.boardPosition == boardPosition {
+                        self.model.sharedState.boardPosition = .center
+                    } else {
+                        self.model.sharedState.boardPosition = boardPosition
+                    }
+                } label: {
+                    Image(systemName: "chevron.\(boardPosition)")
+                        .padding()
+                        .font(.largeTitle)
+                        .opacity(
+                            self.model.sharedState.boardPosition == boardPosition ? 1 : 0.3
+                        )
+                }
+                .buttonBorderShape(.circle)
+                .buttonStyle(.borderless)
+                .padding(24)
+            }
         }
     }
 }

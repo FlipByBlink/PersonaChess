@@ -2,6 +2,7 @@ struct SharedState {
     var pieces: Pieces = .preset
     var logs: [Pieces] = []
     var viewScale: Double = Self.defaultViewScale
+    var boardPosition: BoardPosition = .center
     var mode: Mode = .localOnly
 }
 
@@ -10,6 +11,7 @@ extension SharedState: Codable, Equatable {
         self.pieces = .preset
         self.logs = []
         self.viewScale = Self.defaultViewScale
+        self.boardPosition = .center
     }
     mutating func logIfNecessary(_ action: Action) {
         switch action {

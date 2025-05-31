@@ -6,9 +6,9 @@ struct ImmersiveSpaceView: View {
     var body: some View {
         ChessView()
             .scaleEffect(self.model.sharedState.viewScale,
-                         anchor: .bottomLeading)
+                         anchor: self.anchor)
             .offset(z: self.zOffset)
-            .offset(x: Size.Point.board(self.physicalMetrics))
+            .offset(x: self.xOffset)
             .animation(.default, value: self.model.sharedState.viewScale)
             .overlay { ToolbarViewOnHand() }
             .overlay { SpatialSuggestionDialog() }
@@ -21,11 +21,36 @@ struct ImmersiveSpaceView: View {
 }
 
 private extension ImmersiveSpaceView {
+    private var boardSize: CGFloat { Size.Point.board(self.physicalMetrics) }
     private var zOffset: CGFloat {
         if self.model.spatialSharePlaying == true {
             0
         } else {
-            -Size.Point.nonSpatialZOffset
+            {
+                switch self.model.sharedState.boardPosition {
+                    case .up: -self.boardSize
+                    case .down: self.boardSize
+                    default: 0
+                }
+            }()
+            -
+            Size.Point.nonSpatialZOffset
+        }
+    }
+    private var xOffset: CGFloat {
+        switch self.model.sharedState.boardPosition {
+            case .right: self.boardSize
+            case .left: -self.boardSize
+            default: 0
+        }
+    }
+    private var anchor: UnitPoint3D {
+        switch self.model.sharedState.boardPosition {
+            case .center: .center
+            case .up: .bottomFront
+            case .down: .bottomBack
+            case .right: .bottomLeading
+            case .left: .bottomTrailing
         }
     }
 }

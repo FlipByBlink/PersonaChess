@@ -30,20 +30,15 @@ struct VolumeWindowView: View {
                         .shadow(radius: 6)
                 }
             }
-            .ornament(attachmentAnchor: .scene(.topBack)) {
-                if !self.model.isMenuSheetShown {
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomOrnament) {
+                    OpenAndDismiss3DSpaceButton()
                     Button {
-                        self.model.isMenuSheetShown = true
+                        self.model.isMenuSheetShown.toggle()
                     } label: {
                         Label("Open menu", systemImage: "line.3.horizontal")
                     }
-                    .buttonStyle(.borderless)
-                    .glassBackgroundEffect()
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .bottomOrnament) {
-                    OpenAndDismiss3DSpaceButton()
+                    .opacity(self.model.isMenuSheetShown ? 0.7 : 1)
                 }
             }
             .animation(.default, value: self.model.isMenuSheetShown)
