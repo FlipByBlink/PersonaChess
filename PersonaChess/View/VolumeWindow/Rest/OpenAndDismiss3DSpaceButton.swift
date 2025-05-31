@@ -27,8 +27,6 @@ struct OpenAndDismiss3DSpaceButton: View {
             }
             .fontWeight(self.model.isImmersiveSpaceShown ? .regular : nil)
         }
-        .opacity(self.model.isImmersiveSpaceShown ? 0.7 : 1)
-        .buttonStyle(.borderless)
         .animation(.default, value: self.model.isImmersiveSpaceShown)
 //#if DEBUG
 //        .task { await self.openImmersiveSpace(id: "immersiveSpace") }

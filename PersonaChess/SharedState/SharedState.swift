@@ -1,8 +1,7 @@
 struct SharedState {
     var pieces: Pieces = .preset
     var logs: [Pieces] = []
-    var viewHeight: Double = Size.Point.defaultHeight
-    var viewScale: Double = 1.0
+    var viewScale: Double = Self.defaultViewScale
     var mode: Mode = .localOnly
 }
 
@@ -10,8 +9,7 @@ extension SharedState: Codable, Equatable {
     mutating func clear() {
         self.pieces = .preset
         self.logs = []
-        self.viewHeight = Size.Point.defaultHeight
-        self.viewScale = 1.0
+        self.viewScale = Self.defaultViewScale
     }
     mutating func logIfNecessary(_ action: Action) {
         switch action {
@@ -34,4 +32,8 @@ extension SharedState: Codable, Equatable {
     mutating func clearAllLog() {
         self.logs.removeAll()
     }
+}
+
+extension SharedState {
+    static var defaultViewScale = 4.0
 }

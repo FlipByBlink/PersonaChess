@@ -5,15 +5,15 @@ struct ImmersiveSpaceView: View {
     @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         ChessView()
-            .scaleEffect(self.model.sharedState.viewScale, anchor: .bottom)
+            .scaleEffect(self.model.sharedState.viewScale,
+                         anchor: .bottomLeading)
             .offset(z: self.zOffset)
-            .offset(x: self.model.groupSession == nil ? 1000 : 0,
-                    y: -self.model.sharedState.viewHeight)
+            .offset(x: Size.Point.board(self.physicalMetrics))
             .animation(.default, value: self.model.sharedState.viewScale)
-            .animation(.default, value: self.model.sharedState.viewHeight)
             .overlay { ToolbarViewOnHand() }
             .overlay { SpatialSuggestionDialog() }
             .overlay { RecordingRoom() }
+            .environment(\.sceneKind, .immersiveSpace)
             .handlesExternalEvents(preferring: [], allowing: [])
             .onAppear { self.model.isImmersiveSpaceShown = true }
             .onDisappear { self.model.isImmersiveSpaceShown = false }
@@ -23,8 +23,7 @@ struct ImmersiveSpaceView: View {
 private extension ImmersiveSpaceView {
     private var zOffset: CGFloat {
         if self.model.spatialSharePlaying == true {
-            self.physicalMetrics.convert(Size.Meter.spatialZOffset,
-                                         from: .meters)
+            0
         } else {
             -Size.Point.nonSpatialZOffset
         }

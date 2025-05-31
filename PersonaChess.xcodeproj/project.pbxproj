@@ -147,6 +147,8 @@
 		16F42C612C926AB0006A12E3 /* CustomSpatialTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */; };
 		16F972752B68B77C00711C53 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
 		16F972772B68B7FB00711C53 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
+		1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
+		1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */; };
 /* End PBXBuildFile section */
 
@@ -286,6 +288,7 @@
 		16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpatialTemplate.swift; sourceTree = "<group>"; };
 		16F972742B68B77C00711C53 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		16F972762B68B7FB00711C53 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		1D78ED702DEA7AA4006BD075 /* SceneKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKind.swift; sourceTree = "<group>"; };
 		1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeWindowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -440,6 +443,7 @@
 				16EA6A7F2B68769C00A3A740 /* Side.swift */,
 				165EC69F2B6901670005172B /* Action.swift */,
 				16ECC0F02B85ACE100A1A6B6 /* Mode.swift */,
+				1D78ED702DEA7AA4006BD075 /* SceneKind.swift */,
 			);
 			path = SharedState;
 			sourceTree = "<group>";
@@ -841,6 +845,7 @@
 				16312B6A2B75D193006A93D1 /* Chessmen.swift in Sources */,
 				16312B5B2B75D0FB006A93D1 /* App.swift in Sources */,
 				16F42C612C926AB0006A12E3 /* CustomSpatialTemplate.swift in Sources */,
+				1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */,
 				16ECC0F22B85ACE100A1A6B6 /* Mode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -887,6 +892,7 @@
 				1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,
+				1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */,
 				16EA6A802B68769C00A3A740 /* Side.swift in Sources */,
 				16780FFD2B6893CF005A0244 /* Index.swift in Sources */,
 				162145902CBFD0C700A6A87E /* PieceAnimation.swift in Sources */,
@@ -1106,7 +1112,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.4;
+				XROS_DEPLOYMENT_TARGET = 2.5;
 			};
 			name = Debug;
 		};
@@ -1134,7 +1140,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.4;
+				XROS_DEPLOYMENT_TARGET = 2.5;
 			};
 			name = Release;
 		};

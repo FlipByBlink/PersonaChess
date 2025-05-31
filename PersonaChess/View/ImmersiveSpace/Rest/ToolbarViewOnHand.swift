@@ -41,45 +41,6 @@ private extension ToolbarViewOnHand {
                     HStack(spacing: 28) {
                         HStack(spacing: 12) {
                             Button {
-                                self.model.raiseBoard()
-                            } label: {
-                                Image(systemName: "chevron.up")
-                                    .frame(width: Self.circleButtonSize,
-                                           height: Self.circleButtonSize)
-                            }
-                            Button {
-                                self.model.lowerBoard()
-                            } label: {
-                                Image(systemName: "chevron.down")
-                                    .frame(width: Self.circleButtonSize,
-                                           height: Self.circleButtonSize)
-                            }
-                            .disabled(self.model.floorMode)
-                        }
-                        Button {
-                            if self.model.floorMode {
-                                self.model.separateFromFloor()
-                            } else {
-                                self.model.lowerToFloor()
-                            }
-                        } label: {
-                            Image(systemName: {
-                                if self.model.floorMode {
-                                    "arrow.up.to.line"
-                                } else {
-                                    "arrow.down.to.line"
-                                }
-                            }())
-                            .frame(width: Self.circleButtonSize,
-                                   height: Self.circleButtonSize)
-                        }
-                    }
-                    .buttonBorderShape(.circle)
-                    Divider()
-                        .frame(width: Self.dividerSize)
-                    HStack(spacing: 28) {
-                        HStack(spacing: 12) {
-                            Button {
                                 self.model.upScale()
                             } label: {
                                 Label("Larger", systemImage: "plus")

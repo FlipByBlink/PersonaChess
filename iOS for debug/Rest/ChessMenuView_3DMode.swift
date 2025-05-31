@@ -23,32 +23,6 @@ struct MenuViewDuring3DMode: View {
                 .buttonBorderShape(.circle)
             }
             Divider()
-            Self.RowView(title: "Height") {
-                HStack(spacing: 16) {
-                    Text(self.model.sharedState.viewHeight.formatted())
-                    Button {
-                        self.model.raiseBoard()
-                    } label: {
-                        Image(systemName: "chevron.up")
-                    }
-                    .disabled(self.model.sharedState.viewHeight > 1600)
-                    Button {
-                        self.model.lowerBoard()
-                    } label: {
-                        Image(systemName: "chevron.down")
-                    }
-                }
-                .buttonBorderShape(.circle)
-                .disabled(self.model.floorMode)
-            }
-            Divider()
-            Self.RowView(title: "Floor mode") {
-                HStack(spacing: 16) {
-                    Text(self.model.floorMode.description)
-                    Self.FloorModeToggle()
-                }
-            }
-            Divider()
             Self.RowView(title: "More") {
                 HStack {
                     self.subButtons()
@@ -71,25 +45,6 @@ struct MenuViewDuring3DMode: View {
 }
 
 private extension MenuViewDuring3DMode {
-    private struct FloorModeToggle: View {
-        @EnvironmentObject var model: AppModel
-        @State private var value: Bool = false
-        var body: some View {
-            Toggle("Floor mode", isOn: self.$value)
-                .labelsHidden()
-                .onAppear { self.value = self.model.floorMode }
-                .onChange(of: self.value) { _, newValue in
-                    if newValue {
-                        self.model.lowerToFloor()
-                    } else {
-                        self.model.separateFromFloor()
-                    }
-                }
-                .onChange(of: self.model.sharedState.viewHeight == 0) { _, newValue in
-                    self.value = newValue
-                }
-        }
-    }
     private func subButtons() -> some View {
         Section {
             Button {

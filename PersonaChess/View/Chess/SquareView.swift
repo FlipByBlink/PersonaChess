@@ -2,18 +2,20 @@ import SwiftUI
 
 struct SquareView: View {
     @EnvironmentObject var model: AppModel
+    @Environment(\.sceneKind) var sceneKind
     private var row: Int
     private var column: Int
     @State private var inputtable: Bool = false
     var body: some View {
         Group {
             if (self.column + self.row) % 2 == 1 {
-                if self.model.floorMode {
-                    Rectangle()
-                        .fill(.black.tertiary)
-                } else {
-                    Rectangle()
-                        .fill(.background)
+                switch self.sceneKind {
+                    case .immersiveSpace:
+                        Rectangle()
+                            .fill(.black.tertiary)
+                    case .volume:
+                        Rectangle()
+                            .fill(.background)
                 }
             } else {
                 Rectangle()

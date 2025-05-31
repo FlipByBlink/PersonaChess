@@ -25,32 +25,6 @@ struct MenuViewDuring3DMode: View {
             Spacer()
             Divider()
             Spacer()
-            Self.RowView(title: "Height") {
-                HStack(spacing: 16) {
-                    Button {
-                        self.model.raiseBoard()
-                    } label: {
-                        Image(systemName: "chevron.up")
-                    }
-                    .disabled(self.model.sharedState.viewHeight > 1600)
-                    Button {
-                        self.model.lowerBoard()
-                    } label: {
-                        Image(systemName: "chevron.down")
-                    }
-                }
-                .buttonBorderShape(.circle)
-                .disabled(self.model.floorMode)
-            }
-            Spacer()
-            Divider()
-            Spacer()
-            Self.RowView(title: "Floor mode") {
-                Self.FloorModeToggle()
-            }
-            Spacer()
-            Divider()
-            Spacer()
             self.rolePicker()
             Spacer()
             Divider()
@@ -75,25 +49,6 @@ struct MenuViewDuring3DMode: View {
 }
 
 private extension MenuViewDuring3DMode {
-    private struct FloorModeToggle: View {
-        @EnvironmentObject var model: AppModel
-        @State private var value: Bool = false
-        var body: some View {
-            Toggle("Floor mode", isOn: self.$value)
-                .labelsHidden()
-                .onAppear { self.value = self.model.floorMode }
-                .onChange(of: self.value) { _, newValue in
-                    if newValue {
-                        self.model.lowerToFloor()
-                    } else {
-                        self.model.separateFromFloor()
-                    }
-                }
-                .onChange(of: self.model.sharedState.viewHeight == 0) { _, newValue in
-                    self.value = newValue
-                }
-        }
-    }
     private func rolePicker() -> some View {
         Self.RowView(title: "Role") {
             if self.model.myRole != nil {

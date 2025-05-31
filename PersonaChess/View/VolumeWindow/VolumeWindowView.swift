@@ -11,6 +11,7 @@ struct VolumeWindowView: View {
     
     var body: some View {
         ChessView()
+            .offset(y: -100)
             .frame(height: Size.Point.board(self.physicalMetrics),
                    alignment: .bottom)
             .background {
@@ -40,8 +41,14 @@ struct VolumeWindowView: View {
                     .glassBackgroundEffect()
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .bottomOrnament) {
+                    OpenAndDismiss3DSpaceButton()
+                }
+            }
             .animation(.default, value: self.model.isMenuSheetShown)
             .volumeBaseplateVisibility(.hidden)
+            .environment(\.sceneKind, .volume)
             .task { SharePlayProvider.registerGroupActivity() }
     }
 }
