@@ -24,14 +24,29 @@ struct VolumeWindowView: View {
                         Label("Rotate", systemImage: "arrow.turn.right.up")
                     }
                     Button {
-                        self.model.isMenuSheetShown.toggle()
+                        self.model.execute(.undo)
+                    } label: {
+                        Label("Undo", systemImage: "arrow.uturn.backward")
+                    }
+                    .disabled(self.model.sharedState.logs.isEmpty)
+                    .disabled(self.model.isAnimating)
+                    Button {
+                        self.model.execute(.reset)
+                    } label: {
+                        Label("Reset", systemImage: "arrow.counterclockwise")
+                    }
+                    .disabled(self.model.sharedState.pieces.isPreset)
+                    .disabled(self.model.isAnimating)
+                    Button {
+                        self.model.isGuideMenuShown.toggle()
                     } label: {
                         Label("Open menu", systemImage: "line.3.horizontal")
                     }
-                    .opacity(self.model.isMenuSheetShown ? 0.7 : 1)
+                    .opacity(self.model.isGuideMenuShown ? 0.7 : 1)
+                    .disabled(self.model.groupSession != nil)
                 }
             }
-            .animation(.default, value: self.model.isMenuSheetShown)
+            .animation(.default, value: self.model.isGuideMenuShown)
             .volumeBaseplateVisibility(.hidden)
             .environment(\.sceneKind, .volume)
             .task { SharePlayProvider.registerGroupActivity() }

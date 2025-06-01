@@ -1,6 +1,7 @@
+//MARK: Suspension
+
 import GroupActivities
 
-//MARK: Work in progress
 struct CustomSpatialTemplate: SpatialTemplate {
     enum Role: String, SpatialTemplateRole {
         case white,

@@ -12,7 +12,6 @@ struct ImmersiveSpaceView: View {
             .animation(.default, value: self.model.sharedState.viewScale)
             .overlay { ToolbarViewOnHand() }
             .overlay { SpatialSuggestionDialog() }
-            .overlay { RecordingRoom() }
             .environment(\.sceneKind, .immersiveSpace)
             .handlesExternalEvents(preferring: [], allowing: [])
             .onAppear { self.model.isImmersiveSpaceShown = true }

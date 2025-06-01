@@ -25,11 +25,8 @@
 		162145872CBD070900A6A87E /* handleInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B70FCB2CA41E6400DF33C9 /* handleInteraction.swift */; };
 		162145902CBFD0C700A6A87E /* PieceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		162145912CBFD0C700A6A87E /* PieceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
-		162145932CC2649400A6A87E /* OpenMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162145922CC2649000A6A87E /* OpenMenuButton.swift */; };
 		16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D662C8D1E6200C2822C /* GuideMenuView.swift */; };
-		16261D6B2C8D2CBA00C2822C /* MenuViewDuring3DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6A2C8D2CB400C2822C /* MenuViewDuring3DMode.swift */; };
 		16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */; };
-		16261D712C8D585700C2822C /* RecordingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6F2C8D585700C2822C /* RecordingRoom.swift */; };
 		16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */; };
 		16261D742C8D61FE00C2822C /* OpenAndDismiss3DSpaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */; };
 		16312B5B2B75D0FB006A93D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* App.swift */; };
@@ -56,7 +53,6 @@
 		16312B7F2B75D570006A93D1 /* putSound5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A16E2B74C635009A87A6 /* putSound5.m4a */; };
 		16312B802B75D570006A93D1 /* putSound3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A16D2B74C634009A87A6 /* putSound3.m4a */; };
 		16428EB42C9FAA2D00E93B86 /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16428EB32C9FAA2600E93B86 /* Entities.swift */; };
-		164B839C2C8DC4EE001D9DBA /* CustomSpatialTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */; };
 		165EC69E2B68C5E40005172B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
 		165EC6A02B6901670005172B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC6A12B6913250005172B /* AppGroupActivity.swift */; };
@@ -202,10 +198,8 @@
 		1621458B2CBD1F9600A6A87E /* SquareView_2DMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView_2DMode.swift; sourceTree = "<group>"; };
 		1621458D2CBD1FC300A6A87E /* PieceView_2DMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceView_2DMode.swift; sourceTree = "<group>"; };
 		1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceAnimation.swift; sourceTree = "<group>"; };
-		162145922CC2649000A6A87E /* OpenMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMenuButton.swift; sourceTree = "<group>"; };
 		16261D622C8D1CD900C2822C /* CenterWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterWindowView.swift; sourceTree = "<group>"; };
 		16261D662C8D1E6200C2822C /* GuideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideMenuView.swift; sourceTree = "<group>"; };
-		16261D6A2C8D2CB400C2822C /* MenuViewDuring3DMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewDuring3DMode.swift; sourceTree = "<group>"; };
 		16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewOnHand.swift; sourceTree = "<group>"; };
 		16261D6F2C8D585700C2822C /* RecordingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRoom.swift; sourceTree = "<group>"; };
 		16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialSuggestionDialog.swift; sourceTree = "<group>"; };
@@ -292,6 +286,8 @@
 		16F972762B68B7FB00711C53 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		1D78ED702DEA7AA4006BD075 /* SceneKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKind.swift; sourceTree = "<group>"; };
 		1D78ED732DEB29F2006BD075 /* BoardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPosition.swift; sourceTree = "<group>"; };
+		1D78ED762DEC135B006BD075 /* RolePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePicker.swift; sourceTree = "<group>"; };
+		1D78ED782DEC1394006BD075 /* assign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assign.swift; sourceTree = "<group>"; };
 		1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeWindowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -335,16 +331,14 @@
 			path = Rest;
 			sourceTree = "<group>";
 		};
-		16261D652C8D1E5A00C2822C /* MenuView */ = {
+		16261D652C8D1E5A00C2822C /* GuideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				162145922CC2649000A6A87E /* OpenMenuButton.swift */,
 				16261D662C8D1E6200C2822C /* GuideMenuView.swift */,
 				161A13912C96733B0075C57B /* AboutOptionsMenu.swift */,
-				16261D6A2C8D2CB400C2822C /* MenuViewDuring3DMode.swift */,
 				162145942CC2801F00A6A87E /* Rest */,
 			);
-			path = MenuView;
+			path = GuideMenu;
 			sourceTree = "<group>";
 		};
 		16261D6C2C8D577E00C2822C /* Rest */ = {
@@ -352,7 +346,6 @@
 			children = (
 				16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */,
 				16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */,
-				16261D6F2C8D585700C2822C /* RecordingRoom.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -430,7 +423,6 @@
 			children = (
 				165EC6A12B6913250005172B /* AppGroupActivity.swift */,
 				16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */,
-				164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */,
 			);
 			path = SharePlay;
 			sourceTree = "<group>";
@@ -478,6 +470,8 @@
 		16780FF72B6887B9005A0244 /* Archive */ = {
 			isa = PBXGroup;
 			children = (
+				1D78ED772DEC138F006BD075 /* Role */,
+				16261D6F2C8D585700C2822C /* RecordingRoom.swift */,
 				16261D622C8D1CD900C2822C /* CenterWindowView.swift */,
 				16CB3C902B81B091001CA93D /* HallView.swift */,
 				16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */,
@@ -662,11 +656,21 @@
 			path = Compatibility;
 			sourceTree = "<group>";
 		};
+		1D78ED772DEC138F006BD075 /* Role */ = {
+			isa = PBXGroup;
+			children = (
+				164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */,
+				1D78ED782DEC1394006BD075 /* assign.swift */,
+				1D78ED762DEC135B006BD075 /* RolePicker.swift */,
+			);
+			path = Role;
+			sourceTree = "<group>";
+		};
 		1DD18A272DD9967100CF0645 /* VolumeWindow */ = {
 			isa = PBXGroup;
 			children = (
 				1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */,
-				16261D652C8D1E5A00C2822C /* MenuView */,
+				16261D652C8D1E5A00C2822C /* GuideMenu */,
 				16A34CBD2C8D75FA004192AC /* Rest */,
 			);
 			path = VolumeWindow;
@@ -878,8 +882,6 @@
 				16261D742C8D61FE00C2822C /* OpenAndDismiss3DSpaceButton.swift in Sources */,
 				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
-				16261D712C8D585700C2822C /* RecordingRoom.swift in Sources */,
-				164B839C2C8DC4EE001D9DBA /* CustomSpatialTemplate.swift in Sources */,
 				16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */,
 				1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */,
 				16AE50282B70FE3200D25197 /* Sound.swift in Sources */,
@@ -894,7 +896,6 @@
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
 				16B70FCA2CA41E0300DF33C9 /* Interaction.swift in Sources */,
 				16B70FCD2CA41E6800DF33C9 /* handleInteraction.swift in Sources */,
-				162145932CC2649400A6A87E /* OpenMenuButton.swift in Sources */,
 				1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,
@@ -902,7 +903,6 @@
 				16EA6A802B68769C00A3A740 /* Side.swift in Sources */,
 				16780FFD2B6893CF005A0244 /* Index.swift in Sources */,
 				162145902CBFD0C700A6A87E /* PieceAnimation.swift in Sources */,
-				16261D6B2C8D2CBA00C2822C /* MenuViewDuring3DMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

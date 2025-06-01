@@ -44,19 +44,6 @@ struct AboutOptionsMenu: View {
                 }
                 .padding()
             }
-            
-            Section {
-                Toggle(isOn: self.$model.showRecordingRoom) {
-                    Label("Display an environment for screen recording in full space",
-                          systemImage: "rectangle.dashed.badge.record")
-                }
-            } footer: {
-                Text("""
-                     ・This option is intended to hide the passthrough view.
-                     ・Please set this option before starting SharePlay.
-                     ・This option will not be applied to the call recipient.
-                     """)
-            }
         }
         .navigationTitle("About options")
     }

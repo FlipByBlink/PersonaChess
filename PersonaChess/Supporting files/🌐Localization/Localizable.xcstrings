@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "・This option is intended to hide the passthrough view.\n・Please set this option before starting SharePlay.\n・This option will not be applied to the call recipient." : {
-
-    },
     "“Capture and edit your Persona (beta) on Apple Vision Pro - Apple Support”" : {
 
     },
@@ -62,9 +59,6 @@
         }
       }
     },
-    "Audience" : {
-
-    },
     "Back" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -75,9 +69,6 @@
           }
         }
       }
-    },
-    "Black" : {
-
     },
     "By setting the board’s height equal to the floor, the board will seamlessly integrate with the floor." : {
 
@@ -100,9 +91,6 @@
 
     },
     "Dismiss 3D space" : {
-
-    },
-    "Display an environment for screen recording in full space" : {
 
     },
     "During a FaceTime call, if the person you are speaking with starts SharePlay, you will automatically join SharePlay as well. If you want to join a SharePlay session that has already started, you can do so from the Control Center." : {
@@ -217,9 +205,6 @@
     "Menu" : {
 
     },
-    "More" : {
-
-    },
     "none" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -271,13 +256,7 @@
         }
       }
     },
-    "Role" : {
-
-    },
     "Rotate" : {
-
-    },
-    "Scale" : {
 
     },
     "Set up SharePlay" : {
@@ -391,9 +370,6 @@
           }
         }
       }
-    },
-    "White" : {
-
     },
     "With SharePlay in the FaceTime app, you can play chess in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time." : {
       "localizations" : {

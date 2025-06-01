@@ -25,7 +25,6 @@ extension AppModel {
                             self.sharedState.pieces.setPreset()
                             self.sharedState.mode = .localOnly
                             self.entities.update(self.sharedState.pieces)
-                            self.myRole = nil
                         }
                     }
                     .store(in: &self.subscriptions)
@@ -79,7 +78,6 @@ extension AppModel {
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             var configuration = SystemCoordinator.Configuration()
                             configuration.supportsGroupImmersiveSpace = true
-                            //configuration.spatialTemplatePreference = .custom(CustomSpatialTemplate())
                             systemCoordinator.configuration = configuration
                             groupSession.join()
                         }
@@ -109,20 +107,6 @@ extension AppModel {
             }
         }
     }
-#if os(visionOS)
-    func set(role: CustomSpatialTemplate.Role?) {
-        Task {
-            if let systemCoordinator = await self.groupSession?.systemCoordinator {
-                if let role {
-                    systemCoordinator.assignRole(role)
-                } else {
-                    systemCoordinator.resignRole()
-                }
-                self.myRole = role
-            }
-        }
-    }
-#endif
 }
 
 private extension AppModel {

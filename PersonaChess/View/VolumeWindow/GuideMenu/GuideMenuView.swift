@@ -20,7 +20,7 @@ struct GuideMenuView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        self.model.isMenuSheetShown = false
+                        self.model.isGuideMenuShown = false
                     } label: {
                         Label("Dismiss", systemImage: "xmark")
                     }
@@ -31,7 +31,7 @@ struct GuideMenuView: View {
         .padding(.horizontal, 100)
         .padding(.bottom, 300)
         .opacity(self.model.groupSession == nil ? 1 : 0)
-        .opacity(self.model.isMenuSheetShown ? 1 : 0)
+        .opacity(self.model.isGuideMenuShown ? 1 : 0)
     }
 }
 
