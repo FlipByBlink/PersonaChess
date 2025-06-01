@@ -338,6 +338,7 @@
 		162145942CC2801F00A6A87E /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				161A13912C96733B0075C57B /* AboutOptionsMenu.swift */,
 				161A13932C9674320075C57B /* AboutAppLink.swift */,
 				161A13962C9674990075C57B /* WhatsSharePlayMenu.swift */,
 				161A13952C9674990075C57B /* WhatsPersonaMenu.swift */,
@@ -350,7 +351,6 @@
 			children = (
 				1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */,
 				16261D662C8D1E6200C2822C /* GuideMenuView.swift */,
-				161A13912C96733B0075C57B /* AboutOptionsMenu.swift */,
 				162145942CC2801F00A6A87E /* Rest */,
 			);
 			path = GuideMenu;

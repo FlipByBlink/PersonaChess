@@ -8,7 +8,6 @@ import SwiftUI
 struct VolumeWindowView: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.physicalMetrics) var physicalMetrics
-    
     var body: some View {
         ChessView()
             .offset(y: -100)

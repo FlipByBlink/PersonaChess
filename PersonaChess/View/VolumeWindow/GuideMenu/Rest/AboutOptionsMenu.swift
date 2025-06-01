@@ -25,24 +25,14 @@ struct AboutOptionsMenu: View {
                 .padding()
                 Label("Adjust the size of the board.",
                       systemImage: "plusminus")
-                Label("Adjust the height of the board.",
-                      systemImage: "chevron.up.chevron.down")
+                Image(.floorModeExample)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 360)
+                    .clipShape(.rect(cornerRadius: 6))
+                    .padding()
             } header: {
                 Text("Full space mode")
-            }
-            
-            Section {
-                HStack(spacing: 16) {
-                    Label("By setting the board’s height equal to the floor, the board will seamlessly integrate with the floor.",
-                          systemImage: "arrow.down.to.line")
-                    Spacer()
-                    Image(.floorModeExample)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 360)
-                        .clipShape(.rect(cornerRadius: 6))
-                }
-                .padding()
             }
         }
         .navigationTitle("About options")

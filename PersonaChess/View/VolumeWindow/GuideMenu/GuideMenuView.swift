@@ -1,7 +1,6 @@
 import SwiftUI
 import GroupActivities
 
-//MARK: Work in progress
 struct GuideMenuView: View {
     @EnvironmentObject var model: AppModel
     @StateObject private var groupStateObserver = GroupStateObserver()
@@ -71,6 +70,9 @@ private extension GuideMenuView {
             }
             Section {
                 Text("シェアプレイを開始した後は、ウインドウの高さを変更することはできません。シェアプレイを開始する前にウインドウの高さを調節してください。")
+            }
+            Section {
+                Text("もしSharePlayが適切に操作しない場合、アプリのバージョンが異なる可能性があります。アプリを最新のバージョンへアップデートして再度SharePlay試してみてください。")
             }
         }
     }

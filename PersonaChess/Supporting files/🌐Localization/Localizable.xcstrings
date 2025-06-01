@@ -33,9 +33,6 @@
     "About options" : {
 
     },
-    "Adjust the height of the board." : {
-
-    },
     "Adjust the size of the board." : {
 
     },
@@ -69,9 +66,6 @@
           }
         }
       }
-    },
-    "By setting the board’s height equal to the floor, the board will seamlessly integrate with the floor." : {
-
     },
     "Chess" : {
       "extractionState" : "stale",
@@ -406,6 +400,9 @@
       }
     },
     "シェアプレイを開始した後は、ウインドウの高さを変更することはできません。シェアプレイを開始する前にウインドウの高さを調節してください。" : {
+
+    },
+    "もしSharePlayが適切に操作しない場合、アプリのバージョンが異なる可能性があります。アプリを最新のバージョンへアップデートして再度SharePlay試してみてください。" : {
 
     }
   },
