@@ -22,6 +22,7 @@ struct ChessView: View {
         //.gesture(ExclusiveGesture(self.tapGesture, self.dragGesture)) これだとdrag判定開始までラグが発生する。
         //.gesture(SimultaneousGesture(self.dragGesture, self.tapGesture)) これだとどちらも入力があって複雑になる。
         .gesture(ExclusiveGesture(self.dragGesture, self.tapGesture))
+        .modifier(Self.BoardRotation())
         .frame(width: Size.Point.board(self.physicalMetrics), height: 0)
         .frame(depth: Size.Point.board(self.physicalMetrics))
         .overlay {
@@ -66,5 +67,20 @@ private extension ChessView {
                 }
                 self.model.handle(.tapPiece(tappedPiece))
             }
+    }
+    private struct BoardRotation: ViewModifier {
+        @EnvironmentObject var model: AppModel
+        @Environment(\.sceneKind) var sceneKind
+        private var angle: Double {
+            switch self.sceneKind {
+                case .volume:
+                    self.model.isImmersiveSpaceShown ? 0 : self.model.sharedState.boardAngle
+                case .immersiveSpace:
+                    self.model.isImmersiveSpaceShown ? self.model.sharedState.boardAngle : 0
+            }
+        }
+        func body(content: Content) -> some View {
+            content.rotation3DEffect(.degrees(self.angle), axis: .y)
+        }
     }
 }

@@ -14,18 +14,16 @@ struct OpenAndDismiss3DSpaceButton: View {
                 }
             }
         } label: {
-            HStack {
-                Image(systemName: {
+            Label(
+                self.model.isImmersiveSpaceShown ? "Dismiss 3D space" : "Open 3D space",
+                systemImage: {
                     if self.model.isImmersiveSpaceShown {
                         "arrow.up.forward.and.arrow.down.backward"
                     } else {
                         "arrow.up.left.and.arrow.down.right"
                     }
-                }())
-                .imageScale(.small)
-                Text(self.model.isImmersiveSpaceShown ? "Dismiss 3D space" : "Open 3D space")
-            }
-            .fontWeight(self.model.isImmersiveSpaceShown ? .regular : nil)
+                }()
+            )
         }
         .animation(.default, value: self.model.isImmersiveSpaceShown)
 //#if DEBUG

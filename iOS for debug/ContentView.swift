@@ -11,6 +11,7 @@ struct ContentView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(.gray.tertiary)
                 }
+                .rotationEffect(.degrees(-self.model.sharedState.boardAngle))
             Spacer()
             MenuViewDuring3DMode()
         }

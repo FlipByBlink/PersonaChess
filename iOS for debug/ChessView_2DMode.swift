@@ -4,9 +4,9 @@ struct ChessView_2DMode: View {
     @EnvironmentObject var model: AppModel
     var body: some View {
         HStack(spacing: 0) {
-            ForEach(0..<8, id: \.self) { column in
+            ForEach(0..<8) { column in
                 VStack(spacing: 0) {
-                    ForEach(0..<8, id: \.self) { row in
+                    ForEach(0..<8) { row in
                         SquareView_2DMode(row: row,
                                           column: column)
                     }

@@ -39,10 +39,6 @@ struct MenuViewDuring3DMode: View {
                     }
                 }
             }
-            Spacer()
-            Button("ExtraLargeMode") {
-                self.model.changeExtraLargeMode()
-            }
         }
         .padding(.bottom)
     }

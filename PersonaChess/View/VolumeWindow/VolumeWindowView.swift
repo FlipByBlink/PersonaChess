@@ -14,25 +14,15 @@ struct VolumeWindowView: View {
             .offset(y: -100)
             .frame(height: Size.Point.board(self.physicalMetrics),
                    alignment: .bottom)
-            .background {
-                Rectangle()
-                    .stroke(.pink, lineWidth: 14)
-            }
-            .background {
-                GuideMenuView()
-                    .opacity(self.model.isMenuSheetShown ? 1 : 0)
-            }
-            .overlay {
-                GeometryReader {
-                    Text("\($0.size.width), \($0.size.height)")
-                        .font(.largeTitle.bold())
-                        .foregroundStyle(.white)
-                        .shadow(radius: 6)
-                }
-            }
+            .background { GuideMenuView() }
             .toolbar {
                 ToolbarItemGroup(placement: .bottomOrnament) {
                     OpenAndDismiss3DSpaceButton()
+                    Button {
+                        self.model.rotateBoard()
+                    } label: {
+                        Label("Rotate", systemImage: "arrow.turn.right.up")
+                    }
                     Button {
                         self.model.isMenuSheetShown.toggle()
                     } label: {

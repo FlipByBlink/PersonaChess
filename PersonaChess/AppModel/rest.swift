@@ -1,14 +1,18 @@
+import SwiftUI
+
 extension AppModel {
+    func rotateBoard() {
+        withAnimation {
+            self.sharedState.boardAngle += 90
+        }
+        self.sendMessage()
+    }
     func upScale() {
         self.sharedState.viewScale *= 1.4
         self.sendMessage()
     }
     func downScale() {
         self.sharedState.viewScale *= 0.75
-        self.sendMessage()
-    }
-    func changeExtraLargeMode() {
-        self.sharedState.viewScale = 10.0
         self.sendMessage()
     }
     var upScalable: Bool {

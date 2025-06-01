@@ -13,16 +13,6 @@
     "\"Use spatial Persona (beta) on Apple Vision Pro - Apple Support”" : {
 
     },
-    "%lf, %lf" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lf, %2$lf"
-          }
-        }
-      }
-    },
     "About App" : {
       "localizations" : {
         "ja" : {
@@ -147,9 +137,6 @@
           }
         }
       }
-    },
-    "ExtraLargeMode" : {
-
     },
     "Full space mode" : {
 
@@ -285,6 +272,9 @@
       }
     },
     "Role" : {
+
+    },
+    "Rotate" : {
 
     },
     "Scale" : {

@@ -31,6 +31,7 @@ struct GuideMenuView: View {
         .padding(.horizontal, 100)
         .padding(.bottom, 300)
         .opacity(self.model.groupSession == nil ? 1 : 0)
+        .opacity(self.model.isMenuSheetShown ? 1 : 0)
     }
 }
 

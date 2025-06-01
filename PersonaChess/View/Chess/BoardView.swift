@@ -6,9 +6,9 @@ struct BoardView: View {
     @Environment(\.sceneKind) var sceneKind
     var body: some View {
         HStack(spacing: 0) {
-            ForEach(0..<8, id: \.self) { column in
+            ForEach(0..<8) { column in
                 VStack(spacing: 0) {
-                    ForEach(0..<8, id: \.self) { row in
+                    ForEach(0..<8) { row in
                         SquareView(row, column)
                     }
                 }
@@ -65,37 +65,36 @@ private extension BoardView {
                 .animation(.default, value: self.model.isSharePlayStateNotSet)
         }
     }
-    private struct MenuDuringFloorMode: ViewModifier { //MARK: WIP
+    private struct MenuDuringFloorMode: ViewModifier {
         @EnvironmentObject var model: AppModel
         @Environment(\.sceneKind) var sceneKind
         @Environment(\.physicalMetrics) var physicalMetrics
-        private var isEnabled: Bool {
-            self.sceneKind == .volume
-            &&
-            self.model.isImmersiveSpaceShown
-        }
         func body(content: Content) -> some View {
             content
                 .overlay {
-                    if self.isEnabled {
+                    if self.sceneKind == .volume,
+                       self.model.isImmersiveSpaceShown {
                         VStack(spacing: 24) {
-                            HStack(spacing: 16) {
+                            HStack(spacing: 20) {
+                                let size: CGFloat = 64
                                 Button {
                                     self.model.upScale()
                                 } label: {
                                     Image(systemName: "plus")
+                                        .frame(width: size, height: size)
                                 }
                                 .disabled(!self.model.upScalable)
                                 Button {
                                     self.model.downScale()
                                 } label: {
                                     Image(systemName: "minus")
+                                        .frame(width: size, height: size)
                                 }
                                 .disabled(!self.model.downScalable)
                             }
                             .buttonBorderShape(.circle)
                         }
-                        .font(.largeTitle)
+                        .font(.system(size: 36))
                         .frame(width: Size.Point.board(self.physicalMetrics)/2,
                                height: Size.Point.board(self.physicalMetrics)/2)
                         .modifier(Self.BoardPositionButtons())
@@ -106,21 +105,25 @@ private extension BoardView {
         }
         private struct BoardPositionButtons: ViewModifier {
             @EnvironmentObject var model: AppModel
-            
             func body(content: Content) -> some View {
                 content
-                    .overlay(alignment: .top) { self.button(.up) }
+                    .overlay(alignment: .top) {
+                        if self.model.groupSession != nil { self.button(.up) }
+                    }
                     .overlay(alignment: .leading) { self.button(.left) }
                     .overlay(alignment: .trailing) { self.button(.right) }
-                    .overlay(alignment: .bottom) { self.button(.down) }
+                    .overlay(alignment: .bottom) {
+                        if self.model.groupSession != nil { self.button(.down) }
+                    }
             }
-            
             private func button(_ boardPosition: BoardPosition) -> some View {
                 Button {
-                    if self.model.sharedState.boardPosition == boardPosition {
-                        self.model.sharedState.boardPosition = .center
-                    } else {
-                        self.model.sharedState.boardPosition = boardPosition
+                    withAnimation {
+                        if self.model.sharedState.boardPosition == boardPosition {
+                            self.model.sharedState.boardPosition = .center
+                        } else {
+                            self.model.sharedState.boardPosition = boardPosition
+                        }
                     }
                 } label: {
                     Image(systemName: "chevron.\(boardPosition)")

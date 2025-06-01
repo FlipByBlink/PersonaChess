@@ -4,6 +4,14 @@ struct MenuViewDuring3DMode: View {
     @EnvironmentObject var model: AppModel
     var body: some View {
         VStack {
+            Self.RowView(title: "Angle: \(self.model.sharedState.boardAngle.formatted())") {
+                Button {
+                    self.model.rotateBoard()
+                } label: {
+                    Label("Rotate", systemImage: "arrow.turn.right.up")
+                }
+            }
+            Divider()
             Self.RowView(title: "Scale") {
                 HStack(spacing: 16) {
                     Text(self.model.sharedState.viewScale.formatted())
@@ -32,10 +40,6 @@ struct MenuViewDuring3DMode: View {
                         Image(systemName: "ellipsis")
                     }
                 }
-            }
-            Divider()
-            Button("ExtraLargeMode") {
-                self.model.changeExtraLargeMode()
             }
         }
         .padding()
