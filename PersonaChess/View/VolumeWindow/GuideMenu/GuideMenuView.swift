@@ -69,6 +69,9 @@ private extension GuideMenuView {
             } header: {
                 Text("Join SharePlay")
             }
+            Section {
+                Text("シェアプレイを開始した後は、ウインドウの高さを変更することはできません。シェアプレイを開始する前にウインドウの高さを調節してください。")
+            }
         }
     }
 }

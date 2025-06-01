@@ -147,6 +147,13 @@
 		1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
 		1D78ED752DEB29F9006BD075 /* BoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
+		1D78ED7A2DEC2698006BD075 /* Chessmen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED792DEC2692006BD075 /* Chessmen+Extension.swift */; };
+		1D78ED7C2DEC26DD006BD075 /* Pieces+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED7B2DEC26D9006BD075 /* Pieces+Extension.swift */; };
+		1D78ED7E2DEC2960006BD075 /* Size+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED7D2DEC295C006BD075 /* Size+Extensions.swift */; };
+		1D78ED812DEC2A19006BD075 /* RotateBoardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED802DEC2A16006BD075 /* RotateBoardButton.swift */; };
+		1D78ED832DEC2A96006BD075 /* UndoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED822DEC2A96006BD075 /* UndoButton.swift */; };
+		1D78ED852DEC2AA6006BD075 /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED842DEC2AA6006BD075 /* ResetButton.swift */; };
+		1D78ED872DEC2AB4006BD075 /* OpenGuideMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */; };
 		1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */; };
 /* End PBXBuildFile section */
 
@@ -288,6 +295,13 @@
 		1D78ED732DEB29F2006BD075 /* BoardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPosition.swift; sourceTree = "<group>"; };
 		1D78ED762DEC135B006BD075 /* RolePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePicker.swift; sourceTree = "<group>"; };
 		1D78ED782DEC1394006BD075 /* assign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assign.swift; sourceTree = "<group>"; };
+		1D78ED792DEC2692006BD075 /* Chessmen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chessmen+Extension.swift"; sourceTree = "<group>"; };
+		1D78ED7B2DEC26D9006BD075 /* Pieces+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pieces+Extension.swift"; sourceTree = "<group>"; };
+		1D78ED7D2DEC295C006BD075 /* Size+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Size+Extensions.swift"; sourceTree = "<group>"; };
+		1D78ED802DEC2A16006BD075 /* RotateBoardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateBoardButton.swift; sourceTree = "<group>"; };
+		1D78ED822DEC2A96006BD075 /* UndoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoButton.swift; sourceTree = "<group>"; };
+		1D78ED842DEC2AA6006BD075 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
+		1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGuideMenuButton.swift; sourceTree = "<group>"; };
 		1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeWindowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -334,6 +348,7 @@
 		16261D652C8D1E5A00C2822C /* GuideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */,
 				16261D662C8D1E6200C2822C /* GuideMenuView.swift */,
 				161A13912C96733B0075C57B /* AboutOptionsMenu.swift */,
 				162145942CC2801F00A6A87E /* Rest */,
@@ -597,6 +612,7 @@
 				1662F1512B89F3C90024763B /* Chess */,
 				1DD18A272DD9967100CF0645 /* VolumeWindow */,
 				1671A1692B74A866009A87A6 /* ImmersiveSpace */,
+				1D78ED7F2DEC29EE006BD075 /* Rest */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -612,6 +628,9 @@
 		16C5D1BF2CC478760074F0A1 /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				1D78ED7B2DEC26D9006BD075 /* Pieces+Extension.swift */,
+				1D78ED792DEC2692006BD075 /* Chessmen+Extension.swift */,
+				1D78ED7D2DEC295C006BD075 /* Size+Extensions.swift */,
 				16312B742B75D45B006A93D1 /* MainMenu.swift */,
 				16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */,
 				16312B752B75D45B006A93D1 /* ChessMenuView_3DMode.swift */,
@@ -664,6 +683,16 @@
 				1D78ED762DEC135B006BD075 /* RolePicker.swift */,
 			);
 			path = Role;
+			sourceTree = "<group>";
+		};
+		1D78ED7F2DEC29EE006BD075 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				1D78ED802DEC2A16006BD075 /* RotateBoardButton.swift */,
+				1D78ED822DEC2A96006BD075 /* UndoButton.swift */,
+				1D78ED842DEC2AA6006BD075 /* ResetButton.swift */,
+			);
+			path = Rest;
 			sourceTree = "<group>";
 		};
 		1DD18A272DD9967100CF0645 /* VolumeWindow */ = {
@@ -839,9 +868,12 @@
 				16312B6D2B75D193006A93D1 /* Side.swift in Sources */,
 				16312B6E2B75D193006A93D1 /* Index.swift in Sources */,
 				16312B672B75D193006A93D1 /* Piece.swift in Sources */,
+				1D78ED7E2DEC2960006BD075 /* Size+Extensions.swift in Sources */,
 				16312B682B75D193006A93D1 /* SharedState.swift in Sources */,
 				16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */,
 				16312B6B2B75D193006A93D1 /* Sound.swift in Sources */,
+				1D78ED7A2DEC2698006BD075 /* Chessmen+Extension.swift in Sources */,
+				1D78ED7C2DEC26DD006BD075 /* Pieces+Extension.swift in Sources */,
 				1605C2402CA02F3F00725749 /* excuteAction.swift in Sources */,
 				161774672CCFB0020075E8F0 /* ChessView_2DMode.swift in Sources */,
 				161774692CCFB0B80075E8F0 /* SquareView_2DMode.swift in Sources */,
@@ -876,8 +908,11 @@
 				1605C2412CA02F3F00725749 /* excuteAction.swift in Sources */,
 				161A13982C9674990075C57B /* WhatsSharePlayMenu.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
+				1D78ED872DEC2AB4006BD075 /* OpenGuideMenuButton.swift in Sources */,
+				1D78ED852DEC2AA6006BD075 /* ResetButton.swift in Sources */,
 				1605C24A2CA02F5A00725749 /* rest.swift in Sources */,
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
+				1D78ED812DEC2A19006BD075 /* RotateBoardButton.swift in Sources */,
 				16780FFB2B689304005A0244 /* Pieces.swift in Sources */,
 				16261D742C8D61FE00C2822C /* OpenAndDismiss3DSpaceButton.swift in Sources */,
 				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
@@ -895,6 +930,7 @@
 				16C477132B8AC23D00343DD8 /* SharePlayProvider.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
 				16B70FCA2CA41E0300DF33C9 /* Interaction.swift in Sources */,
+				1D78ED832DEC2A96006BD075 /* UndoButton.swift in Sources */,
 				16B70FCD2CA41E6800DF33C9 /* handleInteraction.swift in Sources */,
 				1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,

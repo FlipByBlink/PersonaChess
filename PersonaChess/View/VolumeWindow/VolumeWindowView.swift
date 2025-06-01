@@ -18,32 +18,10 @@ struct VolumeWindowView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .bottomOrnament) {
                     OpenAndDismiss3DSpaceButton()
-                    Button {
-                        self.model.rotateBoard()
-                    } label: {
-                        Label("Rotate", systemImage: "arrow.turn.right.up")
-                    }
-                    Button {
-                        self.model.execute(.undo)
-                    } label: {
-                        Label("Undo", systemImage: "arrow.uturn.backward")
-                    }
-                    .disabled(self.model.sharedState.logs.isEmpty)
-                    .disabled(self.model.isAnimating)
-                    Button {
-                        self.model.execute(.reset)
-                    } label: {
-                        Label("Reset", systemImage: "arrow.counterclockwise")
-                    }
-                    .disabled(self.model.sharedState.pieces.isPreset)
-                    .disabled(self.model.isAnimating)
-                    Button {
-                        self.model.isGuideMenuShown.toggle()
-                    } label: {
-                        Label("Open menu", systemImage: "line.3.horizontal")
-                    }
-                    .opacity(self.model.isGuideMenuShown ? 0.7 : 1)
-                    .disabled(self.model.groupSession != nil)
+                    RotateBoardButton()
+                    UndoButton()
+                    ResetButton()
+                    OpenGuideMenuButton()
                 }
             }
             .animation(.default, value: self.model.isGuideMenuShown)

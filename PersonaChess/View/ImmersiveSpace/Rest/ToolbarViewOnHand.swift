@@ -17,13 +17,17 @@ struct ToolbarViewOnHand: View {
     }
 }
 
-private extension ToolbarViewOnHand {
-    private struct ContentView: View {
+extension ToolbarViewOnHand {
+    struct ContentView: View {
         @EnvironmentObject var model: AppModel
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+        
         @State private var isExpanded: Bool = false
-        private static let circleButtonSize = 40.0
+        
+        static let circleButtonSize = 40.0
+        
         private static let dividerSize = 150.0
+        
         var body: some View {
             ZStack(alignment: .leading) {
                 Button {
@@ -64,24 +68,8 @@ private extension ToolbarViewOnHand {
                     Divider()
                         .frame(width: Self.dividerSize)
                     HStack(spacing: 28) {
-                        Button {
-                            self.model.execute(.undo)
-                        } label: {
-                            Label("Undo", systemImage: "arrow.uturn.backward")
-                                .labelStyle(.iconOnly)
-                                .frame(width: Self.circleButtonSize,
-                                       height: Self.circleButtonSize)
-                        }
-                        .disabled(self.model.sharedState.logs.isEmpty)
-                        Button {
-                            self.model.execute(.reset)
-                        } label: {
-                            Label("Reset", systemImage: "arrow.counterclockwise")
-                                .labelStyle(.iconOnly)
-                                .frame(width: Self.circleButtonSize,
-                                       height: Self.circleButtonSize)
-                        }
-                        .disabled(self.model.sharedState.pieces.isPreset)
+                        UndoButton(kind: .hand)
+                        ResetButton(kind: .hand)
                     }
                     .buttonBorderShape(.circle)
                     Divider()

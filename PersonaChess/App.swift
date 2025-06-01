@@ -10,7 +10,6 @@ struct PersonaChessApp: App {
         }
         .windowStyle(.volumetric)
         .volumeWorldAlignment(.gravityAligned)
-        //.defaultWorldScaling(.dynamic) TODO: 検討
         .environmentObject(self.model)
         
         ImmersiveSpace(id: "immersiveSpace") {

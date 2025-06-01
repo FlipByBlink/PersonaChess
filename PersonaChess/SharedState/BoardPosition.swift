@@ -1,9 +1,7 @@
-enum BoardPosition {
+enum BoardPosition: Codable {
     case center,
          up,
          down,
          right,
          left
 }
-
-extension BoardPosition: Codable {}
