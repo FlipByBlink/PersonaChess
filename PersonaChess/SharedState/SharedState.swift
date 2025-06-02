@@ -19,8 +19,8 @@ extension SharedState: Codable, Equatable {
         switch action {
             case .tapSquareAndMove(_, _, _),
                     .tapPieceAndMoveAndCapture(_, _, _, _),
-                    .dropAndMove(_, _, _, _),
-                    .dropAndMoveAndCapture(_, _, _, _, _),
+                    .dropAndMove(_, _),
+                    .dropAndMoveAndCapture(_, _, _),
                     .reset:
                 self.logs.append(self.pieces.asLog)
             default:

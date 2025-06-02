@@ -4,6 +4,9 @@ import RealityKit
 struct ChessView: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.physicalMetrics) var physicalMetrics
+    
+    @State private var dragState: DragState?
+    
     var body: some View {
         RealityView { content, attachments in
             attachments.entity(for: "board")!.name = "board"
@@ -45,16 +48,28 @@ private extension ChessView {
                 let dragTranslation = $0.convert($0.translation3D,
                                                  from: .local,
                                                  to: self.model.entities.root)
-                self.model.handle(.drag(draggedPiece,
-                                        translation: dragTranslation))
+                let newDragState: DragState
+                if let dragState {
+                    newDragState = dragState.updating(dragTranslation)
+                } else {
+                    let sourceIndex = self.model.sharedState.pieces.indices[draggedPiece]!
+                    newDragState = DragState(draggedPiece,
+                                             sourceIndex,
+                                             dragTranslation)
+                }
+                self.dragState = newDragState
+                self.model.handle(.drag(newDragState))
             }
             .onEnded {
                 let droppedPiece = $0.entity.parent!.components[Piece.self]!
                 let dragTranslation = $0.convert($0.translation3D,
                                                  from: .local,
                                                  to: self.model.entities.root)
-                self.model.handle(.drop(droppedPiece,
-                                        dragTranslation: dragTranslation))
+                let sourceIndex = self.model.sharedState.pieces.indices[droppedPiece]!
+                self.model.handle(.drop(DragState(droppedPiece,
+                                                  sourceIndex,
+                                                  dragTranslation)))
+                self.dragState = nil
             }
     }
     private var tapGesture: some Gesture {

@@ -30,9 +30,9 @@ extension PieceAnimation {
                 +
                 Self.vertical.duration
                 
-            case .dropAndBack(_, _, _),
-                    .dropAndMove(_, _, _, _),
-                    .dropAndMoveAndCapture(_, _, _, _, _):
+            case .dropAndBack(_),
+                    .dropAndMove(_, _),
+                    .dropAndMoveAndCapture(_, _, _):
                 Self.drop.duration
                 
             default:
@@ -40,7 +40,7 @@ extension PieceAnimation {
         }
     }
     
-    static func swiftUIAnimation_2DMode(_ action: Action?) -> Animation? {
+    static func swiftUIAnimation_2DMode(_ action: Action?) -> Animation? { //TODO: iOS側へ移動させる
         switch action {
             case .tapPieceAndPick(_, _),
                     .tapPieceAndChangePickingPiece(_, _, _, _),
@@ -49,11 +49,11 @@ extension PieceAnimation {
             case .tapPieceAndMoveAndCapture(_, _, _, _),
                     .tapSquareAndMove(_, _, _):
                 Animation.easeInOut(duration: Self.horizontal.duration + Self.vertical.duration)
-            case .dropAndBack(_, _, _),
-                    .dropAndMove(_, _, _, _),
-                    .dropAndMoveAndCapture(_, _, _, _, _):
+            case .dropAndBack(_),
+                    .dropAndMove(_, _),
+                    .dropAndMoveAndCapture(_, _, _):
                 Animation.easeInOut(duration: Self.drop.duration)
-            case .drag(_, _, _, _),
+            case .beginDrag(_),
                     .undo,
                     .reset,
                     .none:

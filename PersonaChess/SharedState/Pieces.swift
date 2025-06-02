@@ -20,10 +20,11 @@ extension Pieces: Codable, Equatable {
         self.currentAction = action
         switch action {
             case .tapSquareAndMove(let piece, _, let newIndex),
-                    .tapPieceAndMoveAndCapture(let piece, _, _, let newIndex),
-                    .dropAndMove(let piece, _, _, let newIndex),
-                    .dropAndMoveAndCapture(let piece, _, _, _, let newIndex):
+                    .tapPieceAndMoveAndCapture(let piece, _, _, let newIndex):
                 self.move(piece, newIndex)
+            case .dropAndMove(let dragState, let newIndex),
+                    .dropAndMoveAndCapture(let dragState, _, let newIndex):
+                self.move(dragState.piece, newIndex)
             case .reset:
                 self.setPreset()
             default:
@@ -63,23 +64,24 @@ extension Pieces: Codable, Equatable {
         }
     }
     var isDragging: Bool {
-        if case .drag(_, _, _, _) = self.currentAction {
+        if case .beginDrag(_) = self.currentAction {
             true
         } else {
             false
         }
     }
     var draggingPiece: Piece? {
-        if case .drag(let piece, _, _, _) = self.currentAction {
-            piece
+        if case .beginDrag(let state) = self.currentAction {
+            state.piece
         } else {
             nil
         }
     }
     var capturedPieceInProgress: (piece: Piece, index: Index)? {
         switch self.currentAction {
-            case .dropAndMoveAndCapture(_, _, _, let capturedPiece, let capturedPieceIndex),
-                    .tapPieceAndMoveAndCapture(_, _, let capturedPiece, let capturedPieceIndex):
+            case .dropAndMoveAndCapture(_, let capturedPiece, let capturedPieceIndex):
+                (capturedPiece, capturedPieceIndex)
+            case .tapPieceAndMoveAndCapture(_, _, let capturedPiece, let capturedPieceIndex):
                 (capturedPiece, capturedPieceIndex)
             default:
                 nil

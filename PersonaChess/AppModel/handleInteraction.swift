@@ -41,54 +41,33 @@ extension AppModel {
                                                exIndex: pickedPieceIndex,
                                                newIndex: tappedIndex)
                 }
-            case .drag(let draggedPiece, let dragTranslation):
-                guard let draggedPieceIndex = self.sharedState.pieces.indices[draggedPiece] else {
-                    assertionFailure(); return
+            case .drag(let dragState):
+                if dragState.count == 0 {
+                    action = .beginDrag(dragState)
+                } else {
+                    self.executeDrag(dragState)
+                    return
                 }
-                action = .drag(draggedPiece,
-                               sourceIndex: draggedPieceIndex,
-                               dragTranslation: dragTranslation,
-                               isDragStarted: !self.isDragging)
-                if self.isDragging == false {
-                    self.isDragging = true
-                }
-            case .drop(let droppedPiece, let dragTranslation):
-                guard let droppedPieceIndex = self.sharedState.pieces.indices[droppedPiece] else {
-                    assertionFailure(); return
-                }
-                let targetingIndex = Index.calculateFromDrag(dragTranslation: dragTranslation,
-                                                             sourceIndex: droppedPieceIndex)
-                if droppedPieceIndex == targetingIndex {
-                    action = .dropAndBack(droppedPiece,
-                                          sourceIndex: droppedPieceIndex,
-                                          dragTranslation: dragTranslation)
+            case .drop(let dragState):
+                let targetingIndex = Index.calculateFromDrag(dragState)
+                if dragState.sourceIndex == targetingIndex {
+                    action = .dropAndBack(dragState)
                 } else {
                     if let targetingIndexPiece = self.sharedState.pieces.piece(targetingIndex) {
-                        if targetingIndexPiece.side == droppedPiece.side {
-                            action = .dropAndBack(droppedPiece,
-                                                  sourceIndex: droppedPieceIndex,
-                                                  dragTranslation: dragTranslation)
+                        if targetingIndexPiece.side == dragState.piece.side {
+                            action = .dropAndBack(dragState)
                         } else {
-                            action = .dropAndMoveAndCapture(droppedPiece,
-                                                            sourceIndex: droppedPieceIndex,
-                                                            dragTranslation: dragTranslation,
+                            action = .dropAndMoveAndCapture(dragState,
                                                             capturedPiece: targetingIndexPiece,
                                                             capturedPieceIndex: targetingIndex)
                         }
                     } else {
-                        action = .dropAndMove(droppedPiece,
-                                              sourceIndex: droppedPieceIndex,
-                                              dragTranslation: dragTranslation,
+                        action = .dropAndMove(dragState,
                                               newIndex: targetingIndex)
                     }
                 }
-                self.isDragging = false
         }
         
-        if self.isDragging {
-            self.execute(dragAction: action)
-        } else {
-            self.execute(action)
-        }
+        self.execute(action)
     }
 }

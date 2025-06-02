@@ -28,8 +28,10 @@ extension Index: Codable, Hashable {
               y: 0,
               z: Float(self.row - 4) * Size.Meter.square + (Size.Meter.square / 2))
     }
-    static func calculateFromDrag(dragTranslation: SIMD3<Float>, sourceIndex: Index) -> Self {
-        Self.calculateFromDrag(bodyPosition: sourceIndex.position + dragTranslation)
+    static func calculateFromDrag(_ dragState: DragState) -> Self {
+        Self.calculateFromDrag(
+            bodyPosition: dragState.sourceIndex.position + dragState.translation
+        )
     }
     static func calculateFromDrag(bodyPosition: SIMD3<Float>) -> Self {
         var closestIndex = Index(0, 0)

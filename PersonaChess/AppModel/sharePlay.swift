@@ -9,13 +9,19 @@ extension AppModel {
                 self.entities.update(self.sharedState.pieces)
                 
                 self.groupSession = groupSession
-                let messenger = GroupSessionMessenger(session: groupSession)
-                self.messenger = messenger
+                let reliableMessenger = GroupSessionMessenger(session: groupSession,
+                                                              deliveryMode: .reliable)
+                self.reliableMessenger = reliableMessenger
+                
+                let unreliableMessenger = GroupSessionMessenger(session: groupSession,
+                                                                deliveryMode: .unreliable)
+                self.unreliableMessenger = unreliableMessenger
                 
                 groupSession.$state
                     .sink {
                         if case .invalidated = $0 {
-                            self.messenger = nil
+                            self.reliableMessenger = nil
+                            self.unreliableMessenger = nil
                             self.tasks.forEach { $0.cancel() }
                             self.tasks = []
                             self.subscriptions = []
@@ -34,15 +40,23 @@ extension AppModel {
                         if $0.count == 1 { self.sharedState.mode = .sharePlay }
                         let newParticipants = $0.subtracting(groupSession.activeParticipants)
                         Task {
-                            try? await messenger.send(self.sharedState,
-                                                      to: .only(newParticipants))
+                            try? await reliableMessenger.send(self.sharedState,
+                                                              to: .only(newParticipants))
                         }
                     }
                     .store(in: &self.subscriptions)
                 
                 self.tasks.insert(
                     Task {
-                        for await (message, _) in messenger.messages(of: SharedState.self) {
+                        for await (message, _) in reliableMessenger.messages(of: SharedState.self) {
+                            self.receive(message)
+                        }
+                    }
+                )
+                
+                self.tasks.insert(
+                    Task {
+                        for await (message, _) in unreliableMessenger.messages(of: DragState.self) {
                             self.receive(message)
                         }
                     }
@@ -91,7 +105,12 @@ extension AppModel {
     }
     func sendMessage() {
         Task {
-            try? await self.messenger?.send(self.sharedState)
+            try? await self.reliableMessenger?.send(self.sharedState)
+        }
+    }
+    func sendMessage(_ dragState: DragState) {
+        Task {
+            try? await self.unreliableMessenger?.send(dragState)
         }
     }
     func activateGroupActivity() {
@@ -115,6 +134,17 @@ private extension AppModel {
         Task { @MainActor in
             self.sharedState = message
             self.entities.update(self.sharedState.pieces)
+        }
+    }
+    private func receive(_ message: DragState) {
+        //TODO: 要動作確認
+        guard case .beginDrag(let dragState) = self.sharedState.pieces.currentAction,
+              dragState.id == message.id else {
+            return
+        }
+        Task { @MainActor in
+            self.entities.dragUpdate(self.sharedState.pieces,
+                                     message)
         }
     }
 }

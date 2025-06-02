@@ -14,20 +14,11 @@ enum Action {
     case tapSquareAndMove(Piece,
                           exIndex: Index,
                           newIndex: Index)
-    case drag(Piece,
-              sourceIndex: Index,
-              dragTranslation: SIMD3<Float>,
-              isDragStarted: Bool)
-    case dropAndBack(Piece,
-                     sourceIndex: Index,
-                     dragTranslation: SIMD3<Float>)
-    case dropAndMove(Piece,
-                     sourceIndex: Index,
-                     dragTranslation: SIMD3<Float>,
+    case beginDrag(DragState)
+    case dropAndBack(DragState)
+    case dropAndMove(DragState,
                      newIndex: Index)
-    case dropAndMoveAndCapture(Piece,
-                               sourceIndex: Index,
-                               dragTranslation: SIMD3<Float>,
+    case dropAndMoveAndCapture(DragState,
                                capturedPiece: Piece,
                                capturedPieceIndex: Index)
     case undo
@@ -47,40 +38,17 @@ extension Action: Codable, Equatable {
                 [piece]
             case .tapSquareAndMove(let piece, _, _):
                 [piece]
-            case .dropAndBack(let piece, _, _):
-                [piece]
-            case .dropAndMove(let piece, _, _, _):
-                [piece]
-            case .dropAndMoveAndCapture(let piece, _, _, let capturedPiece, _):
-                [piece, capturedPiece]
-            case .drag(_, _, _, _), .undo, .reset:
+            case .dropAndBack(let dragState):
+                [dragState.piece]
+            case .dropAndMove(let dragState, _):
+                [dragState.piece]
+            case .dropAndMoveAndCapture(let dragState, let capturedPiece, _):
+                [dragState.piece, capturedPiece]
+            case .beginDrag(_), .undo, .reset:
                 []
         }
     }
     var hasAnimation: Bool {
         !self.animatingPieces.isEmpty
-    }
-    var draggedPiecePosition: SIMD3<Float> {
-        .init(x: self.draggedPieceBodyPosition.x,
-              y: 0,
-              z: self.draggedPieceBodyPosition.z)
-    }
-    var draggedPieceBodyYOffset: Float {
-        self.draggedPieceBodyPosition.y
-    }
-    var draggedPieceBodyPosition: SIMD3<Float> {
-        switch self {
-            case .drag(_, let index, let dragTranslation, _),
-                    .dropAndBack(_, let index, let dragTranslation),
-                    .dropAndMove(_, let index, let dragTranslation, _),
-                    .dropAndMoveAndCapture(_, let index, let dragTranslation, _, _):
-                var value = dragTranslation
-                if dragTranslation.y < 0 {
-                    value.y = 0
-                }
-                return index.position + value
-            default:
-                return .zero
-        }
     }
 }

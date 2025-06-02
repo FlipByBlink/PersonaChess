@@ -154,6 +154,8 @@
 		1D78ED832DEC2A96006BD075 /* UndoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED822DEC2A96006BD075 /* UndoButton.swift */; };
 		1D78ED852DEC2AA6006BD075 /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED842DEC2AA6006BD075 /* ResetButton.swift */; };
 		1D78ED872DEC2AB4006BD075 /* OpenGuideMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */; };
+		1D78ED8A2DEC521F006BD075 /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED892DEC521C006BD075 /* DragState.swift */; };
+		1D78ED8B2DEC521F006BD075 /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED892DEC521C006BD075 /* DragState.swift */; };
 		1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */; };
 /* End PBXBuildFile section */
 
@@ -302,6 +304,7 @@
 		1D78ED822DEC2A96006BD075 /* UndoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoButton.swift; sourceTree = "<group>"; };
 		1D78ED842DEC2AA6006BD075 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
 		1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGuideMenuButton.swift; sourceTree = "<group>"; };
+		1D78ED892DEC521C006BD075 /* DragState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragState.swift; sourceTree = "<group>"; };
 		1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeWindowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -598,6 +601,7 @@
 				169C00262B4A9BE0001242F5 /* App.swift */,
 				1605C23E2CA02F0000725749 /* AppModel */,
 				1671A16C2B74A8A5009A87A6 /* SharedState */,
+				1D78ED882DEC5211006BD075 /* DragState */,
 				16A0F0862B89FE2900EC0FE8 /* View */,
 				1671A16B2B74A89B009A87A6 /* SharePlay */,
 				167948B52BC67612004DFF4B /* Rest */,
@@ -693,6 +697,14 @@
 				1D78ED842DEC2AA6006BD075 /* ResetButton.swift */,
 			);
 			path = Rest;
+			sourceTree = "<group>";
+		};
+		1D78ED882DEC5211006BD075 /* DragState */ = {
+			isa = PBXGroup;
+			children = (
+				1D78ED892DEC521C006BD075 /* DragState.swift */,
+			);
+			path = DragState;
 			sourceTree = "<group>";
 		};
 		1DD18A272DD9967100CF0645 /* VolumeWindow */ = {
@@ -875,6 +887,7 @@
 				1D78ED7A2DEC2698006BD075 /* Chessmen+Extension.swift in Sources */,
 				1D78ED7C2DEC26DD006BD075 /* Pieces+Extension.swift in Sources */,
 				1605C2402CA02F3F00725749 /* excuteAction.swift in Sources */,
+				1D78ED8B2DEC521F006BD075 /* DragState.swift in Sources */,
 				161774672CCFB0020075E8F0 /* ChessView_2DMode.swift in Sources */,
 				161774692CCFB0B80075E8F0 /* SquareView_2DMode.swift in Sources */,
 				16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */,
@@ -926,6 +939,7 @@
 				16780FF62B6881DB005A0244 /* ImmersiveSpaceView.swift in Sources */,
 				16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */,
 				169333A22B75A7B500B60E0F /* SharedState.swift in Sources */,
+				1D78ED8A2DEC521F006BD075 /* DragState.swift in Sources */,
 				16F972772B68B7FB00711C53 /* Size.swift in Sources */,
 				16C477132B8AC23D00343DD8 /* SharePlayProvider.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,

@@ -32,16 +32,15 @@ extension Entities {
     }
     
     func dragUpdate(_ pieces: Pieces,
-                    _ dragAction: Action) {
+                    _ state: DragState) {
         self.stopAllAnimations()
         
         self.updateHoverEffect(disabled: true)
         
-        self.updatePieceOpacityDuringDragging(pieces)
+        self.updatePieceOpacityDuringDragging(pieces,
+                                              dragState: state)
         
-        self.setPositionBeforeAnimation(dragAction)
-        
-        self.updateWithAnimation(dragAction)
+        self.setPosition(dragState: state)
     }
 }
 
@@ -149,12 +148,10 @@ private extension Entities {
                 self.setPosition(piece: piece,
                                  index: exIndex,
                                  picked: true)
-            case .drag(let piece, _, _, _),
-                    .dropAndBack(let piece, _, _),
-                    .dropAndMove(let piece, _, _, _),
-                    .dropAndMoveAndCapture(let piece, _, _, _, _):
-                self.setPosition(piece: piece,
-                                 dragAction: action)
+            case .dropAndBack(let dragState),
+                    .dropAndMove(let dragState, _),
+                    .dropAndMoveAndCapture(let dragState, _, _):
+                self.setPosition(dragState: dragState)
             default:
                 break
         }
@@ -206,34 +203,31 @@ private extension Entities {
                 self.playSound(piece,
                                kind: .put,
                                delay: PieceAnimation.wholeDuration(action))
-            case .drag(let piece, _, _, let isDragStarted):
-                self.setPosition(piece: piece,
-                                 dragAction: action)
-                if isDragStarted {
-                    self.playSound(piece,
+            case .beginDrag(let dragState):
+                self.setPosition(dragState: dragState)
+                if dragState.count == 0 {
+                    self.playSound(dragState.piece,
                                    kind: .select)
                 }
-            case .dropAndBack(let piece, let sourceIndex, _):
-                self.drop(piece: piece,
-                          index: sourceIndex,
-                          dropAction: action)
-            case .dropAndMove(let piece, _, _, let newIndex):
-                self.drop(piece: piece,
+            case .dropAndBack(let dragState):
+                self.drop(piece: dragState.piece,
+                          index: dragState.sourceIndex,
+                          dragState: dragState)
+            case .dropAndMove(let dragState, let newIndex):
+                self.drop(piece: dragState.piece,
                           index: newIndex,
-                          dropAction: action)
-                self.playSound(piece,
+                          dragState: dragState)
+                self.playSound(dragState.piece,
                                kind: .put,
                                delay: PieceAnimation.drop.duration)
-            case .dropAndMoveAndCapture(let piece,
-                                        _,
-                                        _,
+            case .dropAndMoveAndCapture(let dragState,
                                         let capturedPiece,
                                         let capturedPieceIndex):
-                self.drop(piece: piece,
+                self.drop(piece: dragState.piece,
                           index: capturedPieceIndex,
-                          dropAction: action)
+                          dragState: dragState)
                 self.fadeout(piece: capturedPiece)
-                self.playSound(piece,
+                self.playSound(dragState.piece,
                                kind: .put,
                                delay: PieceAnimation.drop.duration)
                 self.remove(capturedPiece,
@@ -252,15 +246,14 @@ private extension Entities {
                                                   0],
                                                  relativeTo: pieceEntity)
     }
-    private func setPosition(piece: Piece,
-                             dragAction: Action) {
-        let pieceEntity = self.pieceEntity(piece)!
-        pieceEntity.setPosition(dragAction.draggedPiecePosition,
+    private func setPosition(dragState: DragState) {
+        let pieceEntity = self.pieceEntity(dragState.piece)!
+        pieceEntity.setPosition(dragState.draggedPiecePosition,
                                 relativeTo: self.root)
-        self.pieceBodyEntity(piece)!.setPosition([0,
-                                                  dragAction.draggedPieceBodyYOffset,
-                                                  0],
-                                                 relativeTo: pieceEntity)
+        self.pieceBodyEntity(dragState.piece)!.setPosition([0,
+                                                            dragState.draggedPieceBodyYOffset,
+                                                            0],
+                                                           relativeTo: pieceEntity)
     }
     private func moveUp(piece: Piece,
                         index: Index) {
@@ -315,11 +308,11 @@ private extension Entities {
     }
     private func drop(piece: Piece,
                       index: Index,
-                      dropAction: Action) {
+                      dragState: DragState) {
         self.pieceBodyEntity(piece)!.playAnimation(
             try! .makeActionAnimation(
                 for: FromToByAction(from: Transform(translation: [0,
-                                                                  dropAction.draggedPieceBodyYOffset,
+                                                                  dragState.draggedPieceBodyYOffset,
                                                                   0]),
                                     to: .identity,
                                     mode: .parent,
@@ -330,7 +323,7 @@ private extension Entities {
         )
         self.pieceEntity(piece)!.playAnimation(
             try! .makeActionAnimation(
-                for: FromToByAction(from: Transform(translation: dropAction.draggedPiecePosition),
+                for: FromToByAction(from: Transform(translation: dragState.draggedPiecePosition),
                                     to: Transform(translation: index.position),
                                     mode: .parent,
                                     timing: .easeInOut),
@@ -377,13 +370,14 @@ private extension Entities {
                     .set(InputTargetComponent())
             }
     }
-    private func updatePieceOpacityDuringDragging(_ pieces: Pieces) {
+    private func updatePieceOpacityDuringDragging(_ pieces: Pieces,
+                                                  dragState: DragState? = nil) {//TODO: 要再検討
         for piece in pieces.all {
             guard piece != pieces.draggingPiece else { continue }
             self.pieceEntity(piece)?.components[OpacityComponent.self]!.opacity = 1.0
         }
         guard let draggingPiece = pieces.draggingPiece,
-              let draggedPieceBodyPosition = pieces.currentAction?.draggedPieceBodyPosition else {
+              let draggedPieceBodyPosition = dragState?.draggedPieceBodyPosition else {
             return
         }
         let closestIndex = Index.calculateFromDrag(bodyPosition: draggedPieceBodyPosition)

@@ -1,6 +1,5 @@
 extension AppModel {
-    func execute(_ action: Action,
-                 _ shouldSendMessage: Bool = true) {
+    func execute(_ action: Action) {
         
         guard !self.isAnimating else { return }
         
@@ -18,17 +17,14 @@ extension AppModel {
         
         self.entities.update(self.sharedState.pieces)
         
-        if shouldSendMessage { self.sendMessage() }
+        self.sendMessage()
     }
     
-    func execute(dragAction: Action,
-                 _ shouldSendMessage: Bool = true) {
-        
-        self.sharedState.pieces.apply(dragAction)
+    func executeDrag(_ state: DragState) {
         
         self.entities.dragUpdate(self.sharedState.pieces,
-                                 dragAction)
+                                 state)
         
-        if shouldSendMessage { self.sendMessage() }
+        self.sendMessage(state)
     }
 }
