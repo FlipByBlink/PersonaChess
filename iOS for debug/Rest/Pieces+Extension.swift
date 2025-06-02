@@ -1,15 +1,23 @@
 import SwiftUI
 
 extension Pieces {
-    func offset_2DMode(_ piece: Piece) -> CGSize? {
+    func offset_2DMode(_ piece: Piece, dragState: DragState?) -> CGSize? {
         guard let index = self.indices[piece] else {
             return nil
         }
-        if case .drag(let draggedPiece, _, _, _) = self.currentAction,
-           draggedPiece == piece,
-           let draggedPiecePosition = self.currentAction?.draggedPiecePosition {
-            return CGSize(width: Size.Point.convertFromMeter_2DMode(draggedPiecePosition.x),
-                          height: Size.Point.convertFromMeter_2DMode(draggedPiecePosition.z))
+        if let dragState,
+           dragState.piece == piece {
+            return CGSize(
+                width: Size.Point.convertFromMeter_2DMode(dragState.draggedPiecePosition.x),
+                height: Size.Point.convertFromMeter_2DMode(dragState.draggedPiecePosition.z)
+            )
+        }
+        if case .beginDrag(let dragState) = self.currentAction,
+           dragState.piece == piece {
+            return CGSize(
+                width: Size.Point.convertFromMeter_2DMode(dragState.draggedPiecePosition.x),
+                height: Size.Point.convertFromMeter_2DMode(dragState.draggedPiecePosition.z)
+            )
         } else {
             return CGSize(width: Size.Point.convertFromMeter_2DMode(index.position.x),
                           height: Size.Point.convertFromMeter_2DMode(index.position.z))

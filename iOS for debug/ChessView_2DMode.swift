@@ -2,6 +2,9 @@ import SwiftUI
 
 struct ChessView_2DMode: View {
     @EnvironmentObject var model: AppModel
+    
+    @State private var dragState: DragState?
+    
     var body: some View {
         HStack(spacing: 0) {
             ForEach(0..<8) { column in
@@ -15,7 +18,8 @@ struct ChessView_2DMode: View {
         }
         .overlay {
             ForEach(Piece.allCases) {
-                PieceView_2DMode(piece: $0)
+                PieceView_2DMode(piece: $0,
+                                 dragState: self.dragState)
             }
         }
         .animation(self.animation,
@@ -31,7 +35,7 @@ private extension ChessView_2DMode {
     private var dragGesture: some Gesture {
         DragGesture()
             .onChanged {
-                guard let piece = self.model.sharedState.pieces.piece_2DMode($0.startLocation) else {
+                guard let draggedPiece = self.model.sharedState.pieces.piece_2DMode($0.startLocation) else {
                     return
                 }
                 let dragTranslation = SIMD3<Float>(
@@ -39,11 +43,20 @@ private extension ChessView_2DMode {
                     y: 0,
                     z: Size.Meter.convertFromPoint_2DMode($0.translation.height)
                 )
-                self.model.handle(.drag(piece,
-                                        translation: dragTranslation))
+                let newDragState: DragState
+                if let dragState {
+                    newDragState = dragState.updating(dragTranslation)
+                } else {
+                    let sourceIndex = self.model.sharedState.pieces.indices[draggedPiece]!
+                    newDragState = DragState(draggedPiece,
+                                             sourceIndex,
+                                             dragTranslation)
+                }
+                self.dragState = newDragState
+                self.model.handle(.drag(newDragState))
             }
             .onEnded {
-                guard let piece = self.model.sharedState.pieces.piece_2DMode($0.startLocation) else {
+                guard let droppedPiece = self.model.sharedState.pieces.piece_2DMode($0.startLocation) else {
                     return
                 }
                 let dragTranslation = SIMD3<Float>(
@@ -51,8 +64,11 @@ private extension ChessView_2DMode {
                     y: 0,
                     z: Size.Meter.convertFromPoint_2DMode($0.translation.height)
                 )
-                self.model.handle(.drop(piece,
-                                        dragTranslation: dragTranslation))
+                let sourceIndex = self.model.sharedState.pieces.indices[droppedPiece]!
+                self.model.handle(.drop(DragState(droppedPiece,
+                                                  sourceIndex,
+                                                  dragTranslation)))
+                self.dragState = nil
             }
     }
     

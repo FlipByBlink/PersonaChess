@@ -3,6 +3,7 @@ import SwiftUI
 struct PieceView_2DMode: View {
     @EnvironmentObject var model: AppModel
     var piece: Piece
+    var dragState: DragState?
     var body: some View {
         if let offset {
             ZStack {
@@ -30,7 +31,8 @@ struct PieceView_2DMode: View {
 
 private extension PieceView_2DMode {
     private var offset: CGSize? {
-        self.model.sharedState.pieces.offset_2DMode(self.piece)
+        self.model.sharedState.pieces.offset_2DMode(self.piece,
+                                                    dragState: self.dragState)
     }
     private var icon: String {
         self.piece.chessmen.icon(isFilled: self.piece.side == .white)

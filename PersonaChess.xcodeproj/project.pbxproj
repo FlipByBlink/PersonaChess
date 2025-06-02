@@ -156,6 +156,7 @@
 		1D78ED872DEC2AB4006BD075 /* OpenGuideMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */; };
 		1D78ED8A2DEC521F006BD075 /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED892DEC521C006BD075 /* DragState.swift */; };
 		1D78ED8B2DEC521F006BD075 /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED892DEC521C006BD075 /* DragState.swift */; };
+		1D78ED8D2DEDE14C006BD075 /* PieceAnimation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED8C2DEDE145006BD075 /* PieceAnimation+Extension.swift */; };
 		1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */; };
 /* End PBXBuildFile section */
 
@@ -305,6 +306,7 @@
 		1D78ED842DEC2AA6006BD075 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
 		1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGuideMenuButton.swift; sourceTree = "<group>"; };
 		1D78ED892DEC521C006BD075 /* DragState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragState.swift; sourceTree = "<group>"; };
+		1D78ED8C2DEDE145006BD075 /* PieceAnimation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PieceAnimation+Extension.swift"; sourceTree = "<group>"; };
 		1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeWindowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -638,6 +640,7 @@
 				16312B742B75D45B006A93D1 /* MainMenu.swift */,
 				16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */,
 				16312B752B75D45B006A93D1 /* ChessMenuView_3DMode.swift */,
+				1D78ED8C2DEDE145006BD075 /* PieceAnimation+Extension.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				16B70FC92CA41E0300DF33C9 /* Interaction.swift in Sources */,
 				162145912CBFD0C700A6A87E /* PieceAnimation.swift in Sources */,
 				16312B692B75D193006A93D1 /* Pieces.swift in Sources */,
+				1D78ED8D2DEDE14C006BD075 /* PieceAnimation+Extension.swift in Sources */,
 				16312B6D2B75D193006A93D1 /* Side.swift in Sources */,
 				16312B6E2B75D193006A93D1 /* Index.swift in Sources */,
 				16312B672B75D193006A93D1 /* Piece.swift in Sources */,
