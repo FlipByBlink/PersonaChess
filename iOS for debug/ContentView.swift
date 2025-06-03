@@ -6,6 +6,7 @@ struct ContentView: View {
         VStack {
             MainMenu()
             ChessView_iOS()
+            ChessView_2DMode()
             MenuViewDuring3DMode()
         }
         .task { SharePlayProvider.registerGroupActivity() }

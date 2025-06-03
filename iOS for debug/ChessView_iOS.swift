@@ -19,10 +19,11 @@ struct ChessView_iOS: View {
             if self.model.showProgressView { ProgressView() }
         }
         .overlay(alignment: .bottomTrailing) {
-            Toggle("カメラ操作", isOn: self.$isCameraEnabled)
-                .frame(width: 200)
-                .padding()
-                .border(.gray)
+            Toggle("Camera control", isOn: self.$isCameraEnabled)
+                .minimumScaleFactor(0.7)
+                .frame(width: 170)
+                .foregroundStyle(.secondary)
+                .font(.subheadline)
         }
     }
 }
@@ -39,7 +40,7 @@ private extension ChessView_iOS {
                 let sourceIndex = self.model.sharedState.pieces.indices[draggedPiece]!
                 let sourcePositionEntity = Entity()
                 sourcePositionEntity.setPosition(sourceIndex.position,
-                                       relativeTo: self.model.entities.root)
+                                                 relativeTo: self.model.entities.root)
                 let dragTranslation = $0.unproject($0.location,
                                                    from: .local,
                                                    to: sourcePositionEntity)!
