@@ -157,6 +157,7 @@
 		1D78ED8A2DEC521F006BD075 /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED892DEC521C006BD075 /* DragState.swift */; };
 		1D78ED8B2DEC521F006BD075 /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED892DEC521C006BD075 /* DragState.swift */; };
 		1D78ED8D2DEDE14C006BD075 /* PieceAnimation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED8C2DEDE145006BD075 /* PieceAnimation+Extension.swift */; };
+		1D7D8AA32DEE82DA009E4F0E /* ChessView_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7D8AA22DEE82D6009E4F0E /* ChessView_iOS.swift */; };
 		1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */; };
 /* End PBXBuildFile section */
 
@@ -307,6 +308,7 @@
 		1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGuideMenuButton.swift; sourceTree = "<group>"; };
 		1D78ED892DEC521C006BD075 /* DragState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragState.swift; sourceTree = "<group>"; };
 		1D78ED8C2DEDE145006BD075 /* PieceAnimation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PieceAnimation+Extension.swift"; sourceTree = "<group>"; };
+		1D7D8AA22DEE82D6009E4F0E /* ChessView_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessView_iOS.swift; sourceTree = "<group>"; };
 		1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeWindowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -375,6 +377,7 @@
 			children = (
 				16312B5A2B75D0FB006A93D1 /* App.swift */,
 				16312B5C2B75D0FB006A93D1 /* ContentView.swift */,
+				1D7D8AA22DEE82D6009E4F0E /* ChessView_iOS.swift */,
 				162145882CBD0B9F00A6A87E /* ChessView_2DMode.swift */,
 				1621458B2CBD1F9600A6A87E /* SquareView_2DMode.swift */,
 				1621458D2CBD1FC300A6A87E /* PieceView_2DMode.swift */,
@@ -870,6 +873,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				161774682CCFB0360075E8F0 /* PieceView_2DMode.swift in Sources */,
+				1D7D8AA32DEE82DA009E4F0E /* ChessView_iOS.swift in Sources */,
 				1605C24B2CA1539300725749 /* Entities.swift in Sources */,
 				16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */,
 				16312B6C2B75D193006A93D1 /* AppGroupActivity.swift in Sources */,
