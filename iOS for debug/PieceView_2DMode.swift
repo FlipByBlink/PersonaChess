@@ -10,7 +10,7 @@ struct PieceView_2DMode: View {
                 Rectangle()
                     .opacity(0.001)
                 Text(self.icon)
-                    .font(.system(size: 26 * (self.isPicking ? 1.4 : 1)))
+                    .font(.system(size: 26 * (self.isPicking ? 1.3 : 1)))
                     .underline(self.isPicking)
             }
             .overlay(alignment: .topTrailing) {
@@ -32,7 +32,7 @@ struct PieceView_2DMode: View {
 private extension PieceView_2DMode {
     private var offset: CGSize? {
         self.model.sharedState.pieces.offset_2DMode(self.piece,
-                                                    dragState: self.dragState)
+                                                    latestDragState: self.dragState)
     }
     private var icon: String {
         self.piece.chessmen.icon(isFilled: self.piece.side == .white)

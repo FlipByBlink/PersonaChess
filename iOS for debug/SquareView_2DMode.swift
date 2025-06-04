@@ -10,7 +10,7 @@ struct SquareView_2DMode: View {
         Group {
             if (self.column + self.row) % 2 == 1 {
                 Rectangle()
-                    .fill(.background)
+                    .fill(.tertiary)
             } else {
                 Rectangle()
                     .opacity(0.001)

@@ -137,9 +137,9 @@ private extension AppModel {
         }
     }
     private func receive(_ message: DragState) {
-        //TODO: 要動作確認
-        guard case .beginDrag(let dragState) = self.sharedState.pieces.currentAction,
-              dragState.id == message.id else {
+        guard case .beginDrag(let initialDragState) = self.sharedState.pieces.currentAction,
+              initialDragState.id == message.id else {
+            assertionFailure("??? Received invalid dragState. \(message)")
             return
         }
         Task { @MainActor in

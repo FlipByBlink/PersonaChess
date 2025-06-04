@@ -1,11 +1,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var model: AppModel
     var body: some View {
-        VStack {
-            MainMenu()
+        VStack(spacing: 16) {
             ChessView_iOS()
+                .overlay(alignment: .top) { MainMenu() }
             ChessView_2DMode()
             MenuViewDuring3DMode()
         }

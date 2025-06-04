@@ -4,11 +4,14 @@ struct MenuViewDuring3DMode: View {
     @EnvironmentObject var model: AppModel
     var body: some View {
         VStack {
-            Self.RowView(title: "Angle: \(self.model.sharedState.boardAngle.formatted())") {
-                Button {
-                    self.model.rotateBoard()
-                } label: {
-                    Label("Rotate", systemImage: "arrow.turn.right.up")
+            Self.RowView(title: "Angle") {
+                HStack(spacing: 16) {
+                    Text(self.model.sharedState.boardAngle.formatted() + "°")
+                    Button {
+                        self.model.rotateBoard()
+                    } label: {
+                        Label("Rotate", systemImage: "arrow.turn.right.up")
+                    }
                 }
             }
             Divider()
@@ -32,19 +35,13 @@ struct MenuViewDuring3DMode: View {
             }
             Divider()
             Self.RowView(title: "More") {
-                HStack {
-                    self.subButtons()
-                    Menu {
-                        self.subButtons()
-                    } label: {
-                        Image(systemName: "ellipsis")
-                    }
-                }
+                self.subButtons()
             }
         }
         .padding()
         .border(.gray)
         .padding(.horizontal)
+        .frame(maxWidth: 400)
     }
 }
 

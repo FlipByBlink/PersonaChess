@@ -18,13 +18,7 @@ struct ChessView_iOS: View {
         .overlay {
             if self.model.showProgressView { ProgressView() }
         }
-        .overlay(alignment: .bottomTrailing) {
-            Toggle("Camera control", isOn: self.$isCameraEnabled)
-                .minimumScaleFactor(0.7)
-                .frame(width: 170)
-                .foregroundStyle(.secondary)
-                .font(.subheadline)
-        }
+        .overlay(alignment: .bottomTrailing) { self.cameraControlToggle() }
     }
 }
 
@@ -85,5 +79,13 @@ private extension ChessView_iOS {
                 }
                 self.model.handle(.tapPiece(tappedPiece))
             }
+    }
+    private func cameraControlToggle() -> some View {
+        Toggle("Camera control", isOn: self.$isCameraEnabled)
+            .minimumScaleFactor(0.7)
+            .frame(width: 170)
+            .foregroundStyle(.secondary)
+            .font(.subheadline)
+            .padding()
     }
 }

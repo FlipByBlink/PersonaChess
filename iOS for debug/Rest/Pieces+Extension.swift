@@ -1,26 +1,30 @@
 import SwiftUI
 
 extension Pieces {
-    func offset_2DMode(_ piece: Piece, dragState: DragState?) -> CGSize? {
+    func offset_2DMode(_ piece: Piece, latestDragState: DragState?) -> CGSize? {
         guard let index = self.indices[piece] else {
             return nil
         }
-        if let dragState,
-           dragState.piece == piece {
-            return CGSize(
-                width: Size.Point.convertFromMeter_2DMode(dragState.draggedPiecePosition.x),
-                height: Size.Point.convertFromMeter_2DMode(dragState.draggedPiecePosition.z)
-            )
+        let basePosition = CGSize(width: Size.Point.convertFromMeter_2DMode(index.position.x),
+                                  height: Size.Point.convertFromMeter_2DMode(index.position.z))
+        guard case .beginDrag(let initialDragState) = self.currentAction else {
+            return basePosition
         }
-        if case .beginDrag(let dragState) = self.currentAction,
-           dragState.piece == piece {
+        if let latestDragState,
+           latestDragState.piece == piece {
             return CGSize(
-                width: Size.Point.convertFromMeter_2DMode(dragState.draggedPiecePosition.x),
-                height: Size.Point.convertFromMeter_2DMode(dragState.draggedPiecePosition.z)
+                width: Size.Point.convertFromMeter_2DMode(latestDragState.draggedPiecePosition.x),
+                height: Size.Point.convertFromMeter_2DMode(latestDragState.draggedPiecePosition.z)
             )
         } else {
-            return CGSize(width: Size.Point.convertFromMeter_2DMode(index.position.x),
-                          height: Size.Point.convertFromMeter_2DMode(index.position.z))
+            if initialDragState.piece == piece {
+                return CGSize(
+                    width: Size.Point.convertFromMeter_2DMode(initialDragState.draggedPiecePosition.x),
+                    height: Size.Point.convertFromMeter_2DMode(initialDragState.draggedPiecePosition.z)
+                )
+            } else {
+               return basePosition
+            }
         }
     }
     func piece_2DMode(_ location: CGPoint) -> Piece? {
