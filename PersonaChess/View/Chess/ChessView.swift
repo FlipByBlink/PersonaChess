@@ -19,7 +19,6 @@ struct ChessView: View {
         } attachments: {
             Attachment(id: "board") {
                 BoardView()
-                    .environmentObject(self.model)
             }
         }
         //.gesture(ExclusiveGesture(self.tapGesture, self.dragGesture)) これだとdrag判定開始までラグが発生する。
