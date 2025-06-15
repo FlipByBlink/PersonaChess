@@ -4,6 +4,7 @@ import RealityKit
 struct ChessView: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.physicalMetrics) var physicalMetrics
+    @Environment(\.sceneKind) var sceneKind
     
     @State private var dragState: DragState?
     
@@ -13,7 +14,8 @@ struct ChessView: View {
             content.add(attachments.entity(for: "board")!)
             content.add(self.model.entities.root)
         } update: { content, _ in
-            if !self.model.isImmersiveSpaceShown {
+            if self.sceneKind == .volume,
+               !self.model.isImmersiveSpaceShown {
                 content.add(self.model.entities.root)
             }
         } attachments: {
