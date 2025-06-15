@@ -74,9 +74,9 @@ private extension BoardView {
                 .overlay {
                     if self.sceneKind == .volume,
                        self.model.isImmersiveSpaceShown {
-                        VStack(spacing: 24) {
+                        VStack(spacing: 32) {
                             HStack(spacing: 20) {
-                                let size: CGFloat = 64
+                                let size: CGFloat = 80
                                 Button {
                                     self.model.upScale()
                                 } label: {
@@ -95,11 +95,11 @@ private extension BoardView {
                             .buttonBorderShape(.circle)
                         }
                         .font(.system(size: 36))
-                        .frame(width: Size.Point.board(self.physicalMetrics)/2,
-                               height: Size.Point.board(self.physicalMetrics)/2)
+                        .frame(width: Size.Point.board(self.physicalMetrics) * 0.7,
+                               height: Size.Point.board(self.physicalMetrics) * 0.7)
                         .modifier(Self.BoardPositionButtons())
                         .glassBackgroundEffect(in: .circle)
-                        .offset(z: 32)
+                        .offset(z: 0.00001)
                     }
                 }
         }
@@ -127,15 +127,15 @@ private extension BoardView {
                     }
                 } label: {
                     Image(systemName: "chevron.\(boardPosition)")
-                        .padding()
-                        .font(.largeTitle)
+                        .padding(24)
+                        .font(.system(size: 32))
                         .opacity(
                             self.model.sharedState.boardPosition == boardPosition ? 1 : 0.3
                         )
                 }
                 .buttonBorderShape(.circle)
                 .buttonStyle(.borderless)
-                .padding(24)
+                .padding(48)
             }
         }
     }
