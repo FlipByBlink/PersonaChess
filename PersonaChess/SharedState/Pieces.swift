@@ -120,7 +120,7 @@ extension Pieces: Codable, Equatable {
 
 private extension Pieces {
     private mutating func move(_ piece: Piece, _ newIndex: Index) {
-        if self.shoudPromote(piece, newIndex) {
+        if self.shouldPromote(piece, newIndex) {
             self.promotions[piece] = true
         }
         if let capturedPiece = self.piece(newIndex) {
@@ -128,7 +128,7 @@ private extension Pieces {
         }
         self.indices[piece] = newIndex
     }
-    private func shoudPromote(_ piece: Piece, _ newIndex: Index) -> Bool {
+    private func shouldPromote(_ piece: Piece, _ newIndex: Index) -> Bool {
         if piece.chessmen.role == .pawn {
             switch piece.side {
                 case .white: return newIndex.row == 0
