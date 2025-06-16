@@ -42,7 +42,7 @@ extension AppModel {
                                                newIndex: tappedIndex)
                 }
             case .drag(let dragState):
-                if dragState.count == 0 {
+                if dragState.isFirst {
                     action = .beginDrag(dragState)
                 } else {
                     self.executeDrag(dragState)

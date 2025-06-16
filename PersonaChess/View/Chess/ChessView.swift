@@ -23,8 +23,6 @@ struct ChessView: View {
                 BoardView()
             }
         }
-        //.gesture(ExclusiveGesture(self.tapGesture, self.dragGesture)) これだとdrag判定開始までラグが発生する。
-        //.gesture(SimultaneousGesture(self.dragGesture, self.tapGesture)) これだとどちらも入力があって複雑になる。
         .gesture(ExclusiveGesture(self.dragGesture, self.tapGesture))
         .modifier(Self.BoardRotation())
         .frame(width: Size.Point.board(self.physicalMetrics), height: 0)
@@ -100,3 +98,12 @@ private extension ChessView {
         }
     }
 }
+
+
+
+
+//↓ これだとdrag判定開始までラグが発生する。
+//.gesture(ExclusiveGesture(self.tapGesture, self.dragGesture))
+
+//↓ これだとどちらも入力があって複雑になる。
+//.gesture(SimultaneousGesture(self.dragGesture, self.tapGesture))

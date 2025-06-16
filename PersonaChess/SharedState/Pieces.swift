@@ -92,6 +92,31 @@ extension Pieces: Codable, Equatable {
         value.currentAction = nil
         return value
     }
+}
+
+private extension Pieces {
+    private mutating func move(_ piece: Piece, _ newIndex: Index) {
+        if self.shouldPromote(piece, newIndex) {
+            self.promotions[piece] = true
+        }
+        if let capturedPiece = self.piece(newIndex) {
+            self.indices[capturedPiece] = nil
+        }
+        self.indices[piece] = newIndex
+    }
+    private func shouldPromote(_ piece: Piece, _ newIndex: Index) -> Bool {
+        if piece.chessmen.role == .pawn {
+            switch piece.side {
+                case .white: return newIndex.row == 0
+                case .black: return newIndex.row == 7
+            }
+        } else {
+            return false
+        }
+    }
+}
+
+extension Pieces {
     static var preset: Self {
         var indices: [Piece: Index] = [:]
         [Chessmen.rook0, .knight0, .bishop0, .queen, .king, .bishop1, .knight1, .rook1]
@@ -115,27 +140,5 @@ extension Pieces: Codable, Equatable {
                 indices[Piece(chessmen: $0.element, side: .white)] = Index(7, $0.offset)
             }
         return Self(indices: indices)
-    }
-}
-
-private extension Pieces {
-    private mutating func move(_ piece: Piece, _ newIndex: Index) {
-        if self.shouldPromote(piece, newIndex) {
-            self.promotions[piece] = true
-        }
-        if let capturedPiece = self.piece(newIndex) {
-            self.indices[capturedPiece] = nil
-        }
-        self.indices[piece] = newIndex
-    }
-    private func shouldPromote(_ piece: Piece, _ newIndex: Index) -> Bool {
-        if piece.chessmen.role == .pawn {
-            switch piece.side {
-                case .white: return newIndex.row == 0
-                case .black: return newIndex.row == 7
-            }
-        } else {
-            return false
-        }
     }
 }

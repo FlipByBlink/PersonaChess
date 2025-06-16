@@ -4,7 +4,7 @@ struct DragState {
     let id: UUID
     let piece: Piece
     let sourceIndex: Index
-    var count: Int = 0 //TODO: 活用する
+    var isFirst: Bool = true
     var translation: SIMD3<Float>
     
     init(_ piece: Piece, _ sourceIndex: Index, _ translation: SIMD3<Float>) {
@@ -18,7 +18,7 @@ struct DragState {
 extension DragState: Codable, Equatable {
     func updating(_ translation: SIMD3<Float>) -> Self {
         var newValue = self
-        newValue.count += 1
+        newValue.isFirst = false
         newValue.translation = translation
         return newValue
     }
