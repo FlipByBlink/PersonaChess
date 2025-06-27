@@ -15,7 +15,7 @@ enum 🗒️StaticInfo {
         
         English
         
-        This application don't collect user infomation.
+        This application doesn't collect user information.
         
         
         日本語(Japanese)
