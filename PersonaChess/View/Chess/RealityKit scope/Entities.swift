@@ -18,7 +18,7 @@ extension Entities {
         
         self.disableInputDuringAnimation(pieces)
         
-        self.updatePieceOpacityDuringDragging(pieces)
+        self.updatePieceOpacity(pieces)
         
         self.setPiecesPositionWithoutAnimation(pieces)
         
@@ -37,8 +37,8 @@ extension Entities {
         
         self.updateHoverEffect(disabled: true)
         
-        self.updatePieceOpacityDuringDragging(pieces,
-                                              dragState: state)
+        self.updatePieceOpacity(pieces,
+                                dragState: state)
         
         self.setPosition(dragState: state)
     }
@@ -370,8 +370,8 @@ private extension Entities {
                     .set(InputTargetComponent())
             }
     }
-    private func updatePieceOpacityDuringDragging(_ pieces: Pieces,
-                                                  dragState: DragState? = nil) {//TODO: 要再検討
+    private func updatePieceOpacity(_ pieces: Pieces,
+                                    dragState: DragState? = nil) {//TODO: 要再検討
         for piece in pieces.all {
             guard piece != pieces.draggingPiece else { continue }
             self.pieceEntity(piece)?.components[OpacityComponent.self]!.opacity = 1.0
