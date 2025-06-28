@@ -12,7 +12,7 @@ enum PieceEntity {
                                    InputTargetComponent(),
                                    Self.collisionComponent(bodyEntity)])
         value.addChild(bodyEntity)
-        value.addChild(Self.shadowEntity(bodyEntity))
+        value.addChild(Self.shadowEntity(bodyEntity, piece))
         value.addChild(Self.soundEntity())
         return value
     }
@@ -34,9 +34,15 @@ enum PieceEntity {
 }
 
 private extension PieceEntity {
-    private static func shadowEntity(_ bodyEntity: Entity) -> Entity {
+    private static func shadowEntity(_ bodyEntity: Entity, _ piece: Piece) -> Entity {
         let bodyEntityBounds = bodyEntity.visualBounds(relativeTo: bodyEntity)
-        let value = ModelEntity(mesh: .generateCylinder(height: 0.001,
+        let height: Float = {
+            0.0006
+            +
+            (Float(Piece.allCases.firstIndex(of: piece)!) * 0.00001)
+            //to prevent flickering caused by overlapping shadows
+        }()
+        let value = ModelEntity(mesh: .generateCylinder(height: height,
                                                         radius: bodyEntityBounds.extents.x * 0.48),
                                 materials: [UnlitMaterial(color: .black,
                                                           applyPostProcessToneMap: true)])
