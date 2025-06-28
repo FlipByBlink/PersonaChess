@@ -144,6 +144,8 @@
 		1D5548692E0F9389005759DE /* removeSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1D5548672E0F9389005759DE /* removeSound.m4a */; };
 		1D55486B2E0F98CE005759DE /* RemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55486A2E0F98CE005759DE /* RemoveButton.swift */; };
 		1D55486D2E0FA1F9005759DE /* BottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55486C2E0FA1F4005759DE /* BottomButtons.swift */; };
+		1D5548702E0FB134005759DE /* scaleAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55486F2E0FB130005759DE /* scaleAnchor.swift */; };
+		1D5548722E0FB153005759DE /* offset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548712E0FB151005759DE /* offset.swift */; };
 		1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
@@ -296,6 +298,8 @@
 		1D5548672E0F9389005759DE /* removeSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = removeSound.m4a; sourceTree = "<group>"; };
 		1D55486A2E0F98CE005759DE /* RemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveButton.swift; sourceTree = "<group>"; };
 		1D55486C2E0FA1F4005759DE /* BottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtons.swift; sourceTree = "<group>"; };
+		1D55486F2E0FB130005759DE /* scaleAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scaleAnchor.swift; sourceTree = "<group>"; };
+		1D5548712E0FB151005759DE /* offset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = offset.swift; sourceTree = "<group>"; };
 		1D78ED702DEA7AA4006BD075 /* SceneKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKind.swift; sourceTree = "<group>"; };
 		1D78ED732DEB29F2006BD075 /* BoardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPosition.swift; sourceTree = "<group>"; };
 		1D78ED762DEC135B006BD075 /* RolePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePicker.swift; sourceTree = "<group>"; };
@@ -418,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				16780FF52B6881DB005A0244 /* ImmersiveSpaceView.swift */,
+				1D55486E2E0FB12A005759DE /* Rest */,
 			);
 			path = ImmersiveSpace;
 			sourceTree = "<group>";
@@ -680,6 +685,15 @@
 			path = Compatibility;
 			sourceTree = "<group>";
 		};
+		1D55486E2E0FB12A005759DE /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				1D5548712E0FB151005759DE /* offset.swift */,
+				1D55486F2E0FB130005759DE /* scaleAnchor.swift */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
 		1D78ED772DEC138F006BD075 /* Role */ = {
 			isa = PBXGroup;
 			children = (
@@ -922,6 +936,7 @@
 				1D78ED812DEC2A19006BD075 /* RotateBoardButton.swift in Sources */,
 				16780FFB2B689304005A0244 /* Pieces.swift in Sources */,
 				16261D742C8D61FE00C2822C /* OpenAndDismiss3DSpaceButton.swift in Sources */,
+				1D5548702E0FB134005759DE /* scaleAnchor.swift in Sources */,
 				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
 				1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */,
@@ -936,6 +951,7 @@
 				16C477132B8AC23D00343DD8 /* SharePlayProvider.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
 				16B70FCA2CA41E0300DF33C9 /* Interaction.swift in Sources */,
+				1D5548722E0FB153005759DE /* offset.swift in Sources */,
 				1D78ED832DEC2A96006BD075 /* UndoButton.swift in Sources */,
 				16B70FCD2CA41E6800DF33C9 /* handleInteraction.swift in Sources */,
 				1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */,
