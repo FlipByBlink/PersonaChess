@@ -1,8 +1,3 @@
-//
-//  VolumeWindowView.swift
-//  2025/05/18
-//
-
 import SwiftUI
 
 struct VolumeWindowView: View {

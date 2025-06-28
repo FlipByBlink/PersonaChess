@@ -81,11 +81,14 @@ private extension ChessView_iOS {
             }
     }
     private func cameraControlToggle() -> some View {
-        Toggle("Camera control", isOn: self.$isCameraEnabled)
-            .minimumScaleFactor(0.7)
-            .frame(width: 170)
-            .foregroundStyle(.secondary)
-            .font(.subheadline)
-            .padding()
+        Toggle(isOn: self.$isCameraEnabled) {
+            HStack {
+                Spacer()
+                Text("Camera control")
+            }
+        }
+        .foregroundStyle(.secondary)
+        .font(.caption.weight(.medium))
+        .padding()
     }
 }

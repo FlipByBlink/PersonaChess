@@ -4,40 +4,41 @@ struct BottomMenuView: View {
     @EnvironmentObject var model: AppModel
     var body: some View {
         VStack {
-            Self.RowView(title: "Angle") {
-                HStack(spacing: 16) {
-                    Text(self.model.sharedState.boardAngle.formatted() + "°")
-                    Button {
-                        self.model.rotateBoard()
-                    } label: {
-                        Label("Rotate", systemImage: "arrow.turn.right.up")
-                    }
-                }
-            }
-            Divider()
-            Self.RowView(title: "Scale") {
-                HStack(spacing: 16) {
-                    Text(self.model.sharedState.viewScale.formatted())
-                    Button {
-                        self.model.upScale()
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .disabled(!self.model.upScalable)
-                    Button {
-                        self.model.downScale()
-                    } label: {
-                        Image(systemName: "minus")
-                    }
-                    .disabled(!self.model.downScalable)
-                }
-                .buttonBorderShape(.circle)
-            }
-            Divider()
             self.subButtons()
+            VStack {
+                Self.RowView(title: "Angle") {
+                    HStack(spacing: 16) {
+                        Text(self.model.sharedState.boardAngle.formatted() + "°")
+                        Button {
+                            self.model.rotateBoard()
+                        } label: {
+                            Label("Rotate", systemImage: "arrow.turn.right.up")
+                        }
+                    }
+                }
+                Divider()
+                Self.RowView(title: "Scale") {
+                    HStack(spacing: 16) {
+                        Text(self.model.sharedState.viewScale.formatted())
+                        Button {
+                            self.model.upScale()
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                        .disabled(!self.model.upScalable)
+                        Button {
+                            self.model.downScale()
+                        } label: {
+                            Image(systemName: "minus")
+                        }
+                        .disabled(!self.model.downScalable)
+                    }
+                    .buttonBorderShape(.circle)
+                }
+            }
+            .padding()
+            .border(.gray)
         }
-        .padding()
-        .border(.gray)
         .padding(.horizontal)
         .frame(maxWidth: 400)
     }
