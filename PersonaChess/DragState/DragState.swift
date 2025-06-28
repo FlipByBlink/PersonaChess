@@ -40,4 +40,15 @@ extension DragState: Codable, Equatable {
         }
         return self.sourceIndex.position + value
     }
+    
+    var shouldRemove: Bool {
+        let piecePosion = self.draggedPiecePosition
+        let boundaryOffset = Size.Meter.square * 4
+        if abs(piecePosion.x) > boundaryOffset
+            || abs(piecePosion.z) > boundaryOffset {
+            return true
+        } else {
+            return false
+        }
+    }
 }

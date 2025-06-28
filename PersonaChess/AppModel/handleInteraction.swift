@@ -49,21 +49,25 @@ extension AppModel {
                     return
                 }
             case .drop(let dragState):
-                let targetingIndex = Index.calculateFromDrag(dragState)
-                if dragState.sourceIndex == targetingIndex {
-                    action = .dropAndBack(dragState)
+                if dragState.shouldRemove {
+                    action = .remove(dragState.piece)
                 } else {
-                    if let targetingIndexPiece = self.sharedState.pieces.piece(targetingIndex) {
-                        if targetingIndexPiece.side == dragState.piece.side {
-                            action = .dropAndBack(dragState)
-                        } else {
-                            action = .dropAndMoveAndCapture(dragState,
-                                                            capturedPiece: targetingIndexPiece,
-                                                            capturedPieceIndex: targetingIndex)
-                        }
+                    let targetingIndex = Index.calculateFromDrag(dragState)
+                    if dragState.sourceIndex == targetingIndex {
+                        action = .dropAndBack(dragState)
                     } else {
-                        action = .dropAndMove(dragState,
-                                              newIndex: targetingIndex)
+                        if let targetingIndexPiece = self.sharedState.pieces.piece(targetingIndex) {
+                            if targetingIndexPiece.side == dragState.piece.side {
+                                action = .dropAndBack(dragState)
+                            } else {
+                                action = .dropAndMoveAndCapture(dragState,
+                                                                capturedPiece: targetingIndexPiece,
+                                                                capturedPieceIndex: targetingIndex)
+                            }
+                        } else {
+                            action = .dropAndMove(dragState,
+                                                  newIndex: targetingIndex)
+                        }
                     }
                 }
         }

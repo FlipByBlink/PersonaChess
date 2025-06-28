@@ -13,11 +13,13 @@ enum Sound {
     
     enum Piece {
         case put,
-             select
+             select,
+             remove
         var key: String {
             switch self {
                 case .put: "putSound\(Self.putFileIndices.randomElement()!)"
                 case .select: "\(self)Sound"
+                case .remove: "\(self)Sound"
             }
         }
         static let audioLibraryComponent = AudioLibraryComponent(resources: Self.allSounds)
@@ -28,6 +30,7 @@ enum Sound {
                 value["putSound\($0)"] = try! AudioFileResource.load(named: "putSound\($0).m4a")
             }
             value[Piece.select.key] = try! AudioFileResource.load(named: "\(Piece.select)Sound.m4a")
+            value[Piece.remove.key] = try! AudioFileResource.load(named: "\(Piece.remove)Sound.m4a")
             return value
         }
     }
@@ -38,21 +41,3 @@ enum Sound {
         }
     }
 }
-
-//extension SoundFeedback {
-//    func put(_ entity: Entity, _ isFloorMode: Bool) {
-//        let player = entity.prepareAudio(self.putSound.randomElement()!)
-//        player.gain = isFloorMode ? 14 : -8
-//        player.play()
-//    }
-//    func reset(_ entity: Entity) {
-//        let player = entity.prepareAudio(self.resetSound)
-//        player.gain = -8
-//        player.play()
-//    }
-//    func select(_ entity: Entity, _ isFloorMode: Bool) {
-//        let player = entity.prepareAudio(self.selectSound)
-//        player.gain = isFloorMode ? -8 : -21
-//        player.play()
-//    }
-//}

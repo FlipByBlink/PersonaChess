@@ -250,7 +250,7 @@ private extension Entities {
             case .remove(let piece):
                 self.fadeout(piece: piece)
                 self.playSound(piece,
-                               kind: .put)
+                               kind: .remove)
                 self.remove(piece,
                             delay: PieceAnimation.fadeout.duration)
             case .undo, .reset:
