@@ -25,6 +25,8 @@ extension Pieces: Codable, Equatable {
             case .dropAndMove(let dragState, let newIndex),
                     .dropAndMoveAndCapture(let dragState, _, let newIndex):
                 self.move(dragState.piece, newIndex)
+            case .remove(let piece):
+                self.remove(piece)
             case .reset:
                 self.setPreset()
             default:
@@ -77,16 +79,6 @@ extension Pieces: Codable, Equatable {
             nil
         }
     }
-    var capturedPieceInProgress: (piece: Piece, index: Index)? {
-        switch self.currentAction {
-            case .dropAndMoveAndCapture(_, let capturedPiece, let capturedPieceIndex):
-                (capturedPiece, capturedPieceIndex)
-            case .tapPieceAndMoveAndCapture(_, _, let capturedPiece, let capturedPieceIndex):
-                (capturedPiece, capturedPieceIndex)
-            default:
-                nil
-        }
-    }
     var asLog: Self {
         var value = self
         value.currentAction = nil
@@ -100,9 +92,12 @@ private extension Pieces {
             self.promotions[piece] = true
         }
         if let capturedPiece = self.piece(newIndex) {
-            self.indices[capturedPiece] = nil
+            self.remove(capturedPiece)
         }
         self.indices[piece] = newIndex
+    }
+    private mutating func remove(_ piece: Piece) {
+        self.indices[piece] = nil
     }
     private func shouldPromote(_ piece: Piece, _ newIndex: Index) -> Bool {
         if piece.chessmen.role == .pawn {

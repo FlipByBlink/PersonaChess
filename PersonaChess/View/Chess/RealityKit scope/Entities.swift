@@ -70,11 +70,13 @@ private extension Entities {
             if let index = pieces.indices[piece] {
                 self.add(piece, index: index)
             } else {
-                if let capturedPieceInProgress = pieces.capturedPieceInProgress {
-                    self.add(capturedPieceInProgress.piece,
-                             index: capturedPieceInProgress.index)
-                } else {
-                    self.remove(piece)
+                switch pieces.currentAction {
+                    case .dropAndMoveAndCapture(_, _, _),
+                            .tapPieceAndMoveAndCapture(_, _, _, _),
+                            .remove(_):
+                        continue
+                    default:
+                        self.remove(piece)
                 }
             }
         }
@@ -244,6 +246,12 @@ private extension Entities {
                                kind: .put,
                                delay: PieceAnimation.drop.duration)
                 self.remove(capturedPiece,
+                            delay: PieceAnimation.fadeout.duration)
+            case .remove(let piece):
+                self.fadeout(piece: piece)
+                self.playSound(piece,
+                               kind: .put)
+                self.remove(piece,
                             delay: PieceAnimation.fadeout.duration)
             case .undo, .reset:
                 break

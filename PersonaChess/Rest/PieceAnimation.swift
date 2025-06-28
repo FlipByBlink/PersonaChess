@@ -35,6 +35,9 @@ extension PieceAnimation {
                     .dropAndMoveAndCapture(_, _, _):
                 Self.drop.duration
                 
+            case .remove(_):
+                Self.fadeout.duration
+                
             default:
                 { assertionFailure(); return 0.0 }()
         }

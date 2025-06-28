@@ -21,6 +21,7 @@ enum Action {
     case dropAndMoveAndCapture(DragState,
                                capturedPiece: Piece,
                                capturedPieceIndex: Index)
+    case remove(Piece)
     case undo
     case reset
 }
@@ -44,6 +45,8 @@ extension Action: Codable, Equatable {
                 [dragState.piece]
             case .dropAndMoveAndCapture(let dragState, let capturedPiece, _):
                 [dragState.piece, capturedPiece]
+            case .remove(let piece):
+                [piece]
             case .beginDrag(_), .undo, .reset:
                 []
         }

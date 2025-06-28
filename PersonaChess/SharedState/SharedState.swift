@@ -21,6 +21,7 @@ extension SharedState: Codable, Equatable {
                     .tapPieceAndMoveAndCapture(_, _, _, _),
                     .dropAndMove(_, _),
                     .dropAndMoveAndCapture(_, _, _),
+                    .remove(_),
                     .reset:
                 self.logs.append(self.pieces.asLog)
             default:
