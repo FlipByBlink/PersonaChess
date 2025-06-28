@@ -143,6 +143,7 @@
 		1D5548682E0F9389005759DE /* removeSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1D5548672E0F9389005759DE /* removeSound.m4a */; };
 		1D5548692E0F9389005759DE /* removeSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1D5548672E0F9389005759DE /* removeSound.m4a */; };
 		1D55486B2E0F98CE005759DE /* RemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55486A2E0F98CE005759DE /* RemoveButton.swift */; };
+		1D55486D2E0FA1F9005759DE /* BottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55486C2E0FA1F4005759DE /* BottomButtons.swift */; };
 		1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
@@ -294,6 +295,7 @@
 		16F972762B68B7FB00711C53 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		1D5548672E0F9389005759DE /* removeSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = removeSound.m4a; sourceTree = "<group>"; };
 		1D55486A2E0F98CE005759DE /* RemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveButton.swift; sourceTree = "<group>"; };
+		1D55486C2E0FA1F4005759DE /* BottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtons.swift; sourceTree = "<group>"; };
 		1D78ED702DEA7AA4006BD075 /* SceneKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKind.swift; sourceTree = "<group>"; };
 		1D78ED732DEB29F2006BD075 /* BoardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPosition.swift; sourceTree = "<group>"; };
 		1D78ED762DEC135B006BD075 /* RolePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePicker.swift; sourceTree = "<group>"; };
@@ -611,7 +613,6 @@
 				1662F1512B89F3C90024763B /* Chess */,
 				1DD18A272DD9967100CF0645 /* VolumeWindow */,
 				1671A1692B74A866009A87A6 /* ImmersiveSpace */,
-				1D78ED7F2DEC29EE006BD075 /* Rest */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -619,7 +620,12 @@
 		16A34CBD2C8D75FA004192AC /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				1D55486C2E0FA1F4005759DE /* BottomButtons.swift */,
 				16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */,
+				1D78ED802DEC2A16006BD075 /* RotateBoardButton.swift */,
+				1D55486A2E0F98CE005759DE /* RemoveButton.swift */,
+				1D78ED822DEC2A96006BD075 /* UndoButton.swift */,
+				1D78ED842DEC2AA6006BD075 /* ResetButton.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -682,17 +688,6 @@
 				1D78ED762DEC135B006BD075 /* RolePicker.swift */,
 			);
 			path = Role;
-			sourceTree = "<group>";
-		};
-		1D78ED7F2DEC29EE006BD075 /* Rest */ = {
-			isa = PBXGroup;
-			children = (
-				1D78ED802DEC2A16006BD075 /* RotateBoardButton.swift */,
-				1D55486A2E0F98CE005759DE /* RemoveButton.swift */,
-				1D78ED822DEC2A96006BD075 /* UndoButton.swift */,
-				1D78ED842DEC2AA6006BD075 /* ResetButton.swift */,
-			);
-			path = Rest;
 			sourceTree = "<group>";
 		};
 		1D78ED882DEC5211006BD075 /* DragState */ = {
@@ -945,6 +940,7 @@
 				16B70FCD2CA41E6800DF33C9 /* handleInteraction.swift in Sources */,
 				1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
+				1D55486D2E0FA1F9005759DE /* BottomButtons.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,
 				1D55486B2E0F98CE005759DE /* RemoveButton.swift in Sources */,
 				1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */,

@@ -9,21 +9,10 @@ struct VolumeWindowView: View {
             .frame(height: Size.Point.board(self.physicalMetrics),
                    alignment: .bottom)
             .background { GuideMenuView() }
-            .toolbar {
-                ToolbarItemGroup(placement: .bottomOrnament) {
-                    OpenAndDismiss3DSpaceButton()
-                    RotateBoardButton()
-                    RemoveButton()
-                    UndoButton()
-                    ResetButton()
-                    OpenGuideMenuButton()
-                }
-            }
+            .toolbar { BottomButtons() }
             .animation(.default, value: self.model.isGuideMenuShown)
             .volumeBaseplateVisibility(.hidden)
             .environment(\.sceneKind, .volume)
             .task { SharePlayProvider.registerGroupActivity() }
     }
 }
-
-
