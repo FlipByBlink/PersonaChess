@@ -380,9 +380,6 @@
         }
       }
     },
-    "You are currently not in Spatial mode.\nPlease switch to Spatial mode from Control Center or FaceTime window." : {
-
-    },
     "You can also start SharePlay yourself. During a FaceTime call, a system menu UI for SharePlay appears at the bottom of the app. You can start SharePlay from the menu." : {
       "localizations" : {
         "ja" : {

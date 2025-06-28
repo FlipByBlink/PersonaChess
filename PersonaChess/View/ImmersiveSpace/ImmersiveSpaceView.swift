@@ -10,7 +10,6 @@ struct ImmersiveSpaceView: View {
             .offset(z: self.zOffset)
             .offset(x: self.xOffset)
             .animation(.default, value: self.model.sharedState.viewScale)
-            .overlay { SpatialSuggestionDialog() }
             .environment(\.sceneKind, .immersiveSpace)
             .handlesExternalEvents(preferring: [], allowing: [])
             .onAppear { self.model.isImmersiveSpaceShown = true }

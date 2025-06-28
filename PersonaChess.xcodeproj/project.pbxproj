@@ -26,7 +26,6 @@
 		162145902CBFD0C700A6A87E /* PieceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		162145912CBFD0C700A6A87E /* PieceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D662C8D1E6200C2822C /* GuideMenuView.swift */; };
-		16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */; };
 		16261D742C8D61FE00C2822C /* OpenAndDismiss3DSpaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */; };
 		16312B5B2B75D0FB006A93D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* App.swift */; };
 		16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5C2B75D0FB006A93D1 /* ContentView.swift */; };
@@ -213,7 +212,6 @@
 		16261D622C8D1CD900C2822C /* CenterWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterWindowView.swift; sourceTree = "<group>"; };
 		16261D662C8D1E6200C2822C /* GuideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideMenuView.swift; sourceTree = "<group>"; };
 		16261D6F2C8D585700C2822C /* RecordingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRoom.swift; sourceTree = "<group>"; };
-		16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialSuggestionDialog.swift; sourceTree = "<group>"; };
 		16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAndDismiss3DSpaceButton.swift; sourceTree = "<group>"; };
 		16312B582B75D0FB006A93D1 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16312B5A2B75D0FB006A93D1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -364,14 +362,6 @@
 			path = GuideMenu;
 			sourceTree = "<group>";
 		};
-		16261D6C2C8D577E00C2822C /* Rest */ = {
-			isa = PBXGroup;
-			children = (
-				16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */,
-			);
-			path = Rest;
-			sourceTree = "<group>";
-		};
 		16312B592B75D0FB006A93D1 /* iOS for debug */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,7 +416,6 @@
 			isa = PBXGroup;
 			children = (
 				16780FF52B6881DB005A0244 /* ImmersiveSpaceView.swift */,
-				16261D6C2C8D577E00C2822C /* Rest */,
 			);
 			path = ImmersiveSpace;
 			sourceTree = "<group>";
@@ -940,7 +929,6 @@
 				16261D742C8D61FE00C2822C /* OpenAndDismiss3DSpaceButton.swift in Sources */,
 				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
-				16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */,
 				1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */,
 				16AE50282B70FE3200D25197 /* Sound.swift in Sources */,
 				16F42C592C91A391006A12E3 /* ActivityState.swift in Sources */,
