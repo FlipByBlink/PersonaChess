@@ -78,9 +78,6 @@
         }
       }
     },
-    "Close chess" : {
-
-    },
     "Dismiss" : {
 
     },
@@ -193,9 +190,6 @@
         }
       }
     },
-    "Larger" : {
-
-    },
     "Menu" : {
 
     },
@@ -279,9 +273,6 @@
           }
         }
       }
-    },
-    "Smaller" : {
-
     },
     "Start \"Share chess\" activity" : {
 

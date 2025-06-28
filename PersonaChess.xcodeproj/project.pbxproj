@@ -26,7 +26,6 @@
 		162145902CBFD0C700A6A87E /* PieceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		162145912CBFD0C700A6A87E /* PieceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D662C8D1E6200C2822C /* GuideMenuView.swift */; };
-		16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */; };
 		16261D722C8D585700C2822C /* SpatialSuggestionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */; };
 		16261D742C8D61FE00C2822C /* OpenAndDismiss3DSpaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */; };
 		16312B5B2B75D0FB006A93D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* App.swift */; };
@@ -214,7 +213,6 @@
 		1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceAnimation.swift; sourceTree = "<group>"; };
 		16261D622C8D1CD900C2822C /* CenterWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterWindowView.swift; sourceTree = "<group>"; };
 		16261D662C8D1E6200C2822C /* GuideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideMenuView.swift; sourceTree = "<group>"; };
-		16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewOnHand.swift; sourceTree = "<group>"; };
 		16261D6F2C8D585700C2822C /* RecordingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRoom.swift; sourceTree = "<group>"; };
 		16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialSuggestionDialog.swift; sourceTree = "<group>"; };
 		16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAndDismiss3DSpaceButton.swift; sourceTree = "<group>"; };
@@ -371,7 +369,6 @@
 		16261D6C2C8D577E00C2822C /* Rest */ = {
 			isa = PBXGroup;
 			children = (
-				16261D6D2C8D578800C2822C /* ToolbarViewOnHand.swift */,
 				16261D702C8D585700C2822C /* SpatialSuggestionDialog.swift */,
 			);
 			path = Rest;
@@ -954,7 +951,6 @@
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				1605C2462CA02F5500725749 /* sharePlay.swift in Sources */,
 				16780FF62B6881DB005A0244 /* ImmersiveSpaceView.swift in Sources */,
-				16261D6E2C8D578800C2822C /* ToolbarViewOnHand.swift in Sources */,
 				169333A22B75A7B500B60E0F /* SharedState.swift in Sources */,
 				1D78ED8A2DEC521F006BD075 /* DragState.swift in Sources */,
 				16F972772B68B7FB00711C53 /* Size.swift in Sources */,
