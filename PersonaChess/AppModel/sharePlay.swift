@@ -26,6 +26,7 @@ extension AppModel {
                             self.tasks = []
                             self.subscriptions = []
                             self.groupSession = nil
+                            self.isImmersiveSpaceModePreferred = nil
                             self.spatialSharePlaying = nil
                             self.sharedState.clearAllLog()
                             self.sharedState.pieces.setPreset()
@@ -77,11 +78,8 @@ extension AppModel {
                     Task {
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             for await immersionStyle in systemCoordinator.groupImmersionStyle {
-                                if immersionStyle != nil {
-                                    //TODO: 実装
-                                } else {
-                                    //TODO: 実装
-                                }
+                                self.isImmersiveSpaceModePreferred = (immersionStyle != nil)
+                                //TODO: 要動作確認
                             }
                         }
                     }

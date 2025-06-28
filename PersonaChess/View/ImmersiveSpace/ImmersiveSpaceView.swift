@@ -10,6 +10,7 @@ struct ImmersiveSpaceView: View {
             .offset(z: self.zOffset)
             .offset(x: self.xOffset)
             .animation(.default, value: self.model.sharedState.viewScale)
+            .modifier(HandleGroupImmersion(.immersiveSpace))
             .environment(\.sceneKind, .immersiveSpace)
             .handlesExternalEvents(preferring: [], allowing: [])
             .onAppear { self.model.isImmersiveSpaceShown = true }

@@ -15,6 +15,7 @@ class AppModel: ObservableObject {
     var unreliableMessenger: GroupSessionMessenger?
     var subscriptions: Set<AnyCancellable> = []
     var tasks: Set<Task<Void, Never>> = []
+    @Published var isImmersiveSpaceModePreferred: Bool?
     @Published var spatialSharePlaying: Bool?
     
     init() {
