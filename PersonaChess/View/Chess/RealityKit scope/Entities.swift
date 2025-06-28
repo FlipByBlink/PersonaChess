@@ -14,7 +14,7 @@ extension Entities {
         
         self.setPawnPromotion(pieces)
         
-        self.updateHoverEffect(disabled: pieces.isDragging)
+        self.enableHoverEffect(pieces)
         
         self.disableInputDuringAnimation(pieces)
         
@@ -35,7 +35,7 @@ extension Entities {
                     _ state: DragState) {
         self.stopAllAnimations()
         
-        self.updateHoverEffect(disabled: true)
+        self.disableHoverEffect()
         
         self.updatePieceOpacity(pieces,
                                 dragState: state)
@@ -101,18 +101,31 @@ private extension Entities {
             }
         }
     }
-    private func updateHoverEffect(disabled: Bool) {
+    private func enableHoverEffect(_ pieces: Pieces) {
+        let bodyEntities: [Entity] = {
+            self.root
+                .children
+                .filter { $0.components.has(Piece.self) }
+                .map { $0.findEntity(named: "body")! }
+        }()
+        for bodyEntity in bodyEntities {
+            if let currentAction = pieces.currentAction,
+               currentAction.hasAnimation {
+                Task {
+                    try? await Task.sleep(for: .seconds(PieceAnimation.wholeDuration(currentAction)))
+                    bodyEntity.components.set(HoverEffectComponent())
+                }
+            } else {
+                bodyEntity.components.set(HoverEffectComponent())
+            }
+        }
+    }
+    private func disableHoverEffect() {
         self.root
             .children
             .filter { $0.components.has(Piece.self) }
             .map { $0.findEntity(named: "body")! }
-            .forEach {
-                if disabled {
-                    $0.components.remove(HoverEffectComponent.self)
-                } else {
-                    $0.components.set(HoverEffectComponent())
-                }
-            }
+            .forEach { $0.components.remove(HoverEffectComponent.self) }
     }
     private func setPiecesPositionWithoutAnimation(_ pieces: Pieces) {
         for piece in pieces.all {
