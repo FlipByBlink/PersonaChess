@@ -18,14 +18,7 @@ struct VolumeWindowView: View {
                 ToolbarItemGroup(placement: .bottomOrnament) {
                     OpenAndDismiss3DSpaceButton()
                     RotateBoardButton()
-                    Button("remove", systemImage: "delete.left") {
-                        if let pickedPiece = self.model.sharedState.pieces.pickingPiece {
-                            self.model.execute(.remove(pickedPiece))
-                        }
-                    }
-                    .labelStyle(.iconOnly)
-                    .disabled(self.model.sharedState.pieces.pickingPiece == nil)
-                    .disabled(self.model.isAnimating)
+                    RemoveButton()
                     UndoButton()
                     ResetButton()
                     OpenGuideMenuButton()
@@ -37,3 +30,5 @@ struct VolumeWindowView: View {
             .task { SharePlayProvider.registerGroupActivity() }
     }
 }
+
+

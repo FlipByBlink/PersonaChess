@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MenuViewDuring3DMode: View {
+struct BottomMenuView: View {
     @EnvironmentObject var model: AppModel
     var body: some View {
         VStack {
@@ -34,9 +34,7 @@ struct MenuViewDuring3DMode: View {
                 .buttonBorderShape(.circle)
             }
             Divider()
-            Self.RowView(title: "More") {
-                self.subButtons()
-            }
+            self.subButtons()
         }
         .padding()
         .border(.gray)
@@ -45,9 +43,15 @@ struct MenuViewDuring3DMode: View {
     }
 }
 
-private extension MenuViewDuring3DMode {
+private extension BottomMenuView {
     private func subButtons() -> some View {
-        Section {
+        HStack {
+            Button("remove", systemImage: "delete.left") {
+                if let pickedPiece = self.model.sharedState.pieces.pickingPiece {
+                    self.model.execute(.remove(pickedPiece))
+                }
+            }
+            .disabled(self.model.sharedState.pieces.pickingPiece == nil)
             Button {
                 self.model.execute(.undo)
             } label: {
@@ -62,6 +66,8 @@ private extension MenuViewDuring3DMode {
             .disabled(self.model.sharedState.pieces.isPreset)
         }
         .disabled(self.model.isAnimating)
+        .font(.caption)
+        .buttonStyle(.bordered)
     }
     private struct RowView<Content: View>: View {
         let title: LocalizedStringKey

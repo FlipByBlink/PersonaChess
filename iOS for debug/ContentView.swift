@@ -6,7 +6,7 @@ struct ContentView: View {
             ChessView_iOS()
                 .overlay(alignment: .top) { MainMenu() }
             ChessView_2DMode()
-            MenuViewDuring3DMode()
+            BottomMenuView()
         }
         .task { SharePlayProvider.registerGroupActivity() }
     }

@@ -43,7 +43,7 @@
 		16312B6F2B75D193006A93D1 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
 		16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B742B75D45B006A93D1 /* MainMenu.swift */; };
-		16312B782B75D45B006A93D1 /* ChessMenuView_3DMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B752B75D45B006A93D1 /* ChessMenuView_3DMode.swift */; };
+		16312B782B75D45B006A93D1 /* BottomMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B752B75D45B006A93D1 /* BottomMenuView.swift */; };
 		16312B792B75D570006A93D1 /* putSound4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1732B74C638009A87A6 /* putSound4.m4a */; };
 		16312B7A2B75D570006A93D1 /* putSound2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1712B74C637009A87A6 /* putSound2.m4a */; };
 		16312B7B2B75D570006A93D1 /* putSound6.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A16F2B74C635009A87A6 /* putSound6.m4a */; };
@@ -145,6 +145,7 @@
 		16F972772B68B7FB00711C53 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
 		1D5548682E0F9389005759DE /* removeSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1D5548672E0F9389005759DE /* removeSound.m4a */; };
 		1D5548692E0F9389005759DE /* removeSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1D5548672E0F9389005759DE /* removeSound.m4a */; };
+		1D55486B2E0F98CE005759DE /* RemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55486A2E0F98CE005759DE /* RemoveButton.swift */; };
 		1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
@@ -222,7 +223,7 @@
 		16312B5C2B75D0FB006A93D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16312B5E2B75D0FD006A93D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16312B742B75D45B006A93D1 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
-		16312B752B75D45B006A93D1 /* ChessMenuView_3DMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessMenuView_3DMode.swift; sourceTree = "<group>"; };
+		16312B752B75D45B006A93D1 /* BottomMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenuView.swift; sourceTree = "<group>"; };
 		16312B812B75D581006A93D1 /* iOS for debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS for debug.entitlements"; sourceTree = "<group>"; };
 		16428EB32C9FAA2600E93B86 /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		164B839B2C8DC4E4001D9DBA /* CustomSpatialTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpatialTemplate.swift; sourceTree = "<group>"; };
@@ -298,6 +299,7 @@
 		16F972742B68B77C00711C53 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		16F972762B68B7FB00711C53 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		1D5548672E0F9389005759DE /* removeSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = removeSound.m4a; sourceTree = "<group>"; };
+		1D55486A2E0F98CE005759DE /* RemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveButton.swift; sourceTree = "<group>"; };
 		1D78ED702DEA7AA4006BD075 /* SceneKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKind.swift; sourceTree = "<group>"; };
 		1D78ED732DEB29F2006BD075 /* BoardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPosition.swift; sourceTree = "<group>"; };
 		1D78ED762DEC135B006BD075 /* RolePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePicker.swift; sourceTree = "<group>"; };
@@ -646,7 +648,7 @@
 				1D78ED7D2DEC295C006BD075 /* Size+Extensions.swift */,
 				16312B742B75D45B006A93D1 /* MainMenu.swift */,
 				16F42C602C926AAF006A12E3 /* CustomSpatialTemplate.swift */,
-				16312B752B75D45B006A93D1 /* ChessMenuView_3DMode.swift */,
+				16312B752B75D45B006A93D1 /* BottomMenuView.swift */,
 				1D78ED8C2DEDE145006BD075 /* PieceAnimation+Extension.swift */,
 			);
 			path = Rest;
@@ -703,6 +705,7 @@
 			isa = PBXGroup;
 			children = (
 				1D78ED802DEC2A16006BD075 /* RotateBoardButton.swift */,
+				1D55486A2E0F98CE005759DE /* RemoveButton.swift */,
 				1D78ED822DEC2A96006BD075 /* UndoButton.swift */,
 				1D78ED842DEC2AA6006BD075 /* ResetButton.swift */,
 			);
@@ -909,7 +912,7 @@
 				16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */,
 				1619528C2CBC9CA600E6F171 /* PieceEntity.swift in Sources */,
 				1605C2472CA02F5500725749 /* sharePlay.swift in Sources */,
-				16312B782B75D45B006A93D1 /* ChessMenuView_3DMode.swift in Sources */,
+				16312B782B75D45B006A93D1 /* BottomMenuView.swift in Sources */,
 				16312B6A2B75D193006A93D1 /* Chessmen.swift in Sources */,
 				16312B5B2B75D0FB006A93D1 /* App.swift in Sources */,
 				16F42C612C926AB0006A12E3 /* CustomSpatialTemplate.swift in Sources */,
@@ -963,6 +966,7 @@
 				1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,
+				1D55486B2E0F98CE005759DE /* RemoveButton.swift in Sources */,
 				1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */,
 				16EA6A802B68769C00A3A740 /* Side.swift in Sources */,
 				16780FFD2B6893CF005A0244 /* Index.swift in Sources */,

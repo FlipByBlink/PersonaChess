@@ -15,6 +15,7 @@ extension PieceAnimation {
                     .dropAndMoveAndCapture(_, _, _):
                 Animation.easeInOut(duration: Self.drop.duration)
             case .beginDrag(_),
+                    .remove(_),
                     .undo,
                     .reset,
                     .none:
