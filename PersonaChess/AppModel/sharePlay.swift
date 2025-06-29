@@ -135,9 +135,12 @@ private extension AppModel {
         }
     }
     private func receive(_ message: DragState) {
-        guard case .beginDrag(let initialDragState) = self.sharedState.pieces.currentAction,
-              initialDragState.id == message.id else {
-            assertionFailure("??? Received invalid dragState. \(message)")
+        guard case .beginDrag(let initialDragState) = self.sharedState.pieces.currentAction else {
+            print("Received dragState even though the action is not beginDrag. \(message)")
+            return
+        }
+        guard initialDragState.id == message.id else {
+            assertionFailure("ERROR: DragState IDs are different. \(message)")
             return
         }
         Task { @MainActor in
