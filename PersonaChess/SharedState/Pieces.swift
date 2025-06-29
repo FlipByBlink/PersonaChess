@@ -65,13 +65,6 @@ extension Pieces: Codable, Equatable {
             nil
         }
     }
-    var isDragging: Bool {
-        if case .beginDrag(_) = self.currentAction {
-            true
-        } else {
-            false
-        }
-    }
     var draggingPiece: Piece? {
         if case .beginDrag(let state) = self.currentAction {
             state.piece

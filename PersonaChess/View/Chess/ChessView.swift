@@ -95,8 +95,8 @@ private extension ChessView {
 
 
 
-//↓ これだとdrag判定開始までラグが発生する。
+//↓ This causes a delay before the drag is recognized.
 //.gesture(ExclusiveGesture(self.tapGesture, self.dragGesture))
 
-//↓ これだとどちらも入力があって複雑になる。
+//↓ This results in both inputs being fired, making it harder to manage.
 //.gesture(SimultaneousGesture(self.dragGesture, self.tapGesture))

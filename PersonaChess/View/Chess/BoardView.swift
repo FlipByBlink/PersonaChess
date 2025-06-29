@@ -46,7 +46,7 @@ private extension BoardView {
     private var boardSize: CGFloat {
         switch self.sceneKind {
             case .immersiveSpace:
-                Size.Point.boardInFloorMode(self.physicalMetrics)
+                Size.Point.boardInImmersiveSpace(self.physicalMetrics)
             case .window:
                 Size.Point.board(self.physicalMetrics)
         }

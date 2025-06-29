@@ -9,11 +9,10 @@ enum Size {
             +
             (Self.boardInnerPadding * 2)
         }
-        static var boardInFloorMode: CGFloat {
+        static var boardInImmersiveSpace: CGFloat {
             .init(Self.square) * 8
         }
         static let pickedOffset: Float = 0.1
-        static let spatialZOffset: CGFloat = 1.5
     }
     enum Point {
 #if os(visionOS)
@@ -26,8 +25,8 @@ enum Size {
         static func board(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
             physicalMetrics.convert(Size.Meter.board, from: .meters)
         }
-        static func boardInFloorMode(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
-            physicalMetrics.convert(Size.Meter.boardInFloorMode, from: .meters)
+        static func boardInImmersiveSpace(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
+            physicalMetrics.convert(Size.Meter.boardInImmersiveSpace, from: .meters)
         }
         static let nonSpatialZOffset: CGFloat = 1400
 #endif

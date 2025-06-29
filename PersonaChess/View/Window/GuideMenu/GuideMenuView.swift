@@ -10,9 +10,7 @@ struct GuideMenuView: View {
                     NavigationLink("What's SharePlay?") { WhatsSharePlayMenu() }
                     NavigationLink("What's Persona?") { WhatsPersonaMenu() }
                 }
-                if self.model.groupSession == nil {
-                    Section { NavigationLink("Set up SharePlay") { SetUpMenu() } }
-                }
+                Section { NavigationLink("Set up SharePlay") { SetUpMenu() } }
                 AboutOptionsMenuLink()
                 Section {
                     AboutAppLink()
