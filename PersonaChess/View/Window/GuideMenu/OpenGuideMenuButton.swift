@@ -3,12 +3,13 @@ import SwiftUI
 struct OpenGuideMenuButton: View {
     @EnvironmentObject var model: AppModel
     var body: some View {
-        Button {
-            self.model.isGuideMenuShown.toggle()
-        } label: {
-            Label("Open menu", systemImage: "line.3.horizontal")
+        if self.model.groupSession == nil {
+            Button {
+                self.model.isGuideMenuShown.toggle()
+            } label: {
+                Label("Open menu", systemImage: "line.3.horizontal")
+            }
+            .opacity(self.model.isGuideMenuShown ? 0.7 : 1)
         }
-        .opacity(self.model.isGuideMenuShown ? 0.7 : 1)
-        .disabled(self.model.groupSession != nil)
     }
 }

@@ -3,17 +3,16 @@ import SwiftUI
 struct BottomButtons: ToolbarContent {
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .bottomOrnament) {
-            Group {
+            HStack(spacing: 12) {
                 OpenAndDismiss3DSpaceButton()
-                    .padding(.leading, 8)
                 RotateBoardButton()
                 RemoveButton()
                 UndoButton()
                 ResetButton()
                 OpenGuideMenuButton()
-                    .padding(.trailing, 8)
             }
             .buttonStyle(Self.Style())
+            .padding(.horizontal, 8)
         }
     }
 }
