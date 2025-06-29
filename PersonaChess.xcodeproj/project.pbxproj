@@ -40,7 +40,7 @@
 		16312B6E2B75D193006A93D1 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
 		16312B6F2B75D193006A93D1 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69F2B6901670005172B /* Action.swift */; };
 		16312B702B75D1B9006A93D1 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165EC69D2B68C5E30005172B /* AppModel.swift */; };
-		16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B742B75D45B006A93D1 /* MainMenu.swift */; };
+		16312B772B75D45B006A93D1 /* HeaderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B742B75D45B006A93D1 /* HeaderMenu.swift */; };
 		16312B782B75D45B006A93D1 /* BottomMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B752B75D45B006A93D1 /* BottomMenuView.swift */; };
 		16312B792B75D570006A93D1 /* putSound4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1732B74C638009A87A6 /* putSound4.m4a */; };
 		16312B7A2B75D570006A93D1 /* putSound2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1671A1712B74C637009A87A6 /* putSound2.m4a */; };
@@ -221,7 +221,7 @@
 		16312B5A2B75D0FB006A93D1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		16312B5C2B75D0FB006A93D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16312B5E2B75D0FD006A93D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		16312B742B75D45B006A93D1 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		16312B742B75D45B006A93D1 /* HeaderMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderMenu.swift; sourceTree = "<group>"; };
 		16312B752B75D45B006A93D1 /* BottomMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenuView.swift; sourceTree = "<group>"; };
 		16312B812B75D581006A93D1 /* iOS for debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS for debug.entitlements"; sourceTree = "<group>"; };
 		16428EB32C9FAA2600E93B86 /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
@@ -644,7 +644,7 @@
 				1D78ED7B2DEC26D9006BD075 /* Pieces+Extension.swift */,
 				1D78ED792DEC2692006BD075 /* Chessmen+Extension.swift */,
 				1D78ED7D2DEC295C006BD075 /* Size+Extensions.swift */,
-				16312B742B75D45B006A93D1 /* MainMenu.swift */,
+				16312B742B75D45B006A93D1 /* HeaderMenu.swift */,
 				16312B752B75D45B006A93D1 /* BottomMenuView.swift */,
 				1D78ED8C2DEDE145006BD075 /* PieceAnimation+Extension.swift */,
 			);
@@ -910,7 +910,7 @@
 				1D78ED8B2DEC521F006BD075 /* DragState.swift in Sources */,
 				161774672CCFB0020075E8F0 /* ChessView_2DMode.swift in Sources */,
 				161774692CCFB0B80075E8F0 /* SquareView_2DMode.swift in Sources */,
-				16312B772B75D45B006A93D1 /* MainMenu.swift in Sources */,
+				16312B772B75D45B006A93D1 /* HeaderMenu.swift in Sources */,
 				16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */,
 				16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */,
 				1619528C2CBC9CA600E6F171 /* PieceEntity.swift in Sources */,

@@ -7,7 +7,7 @@ extension Size.Meter {
     }
 }
 extension Size.Point {
-    static let squareSize_2DMode: CGFloat = 40.0
+    static let squareSize_2DMode: CGFloat = 34.0
     //static var boardSize_2DMode: CGFloat { Self.squareSize_2DMode * 8 }
     static func convertFromMeter_2DMode(_ meterValue: Float) -> CGFloat {
         let ratio = Float(Self.squareSize_2DMode) / Size.Meter.square

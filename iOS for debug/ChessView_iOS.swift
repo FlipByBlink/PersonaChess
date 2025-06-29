@@ -89,6 +89,6 @@ private extension ChessView_iOS {
         }
         .foregroundStyle(.secondary)
         .font(.caption.weight(.medium))
-        .padding()
+        .padding(.trailing)
     }
 }

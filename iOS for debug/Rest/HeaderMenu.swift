@@ -1,7 +1,7 @@
 import SwiftUI
 import GroupActivities
 
-struct MainMenu: View {
+struct HeaderMenu: View {
     @EnvironmentObject var model: AppModel
     @StateObject private var groupStateObserver = GroupStateObserver()
     var body: some View {
