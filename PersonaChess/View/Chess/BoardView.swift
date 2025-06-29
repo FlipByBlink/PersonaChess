@@ -20,6 +20,7 @@ struct BoardView: View {
         .frame(width: self.boardSize, height: self.boardSize)
         .glassBackgroundEffect()
         .modifier(Self.MenuDuringImmersiveSpaceMode())
+        .modifier(Self.Debug_MessageIndexText())
         .opacity(self.sceneKind == .immersiveSpace ? 0.25 : 1)
         .rotation3DEffect(.degrees(90), axis: .x)
     }
@@ -123,6 +124,19 @@ private extension BoardView {
                 .buttonStyle(.borderless)
                 .padding(48)
             }
+        }
+    }
+    private struct Debug_MessageIndexText: ViewModifier {
+        @EnvironmentObject var model: AppModel
+        func body(content: Content) -> some View {
+            content
+#if DEBUG
+                .overlay(alignment: .bottomLeading) {
+                    Text("__messageIndex:__ \(self.model.sharedState.messageIndex?.description ?? "nil")")
+                        .foregroundStyle(.secondary)
+                        .padding()
+                }
+#endif
         }
     }
 }

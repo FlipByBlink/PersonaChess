@@ -1,6 +1,7 @@
 //MARK: compatibility, ver1.0 - ver1.0
 
-//MARK: Work in progress
+//Archive
+
 private struct ActivityState: Codable, Equatable {
 //    var chess: Pieces = .empty
     var chess: Pieces = .preset

@@ -21,7 +21,7 @@ struct HeaderMenu: View {
                         }
                     }()
                 }()))
-                Text("__messageIndex:__ \(self.model.sharedState.messageIndex?.formatted() ?? "nil")")
+                Text("__messageIndex:__ \(self.model.sharedState.messageIndex?.description ?? "nil")")
             }
             .font(.caption)
             Spacer()

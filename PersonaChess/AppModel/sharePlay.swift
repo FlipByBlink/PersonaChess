@@ -99,10 +99,8 @@ extension AppModel {
         }
     }
     func sendMessage() {
-        guard let messageIndex = self.sharedState.messageIndex else {
-            return
-        }
-        self.sharedState.messageIndex = messageIndex + 1
+        guard let exMessageIndex = self.sharedState.messageIndex else { return }
+        self.sharedState.messageIndex = exMessageIndex + 1
         Task {
             try? await self.reliableMessenger?.send(self.sharedState)
         }
