@@ -1183,7 +1183,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaChess;
 				PRODUCT_NAME = PersonaChess;
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
@@ -1211,7 +1211,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaChess;
 				PRODUCT_NAME = PersonaChess;
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
