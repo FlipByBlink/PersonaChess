@@ -70,7 +70,7 @@ enum 🗒️StaticInfo {
                 case .Window: [
                     "WindowView.swift",
                     "BottomButtons.swift",
-                    "OpenAndDismiss3DSpaceButton.swift",
+                    "OpenAndDismissImmersiveSpaceButton.swift",
                     "RotateBoardButton.swift",
                     "RemoveButton.swift",
                     "UndoButton.swift",

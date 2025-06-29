@@ -26,7 +26,7 @@
 		162145902CBFD0C700A6A87E /* PieceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		162145912CBFD0C700A6A87E /* PieceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D662C8D1E6200C2822C /* GuideMenuView.swift */; };
-		16261D742C8D61FE00C2822C /* OpenAndDismiss3DSpaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */; };
+		16261D742C8D61FE00C2822C /* OpenAndDismissImmersiveSpaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismissImmersiveSpaceButton.swift */; };
 		16312B5B2B75D0FB006A93D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* App.swift */; };
 		16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5C2B75D0FB006A93D1 /* ContentView.swift */; };
 		16312B5F2B75D0FD006A93D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16312B5E2B75D0FD006A93D1 /* Assets.xcassets */; };
@@ -160,7 +160,7 @@
 		1D5548842E1135FC005759DE /* WhatsSharePlayMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 161A13962C9674990075C57B /* WhatsSharePlayMenu.swift */; };
 		1D5548852E1135FC005759DE /* WhatsPersonaMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 161A13952C9674990075C57B /* WhatsPersonaMenu.swift */; };
 		1D5548862E1135FC005759DE /* BottomButtons.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D55486C2E0FA1F4005759DE /* BottomButtons.swift */; };
-		1D5548872E1135FC005759DE /* OpenAndDismiss3DSpaceButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */; };
+		1D5548872E1135FC005759DE /* OpenAndDismissImmersiveSpaceButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismissImmersiveSpaceButton.swift */; };
 		1D5548882E1135FC005759DE /* RotateBoardButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED802DEC2A16006BD075 /* RotateBoardButton.swift */; };
 		1D5548892E1135FC005759DE /* RemoveButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D55486A2E0F98CE005759DE /* RemoveButton.swift */; };
 		1D55488A2E1135FC005759DE /* UndoButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED822DEC2A96006BD075 /* UndoButton.swift */; };
@@ -212,7 +212,7 @@
 				1D5548842E1135FC005759DE /* WhatsSharePlayMenu.swift in CopyFiles */,
 				1D5548852E1135FC005759DE /* WhatsPersonaMenu.swift in CopyFiles */,
 				1D5548862E1135FC005759DE /* BottomButtons.swift in CopyFiles */,
-				1D5548872E1135FC005759DE /* OpenAndDismiss3DSpaceButton.swift in CopyFiles */,
+				1D5548872E1135FC005759DE /* OpenAndDismissImmersiveSpaceButton.swift in CopyFiles */,
 				1D5548882E1135FC005759DE /* RotateBoardButton.swift in CopyFiles */,
 				1D5548892E1135FC005759DE /* RemoveButton.swift in CopyFiles */,
 				1D55488A2E1135FC005759DE /* UndoButton.swift in CopyFiles */,
@@ -267,7 +267,7 @@
 		16261D622C8D1CD900C2822C /* CenterWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterWindowView.swift; sourceTree = "<group>"; };
 		16261D662C8D1E6200C2822C /* GuideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideMenuView.swift; sourceTree = "<group>"; };
 		16261D6F2C8D585700C2822C /* RecordingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRoom.swift; sourceTree = "<group>"; };
-		16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAndDismiss3DSpaceButton.swift; sourceTree = "<group>"; };
+		16261D732C8D61F800C2822C /* OpenAndDismissImmersiveSpaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAndDismissImmersiveSpaceButton.swift; sourceTree = "<group>"; };
 		16312B582B75D0FB006A93D1 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16312B5A2B75D0FB006A93D1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		16312B5C2B75D0FB006A93D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -679,7 +679,7 @@
 			isa = PBXGroup;
 			children = (
 				1D55486C2E0FA1F4005759DE /* BottomButtons.swift */,
-				16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */,
+				16261D732C8D61F800C2822C /* OpenAndDismissImmersiveSpaceButton.swift */,
 				1D78ED802DEC2A16006BD075 /* RotateBoardButton.swift */,
 				1D55486A2E0F98CE005759DE /* RemoveButton.swift */,
 				1D78ED822DEC2A96006BD075 /* UndoButton.swift */,
@@ -996,7 +996,7 @@
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
 				1D78ED812DEC2A19006BD075 /* RotateBoardButton.swift in Sources */,
 				16780FFB2B689304005A0244 /* Pieces.swift in Sources */,
-				16261D742C8D61FE00C2822C /* OpenAndDismiss3DSpaceButton.swift in Sources */,
+				16261D742C8D61FE00C2822C /* OpenAndDismissImmersiveSpaceButton.swift in Sources */,
 				1D5548702E0FB134005759DE /* scaleAnchor.swift in Sources */,
 				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,

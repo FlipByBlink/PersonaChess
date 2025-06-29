@@ -12,17 +12,6 @@ struct AboutOptionsMenu: View {
             }
             
             Section {
-                HStack(spacing: 16) {
-                    Label("Open the toolbar on your left wrist.",
-                          systemImage: "line.horizontal.3")
-                    Spacer()
-                    Image(.toolbarHand)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 320)
-                        .clipShape(.rect(cornerRadius: 6))
-                }
-                .padding()
                 Label("Adjust the size of the board.",
                       systemImage: "plusminus")
                 Image(.floorModeExample)
@@ -32,7 +21,7 @@ struct AboutOptionsMenu: View {
                     .clipShape(.rect(cornerRadius: 6))
                     .padding()
             } header: {
-                Text("Full space mode")
+                Text("Immersive space mode")
             }
         }
         .navigationTitle("About options")

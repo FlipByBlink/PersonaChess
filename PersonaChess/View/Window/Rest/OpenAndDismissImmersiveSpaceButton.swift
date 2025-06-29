@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct OpenAndDismiss3DSpaceButton: View {
+struct OpenAndDismissImmersiveSpaceButton: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
@@ -15,7 +15,7 @@ struct OpenAndDismiss3DSpaceButton: View {
             }
         } label: {
             Label(
-                self.model.isImmersiveSpaceShown ? "Dismiss 3D space" : "Open 3D space",
+                self.model.isImmersiveSpaceShown ? "Dismiss immersive space" : "Open immersive space",
                 systemImage: {
                     if self.model.isImmersiveSpaceShown {
                         "arrow.up.forward.and.arrow.down.backward"

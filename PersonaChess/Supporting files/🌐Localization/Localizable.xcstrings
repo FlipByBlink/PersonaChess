@@ -31,10 +31,24 @@
       }
     },
     "About options" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オプションについて"
+          }
+        }
+      }
     },
     "Adjust the size of the board." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "駒とボードの大きさを調整できます。"
+          }
+        }
+      }
     },
     "Apple official support page" : {
       "localizations" : {
@@ -57,13 +71,24 @@
       }
     },
     "Dismiss" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "閉じる"
+          }
+        }
+      }
     },
-    "Dismiss 3D space" : {
-
-    },
-    "Full space mode" : {
-
+    "Dismiss immersive space" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没入空間を閉じる"
+          }
+        }
+      }
     },
     "How to start" : {
       "localizations" : {
@@ -80,6 +105,16 @@
     },
     "If you want to join a SharePlay session that has already started, you can do so from the Control Center." : {
 
+    },
+    "Immersive space mode" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没入空間モード"
+          }
+        }
+      }
     },
     "Join SharePlay" : {
       "localizations" : {
@@ -101,14 +136,25 @@
         }
       }
     },
-    "Open 3D space" : {
-
+    "Open immersive space" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没入空間を開く"
+          }
+        }
+      }
     },
     "Open menu" : {
-
-    },
-    "Open the toolbar on your left wrist." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メニューを開く"
+          }
+        }
+      }
     },
     "PersonaChess" : {
       "localizations" : {
@@ -121,7 +167,14 @@
       }
     },
     "remove" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "削除"
+          }
+        }
+      }
     },
     "Reset" : {
       "localizations" : {
@@ -134,7 +187,14 @@
       }
     },
     "Rotate" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "回転"
+          }
+        }
+      }
     },
     "Set up SharePlay" : {
       "localizations" : {
@@ -147,10 +207,24 @@
       }
     },
     "Share chess" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「チェスを共有」"
+          }
+        }
+      }
     },
     "Start \"Share chess\" activity" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「チェスを共有」アクティビティを開始する"
+          }
+        }
+      }
     },
     "The Group Activities framework uses end-to-end encryption on all session data. Developer and Apple doesn’t have the keys to decrypt this data." : {
       "localizations" : {
@@ -179,10 +253,24 @@
 
     },
     "This app is version 2. It was recently released. It is not compatible with the previous version (version 1.0), so SharePlay does not work between them.\nIf your SharePlay partners are using version 1.0, please recommend them to update the app." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリはver2です。ver2.0は最近リリースされました。前バージョンのver1.0とは互換性がないため、SharePlayが出来ません。もし、SharePlayの相手がver1.0を利用している場合は、バージョンアップを勧めてください。"
+          }
+        }
+      }
     },
     "Undo" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "やり直す"
+          }
+        }
+      }
     },
     "What's Persona?" : {
       "localizations" : {
