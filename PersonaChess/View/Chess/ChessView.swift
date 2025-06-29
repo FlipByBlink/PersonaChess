@@ -27,7 +27,6 @@ struct ChessView: View {
         .modifier(Self.BoardRotation())
         .frame(width: Size.Point.board(self.physicalMetrics), height: 0)
         .frame(depth: Size.Point.board(self.physicalMetrics))
-        .modifier(Self.InvalidEffectInSharePlay())
     }
 }
 
@@ -89,20 +88,6 @@ private extension ChessView {
         }
         func body(content: Content) -> some View {
             content.rotation3DEffect(.degrees(self.angle), axis: .y)
-        }
-    }
-    private struct InvalidEffectInSharePlay: ViewModifier {
-        @EnvironmentObject var model: AppModel
-        func body(content: Content) -> some View {
-            content
-                .opacity(self.model.isSharedStateInvalidInSharePlay ? 0.6 : 1.0)
-                .overlay {
-                    if self.model.isSharedStateInvalidInSharePlay {
-                        ProgressView()
-                            .offset(y: -200)
-                            .scaleEffect(3)
-                    }
-                }
         }
     }
 }

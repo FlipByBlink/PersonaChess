@@ -15,9 +15,6 @@ struct ChessView_iOS: View {
         }
         .gesture(ExclusiveGesture(self.dragGesture, self.tapGesture))
         .realityViewCameraControls(self.isCameraEnabled ? .orbit : .none)
-        .overlay {
-            if self.model.isSharedStateInvalidInSharePlay { ProgressView() }
-        }
         .overlay(alignment: .bottomTrailing) { self.cameraControlToggle() }
     }
 }

@@ -21,16 +21,6 @@ extension AppModel {
     var downScalable: Bool {
         self.sharedState.viewScale > 1.0
     }
-    var isSharePlayStateNotSet: Bool {
-        self.groupSession?.state == .joined
-        &&
-        self.sharedState.mode == .localOnly
-    }
-    var isSharedStateInvalidInSharePlay: Bool {
-        self.groupSession != nil
-        &&
-        self.sharedState.mode == .localOnly
-    }
     func disableInteractionDuringAnimation(_ action: Action) {
         guard action.hasAnimation else { return }
         Task {

@@ -7,23 +7,23 @@ struct HeaderMenu: View {
     var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading) {
-                Text({
-                    "groupSession?.state: "
+                Text("__eligibleForGroupSession:__ \(self.groupStateObserver.isEligibleForGroupSession.description)")
+                Text(.init({
+                    "__groupSession.state:__ "
                     +
                     {
                         switch self.model.groupSession?.state {
                             case .waiting: "waiting"
                             case .joined: "joined"
                             case .invalidated(reason: let error): "invalidated(\(error))"
-                            case .none: "none"
+                            case .none: "nil"
                             @unknown default: "@unknown default"
                         }
                     }()
-                }())
-                .font(.caption)
-                Text("eligibleForGroupSession: \(self.groupStateObserver.isEligibleForGroupSession.description)")
-                    .font(.caption)
+                }()))
+                Text("__messageIndex:__ \(self.model.sharedState.messageIndex?.formatted() ?? "nil")")
             }
+            .font(.caption)
             Spacer()
             Group {
                 if self.model.groupSession?.state == nil {

@@ -21,7 +21,6 @@ struct BoardView: View {
         .glassBackgroundEffect()
         .modifier(Self.MenuDuringImmersiveSpaceMode())
         .opacity(self.sceneKind == .immersiveSpace ? 0.25 : 1)
-        .modifier(Self.SharePlayStateLoading())
         .rotation3DEffect(.degrees(90), axis: .x)
     }
 }
@@ -50,19 +49,6 @@ private extension BoardView {
                 Size.Point.boardInFloorMode(self.physicalMetrics)
             case .volume:
                 Size.Point.board(self.physicalMetrics)
-        }
-    }
-    private struct SharePlayStateLoading: ViewModifier {
-        @EnvironmentObject var model: AppModel
-        func body(content: Content) -> some View {
-            content
-                .overlay {
-                    if self.model.isSharePlayStateNotSet {
-                        ProgressView()
-                            .offset(z: 10)
-                    }
-                }
-                .animation(.default, value: self.model.isSharePlayStateNotSet)
         }
     }
     private struct MenuDuringImmersiveSpaceMode: ViewModifier {

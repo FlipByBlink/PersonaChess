@@ -86,7 +86,6 @@
 		167948BF2BC6A60B004DFF4B /* Index.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FFC2B6893CF005A0244 /* Index.swift */; };
 		167948C02BC6A60B004DFF4B /* Chessmen.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FF82B6892E9005A0244 /* Chessmen.swift */; };
 		167948C12BC6A60B004DFF4B /* Side.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16EA6A7F2B68769C00A3A740 /* Side.swift */; };
-		167948C22BC6A60B004DFF4B /* Mode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
 		167948C62BC6A60B004DFF4B /* ImmersiveSpaceView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16780FF52B6881DB005A0244 /* ImmersiveSpaceView.swift */; };
 		167948C72BC6A60B004DFF4B /* ChessView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1671A1592B720778009A87A6 /* ChessView.swift */; };
 		167948C82BC6A60B004DFF4B /* BoardView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169B9E812B68BEA70025FCEB /* BoardView.swift */; };
@@ -135,8 +134,6 @@
 		16EA6A7B2B6875CA00A3A740 /* pawnB.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A6F2B6875CA00A3A740 /* pawnB.reality */; };
 		16EA6A7C2B6875CA00A3A740 /* pawnW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A702B6875CA00A3A740 /* pawnW.reality */; };
 		16EA6A802B68769C00A3A740 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA6A7F2B68769C00A3A740 /* Side.swift */; };
-		16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
-		16ECC0F22B85ACE100A1A6B6 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECC0F02B85ACE100A1A6B6 /* Mode.swift */; };
 		16F42C592C91A391006A12E3 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F42C582C91A38D006A12E3 /* ActivityState.swift */; };
 		16F972752B68B77C00711C53 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
 		16F972772B68B7FB00711C53 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
@@ -180,7 +177,6 @@
 				167948BF2BC6A60B004DFF4B /* Index.swift in CopyFiles */,
 				167948C02BC6A60B004DFF4B /* Chessmen.swift in CopyFiles */,
 				167948C12BC6A60B004DFF4B /* Side.swift in CopyFiles */,
-				167948C22BC6A60B004DFF4B /* Mode.swift in CopyFiles */,
 				167948C62BC6A60B004DFF4B /* ImmersiveSpaceView.swift in CopyFiles */,
 				167948C72BC6A60B004DFF4B /* ChessView.swift in CopyFiles */,
 				167948C82BC6A60B004DFF4B /* BoardView.swift in CopyFiles */,
@@ -292,7 +288,6 @@
 		16EA6A6F2B6875CA00A3A740 /* pawnB.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = pawnB.reality; sourceTree = "<group>"; };
 		16EA6A702B6875CA00A3A740 /* pawnW.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = pawnW.reality; sourceTree = "<group>"; };
 		16EA6A7F2B68769C00A3A740 /* Side.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
-		16ECC0F02B85ACE100A1A6B6 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		16F42C582C91A38D006A12E3 /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
 		16F972742B68B77C00711C53 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		16F972762B68B7FB00711C53 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
@@ -458,7 +453,6 @@
 				16780FF82B6892E9005A0244 /* Chessmen.swift */,
 				16EA6A7F2B68769C00A3A740 /* Side.swift */,
 				165EC69F2B6901670005172B /* Action.swift */,
-				16ECC0F02B85ACE100A1A6B6 /* Mode.swift */,
 				1D78ED732DEB29F2006BD075 /* BoardPosition.swift */,
 			);
 			path = SharedState;
@@ -919,7 +913,6 @@
 				16312B6A2B75D193006A93D1 /* Chessmen.swift in Sources */,
 				16312B5B2B75D0FB006A93D1 /* App.swift in Sources */,
 				1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */,
-				16ECC0F22B85ACE100A1A6B6 /* Mode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -932,7 +925,6 @@
 				165EC6A22B6913260005172B /* AppGroupActivity.swift in Sources */,
 				161A13922C96733B0075C57B /* AboutOptionsMenu.swift in Sources */,
 				161A13942C9674320075C57B /* AboutAppLink.swift in Sources */,
-				16ECC0F12B85ACE100A1A6B6 /* Mode.swift in Sources */,
 				16428EB42C9FAA2D00E93B86 /* Entities.swift in Sources */,
 				16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,

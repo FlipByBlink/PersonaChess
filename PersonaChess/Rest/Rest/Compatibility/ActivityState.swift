@@ -17,3 +17,8 @@ enum ToolbarPosition: Codable {
          right,
          left
 }
+
+enum Mode: Codable {
+    case localOnly,
+         sharePlay
+}

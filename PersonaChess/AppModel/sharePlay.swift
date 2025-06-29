@@ -4,7 +4,8 @@ extension AppModel {
     func configureGroupSessions() {
         Task {
             for await groupSession in AppGroupActivity.sessions() {
-                self.sharedState.clear()
+                self.sharedState = .init()
+                self.sharedState.messageIndex = 0
                 self.entities.update(.preset)
                 
                 self.groupSession = groupSession
@@ -35,7 +36,6 @@ extension AppModel {
                 
                 groupSession.$activeParticipants
                     .sink {
-                        if $0.count == 1 { self.sharedState.mode = .sharePlay }
                         let newParticipants = $0.subtracting(groupSession.activeParticipants)
                         Task {
                             try? await reliableMessenger.send(self.sharedState,
@@ -99,6 +99,10 @@ extension AppModel {
         }
     }
     func sendMessage() {
+        guard let messageIndex = self.sharedState.messageIndex else {
+            return
+        }
+        self.sharedState.messageIndex = messageIndex + 1
         Task {
             try? await self.reliableMessenger?.send(self.sharedState)
         }
@@ -111,11 +115,7 @@ extension AppModel {
     func activateGroupActivityFromInAppUI() {
         Task {
             do {
-                let result = try await AppGroupActivity().activate()
-                switch result {
-                    case true: self.sharedState.mode = .sharePlay
-                    default: break
-                }
+                _ = try await AppGroupActivity().activate()
             } catch {
                 print("Failed to activate activity: \(error)")
             }
@@ -125,7 +125,11 @@ extension AppModel {
 
 private extension AppModel {
     private func receive(_ message: SharedState) {
-        guard message.mode == .sharePlay else { return }
+        guard let receivedMessageIndex = message.messageIndex,
+              let currentMessageIndex = self.sharedState.messageIndex else {
+            assertionFailure("Not set messageIndex"); return
+        }
+        guard receivedMessageIndex > currentMessageIndex else { return }
         Task { @MainActor in
             if self.sharedState.pieces != message.pieces {
                 self.entities.update(message.pieces)

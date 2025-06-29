@@ -4,7 +4,8 @@ struct SharedState {
     var boardAngle: Double = 0
     var viewScale: Double = Self.defaultViewScale
     var boardPosition: BoardPosition = .center
-    var mode: Mode = .localOnly
+    
+    var messageIndex: Int?
 }
 
 extension SharedState: Codable, Equatable {

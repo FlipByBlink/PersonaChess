@@ -9,10 +9,6 @@ extension AppModel {
         
         if case .undo = action { self.sharedState.undo() }
         
-        if action == .reset, self.groupSession != nil {
-            self.sharedState.mode = .sharePlay
-        }
-        
         self.disableInteractionDuringAnimation(action)
         
         self.entities.update(self.sharedState.pieces)
