@@ -94,7 +94,7 @@ enum 🗒️StaticInfo {
                 case .GuideMenu: [
                     "OpenGuideMenuButton.swift",
                     "GuideMenuView.swift",
-                    "AboutOptionsMenu.swift",
+                    "AboutOptionsMenuLink.swift",
                     "AboutAppLink.swift",
                     "WhatsSharePlayMenu.swift",
                     "WhatsPersonaMenu.swift",

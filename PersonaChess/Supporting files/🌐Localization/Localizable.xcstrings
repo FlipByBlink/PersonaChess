@@ -61,12 +61,12 @@
         }
       }
     },
-    "Adjust the size of the board." : {
+    "Adjust the size of the board on floor." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "駒とボードの大きさを調整できます。"
+            "value" : "地面上で駒とボードの大きさを調整できます。"
           }
         }
       }
@@ -126,7 +126,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "もしSharePlayが適切に操作しない場合、アプリのバージョンが異なる可能性があります。アプリを最新のバージョンへアップデートして再度SharePlay試してみてください。"
+            "value" : "もしSharePlayが適切に動作しない場合、アプリのバージョンが異なる可能性があります。アプリを最新のバージョンへアップデートして再度SharePlayを試してみてください。"
           }
         }
       }
@@ -136,7 +136,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "FaceTime中にSharePlayを開始することができます。SharePlayを開始すると、追加相手は自動的にSharePlayに参加します。"
+            "value" : "FaceTime中にアクティビティを開始することができます。アクティビティを開始すると、通話相手は自動的にアクティビティに参加します。"
           }
         }
       }
@@ -146,7 +146,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "もし既に開始されているSharePlayに参加したい場合は、コントロールセンターから参加できます。"
+            "value" : "もし既に開始されているアクティビティに参加したい場合は、コントロールセンターから参加できます。"
           }
         }
       }
@@ -297,6 +297,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "FaceTimeとこのアプリが連携し、ペルソナ(また空間ペルソナ)は表示されます。"
+          }
+        }
+      }
+    },
+    "The Remove feature allows you to remove a picking piece. You can also remove a piece by dropping it outside the board." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「削除」機能では、持ち上げ中の駒を削除できます。駒をボードの外側にドロップすることでも削除できます。"
           }
         }
       }
