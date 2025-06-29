@@ -2,13 +2,34 @@
   "sourceLanguage" : "en",
   "strings" : {
     "“Capture and edit your Persona (beta) on Apple Vision Pro - Apple Support”" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「Apple Vision ProでPersona（ベータ版）を収録する/編集する」"
+          }
+        }
+      }
     },
     "“Use SharePlay in FaceTime calls on Apple Vision Pro - Apple Support”" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「Apple Vision ProでのFaceTime通話でSharePlayを使用する」"
+          }
+        }
+      }
     },
     "\"Use spatial Persona (beta) on Apple Vision Pro - Apple Support”" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「Apple Vision Proで空間Persona（ベータ版）を使用する」"
+          }
+        }
+      }
     },
     "About App" : {
       "localizations" : {
@@ -100,11 +121,35 @@
         }
       }
     },
+    "If SharePlay doesn’t work properly, your app versions might be different. Please update the app to the latest version and try SharePlay again." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "もしSharePlayが適切に操作しない場合、アプリのバージョンが異なる可能性があります。アプリを最新のバージョンへアップデートして再度SharePlay試してみてください。"
+          }
+        }
+      }
+    },
     "If you launch this application during FaceTime, you can start an activity. When you start an activity, the callers automatically join an activity." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FaceTime中にSharePlayを開始することができます。SharePlayを開始すると、追加相手は自動的にSharePlayに参加します。"
+          }
+        }
+      }
     },
     "If you want to join a SharePlay session that has already started, you can do so from the Control Center." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "もし既に開始されているSharePlayに参加したい場合は、コントロールセンターから参加できます。"
+          }
+        }
+      }
     },
     "Immersive space mode" : {
       "localizations" : {
@@ -132,6 +177,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "メニュー"
+          }
+        }
+      }
+    },
+    "Once SharePlay has begun, it is not possible to change the window height. Adjust it beforehand." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SharePlayを開始した後は、ウインドウの高さを変更することはできません。SharePlayを開始する前にウインドウの高さを調節してください。"
           }
         }
       }
@@ -247,10 +302,24 @@
       }
     },
     "The Reset feature allows you to restart the chess game from the beginning." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「リセット」機能では初期状態に戻すことができます。"
+          }
+        }
+      }
     },
     "The Undo feature allows you to take back your last move." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「やり直し」機能では1手前の状態に戻すことができます。"
+          }
+        }
+      }
     },
     "This app is version 2. It was recently released. It is not compatible with the previous version (version 1.0), so SharePlay does not work between them.\nIf your SharePlay partners are using version 1.0, please recommend them to update the app." : {
       "localizations" : {
@@ -311,12 +380,6 @@
           }
         }
       }
-    },
-    "シェアプレイを開始した後は、ウインドウの高さを変更することはできません。シェアプレイを開始する前にウインドウの高さを調節してください。" : {
-
-    },
-    "もしSharePlayが適切に操作しない場合、アプリのバージョンが異なる可能性があります。アプリを最新のバージョンへアップデートして再度SharePlay試してみてください。" : {
-
     }
   },
   "version" : "1.0"

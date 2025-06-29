@@ -76,10 +76,10 @@ private extension GuideMenuView {
                 Text("Join SharePlay")
             }
             Section {
-                Text("シェアプレイを開始した後は、ウインドウの高さを変更することはできません。シェアプレイを開始する前にウインドウの高さを調節してください。")
+                Text("Once SharePlay has begun, it is not possible to change the window height. Adjust it beforehand.")
             }
             Section {
-                Text("もしSharePlayが適切に操作しない場合、アプリのバージョンが異なる可能性があります。アプリを最新のバージョンへアップデートして再度SharePlay試してみてください。")
+                Text("If SharePlay doesn’t work properly, your app versions might be different. Please update the app to the latest version and try SharePlay again.")
             }
         }
     }
