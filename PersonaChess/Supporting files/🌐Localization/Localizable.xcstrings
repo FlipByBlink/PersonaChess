@@ -317,6 +317,9 @@
     "The Undo feature allows you to take back your last move." : {
 
     },
+    "This app is version 2. It was recently released. It is not compatible with the previous version (version 1.0), so SharePlay does not work between them.\nIf your SharePlay partners are using version 1.0, please recommend them to update the app." : {
+
+    },
     "Undo" : {
 
     },

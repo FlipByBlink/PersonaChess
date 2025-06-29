@@ -15,7 +15,11 @@ struct GuideMenuView: View {
                 if self.model.groupSession == nil {
                     Section { NavigationLink("Set up SharePlay") { self.setUpMenu() } }
                 }
-                Section { AboutAppLink() }
+                Section {
+                    AboutAppLink()
+                } footer: {
+                    self.ver1Announce()
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -77,5 +81,11 @@ private extension GuideMenuView {
                 Text("もしSharePlayが適切に操作しない場合、アプリのバージョンが異なる可能性があります。アプリを最新のバージョンへアップデートして再度SharePlay試してみてください。")
             }
         }
+    }
+    private func ver1Announce() -> some View {
+        Text("""
+        This app is version 2. It was recently released. It is not compatible with the previous version (version 1.0), so SharePlay does not work between them.
+        If your SharePlay partners are using version 1.0, please recommend them to update the app.
+        """)
     }
 }

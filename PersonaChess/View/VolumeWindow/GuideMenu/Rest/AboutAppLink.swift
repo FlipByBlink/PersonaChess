@@ -5,7 +5,7 @@ struct AboutAppLink: View {
         NavigationLink {
             List { ℹ️AboutAppContent() }
         } label: {
-            Label("About App", systemImage: "info")
+            Text("About App")
         }
     }
 }
