@@ -26,7 +26,7 @@ extension AppModel {
         &&
         self.sharedState.mode == .localOnly
     }
-    var showProgressView: Bool {
+    var isSharedStateInvalidInSharePlay: Bool {
         self.groupSession != nil
         &&
         self.sharedState.mode == .localOnly

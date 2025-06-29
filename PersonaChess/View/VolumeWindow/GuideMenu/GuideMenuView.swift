@@ -51,7 +51,7 @@ private extension GuideMenuView {
             Section {
                 Text("If you launch this application during FaceTime, you can start an activity. When you start an activity, the callers automatically join an activity.")
                 Button {
-                    self.model.activateGroupActivity()
+                    self.model.activateGroupActivityFromInAppUI()
                 } label: {
                     Label(#"Start "Share chess" activity"#, systemImage: "play.fill")
                         .fontWeight(.semibold)

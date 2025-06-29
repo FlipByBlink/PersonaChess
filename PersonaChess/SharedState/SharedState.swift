@@ -34,9 +34,6 @@ extension SharedState: Codable, Equatable {
         }
         self.pieces = previousLog
     }
-    mutating func clearAllLog() {
-        self.logs.removeAll()
-    }
 }
 
 extension SharedState {

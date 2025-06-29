@@ -26,7 +26,7 @@ struct ChessView_2DMode: View {
                    value: self.model.sharedState.pieces.currentAction)
         .highPriorityGesture(self.dragGesture)
         .overlay {
-            if self.model.showProgressView { ProgressView() }
+            if self.model.isSharedStateInvalidInSharePlay { ProgressView() }
         }
     }
 }

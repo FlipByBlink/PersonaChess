@@ -5,7 +5,6 @@ extension AppModel {
         Task {
             for await groupSession in AppGroupActivity.sessions() {
                 self.sharedState.clear()
-                self.sharedState.pieces.setPreset()
                 self.entities.update(.preset)
                 
                 self.groupSession = groupSession
@@ -109,7 +108,7 @@ extension AppModel {
             try? await self.unreliableMessenger?.send(dragState)
         }
     }
-    func activateGroupActivity() {
+    func activateGroupActivityFromInAppUI() {
         Task {
             do {
                 let result = try await AppGroupActivity().activate()
