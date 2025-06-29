@@ -13,7 +13,7 @@ struct SquareView: View {
                     case .immersiveSpace:
                         Rectangle()
                             .fill(.black.tertiary)
-                    case .volume:
+                    case .window:
                         Rectangle()
                             .fill(.background)
                 }

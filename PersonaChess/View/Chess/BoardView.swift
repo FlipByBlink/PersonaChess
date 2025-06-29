@@ -28,7 +28,7 @@ struct BoardView: View {
 
 private extension BoardView {
     private func maskView() -> some View {
-        RoundedRectangle(cornerRadius: self.sceneKind == .volume ? 24 : 0,
+        RoundedRectangle(cornerRadius: self.sceneKind == .window ? 24 : 0,
                          style: .continuous)
     }
     private func boardOutlineView() -> some View {
@@ -47,7 +47,7 @@ private extension BoardView {
         switch self.sceneKind {
             case .immersiveSpace:
                 Size.Point.boardInFloorMode(self.physicalMetrics)
-            case .volume:
+            case .window:
                 Size.Point.board(self.physicalMetrics)
         }
     }
@@ -58,7 +58,7 @@ private extension BoardView {
         func body(content: Content) -> some View {
             content
                 .overlay {
-                    if self.sceneKind == .volume,
+                    if self.sceneKind == .window,
                        self.model.isImmersiveSpaceShown {
                         VStack(spacing: 32) {
                             HStack(spacing: 20) {

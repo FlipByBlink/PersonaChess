@@ -1,10 +1,10 @@
 import SwiftUI
 
 enum SceneKind {
-    case volume,
+    case window,
          immersiveSpace
 }
 
 extension EnvironmentValues {
-    @Entry var sceneKind: SceneKind = .volume
+    @Entry var sceneKind: SceneKind = .window
 }

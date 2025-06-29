@@ -5,8 +5,8 @@ struct PersonaChessApp: App {
     @StateObject private var model = AppModel()
     
     var body: some Scene {
-        WindowGroup(id: "volumeWindow") {
-            VolumeWindowView()
+        WindowGroup(id: "window") {
+            WindowView()
         }
         .windowStyle(.volumetric)
         .volumeWorldAlignment(.gravityAligned)

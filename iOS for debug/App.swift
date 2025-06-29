@@ -5,7 +5,7 @@ struct IOSAppForDebug: App {
     @StateObject private var model = AppModel()
     
     var body: some Scene {
-        WindowGroup(id: "volumeWindow") {
+        WindowGroup(id: "window") {
             ContentView()
                 .environmentObject(self.model)
         }

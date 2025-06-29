@@ -14,7 +14,7 @@ struct ChessView: View {
             content.add(attachments.entity(for: "board")!)
             content.add(self.model.entities.root)
         } update: { content, _ in
-            if self.sceneKind == .volume,
+            if self.sceneKind == .window,
                !self.model.isImmersiveSpaceShown {
                 content.add(self.model.entities.root)
             }
@@ -80,7 +80,7 @@ private extension ChessView {
         @Environment(\.sceneKind) var sceneKind
         private var angle: Double {
             switch self.sceneKind {
-                case .volume:
+                case .window:
                     self.model.isImmersiveSpaceShown ? 0 : self.model.sharedState.boardAngle
                 case .immersiveSpace:
                     self.model.isImmersiveSpaceShown ? self.model.sharedState.boardAngle : 0

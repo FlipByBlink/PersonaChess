@@ -160,7 +160,7 @@
 		1D78ED8B2DEC521F006BD075 /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED892DEC521C006BD075 /* DragState.swift */; };
 		1D78ED8D2DEDE14C006BD075 /* PieceAnimation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED8C2DEDE145006BD075 /* PieceAnimation+Extension.swift */; };
 		1D7D8AA32DEE82DA009E4F0E /* ChessView_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7D8AA22DEE82D6009E4F0E /* ChessView_iOS.swift */; };
-		1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */; };
+		1DD18A292DD9968B00CF0645 /* WindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD18A282DD9968800CF0645 /* WindowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -313,7 +313,7 @@
 		1D78ED892DEC521C006BD075 /* DragState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragState.swift; sourceTree = "<group>"; };
 		1D78ED8C2DEDE145006BD075 /* PieceAnimation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PieceAnimation+Extension.swift"; sourceTree = "<group>"; };
 		1D7D8AA22DEE82D6009E4F0E /* ChessView_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessView_iOS.swift; sourceTree = "<group>"; };
-		1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeWindowView.swift; sourceTree = "<group>"; };
+		1DD18A282DD9968800CF0645 /* WindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -614,7 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				1662F1512B89F3C90024763B /* Chess */,
-				1DD18A272DD9967100CF0645 /* VolumeWindow */,
+				1DD18A272DD9967100CF0645 /* Window */,
 				1671A1692B74A866009A87A6 /* ImmersiveSpace */,
 				1D5548732E10AEE7005759DE /* Rest */,
 			);
@@ -720,14 +720,14 @@
 			path = DragState;
 			sourceTree = "<group>";
 		};
-		1DD18A272DD9967100CF0645 /* VolumeWindow */ = {
+		1DD18A272DD9967100CF0645 /* Window */ = {
 			isa = PBXGroup;
 			children = (
-				1DD18A282DD9968800CF0645 /* VolumeWindowView.swift */,
+				1DD18A282DD9968800CF0645 /* WindowView.swift */,
 				16261D652C8D1E5A00C2822C /* GuideMenu */,
 				16A34CBD2C8D75FA004192AC /* Rest */,
 			);
-			path = VolumeWindow;
+			path = Window;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -962,7 +962,7 @@
 				1D5548722E0FB153005759DE /* offset.swift in Sources */,
 				1D78ED832DEC2A96006BD075 /* UndoButton.swift in Sources */,
 				16B70FCD2CA41E6800DF33C9 /* handleInteraction.swift in Sources */,
-				1DD18A292DD9968B00CF0645 /* VolumeWindowView.swift in Sources */,
+				1DD18A292DD9968B00CF0645 /* WindowView.swift in Sources */,
 				165EC69E2B68C5E40005172B /* AppModel.swift in Sources */,
 				1D55486D2E0FA1F9005759DE /* BottomButtons.swift in Sources */,
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct VolumeWindowView: View {
+struct WindowView: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
@@ -13,7 +13,7 @@ struct VolumeWindowView: View {
             .modifier(HandleGroupImmersion(.window))
             .modifier(DebugView())
             .volumeBaseplateVisibility(.hidden)
-            .environment(\.sceneKind, .volume)
+            .environment(\.sceneKind, .window)
             .task { SharePlayProvider.registerGroupActivity() }
     }
 }
