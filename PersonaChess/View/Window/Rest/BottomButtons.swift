@@ -23,7 +23,7 @@ private extension BottomButtons {
         func makeBody(configuration: Configuration) -> some View {
             configuration
                 .label
-                .padding(9)
+                .frame(width: 42, height: 42)
                 .opacity(self.isEnabled ? 1.0 : 0.4)
                 .animation(.default.speed(0.7), value: self.isEnabled)
                 .contentShape(.circle)
