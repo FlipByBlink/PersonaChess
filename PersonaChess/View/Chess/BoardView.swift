@@ -19,7 +19,7 @@ struct BoardView: View {
         .padding(self.paddingSize)
         .frame(width: self.boardSize, height: self.boardSize)
         .glassBackgroundEffect()
-        .modifier(Self.MenuDuringFloorMode())
+        .modifier(Self.MenuDuringImmersiveSpaceMode())
         .opacity(self.sceneKind == .immersiveSpace ? 0.25 : 1)
         .modifier(Self.SharePlayStateLoading())
         .rotation3DEffect(.degrees(90), axis: .x)
@@ -65,7 +65,7 @@ private extension BoardView {
                 .animation(.default, value: self.model.isSharePlayStateNotSet)
         }
     }
-    private struct MenuDuringFloorMode: ViewModifier {
+    private struct MenuDuringImmersiveSpaceMode: ViewModifier {
         @EnvironmentObject var model: AppModel
         @Environment(\.sceneKind) var sceneKind
         @Environment(\.physicalMetrics) var physicalMetrics

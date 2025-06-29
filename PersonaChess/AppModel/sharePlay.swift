@@ -6,7 +6,7 @@ extension AppModel {
             for await groupSession in AppGroupActivity.sessions() {
                 self.sharedState.clear()
                 self.sharedState.pieces.setPreset()
-                self.entities.update(self.sharedState.pieces)
+                self.entities.update(.preset)
                 
                 self.groupSession = groupSession
                 let reliableMessenger = GroupSessionMessenger(session: groupSession,
@@ -130,8 +130,10 @@ private extension AppModel {
     private func receive(_ message: SharedState) {
         guard message.mode == .sharePlay else { return }
         Task { @MainActor in
+            if self.sharedState.pieces != message.pieces {
+                self.entities.update(message.pieces)
+            }
             self.sharedState = message
-            self.entities.update(self.sharedState.pieces)
         }
     }
     private func receive(_ message: DragState) {
