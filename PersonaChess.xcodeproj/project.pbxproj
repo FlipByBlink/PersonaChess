@@ -144,6 +144,7 @@
 		1D5548702E0FB134005759DE /* scaleAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55486F2E0FB130005759DE /* scaleAnchor.swift */; };
 		1D5548722E0FB153005759DE /* offset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548712E0FB151005759DE /* offset.swift */; };
 		1D5548752E10AEFF005759DE /* HandleGroupImmersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548742E10AEFF005759DE /* HandleGroupImmersion.swift */; };
+		1D5548772E111713005759DE /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548762E111711005759DE /* DebugView.swift */; };
 		1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
@@ -297,6 +298,7 @@
 		1D55486F2E0FB130005759DE /* scaleAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scaleAnchor.swift; sourceTree = "<group>"; };
 		1D5548712E0FB151005759DE /* offset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = offset.swift; sourceTree = "<group>"; };
 		1D5548742E10AEFF005759DE /* HandleGroupImmersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleGroupImmersion.swift; sourceTree = "<group>"; };
+		1D5548762E111711005759DE /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		1D78ED702DEA7AA4006BD075 /* SceneKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKind.swift; sourceTree = "<group>"; };
 		1D78ED732DEB29F2006BD075 /* BoardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPosition.swift; sourceTree = "<group>"; };
 		1D78ED762DEC135B006BD075 /* RolePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePicker.swift; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 			isa = PBXGroup;
 			children = (
 				1D5548742E10AEFF005759DE /* HandleGroupImmersion.swift */,
+				1D5548762E111711005759DE /* DebugView.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -932,6 +935,7 @@
 				1605C2412CA02F3F00725749 /* excuteAction.swift in Sources */,
 				161A13982C9674990075C57B /* WhatsSharePlayMenu.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
+				1D5548772E111713005759DE /* DebugView.swift in Sources */,
 				1D78ED872DEC2AB4006BD075 /* OpenGuideMenuButton.swift in Sources */,
 				1D78ED852DEC2AA6006BD075 /* ResetButton.swift in Sources */,
 				1605C24A2CA02F5A00725749 /* rest.swift in Sources */,

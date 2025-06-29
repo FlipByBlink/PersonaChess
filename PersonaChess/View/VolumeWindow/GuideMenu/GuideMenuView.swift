@@ -4,6 +4,7 @@ import GroupActivities
 struct GuideMenuView: View {
     @EnvironmentObject var model: AppModel
     @StateObject private var groupStateObserver = GroupStateObserver()
+    @SceneStorage("debugView") private var isDebugViewPresented: Bool = false
     var body: some View {
         NavigationStack {
             List {
@@ -50,6 +51,7 @@ private extension GuideMenuView {
         List {
             Section {
                 Text("If you launch this application during FaceTime, you can start an activity. When you start an activity, the callers automatically join an activity.")
+                    .onTapGesture(count: 3) { self.isDebugViewPresented.toggle() }
                 Button {
                     self.model.activateGroupActivityFromInAppUI()
                 } label: {

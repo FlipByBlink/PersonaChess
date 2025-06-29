@@ -20,7 +20,6 @@ struct BoardView: View {
         .frame(width: self.boardSize, height: self.boardSize)
         .glassBackgroundEffect()
         .modifier(Self.MenuDuringImmersiveSpaceMode())
-        .modifier(Self.Debug_MessageIndexText())
         .opacity(self.sceneKind == .immersiveSpace ? 0.25 : 1)
         .rotation3DEffect(.degrees(90), axis: .x)
     }
@@ -120,6 +119,7 @@ private extension BoardView {
                         .opacity(
                             self.model.sharedState.boardPosition == boardPosition ? 1 : 0.3
                         )
+                        .bold(self.model.sharedState.boardPosition == boardPosition)
                 }
                 .buttonBorderShape(.circle)
                 .buttonStyle(.borderless)
@@ -144,19 +144,6 @@ private extension BoardView {
                         .offset(z: 10)
                 }
             }
-        }
-    }
-    private struct Debug_MessageIndexText: ViewModifier {
-        @EnvironmentObject var model: AppModel
-        func body(content: Content) -> some View {
-            content
-#if DEBUG
-                .overlay(alignment: .bottomLeading) {
-                    Text("__messageIndex:__ \(self.model.sharedState.messageIndex?.description ?? "nil")")
-                        .foregroundStyle(.secondary)
-                        .padding()
-                }
-#endif
         }
     }
 }

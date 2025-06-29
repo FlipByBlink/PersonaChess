@@ -7,10 +7,12 @@ struct HeaderMenu: View {
     var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading) {
-                Text("__eligibleForGroupSession:__ \(self.groupStateObserver.isEligibleForGroupSession.description)")
-                Text(.init({
-                    "__groupSession.state:__ "
-                    +
+                Self.row(
+                    "eligibleForGroupSession",
+                    self.groupStateObserver.isEligibleForGroupSession.description
+                )
+                Self.row(
+                    "groupSession.state",
                     {
                         switch self.model.groupSession?.state {
                             case .waiting: "waiting"
@@ -20,8 +22,13 @@ struct HeaderMenu: View {
                             @unknown default: "@unknown default"
                         }
                     }()
-                }()))
-                Text("__messageIndex:__ \(self.model.sharedState.messageIndex?.description ?? "nil")")
+                )
+                Self.row("activeParticipants",
+                         self.model.groupSession?.activeParticipants.count.description)
+                Self.row("messageIndex",
+                         self.model.sharedState.messageIndex?.description)
+                Self.row("logs.count",
+                         self.model.sharedState.logs.count.formatted())
             }
             .font(.caption)
             Spacer()
@@ -40,5 +47,14 @@ struct HeaderMenu: View {
             .buttonStyle(.bordered)
         }
         .padding()
+    }
+    
+    private static func row(_ title: String, _ value: String?) -> some View {
+        HStack(alignment: .lastTextBaseline, spacing: 6) {
+            Text(title + ":").bold()
+            Text(value ?? "nil")
+        }
+        .font(.caption)
+        .foregroundStyle(.secondary)
     }
 }

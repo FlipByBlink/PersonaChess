@@ -12,6 +12,7 @@ struct VolumeWindowView: View {
             .toolbar { BottomButtons() }
             .animation(.default, value: self.model.isGuideMenuShown)
             .modifier(HandleGroupImmersion(.window))
+            .modifier(DebugView())
             .volumeBaseplateVisibility(.hidden)
             .environment(\.sceneKind, .volume)
             .task { SharePlayProvider.registerGroupActivity() }
