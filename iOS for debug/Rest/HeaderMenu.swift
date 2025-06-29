@@ -25,14 +25,18 @@ struct HeaderMenu: View {
                     .font(.caption)
             }
             Spacer()
-            Button("Start activity!") {
-                self.model.activateGroupActivity()
+            Group {
+                if self.model.groupSession?.state == nil {
+                    Button("Start activity!") {
+                        self.model.activateGroupActivity()
+                    }
+                    .disabled(!self.groupStateObserver.isEligibleForGroupSession)
+                } else {
+                    Button("Leave activity") {
+                        self.model.groupSession?.leave()
+                    }
+                }
             }
-            .disabled(
-                !self.groupStateObserver.isEligibleForGroupSession
-                ||
-                self.model.groupSession?.state != nil
-            )
             .buttonStyle(.bordered)
         }
         .padding()

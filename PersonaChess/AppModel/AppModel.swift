@@ -20,6 +20,6 @@ class AppModel: ObservableObject {
     
     init() {
         self.configureGroupSessions()
-        self.entities.update(self.sharedState.pieces)
+        self.entities.update(.preset)
     }
 }

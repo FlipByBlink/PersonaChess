@@ -28,10 +28,8 @@ extension AppModel {
                             self.groupSession = nil
                             self.isImmersiveSpaceModePreferred = nil
                             self.spatialSharePlaying = nil
-                            self.sharedState.clearAllLog()
-                            self.sharedState.pieces.setPreset()
-                            self.sharedState.mode = .localOnly
-                            self.entities.update(self.sharedState.pieces)
+                            self.sharedState = .init()
+                            self.entities.update(.preset)
                         }
                     }
                     .store(in: &self.subscriptions)
