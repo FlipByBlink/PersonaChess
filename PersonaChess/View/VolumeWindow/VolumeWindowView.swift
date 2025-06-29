@@ -8,9 +8,8 @@ struct VolumeWindowView: View {
             .offset(y: -100)
             .frame(height: Size.Point.board(self.physicalMetrics),
                    alignment: .bottom)
-            .background { GuideMenuView() }
+            .ornament(attachmentAnchor: .scene(.topBack)) { GuideMenuView() }
             .toolbar { BottomButtons() }
-            .animation(.default, value: self.model.isGuideMenuShown)
             .modifier(HandleGroupImmersion(.window))
             .modifier(DebugView())
             .volumeBaseplateVisibility(.hidden)

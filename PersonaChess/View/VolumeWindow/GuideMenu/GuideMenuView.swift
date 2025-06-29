@@ -32,10 +32,11 @@ struct GuideMenuView: View {
             }
             .navigationTitle("Menu")
         }
-        .padding(.horizontal, 100)
-        .padding(.bottom, 300)
         .opacity(self.model.groupSession == nil ? 1 : 0)
         .opacity(self.model.isGuideMenuShown ? 1 : 0)
+        .frame(width: 500,
+               height: 500)
+        .animation(.default, value: self.model.isGuideMenuShown)
     }
 }
 
