@@ -172,6 +172,7 @@
 		1D5548902E1135FC005759DE /* SceneKind.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D5548912E1135FC005759DE /* Interaction.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16B70FC82CA41DFF00DF33C9 /* Interaction.swift */; };
 		1D5548922E1135FC005759DE /* PieceAnimation.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
+		1D5548942E11692C005759DE /* SetUpMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548932E116928005759DE /* SetUpMenu.swift */; };
 		1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
@@ -353,6 +354,7 @@
 		1D5548712E0FB151005759DE /* offset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = offset.swift; sourceTree = "<group>"; };
 		1D5548742E10AEFF005759DE /* HandleGroupImmersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleGroupImmersion.swift; sourceTree = "<group>"; };
 		1D5548762E111711005759DE /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		1D5548932E116928005759DE /* SetUpMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpMenu.swift; sourceTree = "<group>"; };
 		1D78ED702DEA7AA4006BD075 /* SceneKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKind.swift; sourceTree = "<group>"; };
 		1D78ED732DEB29F2006BD075 /* BoardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPosition.swift; sourceTree = "<group>"; };
 		1D78ED762DEC135B006BD075 /* RolePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePicker.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 		162145942CC2801F00A6A87E /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				1D5548932E116928005759DE /* SetUpMenu.swift */,
 				161A13912C96733B0075C57B /* AboutOptionsMenuLink.swift */,
 				161A13932C9674320075C57B /* AboutAppLink.swift */,
 				161A13962C9674990075C57B /* WhatsSharePlayMenu.swift */,
@@ -992,6 +995,7 @@
 				1D5548772E111713005759DE /* DebugView.swift in Sources */,
 				1D78ED872DEC2AB4006BD075 /* OpenGuideMenuButton.swift in Sources */,
 				1D78ED852DEC2AA6006BD075 /* ResetButton.swift in Sources */,
+				1D5548942E11692C005759DE /* SetUpMenu.swift in Sources */,
 				1605C24A2CA02F5A00725749 /* rest.swift in Sources */,
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
 				1D78ED812DEC2A19006BD075 /* RotateBoardButton.swift in Sources */,

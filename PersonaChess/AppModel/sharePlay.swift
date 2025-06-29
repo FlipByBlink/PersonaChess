@@ -110,15 +110,6 @@ extension AppModel {
             try? await self.unreliableMessenger?.send(dragState)
         }
     }
-    func activateGroupActivityFromInAppUI() {
-        Task {
-            do {
-                _ = try await AppGroupActivity().activate()
-            } catch {
-                print("Failed to activate activity: \(error)")
-            }
-        }
-    }
 }
 
 private extension AppModel {

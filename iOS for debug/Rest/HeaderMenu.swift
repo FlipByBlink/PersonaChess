@@ -35,7 +35,9 @@ struct HeaderMenu: View {
             Group {
                 if self.model.groupSession?.state == nil {
                     Button("Start activity!") {
-                        self.model.activateGroupActivityFromInAppUI()
+                        Task {
+                            try? await AppGroupActivity().activate()
+                        }
                     }
                     .disabled(!self.groupStateObserver.isEligibleForGroupSession)
                 } else {

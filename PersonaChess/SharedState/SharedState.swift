@@ -9,13 +9,6 @@ struct SharedState {
 }
 
 extension SharedState: Codable, Equatable {
-    mutating func clear() {
-        self.pieces = .preset
-        self.logs = []
-        self.boardAngle = 0
-        self.viewScale = Self.defaultViewScale
-        self.boardPosition = .center
-    }
     mutating func logIfNecessary(_ action: Action) {
         switch action {
             case .tapSquareAndMove(_, _, _),
