@@ -85,6 +85,7 @@ private extension BoardView {
                         .frame(width: Size.Point.board(self.physicalMetrics) * 0.7,
                                height: Size.Point.board(self.physicalMetrics) * 0.7)
                         .modifier(Self.BoardPositionButtons())
+                        .modifier(Self.SpatialRecommendation())
                         .glassBackgroundEffect(in: .circle)
                         .offset(z: 0.00001)
                     }
@@ -123,6 +124,25 @@ private extension BoardView {
                 .buttonBorderShape(.circle)
                 .buttonStyle(.borderless)
                 .padding(48)
+            }
+        }
+        private struct SpatialRecommendation: ViewModifier {
+            @EnvironmentObject var model: AppModel
+            func body(content: Content) -> some View {
+                content
+                    .overlay { self.contentView() }
+                    .overlay { self.contentView().rotationEffect(.degrees(180)) }
+            }
+            @ViewBuilder private func contentView() -> some View {
+                if self.model.spatialSharePlaying == false {
+                    Text("Please turn on Spatial Mode.")
+                        .font(.system(size: 36))
+                        .padding(24)
+                        .background(.background)
+                        .glassBackgroundEffect()
+                        .padding(.top, 140)
+                        .offset(z: 10)
+                }
             }
         }
     }

@@ -2,19 +2,21 @@ import SwiftUI
 
 extension ImmersiveSpaceView {
     var zOffset: CGFloat {
-        if self.model.spatialSharePlaying == true {
-            0
-        } else {
-            {
-                switch self.model.sharedState.boardPosition {
-                    case .up: -self.boardSize
-                    case .down: self.boardSize
-                    default: 0
-                }
-            }()
-            -
-            Size.Point.nonSpatialZOffset
-        }
+        {
+            switch self.model.sharedState.boardPosition {
+                case .up: -self.boardSize
+                case .down: self.boardSize
+                default: 0
+            }
+        }()
+        +
+        {
+            if self.model.spatialSharePlaying == true {
+                0
+            } else {
+                -Size.Point.nonSpatialZOffset
+            }
+        }()
     }
     
     var xOffset: CGFloat {
