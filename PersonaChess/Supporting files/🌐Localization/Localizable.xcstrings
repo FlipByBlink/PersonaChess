@@ -56,66 +56,11 @@
         }
       }
     },
-    "Back" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "戻る"
-          }
-        }
-      }
-    },
-    "Chess" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チェス"
-          }
-        }
-      }
-    },
     "Dismiss" : {
 
     },
     "Dismiss 3D space" : {
 
-    },
-    "During a FaceTime call, if the person you are speaking with starts SharePlay, you will automatically join SharePlay as well. If you want to join a SharePlay session that has already started, you can do so from the Control Center." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "FaceTimeの通話中に誰かがSharePlayを開始すると、通話相手は自動的にSharePlayに参加します。もし既に通話相手がSharePlayを開始している場合は、コントロールセンターから参加できます。"
-          }
-        }
-      }
-    },
-    "Enter full space" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "フルスペースに入る"
-          }
-        }
-      }
-    },
-    "Exit full space" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "フルスペースから抜ける"
-          }
-        }
-      }
     },
     "Full space mode" : {
 
@@ -130,44 +75,11 @@
         }
       }
     },
-    "If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "FaceTime中にこのアプリを立ち上げると、アクティビティを起動することが出来ます。アクティビティを起動すると、通話相手のデバイスではSharePlay参加を促す通知が表示されます。"
-          }
-        }
-      }
-    },
     "If you launch this application during FaceTime, you can start an activity. When you start an activity, the callers automatically join an activity." : {
 
     },
     "If you want to join a SharePlay session that has already started, you can do so from the Control Center." : {
 
-    },
-    "If your friend has already started chess activity, you can join the activity from the Control Center." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "友達が既に「チェス」アクティビティを起動している場合は、コントロールセンターからアクティビティに参加しましょう。"
-          }
-        }
-      }
-    },
-    "invalidated, (%@)" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無効(%@)"
-          }
-        }
-      }
     },
     "Join SharePlay" : {
       "localizations" : {
@@ -179,38 +91,12 @@
         }
       }
     },
-    "joined" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "参加中"
-          }
-        }
-      }
-    },
     "Menu" : {
-
-    },
-    "none" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "不参加"
-          }
-        }
-      }
-    },
-    "Once you have started an activity, encourage your friends to join SharePlay." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アクティビティを起動したら友達にSharePlay参加を促しましょう。"
+            "value" : "メニュー"
           }
         }
       }
@@ -263,30 +149,8 @@
     "Share chess" : {
 
     },
-    "SharePlay state:" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SharePlayの状況:"
-          }
-        }
-      }
-    },
     "Start \"Share chess\" activity" : {
 
-    },
-    "Start SharePlay by oneself" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自分からSharePlayを開始する"
-          }
-        }
-      }
     },
     "The Group Activities framework uses end-to-end encryption on all session data. Developer and Apple doesn’t have the keys to decrypt this data." : {
       "localizations" : {
@@ -320,28 +184,6 @@
     "Undo" : {
 
     },
-    "unknown" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "想定外"
-          }
-        }
-      }
-    },
-    "waiting" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "待機中"
-          }
-        }
-      }
-    },
     "What's Persona?" : {
       "localizations" : {
         "ja" : {
@@ -368,17 +210,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "FaceTime App でSharePlayを使用すると、友達や家族とのFaceTime通話中にチェスを同期した状態でプレイすることができます。通話に参加しているほかの人とリアルタイムにつながって楽しみましょう。操作が共有されるため、同時に同じ瞬間を見たり聞いたりできます。"
-          }
-        }
-      }
-    },
-    "You are currently connected with a friend. Join an activity launched by your friend, or launch an activity by yourself." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "現在、友達と繋がっているようです。友達が立ち上げたアクティビティに参加するか、もしくは自分でアクティビティを起動しましょう。"
           }
         }
       }

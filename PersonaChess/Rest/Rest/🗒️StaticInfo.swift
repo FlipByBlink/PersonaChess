@@ -31,12 +31,14 @@ enum 🗒️StaticInfo {
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main,
+             AppModel,
              SharedState,
-             CenterWindow,
+             DragState,
+             Window,
              ImmersiveSpace,
              ChessView,
              RealityKitScope,
-             Size,
+             GuideMenu,
              SharePlay,
              Rest
         var id: Self { self }
@@ -44,49 +46,70 @@ enum 🗒️StaticInfo {
             switch self {
                 case .main: [
                     "App.swift",
-                    "AppModel.swift"
+                ]
+                case .AppModel: [
+                    "AppModel.swift",
+                    "handleInteraction.swift",
+                    "excuteAction.swift",
+                    "sharePlay.swift",
+                    "rest.swift",
                 ]
                 case .SharedState: [
                     "SharedState.swift",
-                    "Game.swift",
+                    "Pieces.swift",
                     "Piece.swift",
                     "Index.swift",
                     "Chessmen.swift",
                     "Side.swift",
-                    "Mode.swift",
+                    "Action.swift",
+                    "BoardPosition.swift",
                 ]
-                case .CenterWindow: [
-                    "CenterWindowView.swift",
-                    "SharePlayMenu.swift",
+                case .DragState: [
+                    "DragState.swift",
+                ]
+                case .Window: [
+                    "WindowView.swift",
+                    "BottomButtons.swift",
+                    "OpenAndDismiss3DSpaceButton.swift",
+                    "RotateBoardButton.swift",
+                    "RemoveButton.swift",
+                    "UndoButton.swift",
+                    "ResetButton.swift",
                 ]
                 case .ImmersiveSpace: [
                     "ImmersiveSpaceView.swift",
-                    "ToolbarViewForFloorMode.swift",
-                    "FloorModeDividers.swift",
+                    "offset.swift",
+                    "scaleAnchor.swift",
                 ]
                 case .ChessView: [
                     "ChessView.swift",
                     "BoardView.swift",
                     "SquareView.swift",
-                    "ToolbarsView.swift",
-                    "ToolbarPosition.swift",
-                    "ToolbarView.swift",
                 ]
                 case .RealityKitScope: [
+                    "Entities.swift",
                     "PieceEntity.swift",
-                    "PieceOpacitySystem.swift",
+                    "Sound.swift",
                 ]
-                case .Size: [
-                    "Size.swift",
+                case .GuideMenu: [
+                    "OpenGuideMenuButton.swift",
+                    "GuideMenuView.swift",
+                    "AboutOptionsMenu.swift",
+                    "AboutAppLink.swift",
+                    "WhatsSharePlayMenu.swift",
+                    "WhatsPersonaMenu.swift",
                 ]
                 case .SharePlay: [
                     "AppGroupActivity.swift",
                     "SharePlayProvider.swift",
                 ]
                 case .Rest: [
-                    "Action.swift",
-                    "TargetScene.swift",
-                    "Sound.swift",
+                    "HandleGroupImmersion.swift",
+                    "DebugView.swift",
+                    "SceneKind.swift",
+                    "Size.swift",
+                    "Interaction.swift",
+                    "PieceAnimation.swift",
                     "🗒️StaticInfo.swift",
                     "ℹ️AboutApp.swift",
                 ]

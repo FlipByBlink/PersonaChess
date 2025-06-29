@@ -145,6 +145,33 @@
 		1D5548722E0FB153005759DE /* offset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548712E0FB151005759DE /* offset.swift */; };
 		1D5548752E10AEFF005759DE /* HandleGroupImmersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548742E10AEFF005759DE /* HandleGroupImmersion.swift */; };
 		1D5548772E111713005759DE /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548762E111711005759DE /* DebugView.swift */; };
+		1D5548782E1135FC005759DE /* handleInteraction.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16B70FCB2CA41E6400DF33C9 /* handleInteraction.swift */; };
+		1D5548792E1135FC005759DE /* excuteAction.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1605C23F2CA02F3B00725749 /* excuteAction.swift */; };
+		1D55487A2E1135FC005759DE /* sharePlay.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1605C2452CA02F5100725749 /* sharePlay.swift */; };
+		1D55487B2E1135FC005759DE /* rest.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1605C2482CA02F5800725749 /* rest.swift */; };
+		1D55487C2E1135FC005759DE /* BoardPosition.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
+		1D55487D2E1135FC005759DE /* DragState.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED892DEC521C006BD075 /* DragState.swift */; };
+		1D55487E2E1135FC005759DE /* Entities.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16428EB32C9FAA2600E93B86 /* Entities.swift */; };
+		1D55487F2E1135FC005759DE /* WindowView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1DD18A282DD9968800CF0645 /* WindowView.swift */; };
+		1D5548802E1135FC005759DE /* OpenGuideMenuButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */; };
+		1D5548812E1135FC005759DE /* GuideMenuView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16261D662C8D1E6200C2822C /* GuideMenuView.swift */; };
+		1D5548822E1135FC005759DE /* AboutOptionsMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 161A13912C96733B0075C57B /* AboutOptionsMenu.swift */; };
+		1D5548832E1135FC005759DE /* AboutAppLink.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 161A13932C9674320075C57B /* AboutAppLink.swift */; };
+		1D5548842E1135FC005759DE /* WhatsSharePlayMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 161A13962C9674990075C57B /* WhatsSharePlayMenu.swift */; };
+		1D5548852E1135FC005759DE /* WhatsPersonaMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 161A13952C9674990075C57B /* WhatsPersonaMenu.swift */; };
+		1D5548862E1135FC005759DE /* BottomButtons.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D55486C2E0FA1F4005759DE /* BottomButtons.swift */; };
+		1D5548872E1135FC005759DE /* OpenAndDismiss3DSpaceButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismiss3DSpaceButton.swift */; };
+		1D5548882E1135FC005759DE /* RotateBoardButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED802DEC2A16006BD075 /* RotateBoardButton.swift */; };
+		1D5548892E1135FC005759DE /* RemoveButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D55486A2E0F98CE005759DE /* RemoveButton.swift */; };
+		1D55488A2E1135FC005759DE /* UndoButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED822DEC2A96006BD075 /* UndoButton.swift */; };
+		1D55488B2E1135FC005759DE /* ResetButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED842DEC2AA6006BD075 /* ResetButton.swift */; };
+		1D55488C2E1135FC005759DE /* offset.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D5548712E0FB151005759DE /* offset.swift */; };
+		1D55488D2E1135FC005759DE /* scaleAnchor.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D55486F2E0FB130005759DE /* scaleAnchor.swift */; };
+		1D55488E2E1135FC005759DE /* HandleGroupImmersion.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D5548742E10AEFF005759DE /* HandleGroupImmersion.swift */; };
+		1D55488F2E1135FC005759DE /* DebugView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D5548762E111711005759DE /* DebugView.swift */; };
+		1D5548902E1135FC005759DE /* SceneKind.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
+		1D5548912E1135FC005759DE /* Interaction.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16B70FC82CA41DFF00DF33C9 /* Interaction.swift */; };
+		1D5548922E1135FC005759DE /* PieceAnimation.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
@@ -170,6 +197,33 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				1D5548782E1135FC005759DE /* handleInteraction.swift in CopyFiles */,
+				1D5548792E1135FC005759DE /* excuteAction.swift in CopyFiles */,
+				1D55487A2E1135FC005759DE /* sharePlay.swift in CopyFiles */,
+				1D55487B2E1135FC005759DE /* rest.swift in CopyFiles */,
+				1D55487C2E1135FC005759DE /* BoardPosition.swift in CopyFiles */,
+				1D55487D2E1135FC005759DE /* DragState.swift in CopyFiles */,
+				1D55487E2E1135FC005759DE /* Entities.swift in CopyFiles */,
+				1D55487F2E1135FC005759DE /* WindowView.swift in CopyFiles */,
+				1D5548802E1135FC005759DE /* OpenGuideMenuButton.swift in CopyFiles */,
+				1D5548812E1135FC005759DE /* GuideMenuView.swift in CopyFiles */,
+				1D5548822E1135FC005759DE /* AboutOptionsMenu.swift in CopyFiles */,
+				1D5548832E1135FC005759DE /* AboutAppLink.swift in CopyFiles */,
+				1D5548842E1135FC005759DE /* WhatsSharePlayMenu.swift in CopyFiles */,
+				1D5548852E1135FC005759DE /* WhatsPersonaMenu.swift in CopyFiles */,
+				1D5548862E1135FC005759DE /* BottomButtons.swift in CopyFiles */,
+				1D5548872E1135FC005759DE /* OpenAndDismiss3DSpaceButton.swift in CopyFiles */,
+				1D5548882E1135FC005759DE /* RotateBoardButton.swift in CopyFiles */,
+				1D5548892E1135FC005759DE /* RemoveButton.swift in CopyFiles */,
+				1D55488A2E1135FC005759DE /* UndoButton.swift in CopyFiles */,
+				1D55488B2E1135FC005759DE /* ResetButton.swift in CopyFiles */,
+				1D55488C2E1135FC005759DE /* offset.swift in CopyFiles */,
+				1D55488D2E1135FC005759DE /* scaleAnchor.swift in CopyFiles */,
+				1D55488E2E1135FC005759DE /* HandleGroupImmersion.swift in CopyFiles */,
+				1D55488F2E1135FC005759DE /* DebugView.swift in CopyFiles */,
+				1D5548902E1135FC005759DE /* SceneKind.swift in CopyFiles */,
+				1D5548912E1135FC005759DE /* Interaction.swift in CopyFiles */,
+				1D5548922E1135FC005759DE /* PieceAnimation.swift in CopyFiles */,
 				167948BA2BC6A60B004DFF4B /* App.swift in CopyFiles */,
 				167948BB2BC6A60B004DFF4B /* AppModel.swift in CopyFiles */,
 				167948BC2BC6A60B004DFF4B /* SharedState.swift in CopyFiles */,
