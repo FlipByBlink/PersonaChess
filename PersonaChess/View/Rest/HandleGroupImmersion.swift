@@ -14,13 +14,15 @@ struct HandleGroupImmersion: ViewModifier {
             .onChange(of: self.model.isImmersiveSpaceModePreferred) { _, newValue in
                 switch self.kind {
                     case .window:
-                        if newValue == true {
+                        if newValue == true,
+                           !self.model.isImmersiveSpaceShown {
                             Task {
                                 await self.openImmersiveSpace(id: "immersiveSpace")
                             }
                         }
                     case .immersiveSpace:
-                        if newValue != true {
+                        if newValue == false,
+                           self.model.isImmersiveSpaceShown {
                             Task {
                                 await self.dismissImmersiveSpace()
                             }
