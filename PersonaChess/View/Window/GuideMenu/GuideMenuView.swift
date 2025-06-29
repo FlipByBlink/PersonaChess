@@ -12,10 +12,10 @@ struct GuideMenuView: View {
                     NavigationLink("What's SharePlay?") { WhatsSharePlayMenu() }
                     NavigationLink("What's Persona?") { WhatsPersonaMenu() }
                 }
-                AboutOptionsMenuLink()
                 if self.model.groupSession == nil {
                     Section { NavigationLink("Set up SharePlay") { self.setUpMenu() } }
                 }
+                AboutOptionsMenuLink()
                 Section {
                     AboutAppLink()
                 } footer: {
@@ -84,10 +84,14 @@ private extension GuideMenuView {
             }
         }
     }
+    @ViewBuilder
     private func ver1Announce() -> some View {
-        Text("""
-        This app is version 2. It was recently released. It is not compatible with the previous version (version 1.0), so SharePlay does not work between them.
-        If your SharePlay partners are using version 1.0, please recommend them to update the app.
-        """)
+        if let date2509 = DateComponents(calendar: .current, year: 2025, month: 09).date,
+           date2509 > Date.now {
+            Text("""
+            This app is ver 2. It is not compatible with the previous version (ver 1.0), so SharePlay does not work between them.
+            If your SharePlay partners are using ver 1.0, please recommend them to update the app.
+            """)
+        }
     }
 }

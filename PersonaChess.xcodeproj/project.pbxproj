@@ -414,7 +414,6 @@
 		16261D652C8D1E5A00C2822C /* GuideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */,
 				16261D662C8D1E6200C2822C /* GuideMenuView.swift */,
 				162145942CC2801F00A6A87E /* Rest */,
 			);
@@ -684,6 +683,7 @@
 				1D55486A2E0F98CE005759DE /* RemoveButton.swift */,
 				1D78ED822DEC2A96006BD075 /* UndoButton.swift */,
 				1D78ED842DEC2AA6006BD075 /* ResetButton.swift */,
+				1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";

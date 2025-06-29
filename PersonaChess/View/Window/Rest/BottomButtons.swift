@@ -4,14 +4,16 @@ struct BottomButtons: ToolbarContent {
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .bottomOrnament) {
             HStack(spacing: 12) {
-                OpenAndDismissImmersiveSpaceButton()
-                RotateBoardButton()
-                RemoveButton()
-                UndoButton()
-                ResetButton()
+                Group {
+                    OpenAndDismissImmersiveSpaceButton()
+                    RotateBoardButton()
+                    RemoveButton()
+                    UndoButton()
+                    ResetButton()
+                }
+                .buttonStyle(Self.Style())
                 OpenGuideMenuButton()
             }
-            .buttonStyle(Self.Style())
             .padding(.horizontal, 8)
         }
     }

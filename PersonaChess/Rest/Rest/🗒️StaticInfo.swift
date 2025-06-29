@@ -75,6 +75,7 @@ enum 🗒️StaticInfo {
                     "RemoveButton.swift",
                     "UndoButton.swift",
                     "ResetButton.swift",
+                    "OpenGuideMenuButton.swift",
                 ]
                 case .ImmersiveSpace: [
                     "ImmersiveSpaceView.swift",
@@ -92,7 +93,6 @@ enum 🗒️StaticInfo {
                     "Sound.swift",
                 ]
                 case .GuideMenu: [
-                    "OpenGuideMenuButton.swift",
                     "GuideMenuView.swift",
                     "AboutOptionsMenuLink.swift",
                     "AboutAppLink.swift",

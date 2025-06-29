@@ -6,13 +6,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chess with Spatial Personas.\n\n- Simple design.\n\n- Move pieces freely.\n\n- Support Spatial SharePlay.\n\n- Tap a piece.\n\n- Drag a piece.\n\n- Undo feature.\n\n- Remove a piece feature.\n\n- Adjust a board rotaion.\n\n- Adjust a board scale.\n\n\nNotice\n\n- To use SharePlay, a FaceTime call is required.\n\n- You must set up your persona on the OS beforehand.\n\n- The persona appears as part of FaceTime/SharePlay."
+            "value" : "Chess with Spatial Personas.\n\n- Simple design.\n\n- Move pieces freely.\n\n- Support Spatial SharePlay.\n\n- Tap a piece.\n\n- Drag a piece.\n\n- Undo feature.\n\n- Remove a piece feature.\n\n- Adjust a board rotation.\n\n- Adjust a board scale on floor.\n\n\nNotice\n\n- To use SharePlay, a FaceTime call is required.\n\n- You must set up your persona on the OS beforehand.\n\n- The persona appears as part of FaceTime/SharePlay."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "空間ペルソナでチェスしよう！\n\n・シンプルなデザイン\n\n・駒を自由に動かす\n\n・空間シェアプレイ対応\n\n・「タップ」や「ドラッグ」で駒を操作\n\n・「戻す」機能\n\n・駒削除機能\n\n・ボード回転機能\n\n・ボードスケール変更機能\n\n\n「注意」\n\n・SharePlayをするにはFaceTimeで通話する必要があります。\n\n・OS側で先にペルソナを設定する必要があります。\n\n・ペルソナはFaceTime/SharePlayの一部として表示されます。\n\n\n==== English ====\nChess with Spatial Personas.\n\n- Simple design.\n\n- Move pieces freely.\n\n- Support Spatial SharePlay.\n\n- Tap a piece.\n\n- Drag a piece.\n\n- Undo feature.\n\n- Remove a piece feature.\n\n- Adjust a board rotaion.\n\n- Adjust a board scale.\n\n\nNotice\n\n- To use SharePlay, a FaceTime call is required.\n\n- You must set up your persona on the OS beforehand.\n\n- The persona appears as part of FaceTime/SharePlay."
+            "value" : "空間ペルソナでチェスしよう！\n\n・シンプルなデザイン\n\n・駒を自由に動かす\n\n・空間シェアプレイ対応\n\n・「タップ」や「ドラッグ」で駒を操作\n\n・「戻す」機能\n\n・駒削除機能\n\n・ボード回転機能\n\n・ボードスケール変更機能\n\n\n「注意」\n\n・SharePlayをするにはFaceTimeで通話する必要があります。\n\n・OS側で先にペルソナを設定する必要があります。\n\n・ペルソナはFaceTime/SharePlayの一部として表示されます。\n\n\n==== English ====\nChess with Spatial Personas.\n\n- Simple design.\n\n- Move pieces freely.\n\n- Support Spatial SharePlay.\n\n- Tap a piece.\n\n- Drag a piece.\n\n- Undo feature.\n\n- Remove a piece feature.\n\n- Adjust a board rotation.\n\n- Adjust a board scale on floor.\n\n\nNotice\n\n- To use SharePlay, a FaceTime call is required.\n\n- You must set up your persona on the OS beforehand.\n\n- The persona appears as part of FaceTime/SharePlay."
           }
         }
       }
