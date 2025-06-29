@@ -105,7 +105,7 @@ extension AppModel {
             try? await self.reliableMessenger?.send(self.sharedState)
         }
     }
-    func sendMessage(_ dragState: DragState) {
+    func sendMessage(dragState: DragState) {
         Task {
             try? await self.unreliableMessenger?.send(dragState)
         }

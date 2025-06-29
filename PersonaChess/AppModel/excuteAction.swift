@@ -21,6 +21,6 @@ extension AppModel {
         self.entities.dragUpdate(self.sharedState.pieces,
                                  state)
         
-        self.sendMessage(state)
+        self.sendMessage(dragState: state)
     }
 }

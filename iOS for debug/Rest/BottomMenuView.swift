@@ -9,11 +9,10 @@ struct BottomMenuView: View {
                 Self.RowView(title: "Angle") {
                     HStack(spacing: 16) {
                         Text(self.model.sharedState.boardAngle.formatted() + "°")
-                        Button {
+                        Button("Rotate", systemImage: "arrow.turn.right.up") {
                             self.model.rotateBoard()
-                        } label: {
-                            Label("Rotate", systemImage: "arrow.turn.right.up")
                         }
+                        .labelStyle(.iconOnly)
                     }
                 }
                 Divider()
