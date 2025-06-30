@@ -94,6 +94,7 @@ enum 🗒️StaticInfo {
                 ]
                 case .GuideMenu: [
                     "GuideMenuView.swift",
+                    "SetUpMenu.swift",
                     "AboutOptionsMenuLink.swift",
                     "AboutAppLink.swift",
                     "WhatsSharePlayMenu.swift",
@@ -102,6 +103,7 @@ enum 🗒️StaticInfo {
                 case .SharePlay: [
                     "AppGroupActivity.swift",
                     "SharePlayProvider.swift",
+                    "GroupActivityRegistration.swift",
                 ]
                 case .Rest: [
                     "HandleGroupImmersion.swift",

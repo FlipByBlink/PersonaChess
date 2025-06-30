@@ -173,6 +173,10 @@
 		1D5548912E1135FC005759DE /* Interaction.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16B70FC82CA41DFF00DF33C9 /* Interaction.swift */; };
 		1D5548922E1135FC005759DE /* PieceAnimation.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		1D5548942E11692C005759DE /* SetUpMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548932E116928005759DE /* SetUpMenu.swift */; };
+		1D55489A2E121182005759DE /* GroupActivityRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548992E121182005759DE /* GroupActivityRegistration.swift */; };
+		1D55489B2E121182005759DE /* GroupActivityRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548992E121182005759DE /* GroupActivityRegistration.swift */; };
+		1D55489C2E121465005759DE /* SetUpMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D5548932E116928005759DE /* SetUpMenu.swift */; };
+		1D55489D2E121465005759DE /* GroupActivityRegistration.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D5548992E121182005759DE /* GroupActivityRegistration.swift */; };
 		1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
@@ -198,6 +202,8 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				1D55489C2E121465005759DE /* SetUpMenu.swift in CopyFiles */,
+				1D55489D2E121465005759DE /* GroupActivityRegistration.swift in CopyFiles */,
 				1D5548782E1135FC005759DE /* handleInteraction.swift in CopyFiles */,
 				1D5548792E1135FC005759DE /* excuteAction.swift in CopyFiles */,
 				1D55487A2E1135FC005759DE /* sharePlay.swift in CopyFiles */,
@@ -355,6 +361,7 @@
 		1D5548742E10AEFF005759DE /* HandleGroupImmersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleGroupImmersion.swift; sourceTree = "<group>"; };
 		1D5548762E111711005759DE /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		1D5548932E116928005759DE /* SetUpMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpMenu.swift; sourceTree = "<group>"; };
+		1D5548992E121182005759DE /* GroupActivityRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupActivityRegistration.swift; sourceTree = "<group>"; };
 		1D78ED702DEA7AA4006BD075 /* SceneKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKind.swift; sourceTree = "<group>"; };
 		1D78ED732DEB29F2006BD075 /* BoardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPosition.swift; sourceTree = "<group>"; };
 		1D78ED762DEC135B006BD075 /* RolePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePicker.swift; sourceTree = "<group>"; };
@@ -497,6 +504,7 @@
 			children = (
 				165EC6A12B6913250005172B /* AppGroupActivity.swift */,
 				16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */,
+				1D5548992E121182005759DE /* GroupActivityRegistration.swift */,
 			);
 			path = SharePlay;
 			sourceTree = "<group>";
@@ -969,6 +977,7 @@
 				16C477152B8AC2E800343DD8 /* SharePlayProvider.swift in Sources */,
 				1619528C2CBC9CA600E6F171 /* PieceEntity.swift in Sources */,
 				1605C2472CA02F5500725749 /* sharePlay.swift in Sources */,
+				1D55489B2E121182005759DE /* GroupActivityRegistration.swift in Sources */,
 				16312B782B75D45B006A93D1 /* BottomMenuView.swift in Sources */,
 				16312B6A2B75D193006A93D1 /* Chessmen.swift in Sources */,
 				16312B5B2B75D0FB006A93D1 /* App.swift in Sources */,
@@ -995,6 +1004,7 @@
 				1D5548772E111713005759DE /* DebugView.swift in Sources */,
 				1D78ED872DEC2AB4006BD075 /* OpenGuideMenuButton.swift in Sources */,
 				1D78ED852DEC2AA6006BD075 /* ResetButton.swift in Sources */,
+				1D55489A2E121182005759DE /* GroupActivityRegistration.swift in Sources */,
 				1D5548942E11692C005759DE /* SetUpMenu.swift in Sources */,
 				1605C24A2CA02F5A00725749 /* rest.swift in Sources */,
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
