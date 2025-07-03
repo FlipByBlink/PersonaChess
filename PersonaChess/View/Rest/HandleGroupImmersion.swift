@@ -1,7 +1,5 @@
 import SwiftUI
 
-//TODO: 要動作確認
-
 struct HandleGroupImmersion: ViewModifier {
     @EnvironmentObject var model: AppModel
     @Environment(\.openImmersiveSpace) var openImmersiveSpace

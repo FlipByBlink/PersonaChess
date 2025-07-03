@@ -76,7 +76,6 @@ extension AppModel {
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             for await immersionStyle in systemCoordinator.groupImmersionStyle {
                                 self.isImmersiveSpaceModePreferred = (immersionStyle != nil)
-                                //TODO: 要動作確認
                             }
                         }
                     }
