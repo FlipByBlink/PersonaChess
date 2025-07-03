@@ -104,13 +104,7 @@ private extension BoardView {
             }
             private func button(_ boardPosition: BoardPosition) -> some View {
                 Button {
-                    withAnimation {
-                        if self.model.sharedState.boardPosition == boardPosition {
-                            self.model.sharedState.boardPosition = .center
-                        } else {
-                            self.model.sharedState.boardPosition = boardPosition
-                        }
-                    }
+                    self.model.changeBoardPosition(boardPosition)
                 } label: {
                     Image(systemName: "chevron.\(boardPosition)")
                         .padding(24)

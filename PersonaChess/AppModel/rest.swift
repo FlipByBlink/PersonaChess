@@ -15,6 +15,16 @@ extension AppModel {
         self.sharedState.viewScale *= 0.75
         self.sendMessage()
     }
+    func changeBoardPosition(_ boardPosition: BoardPosition) {
+        withAnimation {
+            if self.sharedState.boardPosition == boardPosition {
+                self.sharedState.boardPosition = .center
+            } else {
+                self.sharedState.boardPosition = boardPosition
+            }
+        }
+        self.sendMessage()
+    }
     var upScalable: Bool {
         self.sharedState.viewScale < 50.0
     }
