@@ -87,7 +87,9 @@ private extension ChessView {
             }
         }
         func body(content: Content) -> some View {
-            content.rotation3DEffect(.degrees(self.angle), axis: .y)
+            content
+                .rotation3DEffect(.degrees(self.angle), axis: .y)
+                .animation(.default, value: self.angle)
         }
     }
 }

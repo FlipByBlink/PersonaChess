@@ -2,9 +2,7 @@ import SwiftUI
 
 extension AppModel {
     func rotateBoard() {
-        withAnimation {
-            self.sharedState.boardAngle += 90
-        }
+        self.sharedState.boardAngle += 90
         self.sendMessage()
     }
     func upScale() {
@@ -16,12 +14,10 @@ extension AppModel {
         self.sendMessage()
     }
     func changeBoardPosition(_ boardPosition: BoardPosition) {
-        withAnimation {
-            if self.sharedState.boardPosition == boardPosition {
-                self.sharedState.boardPosition = .center
-            } else {
-                self.sharedState.boardPosition = boardPosition
-            }
+        if self.sharedState.boardPosition == boardPosition {
+            self.sharedState.boardPosition = .center
+        } else {
+            self.sharedState.boardPosition = boardPosition
         }
         self.sendMessage()
     }
