@@ -134,9 +134,10 @@
 		16EA6A7B2B6875CA00A3A740 /* pawnB.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A6F2B6875CA00A3A740 /* pawnB.reality */; };
 		16EA6A7C2B6875CA00A3A740 /* pawnW.reality in Resources */ = {isa = PBXBuildFile; fileRef = 16EA6A702B6875CA00A3A740 /* pawnW.reality */; };
 		16EA6A802B68769C00A3A740 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA6A7F2B68769C00A3A740 /* Side.swift */; };
-		16F42C592C91A391006A12E3 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F42C582C91A38D006A12E3 /* ActivityState.swift */; };
 		16F972752B68B77C00711C53 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972742B68B77C00711C53 /* Piece.swift */; };
 		16F972772B68B7FB00711C53 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F972762B68B7FB00711C53 /* Size.swift */; };
+		1D2783652E17DB010017A50B /* ShareChessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2783642E17DAFB0017A50B /* ShareChessButton.swift */; };
+		1D2783662E17DC630017A50B /* ShareChessButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D2783642E17DAFB0017A50B /* ShareChessButton.swift */; };
 		1D5548682E0F9389005759DE /* removeSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1D5548672E0F9389005759DE /* removeSound.m4a */; };
 		1D5548692E0F9389005759DE /* removeSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1D5548672E0F9389005759DE /* removeSound.m4a */; };
 		1D55486B2E0F98CE005759DE /* RemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55486A2E0F98CE005759DE /* RemoveButton.swift */; };
@@ -202,6 +203,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				1D2783662E17DC630017A50B /* ShareChessButton.swift in CopyFiles */,
 				1D55489C2E121465005759DE /* SetUpMenu.swift in CopyFiles */,
 				1D55489D2E121465005759DE /* GroupActivityRegistration.swift in CopyFiles */,
 				1D5548782E1135FC005759DE /* handleInteraction.swift in CopyFiles */,
@@ -353,6 +355,7 @@
 		16F42C582C91A38D006A12E3 /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
 		16F972742B68B77C00711C53 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		16F972762B68B7FB00711C53 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		1D2783642E17DAFB0017A50B /* ShareChessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareChessButton.swift; sourceTree = "<group>"; };
 		1D5548672E0F9389005759DE /* removeSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = removeSound.m4a; sourceTree = "<group>"; };
 		1D55486A2E0F98CE005759DE /* RemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveButton.swift; sourceTree = "<group>"; };
 		1D55486C2E0FA1F4005759DE /* BottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtons.swift; sourceTree = "<group>"; };
@@ -412,6 +415,7 @@
 		162145942CC2801F00A6A87E /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				1D2783642E17DAFB0017A50B /* ShareChessButton.swift */,
 				1D5548932E116928005759DE /* SetUpMenu.swift */,
 				161A13912C96733B0075C57B /* AboutOptionsMenuLink.swift */,
 				161A13932C9674320075C57B /* AboutAppLink.swift */,
@@ -1016,7 +1020,6 @@
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
 				1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */,
 				16AE50282B70FE3200D25197 /* Sound.swift in Sources */,
-				16F42C592C91A391006A12E3 /* ActivityState.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,
 				1605C2462CA02F5500725749 /* sharePlay.swift in Sources */,
 				16780FF62B6881DB005A0244 /* ImmersiveSpaceView.swift in Sources */,
@@ -1036,6 +1039,7 @@
 				16780FF92B6892E9005A0244 /* Chessmen.swift in Sources */,
 				1D55486B2E0F98CE005759DE /* RemoveButton.swift in Sources */,
 				1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */,
+				1D2783652E17DB010017A50B /* ShareChessButton.swift in Sources */,
 				16EA6A802B68769C00A3A740 /* Side.swift in Sources */,
 				16780FFD2B6893CF005A0244 /* Index.swift in Sources */,
 				162145902CBFD0C700A6A87E /* PieceAnimation.swift in Sources */,

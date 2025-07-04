@@ -26,7 +26,7 @@ enum 🗒️StaticInfo {
     static let webRepositoryURL: URL = .init(string: "https://github.com/FlipByBlink/PersonaChess")!
     static let webMirrorRepositoryURL: URL = .init(string: "https://gitlab.com/FlipByBlink/PersonaChess_Mirror")!
 
-    static let versionInfos: [(version: String, date: String)] = [("2.0", "2025-06-29"),
+    static let versionInfos: [(version: String, date: String)] = [("2.0", "2025-07-04"),
                                                                   ("1.0", "2024-04-22")] //降順。先頭の方が新しい
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
@@ -94,6 +94,7 @@ enum 🗒️StaticInfo {
                 ]
                 case .GuideMenu: [
                     "GuideMenuView.swift",
+                    "ShareChessButton.swift",
                     "SetUpMenu.swift",
                     "AboutOptionsMenuLink.swift",
                     "AboutAppLink.swift",

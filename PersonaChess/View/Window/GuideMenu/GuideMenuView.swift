@@ -1,5 +1,4 @@
 import SwiftUI
-import GroupActivities
 
 struct GuideMenuView: View {
     @EnvironmentObject var model: AppModel
@@ -25,6 +24,9 @@ struct GuideMenuView: View {
                     } label: {
                         Label("Dismiss", systemImage: "xmark")
                     }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    ShareChessButton()
                 }
             }
             .navigationTitle("Menu")
