@@ -24,13 +24,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fixed a bug that caused SharePlay to behave incorrectly in full space.\nAdded a drag-and-drop feature for pieces.\nAdded a feature to delete a piece.\nAdded a feature to start SharePlay in app.\nSupports visionOS 2.5 and later.\nVarious improvements and bug fixes."
+            "value" : "Fixed a bug that caused SharePlay to behave incorrectly in full space.\nThis version is not compatible with ver1.0.\nAdded a drag-and-drop feature for pieces.\nAdded a feature to delete a piece.\nAdded a feature to start SharePlay in app.\nSupports visionOS 2.5 and later.\nVarious improvements and bug fixes."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "フルスペースのSharePlayが壊れる不具合を修正しました。\n駒をドラッグ&ドロップできる機能を追加しました。\n駒を個別に削除できる機能を追加しました。\nAdded a feature to start SharePlay in app.\nvisionOS 2.5以降をサポートしています。\n様々な修正やバグ修正を実施しました。"
+            "value" : "フルスペースのSharePlayが壊れる不具合を修正しました。\nこのバージョンはver1.0とは互換性がありません。\n駒をドラッグ&ドロップできる機能を追加しました。\n駒を個別に削除できる機能を追加しました。\nアプリ内からSharePlayを開始するボタンを追加しました。\nvisionOS 2.5以降をサポートしています。\n様々な修正やバグ修正を実施しました。"
           }
         }
       }
