@@ -34,10 +34,10 @@ struct SetUpMenu: View {
                 Text("Join SharePlay")
             }
             Section {
-                Text("Once SharePlay has begun, it is not possible to change the window height. Adjust it beforehand.")
+                Text("If SharePlay doesn’t work properly, your app versions might be different. Please update the app to the latest version and try SharePlay again.")
             }
             Section {
-                Text("If SharePlay doesn’t work properly, your app versions might be different. Please update the app to the latest version and try SharePlay again.")
+                Text("Once SharePlay has begun, it is not possible to change the window height. Adjust it beforehand.")
             }
         }
     }
