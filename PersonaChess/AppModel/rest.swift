@@ -2,7 +2,11 @@ import SwiftUI
 
 extension AppModel {
     func rotateBoard() {
-        self.sharedState.boardAngle += 90
+        if self.sharedState.boardAngle >= 270 {
+            self.sharedState.boardAngle = .zero
+        } else {
+            self.sharedState.boardAngle += 90
+        }
         self.sendMessage()
     }
     func upScale() {
