@@ -12,6 +12,8 @@ _Spatial SharePlay × Chess_
 
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w.jpg" width="640">
 
+<img src="PersonaChess/Supporting files/Rest/README assets/preview600w.gif" width="600">
+
 
 Description
 ------------
@@ -48,6 +50,8 @@ Notice
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w2.jpg" width="640">
 
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w3.jpg" width="640">
+
+<img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w4.jpg" width="640">
 
 
 <br>
