@@ -7,7 +7,7 @@ extension AppModel {
         switch interaction {
             case .tapPiece(let tappedPiece):
                 guard let tappedPieceIndex = self.sharedState.pieces.indices[tappedPiece] else {
-                    assertionFailure(); return //TODO: ここを通る場合がある。要確認。
+                    assertionFailure(); return
                 }
                 if self.sharedState.pieces.isPicking {
                     guard let pickingPiece = self.sharedState.pieces.pickingPiece,

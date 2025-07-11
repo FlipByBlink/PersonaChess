@@ -17,7 +17,7 @@ _Spatial SharePlay × Chess_
 
 Description
 ------------
-Chess with Spatial Personas.
+Chess board with Spatial Personas.
 
 - Simple design.
 

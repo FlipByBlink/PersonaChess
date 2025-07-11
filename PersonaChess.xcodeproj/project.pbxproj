@@ -567,6 +567,7 @@
 				16CB3C992B8200CE001CA93D /* EntrancePiecesView.swift */,
 				169C00282B4A9BE0001242F5 /* ContentView(old).swift */,
 				1601FEF72B4AA42D0050457E /* シンプルボード.reality */,
+				16F42C582C91A38D006A12E3 /* ActivityState.swift */,
 			);
 			path = Archive;
 			sourceTree = "<group>";
@@ -576,7 +577,6 @@
 			children = (
 				1679489F2BC66BA2004DFF4B /* 🗒️StaticInfo.swift */,
 				1679489E2BC66BA2004DFF4B /* ℹ️AboutApp.swift */,
-				16F42C5B2C91A39F006A12E3 /* Compatibility */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -747,14 +747,6 @@
 				167C0DF42BDA0EA200229714 /* About */,
 			);
 			path = Piece;
-			sourceTree = "<group>";
-		};
-		16F42C5B2C91A39F006A12E3 /* Compatibility */ = {
-			isa = PBXGroup;
-			children = (
-				16F42C582C91A38D006A12E3 /* ActivityState.swift */,
-			);
-			path = Compatibility;
 			sourceTree = "<group>";
 		};
 		1D55486E2E0FB12A005759DE /* Rest */ = {

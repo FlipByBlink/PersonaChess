@@ -361,7 +361,7 @@ private extension Entities {
             .findEntity(named: "sound")!
             .playAnimation(
                 try! .makeActionAnimation(for: Sound.asAction(kind,
-                                                              gain: kind == .put ? 18 : 0), //TODO: 再検討
+                                                              gain: kind == .put ? 18 : 0), //TODO: reconsider
                                           delay: delay)
             )
     }
@@ -392,7 +392,7 @@ private extension Entities {
             }
     }
     private func updatePieceOpacity(_ pieces: Pieces,
-                                    dragState: DragState? = nil) {//TODO: 要再検討
+                                    dragState: DragState? = nil) {//TODO: reconsider
         for piece in pieces.all {
             guard piece != pieces.draggingPiece else { continue }
             self.pieceEntity(piece)?.components[OpacityComponent.self]!.opacity = 1.0
