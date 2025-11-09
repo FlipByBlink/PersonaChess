@@ -14,16 +14,20 @@ _Spatial SharePlay × Chess_
 
 <img src="PersonaChess/Supporting files/Rest/README assets/preview600w.gif" width="600">
 
+<img src="PersonaChess/Supporting files/Rest/README assets/nearby_SharePlay_demo_640w.gif" width="640">
+
 
 Description
 ------------
-Chess board with Spatial Personas.
+Chess board with Personas and people nearby.
 
 - Simple design.
 
 - Move pieces freely.
 
 - Support Spatial SharePlay.
+
+- Support SharePlay with people nearby.
 
 - Tap a piece.
 
