@@ -182,6 +182,8 @@
 		1D584F732ECAAE1700ABBFD8 /* BoardRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */; };
 		1D584F742ECAAE5D00ABBFD8 /* BoardRotation.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */; };
 		1D584F752ECAAE5D00ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */; };
+		1D584F7C2ECB01AA00ABBFD8 /* GuideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F7B2ECB01A800ABBFD8 /* GuideMenu.swift */; };
+		1D584F7D2ECB036500ABBFD8 /* GuideMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D584F7B2ECB01A800ABBFD8 /* GuideMenu.swift */; };
 		1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
@@ -207,6 +209,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				1D584F7D2ECB036500ABBFD8 /* GuideMenu.swift in CopyFiles */,
 				1D584F742ECAAE5D00ABBFD8 /* BoardRotation.swift in CopyFiles */,
 				1D584F752ECAAE5D00ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in CopyFiles */,
 				1D55489C2E121465005759DE /* SetUpMenu.swift in CopyFiles */,
@@ -374,6 +377,7 @@
 		1D5548992E121182005759DE /* GroupActivityRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupActivityRegistration.swift; sourceTree = "<group>"; };
 		1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDuringImmersiveSpaceMode.swift; sourceTree = "<group>"; };
 		1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRotation.swift; sourceTree = "<group>"; };
+		1D584F7B2ECB01A800ABBFD8 /* GuideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideMenu.swift; sourceTree = "<group>"; };
 		1D78ED702DEA7AA4006BD075 /* SceneKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKind.swift; sourceTree = "<group>"; };
 		1D78ED732DEB29F2006BD075 /* BoardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPosition.swift; sourceTree = "<group>"; };
 		1D78ED762DEC135B006BD075 /* RolePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePicker.swift; sourceTree = "<group>"; };
@@ -436,6 +440,7 @@
 		16261D652C8D1E5A00C2822C /* GuideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				1D584F7B2ECB01A800ABBFD8 /* GuideMenu.swift */,
 				16261D662C8D1E6200C2822C /* GuideMenuView.swift */,
 				162145942CC2801F00A6A87E /* Rest */,
 			);
@@ -1033,6 +1038,7 @@
 				1D5548702E0FB134005759DE /* scaleAnchor.swift in Sources */,
 				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
+				1D584F7C2ECB01AA00ABBFD8 /* GuideMenu.swift in Sources */,
 				1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */,
 				16AE50282B70FE3200D25197 /* Sound.swift in Sources */,
 				165EC6A52B69153B0005172B /* SquareView.swift in Sources */,

@@ -8,7 +8,7 @@ struct WindowView: View {
             .offset(y: -100)
             .frame(height: Size.Point.board(self.physicalMetrics),
                    alignment: .bottom)
-            .ornament(attachmentAnchor: .scene(.topBack)) { GuideMenuView() }
+            .modifier(GuideMenu())
             .supportedVolumeViewpoints(.all)
             .toolbar { BottomButtons() }
             .modifier(HandleGroupImmersion(.window))

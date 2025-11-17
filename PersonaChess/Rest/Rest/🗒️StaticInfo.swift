@@ -99,6 +99,7 @@ enum 🗒️StaticInfo {
                     "Sound.swift",
                 ]
                 case .GuideMenu: [
+                    "GuideMenu.swift",
                     "GuideMenuView.swift",
                     "SetUpMenu.swift",
                     "AboutOptionsMenuLink.swift",
