@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1605C2402CA02F3F00725749 /* excuteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C23F2CA02F3B00725749 /* excuteAction.swift */; };
-		1605C2412CA02F3F00725749 /* excuteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C23F2CA02F3B00725749 /* excuteAction.swift */; };
+		1605C2402CA02F3F00725749 /* executeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C23F2CA02F3B00725749 /* executeAction.swift */; };
+		1605C2412CA02F3F00725749 /* executeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C23F2CA02F3B00725749 /* executeAction.swift */; };
 		1605C2462CA02F5500725749 /* sharePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C2452CA02F5100725749 /* sharePlay.swift */; };
 		1605C2472CA02F5500725749 /* sharePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C2452CA02F5100725749 /* sharePlay.swift */; };
 		1605C2492CA02F5A00725749 /* rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605C2482CA02F5800725749 /* rest.swift */; };
@@ -147,7 +147,7 @@
 		1D5548752E10AEFF005759DE /* HandleGroupImmersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548742E10AEFF005759DE /* HandleGroupImmersion.swift */; };
 		1D5548772E111713005759DE /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548762E111711005759DE /* DebugView.swift */; };
 		1D5548782E1135FC005759DE /* handleInteraction.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16B70FCB2CA41E6400DF33C9 /* handleInteraction.swift */; };
-		1D5548792E1135FC005759DE /* excuteAction.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1605C23F2CA02F3B00725749 /* excuteAction.swift */; };
+		1D5548792E1135FC005759DE /* executeAction.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1605C23F2CA02F3B00725749 /* executeAction.swift */; };
 		1D55487A2E1135FC005759DE /* sharePlay.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1605C2452CA02F5100725749 /* sharePlay.swift */; };
 		1D55487B2E1135FC005759DE /* rest.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1605C2482CA02F5800725749 /* rest.swift */; };
 		1D55487C2E1135FC005759DE /* BoardPosition.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
@@ -178,6 +178,12 @@
 		1D55489B2E121182005759DE /* GroupActivityRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548992E121182005759DE /* GroupActivityRegistration.swift */; };
 		1D55489C2E121465005759DE /* SetUpMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D5548932E116928005759DE /* SetUpMenu.swift */; };
 		1D55489D2E121465005759DE /* GroupActivityRegistration.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D5548992E121182005759DE /* GroupActivityRegistration.swift */; };
+		1D584F6F2ECAAD9800ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */; };
+		1D584F702ECAAD9800ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */; };
+		1D584F722ECAAE1700ABBFD8 /* BoardRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */; };
+		1D584F732ECAAE1700ABBFD8 /* BoardRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */; };
+		1D584F742ECAAE5D00ABBFD8 /* BoardRotation.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */; };
+		1D584F752ECAAE5D00ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */; };
 		1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED722DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
 		1D78ED742DEB29F9006BD075 /* BoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED732DEB29F2006BD075 /* BoardPosition.swift */; };
@@ -203,11 +209,13 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				1D584F742ECAAE5D00ABBFD8 /* BoardRotation.swift in CopyFiles */,
+				1D584F752ECAAE5D00ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in CopyFiles */,
 				1D2783662E17DC630017A50B /* ShareChessButton.swift in CopyFiles */,
 				1D55489C2E121465005759DE /* SetUpMenu.swift in CopyFiles */,
 				1D55489D2E121465005759DE /* GroupActivityRegistration.swift in CopyFiles */,
 				1D5548782E1135FC005759DE /* handleInteraction.swift in CopyFiles */,
-				1D5548792E1135FC005759DE /* excuteAction.swift in CopyFiles */,
+				1D5548792E1135FC005759DE /* executeAction.swift in CopyFiles */,
 				1D55487A2E1135FC005759DE /* sharePlay.swift in CopyFiles */,
 				1D55487B2E1135FC005759DE /* rest.swift in CopyFiles */,
 				1D55487C2E1135FC005759DE /* BoardPosition.swift in CopyFiles */,
@@ -260,7 +268,7 @@
 
 /* Begin PBXFileReference section */
 		1601FEF72B4AA42D0050457E /* シンプルボード.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = "シンプルボード.reality"; sourceTree = "<group>"; };
-		1605C23F2CA02F3B00725749 /* excuteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = excuteAction.swift; sourceTree = "<group>"; };
+		1605C23F2CA02F3B00725749 /* executeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = executeAction.swift; sourceTree = "<group>"; };
 		1605C2452CA02F5100725749 /* sharePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharePlay.swift; sourceTree = "<group>"; };
 		1605C2482CA02F5800725749 /* rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rest.swift; sourceTree = "<group>"; };
 		160805FE2C08050F0064FCB2 /* screenshot1280w2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w2.jpg; sourceTree = "<group>"; };
@@ -368,6 +376,8 @@
 		1D5548762E111711005759DE /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		1D5548932E116928005759DE /* SetUpMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpMenu.swift; sourceTree = "<group>"; };
 		1D5548992E121182005759DE /* GroupActivityRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupActivityRegistration.swift; sourceTree = "<group>"; };
+		1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDuringImmersiveSpaceMode.swift; sourceTree = "<group>"; };
+		1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRotation.swift; sourceTree = "<group>"; };
 		1D78ED702DEA7AA4006BD075 /* SceneKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKind.swift; sourceTree = "<group>"; };
 		1D78ED732DEB29F2006BD075 /* BoardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPosition.swift; sourceTree = "<group>"; };
 		1D78ED762DEC135B006BD075 /* RolePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePicker.swift; sourceTree = "<group>"; };
@@ -408,7 +418,7 @@
 			children = (
 				165EC69D2B68C5E30005172B /* AppModel.swift */,
 				16B70FCB2CA41E6400DF33C9 /* handleInteraction.swift */,
-				1605C23F2CA02F3B00725749 /* excuteAction.swift */,
+				1605C23F2CA02F3B00725749 /* executeAction.swift */,
 				1605C2452CA02F5100725749 /* sharePlay.swift */,
 				1605C2482CA02F5800725749 /* rest.swift */,
 			);
@@ -458,6 +468,7 @@
 				1671A1592B720778009A87A6 /* ChessView.swift */,
 				169B9E812B68BEA70025FCEB /* BoardView.swift */,
 				165EC6A42B69153B0005172B /* SquareView.swift */,
+				1D584F6D2ECAAD9100ABBFD8 /* Rest */,
 				1671A16A2B74A872009A87A6 /* RealityKit scope */,
 			);
 			path = Chess;
@@ -769,6 +780,15 @@
 			path = Rest;
 			sourceTree = "<group>";
 		};
+		1D584F6D2ECAAD9100ABBFD8 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */,
+				1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
 		1D78ED772DEC138F006BD075 /* Role */ = {
 			isa = PBXGroup;
 			children = (
@@ -953,6 +973,7 @@
 				1605C24B2CA1539300725749 /* Entities.swift in Sources */,
 				16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */,
 				16312B6C2B75D193006A93D1 /* AppGroupActivity.swift in Sources */,
+				1D584F702ECAAD9800ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in Sources */,
 				1605C2492CA02F5A00725749 /* rest.swift in Sources */,
 				162145872CBD070900A6A87E /* handleInteraction.swift in Sources */,
 				1D78ED752DEB29F9006BD075 /* BoardPosition.swift in Sources */,
@@ -963,6 +984,7 @@
 				1D78ED8D2DEDE14C006BD075 /* PieceAnimation+Extension.swift in Sources */,
 				16312B6D2B75D193006A93D1 /* Side.swift in Sources */,
 				16312B6E2B75D193006A93D1 /* Index.swift in Sources */,
+				1D584F732ECAAE1700ABBFD8 /* BoardRotation.swift in Sources */,
 				16312B672B75D193006A93D1 /* Piece.swift in Sources */,
 				1D78ED7E2DEC2960006BD075 /* Size+Extensions.swift in Sources */,
 				16312B682B75D193006A93D1 /* SharedState.swift in Sources */,
@@ -970,7 +992,7 @@
 				16312B6B2B75D193006A93D1 /* Sound.swift in Sources */,
 				1D78ED7A2DEC2698006BD075 /* Chessmen+Extension.swift in Sources */,
 				1D78ED7C2DEC26DD006BD075 /* Pieces+Extension.swift in Sources */,
-				1605C2402CA02F3F00725749 /* excuteAction.swift in Sources */,
+				1605C2402CA02F3F00725749 /* executeAction.swift in Sources */,
 				1D78ED8B2DEC521F006BD075 /* DragState.swift in Sources */,
 				161774672CCFB0020075E8F0 /* ChessView_2DMode.swift in Sources */,
 				161774692CCFB0B80075E8F0 /* SquareView_2DMode.swift in Sources */,
@@ -1000,7 +1022,7 @@
 				16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */,
 				165EC6A02B6901670005172B /* Action.swift in Sources */,
 				161A13972C9674990075C57B /* WhatsPersonaMenu.swift in Sources */,
-				1605C2412CA02F3F00725749 /* excuteAction.swift in Sources */,
+				1605C2412CA02F3F00725749 /* executeAction.swift in Sources */,
 				161A13982C9674990075C57B /* WhatsSharePlayMenu.swift in Sources */,
 				1671A1612B723550009A87A6 /* PieceEntity.swift in Sources */,
 				1D5548772E111713005759DE /* DebugView.swift in Sources */,
@@ -1026,6 +1048,7 @@
 				16F972772B68B7FB00711C53 /* Size.swift in Sources */,
 				16C477132B8AC23D00343DD8 /* SharePlayProvider.swift in Sources */,
 				1D5548752E10AEFF005759DE /* HandleGroupImmersion.swift in Sources */,
+				1D584F6F2ECAAD9800ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
 				16B70FCA2CA41E0300DF33C9 /* Interaction.swift in Sources */,
 				1D5548722E0FB153005759DE /* offset.swift in Sources */,
@@ -1040,6 +1063,7 @@
 				1D2783652E17DB010017A50B /* ShareChessButton.swift in Sources */,
 				16EA6A802B68769C00A3A740 /* Side.swift in Sources */,
 				16780FFD2B6893CF005A0244 /* Index.swift in Sources */,
+				1D584F722ECAAE1700ABBFD8 /* BoardRotation.swift in Sources */,
 				162145902CBFD0C700A6A87E /* PieceAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

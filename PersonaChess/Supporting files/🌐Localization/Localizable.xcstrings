@@ -331,12 +331,12 @@
         }
       }
     },
-    "This app is ver 2. It is not compatible with the previous version (ver 1.0), so SharePlay does not work between them.\nIf your SharePlay partners are using ver 1.0, please recommend them to update the app." : {
+    "This app is ver 3. It is not compatible with previous versions (ver 1.0 and ver 2.0), so SharePlay does not work between them.\nIf your SharePlay partners are using previous version, please recommend them to update the app." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "このアプリはver2です。ver2は最近リリースされました。前バージョンのver1.0とは互換性がないため、SharePlayが出来ません。もし、SharePlayの相手がver1.0を利用している場合は、バージョンアップを勧めてください。"
+            "value" : "このアプリはver3です。前バージョンのver1.0やver2.0とは互換性がないため、SharePlayが出来ません。もし、SharePlayの相手が過去のバージョンを利用している場合は、バージョンアップを勧めてください。"
           }
         }
       }

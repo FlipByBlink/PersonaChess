@@ -53,7 +53,7 @@ enum 🗒️StaticInfo {
                 case .AppModel: [
                     "AppModel.swift",
                     "handleInteraction.swift",
-                    "excuteAction.swift",
+                    "executeAction.swift",
                     "sharePlay.swift",
                     "rest.swift",
                 ]
@@ -89,6 +89,8 @@ enum 🗒️StaticInfo {
                     "ChessView.swift",
                     "BoardView.swift",
                     "SquareView.swift",
+                    "BoardRotation.swift",
+                    "MenuDuringImmersiveSpaceMode.swift",
                 ]
                 case .RealityKitScope: [
                     "Entities.swift",

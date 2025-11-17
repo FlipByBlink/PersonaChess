@@ -46,11 +46,11 @@ struct GuideMenuView: View {
 private extension GuideMenuView {
     @ViewBuilder
     private func ver1Announce() -> some View {
-        if let date2509 = DateComponents(calendar: .current, year: 2025, month: 09).date,
-           date2509 > Date.now {
+        if let date2512 = DateComponents(calendar: .current, year: 2025, month: 12).date,
+           date2512 > Date.now {
             Text("""
-            This app is ver 2. It is not compatible with the previous version (ver 1.0), so SharePlay does not work between them.
-            If your SharePlay partners are using ver 1.0, please recommend them to update the app.
+            This app is ver 3. It is not compatible with previous versions (ver 1.0 and ver 2.0), so SharePlay does not work between them.
+            If your SharePlay partners are using previous version, please recommend them to update the app.
             """)
         }
     }
