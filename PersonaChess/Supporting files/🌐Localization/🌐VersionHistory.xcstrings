@@ -43,6 +43,12 @@
             "state" : "translated",
             "value" : "Add support Environment in immersive space.\nThis version is not compatible with ver2.0 and ver1.0.\nSupports visionOS 26.0 and later.\nVarious improvements and bug fixes."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没入空間での「環境」をサポートしました。\nこのバージョンはver1.0やver2.0とは互換性がありません。\nvisionOS 26.0以降をサポートしています。\n様々な修正やバグ修正を実施しました。"
+          }
         }
       }
     }

@@ -79,6 +79,7 @@ enum 🗒️StaticInfo {
                     "UndoButton.swift",
                     "ResetButton.swift",
                     "OpenGuideMenuButton.swift",
+                    "GroupActivityRegistration.swift",
                 ]
                 case .ImmersiveSpace: [
                     "ImmersiveSpaceView.swift",
@@ -109,7 +110,6 @@ enum 🗒️StaticInfo {
                 case .SharePlay: [
                     "AppGroupActivity.swift",
                     "SharePlayProvider.swift",
-                    "GroupActivityRegistration.swift",
                 ]
                 case .Rest: [
                     "HandleGroupImmersion.swift",
