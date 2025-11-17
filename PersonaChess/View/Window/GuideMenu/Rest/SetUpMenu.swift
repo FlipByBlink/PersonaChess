@@ -26,7 +26,7 @@ struct SetUpMenu: View {
                 Text("How to start")
             }
             Section {
-                Text("You can also start SharePlay yourself. During a FaceTime call, a system menu UI for SharePlay appears at the bottom of the app. You can start SharePlay from the menu.")
+                Text("You can also start SharePlay yourself. You can start SharePlay from a system menu UI, which is located at the bottom of the app.")
             }
             Section {
                 Text("If you want to join a SharePlay session that has already started, you can do so from the Control Center.")

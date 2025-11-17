@@ -11,6 +11,16 @@
         }
       }
     },
+    "“Share apps and experiences with people nearby on Apple Vision Pro - Apple Support”" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「Apple Vision Proでアプリや体験を周囲の人と共有する - Apple サポート」"
+          }
+        }
+      }
+    },
     "“Use SharePlay in FaceTime calls on Apple Vision Pro - Apple Support”" : {
       "localizations" : {
         "ja" : {
@@ -91,16 +101,6 @@
         }
       }
     },
-    "Dismiss" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "閉じる"
-          }
-        }
-      }
-    },
     "Dismiss immersive space" : {
       "localizations" : {
         "ja" : {
@@ -157,6 +157,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "没入空間モード"
+          }
+        }
+      }
+    },
+    "In visionOS 26, You can share spatial experiences with other Apple Vision Pro users in the same room." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "visionOS 26から同じ部屋にいる近くのApple Vision Proユーザーとアプリ体験を共有できるようになりました。"
           }
         }
       }
@@ -381,12 +391,12 @@
         }
       }
     },
-    "You can also start SharePlay yourself. During a FaceTime call, a system menu UI for SharePlay appears at the bottom of the app. You can start SharePlay from the menu." : {
+    "You can also start SharePlay yourself. You can start SharePlay from a system menu UI, which is located at the bottom of the app." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自分からSharePlayを開始する事もできます。FaceTimeの通話中にアプリ下部にSharePlay用のシステムUIが表示されます。そのメニューからSharePlayを開始できます。"
+            "value" : "自分からSharePlayを開始する事もできます。アプリ下部にあるシステムUIからSharePlayを開始できます。"
           }
         }
       }

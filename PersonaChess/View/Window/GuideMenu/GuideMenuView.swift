@@ -23,14 +23,9 @@ struct GuideMenuView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button {
+                    Button(role: .close) {
                         self.model.isGuideMenuShown = false
-                    } label: {
-                        Label("Dismiss", systemImage: "xmark")
                     }
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    ShareChessButton()
                 }
             }
             .navigationTitle("Menu")
