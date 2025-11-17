@@ -525,7 +525,6 @@
 			children = (
 				165EC6A12B6913250005172B /* AppGroupActivity.swift */,
 				16C477122B8AC23D00343DD8 /* SharePlayProvider.swift */,
-				1D5548992E121182005759DE /* GroupActivityRegistration.swift */,
 			);
 			path = SharePlay;
 			sourceTree = "<group>";
@@ -716,6 +715,7 @@
 				1D78ED822DEC2A96006BD075 /* UndoButton.swift */,
 				1D78ED842DEC2AA6006BD075 /* ResetButton.swift */,
 				1D78ED862DEC2AB4006BD075 /* OpenGuideMenuButton.swift */,
+				1D5548992E121182005759DE /* GroupActivityRegistration.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";

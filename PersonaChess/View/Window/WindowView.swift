@@ -16,6 +16,6 @@ struct WindowView: View {
             .volumeBaseplateVisibility(.hidden)
             .preferredWindowClippingMargins(.horizontal, 300)
             .environment(\.sceneKind, .window)
-            .task { SharePlayProvider.registerGroupActivity() }
+            .modifier(GroupActivityRegistration())
     }
 }

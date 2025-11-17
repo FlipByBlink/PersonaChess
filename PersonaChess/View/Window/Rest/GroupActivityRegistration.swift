@@ -1,4 +1,3 @@
-/* MARK: Not adopted in current app.
 import SwiftUI
 
 struct GroupActivityRegistration: ViewModifier {
@@ -6,12 +5,12 @@ struct GroupActivityRegistration: ViewModifier {
         content
             .overlay(alignment: .bottomTrailing) {
                 ShareLink(item: AppGroupActivity(),
-                          preview: SharePreview("Share chess"))
+                          preview: SharePreview("Share chess",
+                                                icon: Image(.wholeIcon)))
                 .hidden()
             }
     }
 }
-*/
 
 
 

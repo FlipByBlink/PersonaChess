@@ -1,3 +1,4 @@
+/* MARK: Not adopted in current app.
 import LinkPresentation
 
 enum SharePlayProvider {
@@ -28,6 +29,7 @@ enum SharePlayProvider {
             .activityItemsConfiguration = configuration
     }
 }
+*/
 
 
 

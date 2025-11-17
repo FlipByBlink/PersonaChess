@@ -1,7 +1,7 @@
 import GroupActivities
 import SwiftUI
 
-struct AppGroupActivity: GroupActivity {
+struct AppGroupActivity: GroupActivity, Transferable {
     var metadata: GroupActivityMetadata {
         var value = GroupActivityMetadata()
         value.title = String(localized: "Share chess")
