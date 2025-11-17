@@ -9,6 +9,7 @@ struct ResetButton: View {
         } label: {
             Label("Reset", systemImage: "arrow.counterclockwise")
         }
+        .help("Reset")
         .disabled(self.model.sharedState.pieces.isPreset)
         .disabled(self.model.isAnimating)
     }

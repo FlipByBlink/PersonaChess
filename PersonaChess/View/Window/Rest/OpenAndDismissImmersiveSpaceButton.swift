@@ -15,7 +15,7 @@ struct OpenAndDismissImmersiveSpaceButton: View {
             }
         } label: {
             Label(
-                self.model.isImmersiveSpaceShown ? "Dismiss immersive space" : "Open immersive space",
+                self.title,
                 systemImage: {
                     if self.model.isImmersiveSpaceShown {
                         "arrow.up.forward.and.arrow.down.backward"
@@ -25,9 +25,16 @@ struct OpenAndDismissImmersiveSpaceButton: View {
                 }()
             )
         }
+        .help(self.title)
         .animation(.default, value: self.model.isImmersiveSpaceShown)
 //#if DEBUG
 //        .task { await self.openImmersiveSpace(id: "immersiveSpace") }
 //#endif
+    }
+}
+
+private extension OpenAndDismissImmersiveSpaceButton {
+    private var title: LocalizedStringResource {
+        self.model.isImmersiveSpaceShown ? "Dismiss immersive space" : "Open immersive space"
     }
 }

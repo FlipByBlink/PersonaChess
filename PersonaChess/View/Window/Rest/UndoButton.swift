@@ -9,6 +9,7 @@ struct UndoButton: View {
         } label: {
             Label("Undo", systemImage: "arrow.uturn.backward")
         }
+        .help("Undo")
         .disabled(self.model.sharedState.logs.isEmpty)
         .disabled(self.model.isAnimating)
     }

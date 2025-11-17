@@ -44,11 +44,11 @@ Chess board with Personas and people nearby.
 
 Notice
 
-- To use SharePlay, a FaceTime call is required.
+- To use SharePlay with Personas, a FaceTime call is required.
 
 - You must set up your persona on the OS beforehand.
 
-- The persona appears as part of FaceTime/SharePlay.
+- The persona appears as part of FaceTime.
 
 
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w2.jpg" width="640">

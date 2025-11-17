@@ -9,5 +9,6 @@ struct RotateBoardButton: View {
         } label: {
             Label("Rotate", systemImage: "arrow.turn.right.up")
         }
+        .help("Rotate")
     }
 }
