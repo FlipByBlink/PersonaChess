@@ -14,7 +14,7 @@ struct WindowView: View {
             .modifier(HandleGroupImmersion(.window))
             .modifier(DebugView())
             .volumeBaseplateVisibility(.hidden)
-            .preferredWindowClippingMargins(.horizontal, 300)
+            .preferredWindowClippingMargins(.all, 300)
             .environment(\.sceneKind, .window)
             .modifier(GroupActivityRegistration())
     }

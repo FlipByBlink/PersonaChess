@@ -336,7 +336,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "「やり直し」機能では1手前の状態に戻すことができます。"
+            "value" : "「戻す」機能では1手前の状態に戻すことができます。"
           }
         }
       }
@@ -356,7 +356,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "やり直す"
+            "value" : "戻す"
           }
         }
       }
