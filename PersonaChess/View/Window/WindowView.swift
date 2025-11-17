@@ -9,10 +9,12 @@ struct WindowView: View {
             .frame(height: Size.Point.board(self.physicalMetrics),
                    alignment: .bottom)
             .ornament(attachmentAnchor: .scene(.topBack)) { GuideMenuView() }
+            .supportedVolumeViewpoints(.all)
             .toolbar { BottomButtons() }
             .modifier(HandleGroupImmersion(.window))
             .modifier(DebugView())
             .volumeBaseplateVisibility(.hidden)
+            .preferredWindowClippingMargins(.horizontal, 300)
             .environment(\.sceneKind, .window)
             .task { SharePlayProvider.registerGroupActivity() }
     }

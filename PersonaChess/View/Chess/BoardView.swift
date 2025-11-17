@@ -93,14 +93,10 @@ private extension BoardView {
             @EnvironmentObject var model: AppModel
             func body(content: Content) -> some View {
                 content
-                    .overlay(alignment: .top) {
-                        if self.model.spatialSharePlaying == true { self.button(.up) }
-                    }
+                    .overlay(alignment: .top) { self.button(.up) }
                     .overlay(alignment: .leading) { self.button(.left) }
                     .overlay(alignment: .trailing) { self.button(.right) }
-                    .overlay(alignment: .bottom) {
-                        if self.model.spatialSharePlaying == true { self.button(.down) }
-                    }
+                    .overlay(alignment: .bottom) { self.button(.down) }
             }
             private func button(_ boardPosition: BoardPosition) -> some View {
                 Button {

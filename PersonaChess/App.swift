@@ -2,9 +2,11 @@ import SwiftUI
 
 @main
 struct PersonaChessApp: App {
+    
     @StateObject private var model = AppModel()
     
     var body: some Scene {
+        
         WindowGroup(id: "window") {
             WindowView()
         }
@@ -16,6 +18,7 @@ struct PersonaChessApp: App {
             ImmersiveSpaceView()
         }
         .environmentObject(self.model)
+        .immersiveEnvironmentBehavior(.coexist)   
     }
     
     init() {

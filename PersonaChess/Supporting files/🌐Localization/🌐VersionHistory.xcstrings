@@ -34,6 +34,17 @@
           }
         }
       }
+    },
+    "3.0" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add support Environment in immersive space.\nThis version is not compatible with ver2.0 and ver1.0.\nSupports visionOS 26.0 and later.\nVarious improvements and bug fixes."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
