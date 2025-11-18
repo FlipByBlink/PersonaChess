@@ -12,7 +12,6 @@ struct WindowView: View {
             .supportedVolumeViewpoints(.all)
             .toolbar { BottomButtons() }
             .modifier(HandleGroupImmersion(.window))
-            .modifier(DebugView())
             .volumeBaseplateVisibility(.hidden)
             .preferredWindowClippingMargins(.all, 300)
             .environment(\.sceneKind, .window)
