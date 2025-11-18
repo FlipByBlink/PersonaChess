@@ -11,23 +11,26 @@ struct SquareView: View {
             if (self.column + self.row) % 2 == 1 {
                 switch self.sceneKind {
                     case .immersiveSpace:
-                        Rectangle()
+                        UnevenRoundedRectangle(cornerRadii: self.radii)
                             .fill(.black.tertiary)
                     case .window:
-                        Rectangle()
+                        UnevenRoundedRectangle(cornerRadii: self.radii)
                             .fill(.background)
                 }
             } else {
-                Rectangle()
+                UnevenRoundedRectangle(cornerRadii: self.radii)
                     .opacity(0.001)
             }
         }
+        .glassBackgroundEffect(in: .rect(cornerRadii: self.radii))
+        .contentShape(.hoverEffect, .rect(cornerRadii: self.radii))
         .hoverEffect(isEnabled: self.inputtable)
         .onTapGesture {
             if self.inputtable {
                 self.model.handle(.tapSquare(.init(self.row, self.column)))
             }
         }
+        .allowsHitTesting(self.inputtable)
         .onChange(of: self.model.sharedState.pieces) { self.updateInputtable() }
         .task { self.updateInputtable() }
     }
@@ -38,6 +41,16 @@ struct SquareView: View {
 }
 
 private extension SquareView {
+    private static var radius: CGFloat { 24 }
+    private var radii: RectangleCornerRadii {
+        let index = (self.row, self.column)
+        return .init(
+            topLeading: index == (0, 0) ? Self.radius : 0,
+            bottomLeading: index == (7, 0) ? Self.radius : 0,
+            bottomTrailing: index == (7, 7) ? Self.radius : 0,
+            topTrailing: index == (0, 7) ? Self.radius : 0
+        )
+    }
     private func updateInputtable() {
         let myIndex = Index(self.row, self.column)
         if self.model.sharedState.pieces.isPicking {

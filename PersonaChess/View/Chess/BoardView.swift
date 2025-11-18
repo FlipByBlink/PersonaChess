@@ -5,32 +5,34 @@ struct BoardView: View {
     @Environment(\.physicalMetrics) var physicalMetrics
     @Environment(\.sceneKind) var sceneKind
     var body: some View {
-        HStack(spacing: 0) {
-            ForEach(0..<8) { column in
-                VStack(spacing: 0) {
-                    ForEach(0..<8) { row in
-                        SquareView(row, column)
+        Rectangle()
+            .fill(.clear)
+            .frame(width: self.boardSize, height: self.boardSize)
+            .glassBackgroundEffect(
+                displayMode: self.sceneKind == .window ? .always : .never
+            )
+            .allowsHitTesting(false)
+            .overlay {
+                HStack(spacing: 0) {
+                    ForEach(0..<8) { column in
+                        VStack(spacing: 0) {
+                            ForEach(0..<8) { row in
+                                SquareView(row, column)
+                            }
+                        }
                     }
                 }
+                .overlay { self.boardOutlineView() }
+                .padding(self.paddingSize)
             }
-        }
-        .mask(alignment: .center) { self.maskView() }
-        .overlay { self.boardOutlineView() }
-        .padding(self.paddingSize)
-        .frame(width: self.boardSize, height: self.boardSize)
-        .glassBackgroundEffect()
-        .modifier(MenuDuringImmersiveSpaceMode())
-        .opacity(self.sceneKind == .immersiveSpace ? 0.25 : 1)
-        .rotation3DEffect(.degrees(90), axis: .x)
+            .modifier(MenuDuringImmersiveSpaceMode())
+            .opacity(self.sceneKind == .immersiveSpace ? 0.25 : 1)
+            .rotation3DEffect(.degrees(90), axis: .x)
     }
 }
 
 
 private extension BoardView {
-    private func maskView() -> some View {
-        RoundedRectangle(cornerRadius: self.sceneKind == .window ? 24 : 0,
-                         style: .continuous)
-    }
     private func boardOutlineView() -> some View {
         RoundedRectangle(cornerRadius: 24, style: .continuous)
             .stroke(Color(white: 0.75), lineWidth: 3)
