@@ -171,16 +171,6 @@
         }
       }
     },
-    "Join SharePlay" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SharePlayに参加する"
-          }
-        }
-      }
-    },
     "Menu" : {
       "localizations" : {
         "ja" : {
@@ -391,12 +381,12 @@
         }
       }
     },
-    "You can also start SharePlay yourself. You can start SharePlay from a system menu UI, which is located at the bottom of the app." : {
+    "You can start SharePlay from a system menu UI, which is located at the bottom of the app." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自分からSharePlayを開始する事もできます。アプリ下部にあるシステムUIからSharePlayを開始できます。"
+            "value" : "アプリ下部にあるシステムUIからSharePlayを開始できます。"
           }
         }
       }
