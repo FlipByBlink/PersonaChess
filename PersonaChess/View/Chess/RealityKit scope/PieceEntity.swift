@@ -10,7 +10,7 @@ enum PieceEntity {
         bodyEntity.name = "body"
         bodyEntity.components.set([HoverEffectComponent(),
                                    InputTargetComponent(),
-                                   Self.collisionComponent(bodyEntity)])
+                                   Self.collisionComponent(bodyEntity, piece)])
         value.addChild(bodyEntity)
         value.addChild(Self.shadowEntity(bodyEntity, piece))
         value.addChild(Self.soundEntity())
@@ -55,14 +55,30 @@ private extension PieceEntity {
         value.components.set(Sound.Piece.audioLibraryComponent)
         return value
     }
-    private static func collisionComponent(_ bodyEntity: Entity) -> some Component {
+    private static func collisionComponent(_ bodyEntity: Entity, _ piece: Piece) -> some Component {
         CollisionComponent(
-            shapes: [{
+            shapes: {
                 let visualBounds = bodyEntity.visualBounds(relativeTo: bodyEntity)
-                var value: ShapeResource = .generateBox(size: visualBounds.extents)
-                value = value.offsetBy(translation: [0, visualBounds.extents.y / 2, 0])
-                return value
-            }()]
+                switch piece.chessmen.role {
+                    case .king, .queen:
+                        var bottom: ShapeResource = .generateCapsule(
+                            height: visualBounds.extents.y/2,
+                            radius: visualBounds.extents.x/2
+                        )
+                        var top: ShapeResource = .generateCapsule(
+                            height: visualBounds.extents.y,
+                            radius: visualBounds.extents.x/4
+                        )
+                        bottom = bottom.offsetBy(translation: [0, visualBounds.extents.y/4, 0])
+                        top = top.offsetBy(translation: [0, visualBounds.extents.y/2, 0])
+                        return [bottom, top]
+                    default:
+                        var shape: ShapeResource = .generateCapsule(height: visualBounds.extents.y,
+                                                                    radius: visualBounds.extents.x/2)
+                        shape = shape.offsetBy(translation: [0, visualBounds.extents.y / 2, 0])
+                        return [shape]
+                }
+            }()
         )
     }
 }
