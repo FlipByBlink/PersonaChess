@@ -73,8 +73,7 @@ private extension PieceEntity {
                         top = top.offsetBy(translation: [0, visualBounds.extents.y/2, 0])
                         return [bottom, top]
                     default:
-                        var shape: ShapeResource = .generateCapsule(height: visualBounds.extents.y,
-                                                                    radius: visualBounds.extents.x/2)
+                        var shape: ShapeResource = .generateBox(size: visualBounds.extents)
                         shape = shape.offsetBy(translation: [0, visualBounds.extents.y / 2, 0])
                         return [shape]
                 }
