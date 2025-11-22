@@ -9,17 +9,17 @@ struct ChessView: View {
     @State private var dragState: DragState?
     
     var body: some View {
-        RealityView { content, attachments in
-            content.add(attachments.entity(for: "board")!)
+        RealityView { content in
             content.add(self.model.entities.root)
-        } update: { content, _ in
+            let boardEntity = Entity()
+            boardEntity.components.set(
+                ViewAttachmentComponent(rootView: BoardView())
+            )
+            content.add(boardEntity)
+        } update: { content in
             if self.sceneKind == .window,
                !self.model.isImmersiveSpaceShown {
                 content.add(self.model.entities.root)
-            }
-        } attachments: {
-            Attachment(id: "board") {
-                BoardView()
             }
         }
         .gesture(ExclusiveGesture(self.dragGesture, self.tapGesture))

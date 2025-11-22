@@ -5,29 +5,22 @@ struct BoardView: View {
     @Environment(\.physicalMetrics) var physicalMetrics
     @Environment(\.sceneKind) var sceneKind
     var body: some View {
-        Rectangle()
-            .fill(.clear)
-            .frame(width: self.boardSize, height: self.boardSize)
-            .glassBackgroundEffect(
-                displayMode: self.sceneKind == .window ? .always : .never
-            )
-            .allowsHitTesting(false)
-            .overlay {
-                HStack(spacing: 0) {
-                    ForEach(0..<8) { column in
-                        VStack(spacing: 0) {
-                            ForEach(0..<8) { row in
-                                SquareView(row, column)
-                            }
-                        }
+        HStack(spacing: 0) {
+            ForEach(0..<8) { column in
+                VStack(spacing: 0) {
+                    ForEach(0..<8) { row in
+                        SquareView(row, column)
                     }
                 }
-                .overlay { self.boardOutlineView() }
-                .padding(self.paddingSize)
             }
-            .modifier(MenuDuringImmersiveSpaceMode())
-            .opacity(self.sceneKind == .immersiveSpace ? 0.25 : 1)
-            .rotation3DEffect(.degrees(90), axis: .x)
+        }
+        .overlay { self.boardOutlineView() }
+        .padding(self.paddingSize)
+        .glassBackgroundEffect()
+        .frame(width: self.boardSize, height: self.boardSize)
+        .opacity(self.sceneKind == .immersiveSpace ? 0.25 : 1)
+        .modifier(MenuDuringImmersiveSpaceMode())
+        .rotation3DEffect(.degrees(90), axis: .x)
     }
 }
 

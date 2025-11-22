@@ -7,30 +7,30 @@ struct SquareView: View {
     private var column: Int
     @State private var inputtable: Bool = false
     var body: some View {
-        Group {
-            if (self.column + self.row) % 2 == 1 {
-                switch self.sceneKind {
-                    case .immersiveSpace:
-                        UnevenRoundedRectangle(cornerRadii: self.radii)
-                            .fill(.black.tertiary)
-                    case .window:
-                        UnevenRoundedRectangle(cornerRadii: self.radii)
-                            .fill(.background)
+        Button {
+            self.model.handle(.tapSquare(.init(self.row, self.column)))
+        } label: {
+            Group {
+                if (self.column + self.row) % 2 == 1 {
+                    switch self.sceneKind {
+                        case .immersiveSpace:
+                            UnevenRoundedRectangle(cornerRadii: self.radii)
+                                .fill(.black.tertiary)
+                        case .window:
+                            UnevenRoundedRectangle(cornerRadii: self.radii)
+                                .fill(.background)
+                    }
+                } else {
+                    UnevenRoundedRectangle(cornerRadii: self.radii)
+                        .opacity(0.01)
                 }
-            } else {
-                UnevenRoundedRectangle(cornerRadii: self.radii)
-                    .opacity(0.001)
             }
+            .contentShape(.hoverEffect, .rect(cornerRadii: self.radii))
+            .hoverEffect(.highlight)
         }
-        .glassBackgroundEffect(in: .rect(cornerRadii: self.radii))
-        .contentShape(.hoverEffect, .rect(cornerRadii: self.radii))
-        .hoverEffect(isEnabled: self.inputtable)
-        .onTapGesture {
-            if self.inputtable {
-                self.model.handle(.tapSquare(.init(self.row, self.column)))
-            }
-        }
-        .allowsHitTesting(self.inputtable)
+        .buttonStyle(Self.SquareButtonStyle())
+        .disabled(!self.inputtable)
+        //.allowsHitTesting(self.inputtable) 再検討
         .onChange(of: self.model.sharedState.pieces) { self.updateInputtable() }
         .task { self.updateInputtable() }
     }
@@ -61,6 +61,11 @@ private extension SquareView {
             }
         } else {
             self.inputtable = false
+        }
+    }
+    private struct SquareButtonStyle: ButtonStyle {
+        func makeBody(configuration: Configuration) -> some View {
+            configuration.label
         }
     }
 }
