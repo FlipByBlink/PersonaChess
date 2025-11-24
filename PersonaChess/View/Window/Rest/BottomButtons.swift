@@ -5,7 +5,7 @@ struct BottomButtons: ToolbarContent {
         ToolbarItemGroup(placement: .bottomOrnament) {
             HStack(spacing: 12) {
                 Group {
-                    OpenAndDismissImmersiveSpaceButton()
+                    OpenAndDismissGroundModeButton()
                     RotateBoardButton()
                     RemoveButton()
                     UndoButton()

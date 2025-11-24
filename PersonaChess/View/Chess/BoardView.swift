@@ -21,7 +21,7 @@ struct BoardView: View {
         .frame(width: self.boardSize, height: self.boardSize)
         .frame(height: 0)
         .opacity(self.sceneKind == .immersiveSpace ? 0.25 : 1)
-        .modifier(MenuDuringImmersiveSpaceMode())
+        .modifier(MenuDuringGroundMode())
         .rotation3DEffect(.degrees(90), axis: .x)
     }
 }
@@ -43,7 +43,7 @@ private extension BoardView {
     private var boardSize: CGFloat {
         switch self.sceneKind {
             case .immersiveSpace:
-                Size.Point.boardInImmersiveSpace(self.physicalMetrics)
+                Size.Point.boardInGroundMode(self.physicalMetrics)
             case .window:
                 Size.Point.board(self.physicalMetrics)
         }

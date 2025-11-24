@@ -71,12 +71,12 @@
         }
       }
     },
-    "Adjust the size of the board on floor." : {
+    "Adjust the size of the board on the ground." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "地面上で駒とボードの大きさを調整できます。"
+            "value" : "地面モードでのボードの大きさを調整できます。"
           }
         }
       }
@@ -101,12 +101,22 @@
         }
       }
     },
-    "Dismiss immersive space" : {
+    "Dismiss Ground mode" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "没入空間を閉じる"
+            "value" : "地面モードを終了"
+          }
+        }
+      }
+    },
+    "Ground mode" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "地面モード"
           }
         }
       }
@@ -151,16 +161,6 @@
         }
       }
     },
-    "Immersive space mode" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "没入空間モード"
-          }
-        }
-      }
-    },
     "In visionOS 26, You can share spatial experiences with other Apple Vision Pro users in the same room." : {
       "localizations" : {
         "ja" : {
@@ -191,12 +191,12 @@
         }
       }
     },
-    "Open immersive space" : {
+    "Open Ground mode" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "没入空間を開く"
+            "value" : "地面モードを開始"
           }
         }
       }

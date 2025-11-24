@@ -26,7 +26,7 @@ private extension AboutOptionsMenuLink {
                 
                 Section {
                     VStack(alignment: .leading) {
-                        Label("Adjust the size of the board on floor.",
+                        Label("Adjust the size of the board on the ground.",
                               systemImage: "arrow.up.left.and.arrow.down.right")
                         Image(.immersiveSpaceMode)
                             .resizable()
@@ -36,7 +36,7 @@ private extension AboutOptionsMenuLink {
                             .padding()
                     }
                 } header: {
-                    Text("Immersive space mode")
+                    Text("Ground mode")
                 }
             }
             .navigationTitle("About options")

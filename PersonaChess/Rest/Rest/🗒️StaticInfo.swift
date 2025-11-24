@@ -73,7 +73,7 @@ enum 🗒️StaticInfo {
                 case .Window: [
                     "WindowView.swift",
                     "BottomButtons.swift",
-                    "OpenAndDismissImmersiveSpaceButton.swift",
+                    "OpenAndDismissGroundModeButton.swift",
                     "RotateBoardButton.swift",
                     "RemoveButton.swift",
                     "UndoButton.swift",
@@ -91,7 +91,7 @@ enum 🗒️StaticInfo {
                     "BoardView.swift",
                     "SquareView.swift",
                     "BoardRotation.swift",
-                    "MenuDuringImmersiveSpaceMode.swift",
+                    "MenuDuringGroundMode.swift",
                 ]
                 case .RealityKitScope: [
                     "Entities.swift",

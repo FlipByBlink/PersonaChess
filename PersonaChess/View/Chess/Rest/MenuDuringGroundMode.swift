@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MenuDuringImmersiveSpaceMode: ViewModifier {
+struct MenuDuringGroundMode: ViewModifier {
     @EnvironmentObject var model: AppModel
     @Environment(\.sceneKind) var sceneKind
     @Environment(\.physicalMetrics) var physicalMetrics
@@ -40,7 +40,7 @@ struct MenuDuringImmersiveSpaceMode: ViewModifier {
     }
 }
 
-private extension MenuDuringImmersiveSpaceMode {
+private extension MenuDuringGroundMode {
     private struct BoardPositionButtons: ViewModifier {
         @EnvironmentObject var model: AppModel
         func body(content: Content) -> some View {

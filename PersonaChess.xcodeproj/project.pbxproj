@@ -26,7 +26,7 @@
 		162145902CBFD0C700A6A87E /* PieceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		162145912CBFD0C700A6A87E /* PieceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621458F2CBFD0C200A6A87E /* PieceAnimation.swift */; };
 		16261D672C8D1E6400C2822C /* GuideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D662C8D1E6200C2822C /* GuideMenuView.swift */; };
-		16261D742C8D61FE00C2822C /* OpenAndDismissImmersiveSpaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismissImmersiveSpaceButton.swift */; };
+		16261D742C8D61FE00C2822C /* OpenAndDismissGroundModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismissGroundModeButton.swift */; };
 		16312B5B2B75D0FB006A93D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5A2B75D0FB006A93D1 /* App.swift */; };
 		16312B5D2B75D0FB006A93D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16312B5C2B75D0FB006A93D1 /* ContentView.swift */; };
 		16312B5F2B75D0FD006A93D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16312B5E2B75D0FD006A93D1 /* Assets.xcassets */; };
@@ -159,7 +159,7 @@
 		1D5548842E1135FC005759DE /* WhatsSharePlayMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 161A13962C9674990075C57B /* WhatsSharePlayMenu.swift */; };
 		1D5548852E1135FC005759DE /* WhatsPersonaMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 161A13952C9674990075C57B /* WhatsPersonaMenu.swift */; };
 		1D5548862E1135FC005759DE /* BottomButtons.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D55486C2E0FA1F4005759DE /* BottomButtons.swift */; };
-		1D5548872E1135FC005759DE /* OpenAndDismissImmersiveSpaceButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismissImmersiveSpaceButton.swift */; };
+		1D5548872E1135FC005759DE /* OpenAndDismissGroundModeButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16261D732C8D61F800C2822C /* OpenAndDismissGroundModeButton.swift */; };
 		1D5548882E1135FC005759DE /* RotateBoardButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED802DEC2A16006BD075 /* RotateBoardButton.swift */; };
 		1D5548892E1135FC005759DE /* RemoveButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D55486A2E0F98CE005759DE /* RemoveButton.swift */; };
 		1D55488A2E1135FC005759DE /* UndoButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D78ED822DEC2A96006BD075 /* UndoButton.swift */; };
@@ -176,10 +176,10 @@
 		1D55489B2E121182005759DE /* GroupActivityRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5548992E121182005759DE /* GroupActivityRegistration.swift */; };
 		1D55489C2E121465005759DE /* SetUpMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D5548932E116928005759DE /* SetUpMenu.swift */; };
 		1D55489D2E121465005759DE /* GroupActivityRegistration.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D5548992E121182005759DE /* GroupActivityRegistration.swift */; };
-		1D584F6F2ECAAD9800ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */; };
+		1D584F6F2ECAAD9800ABBFD8 /* MenuDuringGroundMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F6E2ECAAD9700ABBFD8 /* MenuDuringGroundMode.swift */; };
 		1D584F722ECAAE1700ABBFD8 /* BoardRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */; };
 		1D584F742ECAAE5D00ABBFD8 /* BoardRotation.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */; };
-		1D584F752ECAAE5D00ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */; };
+		1D584F752ECAAE5D00ABBFD8 /* MenuDuringGroundMode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D584F6E2ECAAD9700ABBFD8 /* MenuDuringGroundMode.swift */; };
 		1D584F7C2ECB01AA00ABBFD8 /* GuideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F7B2ECB01A800ABBFD8 /* GuideMenu.swift */; };
 		1D584F7D2ECB036500ABBFD8 /* GuideMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D584F7B2ECB01A800ABBFD8 /* GuideMenu.swift */; };
 		1D78ED712DEA7AB3006BD075 /* SceneKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78ED702DEA7AA4006BD075 /* SceneKind.swift */; };
@@ -209,7 +209,7 @@
 			files = (
 				1D584F7D2ECB036500ABBFD8 /* GuideMenu.swift in CopyFiles */,
 				1D584F742ECAAE5D00ABBFD8 /* BoardRotation.swift in CopyFiles */,
-				1D584F752ECAAE5D00ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in CopyFiles */,
+				1D584F752ECAAE5D00ABBFD8 /* MenuDuringGroundMode.swift in CopyFiles */,
 				1D55489C2E121465005759DE /* SetUpMenu.swift in CopyFiles */,
 				1D55489D2E121465005759DE /* GroupActivityRegistration.swift in CopyFiles */,
 				1D5548782E1135FC005759DE /* handleInteraction.swift in CopyFiles */,
@@ -227,7 +227,7 @@
 				1D5548842E1135FC005759DE /* WhatsSharePlayMenu.swift in CopyFiles */,
 				1D5548852E1135FC005759DE /* WhatsPersonaMenu.swift in CopyFiles */,
 				1D5548862E1135FC005759DE /* BottomButtons.swift in CopyFiles */,
-				1D5548872E1135FC005759DE /* OpenAndDismissImmersiveSpaceButton.swift in CopyFiles */,
+				1D5548872E1135FC005759DE /* OpenAndDismissGroundModeButton.swift in CopyFiles */,
 				1D5548882E1135FC005759DE /* RotateBoardButton.swift in CopyFiles */,
 				1D5548892E1135FC005759DE /* RemoveButton.swift in CopyFiles */,
 				1D55488A2E1135FC005759DE /* UndoButton.swift in CopyFiles */,
@@ -282,7 +282,7 @@
 		16261D622C8D1CD900C2822C /* CenterWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterWindowView.swift; sourceTree = "<group>"; };
 		16261D662C8D1E6200C2822C /* GuideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideMenuView.swift; sourceTree = "<group>"; };
 		16261D6F2C8D585700C2822C /* RecordingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRoom.swift; sourceTree = "<group>"; };
-		16261D732C8D61F800C2822C /* OpenAndDismissImmersiveSpaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAndDismissImmersiveSpaceButton.swift; sourceTree = "<group>"; };
+		16261D732C8D61F800C2822C /* OpenAndDismissGroundModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAndDismissGroundModeButton.swift; sourceTree = "<group>"; };
 		16312B582B75D0FB006A93D1 /* PersonaChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16312B5A2B75D0FB006A93D1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		16312B5C2B75D0FB006A93D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -373,7 +373,7 @@
 		1D5548762E111711005759DE /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		1D5548932E116928005759DE /* SetUpMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpMenu.swift; sourceTree = "<group>"; };
 		1D5548992E121182005759DE /* GroupActivityRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupActivityRegistration.swift; sourceTree = "<group>"; };
-		1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDuringImmersiveSpaceMode.swift; sourceTree = "<group>"; };
+		1D584F6E2ECAAD9700ABBFD8 /* MenuDuringGroundMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDuringGroundMode.swift; sourceTree = "<group>"; };
 		1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRotation.swift; sourceTree = "<group>"; };
 		1D584F7B2ECB01A800ABBFD8 /* GuideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideMenu.swift; sourceTree = "<group>"; };
 		1D78ED702DEA7AA4006BD075 /* SceneKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKind.swift; sourceTree = "<group>"; };
@@ -707,7 +707,7 @@
 			isa = PBXGroup;
 			children = (
 				1D55486C2E0FA1F4005759DE /* BottomButtons.swift */,
-				16261D732C8D61F800C2822C /* OpenAndDismissImmersiveSpaceButton.swift */,
+				16261D732C8D61F800C2822C /* OpenAndDismissGroundModeButton.swift */,
 				1D78ED802DEC2A16006BD075 /* RotateBoardButton.swift */,
 				1D55486A2E0F98CE005759DE /* RemoveButton.swift */,
 				1D78ED822DEC2A96006BD075 /* UndoButton.swift */,
@@ -782,7 +782,7 @@
 			isa = PBXGroup;
 			children = (
 				1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */,
-				1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */,
+				1D584F6E2ECAAD9700ABBFD8 /* MenuDuringGroundMode.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -1030,7 +1030,7 @@
 				167948A02BC66BA2004DFF4B /* ℹ️AboutApp.swift in Sources */,
 				1D78ED812DEC2A19006BD075 /* RotateBoardButton.swift in Sources */,
 				16780FFB2B689304005A0244 /* Pieces.swift in Sources */,
-				16261D742C8D61FE00C2822C /* OpenAndDismissImmersiveSpaceButton.swift in Sources */,
+				16261D742C8D61FE00C2822C /* OpenAndDismissGroundModeButton.swift in Sources */,
 				1D5548702E0FB134005759DE /* scaleAnchor.swift in Sources */,
 				167948A12BC66BA2004DFF4B /* 🗒️StaticInfo.swift in Sources */,
 				16F972752B68B77C00711C53 /* Piece.swift in Sources */,
@@ -1045,7 +1045,7 @@
 				16F972772B68B7FB00711C53 /* Size.swift in Sources */,
 				16C477132B8AC23D00343DD8 /* SharePlayProvider.swift in Sources */,
 				1D5548752E10AEFF005759DE /* HandleGroupImmersion.swift in Sources */,
-				1D584F6F2ECAAD9800ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in Sources */,
+				1D584F6F2ECAAD9800ABBFD8 /* MenuDuringGroundMode.swift in Sources */,
 				169C00272B4A9BE0001242F5 /* App.swift in Sources */,
 				16B70FCA2CA41E0300DF33C9 /* Interaction.swift in Sources */,
 				1D5548722E0FB153005759DE /* offset.swift in Sources */,

@@ -39,7 +39,9 @@ Chess board with Personas and people nearby.
 
 - Adjust a board rotation.
 
-- Adjust a board scale on floor.
+- Adjust a board scale on ground.
+
+- Ground mode.
 
 
 Notice

@@ -9,7 +9,7 @@ enum Size {
             +
             (Self.boardInnerPadding * 2)
         }
-        static var boardInImmersiveSpace: CGFloat {
+        static var boardInGroundMode: CGFloat {
             .init(Self.square) * 8
         }
         static let pickedOffset: Float = 0.1
@@ -25,8 +25,8 @@ enum Size {
         static func board(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
             physicalMetrics.convert(Size.Meter.board, from: .meters)
         }
-        static func boardInImmersiveSpace(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
-            physicalMetrics.convert(Size.Meter.boardInImmersiveSpace, from: .meters)
+        static func boardInGroundMode(_ physicalMetrics: PhysicalMetricsConverter) -> CGFloat {
+            physicalMetrics.convert(Size.Meter.boardInGroundMode, from: .meters)
         }
         static let nonSpatialZOffset: CGFloat = 1400
 #endif

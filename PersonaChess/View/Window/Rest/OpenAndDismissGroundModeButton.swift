@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct OpenAndDismissImmersiveSpaceButton: View {
+struct OpenAndDismissGroundModeButton: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
@@ -33,8 +33,8 @@ struct OpenAndDismissImmersiveSpaceButton: View {
     }
 }
 
-private extension OpenAndDismissImmersiveSpaceButton {
+private extension OpenAndDismissGroundModeButton {
     private var title: LocalizedStringResource {
-        self.model.isImmersiveSpaceShown ? "Dismiss immersive space" : "Open immersive space"
+        self.model.isImmersiveSpaceShown ? "Dismiss Ground mode" : "Open Ground mode"
     }
 }
