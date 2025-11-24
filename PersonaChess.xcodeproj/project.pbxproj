@@ -177,9 +177,7 @@
 		1D55489C2E121465005759DE /* SetUpMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D5548932E116928005759DE /* SetUpMenu.swift */; };
 		1D55489D2E121465005759DE /* GroupActivityRegistration.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D5548992E121182005759DE /* GroupActivityRegistration.swift */; };
 		1D584F6F2ECAAD9800ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */; };
-		1D584F702ECAAD9800ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */; };
 		1D584F722ECAAE1700ABBFD8 /* BoardRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */; };
-		1D584F732ECAAE1700ABBFD8 /* BoardRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */; };
 		1D584F742ECAAE5D00ABBFD8 /* BoardRotation.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D584F712ECAAE1600ABBFD8 /* BoardRotation.swift */; };
 		1D584F752ECAAE5D00ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D584F6E2ECAAD9700ABBFD8 /* MenuDuringImmersiveSpaceMode.swift */; };
 		1D584F7C2ECB01AA00ABBFD8 /* GuideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D584F7B2ECB01A800ABBFD8 /* GuideMenu.swift */; };
@@ -973,7 +971,6 @@
 				1605C24B2CA1539300725749 /* Entities.swift in Sources */,
 				16A0F0882B8A001300EC0FE8 /* Size.swift in Sources */,
 				16312B6C2B75D193006A93D1 /* AppGroupActivity.swift in Sources */,
-				1D584F702ECAAD9800ABBFD8 /* MenuDuringImmersiveSpaceMode.swift in Sources */,
 				1605C2492CA02F5A00725749 /* rest.swift in Sources */,
 				162145872CBD070900A6A87E /* handleInteraction.swift in Sources */,
 				1D78ED752DEB29F9006BD075 /* BoardPosition.swift in Sources */,
@@ -984,7 +981,6 @@
 				1D78ED8D2DEDE14C006BD075 /* PieceAnimation+Extension.swift in Sources */,
 				16312B6D2B75D193006A93D1 /* Side.swift in Sources */,
 				16312B6E2B75D193006A93D1 /* Index.swift in Sources */,
-				1D584F732ECAAE1700ABBFD8 /* BoardRotation.swift in Sources */,
 				16312B672B75D193006A93D1 /* Piece.swift in Sources */,
 				1D78ED7E2DEC2960006BD075 /* Size+Extensions.swift in Sources */,
 				16312B682B75D193006A93D1 /* SharedState.swift in Sources */,

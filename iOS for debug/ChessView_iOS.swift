@@ -14,6 +14,7 @@ struct ChessView_iOS: View {
             content.cameraTarget = self.model.entities.root
         }
         .gesture(ExclusiveGesture(self.dragGesture, self.tapGesture))
+        .allowsHitTesting(!self.model.sharedState.pieces.isPicking)
         .realityViewCameraControls(self.isCameraEnabled ? .orbit : .none)
         .overlay(alignment: .bottomTrailing) { self.cameraControlToggle() }
     }

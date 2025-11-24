@@ -32,7 +32,7 @@ struct HeaderMenu: View {
             }
             .font(.caption)
             Spacer()
-            Group {
+            VStack(alignment: .trailing) {
                 if self.model.groupSession?.state == nil {
                     Button("Start activity!") {
                         Task {
@@ -45,6 +45,12 @@ struct HeaderMenu: View {
                         self.model.groupSession?.leave()
                     }
                 }
+                ShareLink(
+                    item: AppGroupActivity(),
+                    preview: SharePreview("Share chess",
+                                          icon: Image(.wholeIcon))
+                )
+                .labelStyle(.iconOnly)
             }
             .buttonStyle(.bordered)
         }

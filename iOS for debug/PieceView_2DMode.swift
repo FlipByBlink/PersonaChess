@@ -21,7 +21,13 @@ struct PieceView_2DMode: View {
                 }
             }
             .contentShape(.rect)
-            .onTapGesture { self.model.handle(.tapPiece(self.piece)) }
+            .gesture(
+                TapGesture().onEnded { _ in
+                    self.model.handle(.tapPiece(self.piece))
+                },
+                isEnabled: self.isHittable
+            )
+            .allowsHitTesting(self.isHittable)
             .offset(offset)
             .frame(width: Size.Point.squareSize_2DMode,
                    height: Size.Point.squareSize_2DMode)
@@ -36,6 +42,9 @@ private extension PieceView_2DMode {
     }
     private var icon: String {
         self.piece.chessmen.icon(isFilled: self.piece.side == .white)
+    }
+    private var isHittable: Bool {
+        !self.model.sharedState.pieces.isPicking
     }
     private var isPicking: Bool {
         self.piece == self.model.sharedState.pieces.pickingPiece

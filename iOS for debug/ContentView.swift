@@ -8,6 +8,5 @@ struct ContentView: View {
             ChessView_2DMode()
             BottomMenuView()
         }
-        .task { SharePlayProvider.registerGroupActivity() }
     }
 }
