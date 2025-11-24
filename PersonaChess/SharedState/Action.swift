@@ -2,14 +2,14 @@ import simd
 
 enum Action {
     case tapPieceAndPick(Piece, Index)
-    case tapPieceAndChangePickingPiece(exPickedPiece: Piece,
-                                       exPickedPieceIndex: Index,
-                                       newPickedPiece: Piece,
-                                       newPickedPieceIndex: Index)
-    case tapPieceAndMoveAndCapture(pickedPiece: Piece,
-                                   pickedPieceIndex: Index,
-                                   capturedPiece: Piece,
-                                   capturedPieceIndex: Index)
+    case tapSquareAndChangePickingPiece(exPickedPiece: Piece,
+                                        exPickedPieceIndex: Index,
+                                        newPickedPiece: Piece,
+                                        newPickedPieceIndex: Index)
+    case tapSquareAndMoveAndCapture(pickedPiece: Piece,
+                                    pickedPieceIndex: Index,
+                                    capturedPiece: Piece,
+                                    capturedPieceIndex: Index)
     case tapSquareAndUnpick(Piece, Index)
     case tapSquareAndMove(Piece,
                           exIndex: Index,
@@ -31,9 +31,9 @@ extension Action: Codable, Equatable {
         switch self {
             case .tapPieceAndPick(let piece, _):
                 [piece]
-            case .tapPieceAndChangePickingPiece(let exPiece, _, let newPiece, _):
+            case .tapSquareAndChangePickingPiece(let exPiece, _, let newPiece, _):
                 [exPiece, newPiece]
-            case .tapPieceAndMoveAndCapture(let pickedPiece, _, let capturedPiece, _):
+            case .tapSquareAndMoveAndCapture(let pickedPiece, _, let capturedPiece, _):
                 [pickedPiece, capturedPiece]
             case .tapSquareAndUnpick(let piece, _):
                 [piece]

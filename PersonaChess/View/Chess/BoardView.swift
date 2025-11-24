@@ -19,6 +19,7 @@ struct BoardView: View {
         .glassBackgroundEffect()
         .allowsHitTesting(self.model.sharedState.pieces.isPicking)
         .frame(width: self.boardSize, height: self.boardSize)
+        .frame(height: 0)
         .opacity(self.sceneKind == .immersiveSpace ? 0.25 : 1)
         .modifier(MenuDuringImmersiveSpaceMode())
         .rotation3DEffect(.degrees(90), axis: .x)

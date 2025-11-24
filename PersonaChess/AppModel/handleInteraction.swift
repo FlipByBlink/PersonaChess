@@ -9,25 +9,10 @@ extension AppModel {
                 guard let tappedPieceIndex = self.sharedState.pieces.indices[tappedPiece] else {
                     assertionFailure(); return
                 }
-                if self.sharedState.pieces.isPicking {
-                    guard let pickingPiece = self.sharedState.pieces.pickingPiece,
-                          let pickingPieceIndex = self.sharedState.pieces.indices[pickingPiece] else {
-                        assertionFailure(); return
-                    }
-                    if tappedPiece.side == pickingPiece.side {
-                        action = .tapPieceAndChangePickingPiece(exPickedPiece: pickingPiece,
-                                                                exPickedPieceIndex: pickingPieceIndex,
-                                                                newPickedPiece: tappedPiece,
-                                                                newPickedPieceIndex: tappedPieceIndex)
-                    } else {
-                        action = .tapPieceAndMoveAndCapture(pickedPiece: pickingPiece,
-                                                            pickedPieceIndex: pickingPieceIndex,
-                                                            capturedPiece: tappedPiece,
-                                                            capturedPieceIndex: tappedPieceIndex)
-                    }
-                } else {
-                    action = .tapPieceAndPick(tappedPiece, tappedPieceIndex)
+                guard !self.sharedState.pieces.isPicking else {
+                    assertionFailure(); return
                 }
+                action = .tapPieceAndPick(tappedPiece, tappedPieceIndex)
             case .tapSquare(let tappedIndex):
                 guard let pickedPiece = self.sharedState.pieces.pickingPiece,
                       let pickedPieceIndex = self.sharedState.pieces.indices[pickedPiece] else {
@@ -37,9 +22,27 @@ extension AppModel {
                     action = .tapSquareAndUnpick(pickedPiece,
                                                  pickedPieceIndex)
                 } else {
-                    action = .tapSquareAndMove(pickedPiece,
-                                               exIndex: pickedPieceIndex,
-                                               newIndex: tappedIndex)
+                    if let targetedPiece = self.sharedState.pieces.piece(tappedIndex) {
+                        if targetedPiece.side == pickedPiece.side {
+                            action = .tapSquareAndChangePickingPiece(
+                                exPickedPiece: pickedPiece,
+                                exPickedPieceIndex: pickedPieceIndex,
+                                newPickedPiece: targetedPiece,
+                                newPickedPieceIndex: tappedIndex
+                            )
+                        } else {
+                            action = .tapSquareAndMoveAndCapture(
+                                pickedPiece: pickedPiece,
+                                pickedPieceIndex: pickedPieceIndex,
+                                capturedPiece: targetedPiece,
+                                capturedPieceIndex: tappedIndex
+                            )
+                        }
+                    } else {
+                        action = .tapSquareAndMove(pickedPiece,
+                                                   exIndex: pickedPieceIndex,
+                                                   newIndex: tappedIndex)
+                    }
                 }
             case .drag(let dragState):
                 if dragState.isFirst {

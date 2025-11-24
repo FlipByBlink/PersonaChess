@@ -12,7 +12,7 @@ extension SharedState: Codable, Equatable {
     mutating func logIfNecessary(_ action: Action) {
         switch action {
             case .tapSquareAndMove(_, _, _),
-                    .tapPieceAndMoveAndCapture(_, _, _, _),
+                    .tapSquareAndMoveAndCapture(_, _, _, _),
                     .dropAndMove(_, _),
                     .dropAndMoveAndCapture(_, _, _),
                     .remove(_),

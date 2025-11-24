@@ -5,7 +5,6 @@ struct SquareView: View {
     @Environment(\.sceneKind) var sceneKind
     private var row: Int
     private var column: Int
-    @State private var inputtable: Bool = false
     var body: some View {
         Button {
             self.model.handle(.tapSquare(.init(self.row, self.column)))
@@ -29,9 +28,7 @@ struct SquareView: View {
             .hoverEffect(.highlight)
         }
         .buttonStyle(Self.SquareButtonStyle())
-        .disabled(!self.inputtable)
-        .onChange(of: self.model.sharedState.pieces) { self.updateInputtable() }
-        .task { self.updateInputtable() }
+        .disabled(!self.model.sharedState.pieces.isPicking)
     }
     init(_ row: Int, _ column: Int) {
         self.row = row
@@ -49,22 +46,6 @@ private extension SquareView {
             bottomTrailing: index == (7, 7) ? Self.radius : 0,
             topTrailing: index == (0, 7) ? Self.radius : 0
         )
-    }
-    private func updateInputtable() {
-        let myIndex = Index(self.row, self.column)
-        self.inputtable = {
-            guard let pickingPiece = self.model.sharedState.pieces.pickingPiece else {
-                return false
-            }
-            if !self.model.sharedState.pieces.indices.values.contains(myIndex) {
-                return true
-            } else if myIndex == self.model.sharedState.pieces.pickingPieceIndex {
-                return true
-            } else {
-                let myPieceSide = self.model.sharedState.pieces.piece(myIndex)?.side
-                return (myPieceSide != pickingPiece.side)
-            }
-        }()
     }
     private struct SquareButtonStyle: ButtonStyle {
         func makeBody(configuration: Configuration) -> some View {

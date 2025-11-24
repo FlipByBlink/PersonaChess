@@ -11,11 +11,6 @@ struct ChessView: View {
     var body: some View {
         RealityView { content in
             content.add(self.model.entities.root)
-            let boardEntity = Entity()
-            boardEntity.components.set(
-                ViewAttachmentComponent(rootView: BoardView())
-            )
-            content.add(boardEntity)
         } update: { content in
             if self.sceneKind == .window,
                !self.model.isImmersiveSpaceShown {
@@ -23,6 +18,8 @@ struct ChessView: View {
             }
         }
         .gesture(ExclusiveGesture(self.dragGesture, self.tapGesture))
+        .allowsHitTesting(!self.model.sharedState.pieces.isPicking)
+        .spatialOverlay(alignment: .bottom) { BoardView() }
         .modifier(BoardRotation())
         .frame(width: Size.Point.board(self.physicalMetrics), height: 0)
         .frame(depth: Size.Point.board(self.physicalMetrics))

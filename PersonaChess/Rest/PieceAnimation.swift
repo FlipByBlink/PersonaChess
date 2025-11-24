@@ -20,11 +20,11 @@ extension PieceAnimation {
     static func wholeDuration(_ action: Action) -> TimeInterval {
         switch action {
             case .tapPieceAndPick(_, _),
-                    .tapPieceAndChangePickingPiece(_, _, _, _),
+                    .tapSquareAndChangePickingPiece(_, _, _, _),
                     .tapSquareAndUnpick(_, _):
                 Self.vertical.duration
                 
-            case .tapPieceAndMoveAndCapture(_, _, _, _),
+            case .tapSquareAndMoveAndCapture(_, _, _, _),
                     .tapSquareAndMove(_, _, _):
                 Self.horizontal.duration
                 +

@@ -4,10 +4,10 @@ extension PieceAnimation {
     static func swiftUIAnimation_2DMode(_ action: Action?) -> Animation? {
         switch action {
             case .tapPieceAndPick(_, _),
-                    .tapPieceAndChangePickingPiece(_, _, _, _),
+                    .tapSquareAndChangePickingPiece(_, _, _, _),
                     .tapSquareAndUnpick(_, _):
                 Animation.easeInOut(duration: Self.vertical.duration)
-            case .tapPieceAndMoveAndCapture(_, _, _, _),
+            case .tapSquareAndMoveAndCapture(_, _, _, _),
                     .tapSquareAndMove(_, _, _):
                 Animation.easeInOut(duration: Self.horizontal.duration + Self.vertical.duration)
             case .dropAndBack(_),

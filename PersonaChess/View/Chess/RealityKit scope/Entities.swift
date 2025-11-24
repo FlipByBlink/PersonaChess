@@ -72,7 +72,7 @@ private extension Entities {
             } else {
                 switch pieces.currentAction {
                     case .dropAndMoveAndCapture(_, _, _),
-                            .tapPieceAndMoveAndCapture(_, _, _, _),
+                            .tapSquareAndMoveAndCapture(_, _, _, _),
                             .remove(_):
                         continue
                     default:
@@ -145,10 +145,10 @@ private extension Entities {
                 self.setPosition(piece: piece,
                                  index: index,
                                  picked: false)
-            case .tapPieceAndMoveAndCapture(let pickedPiece,
-                                            let pickedPieceIndex,
-                                            let capturedPiece,
-                                            let capturedPieceIndex):
+            case .tapSquareAndMoveAndCapture(let pickedPiece,
+                                             let pickedPieceIndex,
+                                             let capturedPiece,
+                                             let capturedPieceIndex):
                 self.setPosition(piece: pickedPiece,
                                  index: pickedPieceIndex,
                                  picked: true)
@@ -178,20 +178,20 @@ private extension Entities {
                             index: index)
                 self.playSound(piece,
                                kind: .select)
-            case .tapPieceAndChangePickingPiece(let exPickedPiece,
-                                                let exPickedPieceIndex,
-                                                let newPickedPiece,
-                                                let newPickedPieceIndex):
+            case .tapSquareAndChangePickingPiece(let exPickedPiece,
+                                                 let exPickedPieceIndex,
+                                                 let newPickedPiece,
+                                                 let newPickedPieceIndex):
                 self.moveDown(piece: exPickedPiece,
                               index: exPickedPieceIndex)
                 self.moveUp(piece: newPickedPiece,
                             index: newPickedPieceIndex)
                 self.playSound(newPickedPiece,
                                kind: .select)
-            case .tapPieceAndMoveAndCapture(let pickedPiece,
-                                            let pickedPieceIndex,
-                                            let capturedPiece,
-                                            let capturedPieceIndex):
+            case .tapSquareAndMoveAndCapture(let pickedPiece,
+                                             let pickedPieceIndex,
+                                             let capturedPiece,
+                                             let capturedPieceIndex):
                 self.moveHorizontally(piece: pickedPiece,
                                       exIndex: pickedPieceIndex,
                                       newIndex: capturedPieceIndex)

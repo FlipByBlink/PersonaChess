@@ -20,7 +20,7 @@ extension Pieces: Codable, Equatable {
         self.currentAction = action
         switch action {
             case .tapSquareAndMove(let piece, _, let newIndex),
-                    .tapPieceAndMoveAndCapture(let piece, _, _, let newIndex):
+                    .tapSquareAndMoveAndCapture(let piece, _, _, let newIndex):
                 self.move(piece, newIndex)
             case .dropAndMove(let dragState, let newIndex),
                     .dropAndMoveAndCapture(let dragState, _, let newIndex):
@@ -43,7 +43,7 @@ extension Pieces: Codable, Equatable {
     var isPicking: Bool {
         switch self.currentAction {
             case .tapPieceAndPick(_, _),
-                    .tapPieceAndChangePickingPiece(_, _, _, _):
+                    .tapSquareAndChangePickingPiece(_, _, _, _):
                 true
             default:
                 false
@@ -52,7 +52,7 @@ extension Pieces: Codable, Equatable {
     var pickingPiece: Piece? {
         switch self.currentAction {
             case .tapPieceAndPick(let piece, _),
-                    .tapPieceAndChangePickingPiece(_, _, let piece, _):
+                    .tapSquareAndChangePickingPiece(_, _, let piece, _):
                 piece
             default:
                 nil
