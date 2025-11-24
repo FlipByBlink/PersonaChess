@@ -17,6 +17,7 @@ struct BoardView: View {
         .overlay { self.boardOutlineView() }
         .padding(self.paddingSize)
         .glassBackgroundEffect()
+        .allowsHitTesting(self.model.sharedState.pieces.isPicking)
         .frame(width: self.boardSize, height: self.boardSize)
         .opacity(self.sceneKind == .immersiveSpace ? 0.25 : 1)
         .modifier(MenuDuringImmersiveSpaceMode())

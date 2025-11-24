@@ -30,7 +30,6 @@ struct SquareView: View {
         }
         .buttonStyle(Self.SquareButtonStyle())
         .disabled(!self.inputtable)
-        //.allowsHitTesting(self.inputtable) 再検討
         .onChange(of: self.model.sharedState.pieces) { self.updateInputtable() }
         .task { self.updateInputtable() }
     }
@@ -53,15 +52,19 @@ private extension SquareView {
     }
     private func updateInputtable() {
         let myIndex = Index(self.row, self.column)
-        if self.model.sharedState.pieces.isPicking {
-            if !self.model.sharedState.pieces.indices.values.contains(myIndex) {
-                self.inputtable = true
-            } else {
-                self.inputtable = (self.model.sharedState.pieces.pickingPieceIndex! == myIndex)
+        self.inputtable = {
+            guard let pickingPiece = self.model.sharedState.pieces.pickingPiece else {
+                return false
             }
-        } else {
-            self.inputtable = false
-        }
+            if !self.model.sharedState.pieces.indices.values.contains(myIndex) {
+                return true
+            } else if myIndex == self.model.sharedState.pieces.pickingPieceIndex {
+                return true
+            } else {
+                let myPieceSide = self.model.sharedState.pieces.piece(myIndex)?.side
+                return (myPieceSide != pickingPiece.side)
+            }
+        }()
     }
     private struct SquareButtonStyle: ButtonStyle {
         func makeBody(configuration: Configuration) -> some View {
