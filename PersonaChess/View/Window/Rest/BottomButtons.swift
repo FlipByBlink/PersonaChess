@@ -5,13 +5,15 @@ struct BottomButtons: ToolbarContent {
         ToolbarItemGroup(placement: .bottomOrnament) {
             HStack(spacing: 12) {
                 Group {
-                    OpenAndDismissGroundModeButton()
                     RotateBoardButton()
                     RemoveButton()
                     UndoButton()
                     ResetButton()
+                    Divider().padding(.vertical, 2)
+                    OpenAndDismissGroundModeButton()
                 }
                 .buttonStyle(Self.Style())
+                
                 OpenGuideMenuButton()
             }
             .padding(.horizontal, 8)
