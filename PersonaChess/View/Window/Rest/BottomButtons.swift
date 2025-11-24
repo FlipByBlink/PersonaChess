@@ -6,9 +6,9 @@ struct BottomButtons: ToolbarContent {
             HStack(spacing: 12) {
                 Group {
                     RotateBoardButton()
-                    RemoveButton()
                     UndoButton()
                     ResetButton()
+                    RemoveButton()
                     Divider().padding(.vertical, 2)
                     OpenAndDismissGroundModeButton()
                 }

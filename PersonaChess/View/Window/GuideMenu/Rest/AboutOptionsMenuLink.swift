@@ -16,12 +16,12 @@ private extension AboutOptionsMenuLink {
         var body: some View {
             List {
                 Section {
-                    Label("The Remove feature allows you to remove a picking piece. You can also remove a piece by dropping it outside the board.",
-                          systemImage: "delete.left")
                     Label("The Undo feature allows you to take back your last move.",
                           systemImage: "arrow.uturn.backward")
                     Label("The Reset feature allows you to restart the chess game from the beginning.",
                           systemImage: "arrow.counterclockwise")
+                    Label("The Remove feature allows you to remove a picking piece. You can also remove a piece by dropping it outside the board.",
+                          systemImage: "delete.left")
                 }
                 
                 Section {
