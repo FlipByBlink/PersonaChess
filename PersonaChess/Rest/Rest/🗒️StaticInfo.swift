@@ -27,7 +27,7 @@ enum 🗒️StaticInfo {
     static let webMirrorRepositoryURL: URL = .init(string: "https://gitlab.com/FlipByBlink/PersonaChess_Mirror")!
 
     static let versionInfos: [(version: String, date: String)] = [
-        ("3.0", "2025-11-17"),
+        ("3.0", "2025-11-30"),
         ("2.0", "2025-07-04"),
         ("1.0", "2024-04-22"),
     ] //降順。先頭の方が新しい

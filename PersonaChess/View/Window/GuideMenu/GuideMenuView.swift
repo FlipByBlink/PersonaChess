@@ -27,6 +27,12 @@ struct GuideMenuView: View {
                         self.model.isGuideMenuShown = false
                     }
                 }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Text("App ver \(🗒️StaticInfo.versionInfos.first!.0)")
+                        .foregroundStyle(.secondary)
+                        .fontWeight(.semibold)
+                        .font(.subheadline)
+                }
             }
             .navigationTitle("Menu")
         }

@@ -81,6 +81,16 @@
         }
       }
     },
+    "App ver %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリバージョン%@"
+          }
+        }
+      }
+    },
     "Apple official support page" : {
       "localizations" : {
         "ja" : {
