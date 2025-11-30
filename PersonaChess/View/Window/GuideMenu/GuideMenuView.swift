@@ -2,6 +2,7 @@ import SwiftUI
 
 struct GuideMenuView: View {
     @EnvironmentObject var model: AppModel
+    @AppStorage("PreVersAnnounceIsClosed") var preVersAnnounceIsClosed: Bool = false
     var body: some View {
         NavigationStack {
             List {
@@ -10,17 +11,17 @@ struct GuideMenuView: View {
                     NavigationLink("What's Persona?") { WhatsPersonaMenu() }
                 }
                 Section { NavigationLink("Set up SharePlay") { SetUpMenu() } }
+                if !self.preVersAnnounceIsClosed {
+                    Self.PreVersAnnounce(self.$preVersAnnounceIsClosed)
+                }
                 Section {
                     Text("Once SharePlay has begun, it is not possible to change the window height. Adjust it beforehand.")
                         .padding(.vertical, 2)
                 }
                 AboutOptionsMenuLink()
-                Section {
-                    AboutAppLink()
-                } footer: {
-                    self.ver1Announce()
-                }
+                Section { AboutAppLink() }
             }
+            .animation(.default, value: self.preVersAnnounceIsClosed)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(role: .close) {
@@ -46,14 +47,37 @@ struct GuideMenuView: View {
 }
 
 private extension GuideMenuView {
-    @ViewBuilder
-    private func ver1Announce() -> some View {
-        if let date2512 = DateComponents(calendar: .current, year: 2025, month: 12).date,
-           date2512 > Date.now {
-            Text("""
-            This app is ver 3. It is not compatible with previous versions (ver 1.0 and ver 2.0), so SharePlay does not work between them.
-            If your SharePlay partners are using previous version, please recommend them to update the app.
-            """)
+    private struct PreVersAnnounce: View {
+        @Binding var isClosed: Bool
+        var body: some View {
+            if let date2601 = DateComponents(calendar: .current, year: 2026, month: 1).date,
+               date2601 > Date.now {
+                HStack(alignment: .top) {
+                    Text("""
+                    This app is ver 3. It is not compatible with previous versions (ver 1.0 and ver 2.0), so SharePlay does not work between them.
+                    If your SharePlay partners are using previous version, please recommend them to update the app.
+                    """)
+                    .font(.subheadline)
+                    Button(role: .close) {
+                        self.isClosed = true
+                    }
+                    .labelStyle(.iconOnly)
+                    .buttonBorderShape(.circle)
+                    .tint(Color.secondary)
+                    .fontWeight(.semibold)
+                    .buttonStyle(.plain)
+                }
+                .padding()
+                .listRowBackground(Color.clear)
+                .background {
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(.background)
+                        .stroke(.secondary, lineWidth: 3)
+                }
+            }
+        }
+        init(_ isClosed: Binding<Bool>) {
+            self._isClosed = isClosed
         }
     }
 }
