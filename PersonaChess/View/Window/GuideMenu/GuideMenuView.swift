@@ -58,13 +58,16 @@ private extension GuideMenuView {
                     If your SharePlay partners are using previous version, please recommend them to update the app.
                     """)
                     .font(.subheadline)
-                    Button(role: .close) {
+                    Button {
                         self.isClosed = true
+                    } label: {
+                        Label("Close", systemImage: "xmark.circle.fill")
+                            .labelStyle(.iconOnly)
+                            .symbolRenderingMode(.hierarchical)
+                            .foregroundStyle(Color.secondary)
+                            .font(.largeTitle)
+                            .fontWeight(.semibold)
                     }
-                    .labelStyle(.iconOnly)
-                    .buttonBorderShape(.circle)
-                    .tint(Color.secondary)
-                    .fontWeight(.semibold)
                     .buttonStyle(.plain)
                 }
                 .padding()

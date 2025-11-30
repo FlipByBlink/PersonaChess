@@ -111,6 +111,16 @@
         }
       }
     },
+    "Close" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "閉じる"
+          }
+        }
+      }
+    },
     "Dismiss Ground mode" : {
       "localizations" : {
         "ja" : {
