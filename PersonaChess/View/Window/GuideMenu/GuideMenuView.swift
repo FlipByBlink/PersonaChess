@@ -2,7 +2,7 @@ import SwiftUI
 
 struct GuideMenuView: View {
     @EnvironmentObject var model: AppModel
-    @AppStorage("PreVersAnnounceIsClosed") var preVersAnnounceIsClosed: Bool = false
+    @SceneStorage("PreVersAnnounceIsClosed") var preVersAnnounceIsClosed: Bool = false
     var body: some View {
         NavigationStack {
             List {
