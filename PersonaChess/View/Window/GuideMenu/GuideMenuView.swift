@@ -11,15 +11,15 @@ struct GuideMenuView: View {
                     NavigationLink("What's Persona?") { WhatsPersonaMenu() }
                 }
                 Section { NavigationLink("Set up SharePlay") { SetUpMenu() } }
-                if !self.preVersAnnounceIsClosed {
-                    Self.PreVersAnnounce(self.$preVersAnnounceIsClosed)
-                }
                 Section {
                     Text("Once SharePlay has begun, it is not possible to change the window height. Adjust it beforehand.")
                         .padding(.vertical, 2)
                 }
                 AboutOptionsMenuLink()
                 Section { AboutAppLink() }
+                if !self.preVersAnnounceIsClosed {
+                    Self.PreVersAnnounce(self.$preVersAnnounceIsClosed)
+                }
             }
             .animation(.default, value: self.preVersAnnounceIsClosed)
             .toolbar {
@@ -50,8 +50,8 @@ private extension GuideMenuView {
     private struct PreVersAnnounce: View {
         @Binding var isClosed: Bool
         var body: some View {
-            if let date2601 = DateComponents(calendar: .current, year: 2026, month: 1).date,
-               date2601 > Date.now {
+            if let date2602 = DateComponents(calendar: .current, year: 2026, month: 2).date,
+               date2602 > Date.now {
                 HStack(alignment: .top) {
                     Text("""
                     This app is ver 3. It is not compatible with previous versions (ver 1.0 and ver 2.0), so SharePlay does not work between them.

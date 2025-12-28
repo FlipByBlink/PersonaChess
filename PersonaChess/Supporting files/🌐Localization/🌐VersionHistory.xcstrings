@@ -51,6 +51,23 @@
           }
         }
       }
+    },
+    "3.0.1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Small fix."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "軽微な修正。"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
