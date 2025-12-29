@@ -363,7 +363,6 @@
 		16F972762B68B7FB00711C53 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		1D0CBE022EC0BB4700C38316 /* nearby_SharePlay_demo_640w.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nearby_SharePlay_demo_640w.gif; sourceTree = "<group>"; };
 		1D27837A2E1F3E050017A50B /* screenshot1280w4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w4.jpg; sourceTree = "<group>"; };
-		1D27837B2E1F40E60017A50B /* preview600w.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = preview600w.gif; sourceTree = "<group>"; };
 		1D5548672E0F9389005759DE /* removeSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = removeSound.m4a; sourceTree = "<group>"; };
 		1D55486A2E0F98CE005759DE /* RemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveButton.swift; sourceTree = "<group>"; };
 		1D55486C2E0FA1F4005759DE /* BottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtons.swift; sourceTree = "<group>"; };
@@ -394,6 +393,7 @@
 		1DD0A2E72F0214D60031E4B5 /* screenshot1280w6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w6.jpg; sourceTree = "<group>"; };
 		1DD0A2E82F0216480031E4B5 /* screenshot1280w7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w7.jpg; sourceTree = "<group>"; };
 		1DD0A2E92F02199A0031E4B5 /* screenshot1280w8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screenshot1280w8.jpg; sourceTree = "<group>"; };
+		1DD0A2EA2F02229D0031E4B5 /* FaceTime_SharePlay_demo_640w.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = FaceTime_SharePlay_demo_640w.gif; sourceTree = "<group>"; };
 		1DD18A282DD9968800CF0645 /* WindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -501,8 +501,8 @@
 				1DD0A2E72F0214D60031E4B5 /* screenshot1280w6.jpg */,
 				1DD0A2E82F0216480031E4B5 /* screenshot1280w7.jpg */,
 				1DD0A2E92F02199A0031E4B5 /* screenshot1280w8.jpg */,
-				1D27837B2E1F40E60017A50B /* preview600w.gif */,
 				1D0CBE022EC0BB4700C38316 /* nearby_SharePlay_demo_640w.gif */,
+				1DD0A2EA2F02229D0031E4B5 /* FaceTime_SharePlay_demo_640w.gif */,
 			);
 			path = "README assets";
 			sourceTree = "<group>";

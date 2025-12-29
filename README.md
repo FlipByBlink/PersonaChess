@@ -12,7 +12,7 @@ _Spatial SharePlay × Chess_
 
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w.jpg" width="640">
 
-<img src="PersonaChess/Supporting files/Rest/README assets/preview600w.gif" width="600">
+<img src="PersonaChess/Supporting files/Rest/README assets/FaceTime_SharePlay_demo_640w.gif" width="640">
 
 <img src="PersonaChess/Supporting files/Rest/README assets/nearby_SharePlay_demo_640w.gif" width="640">
 
