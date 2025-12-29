@@ -11,12 +11,8 @@ struct GuideMenuView: View {
                     NavigationLink("What's Persona?") { WhatsPersonaMenu() }
                 }
                 Section { NavigationLink("Set up SharePlay") { SetUpMenu() } }
-                Section {
-                    Text("Once SharePlay has begun, it is not possible to change the window height. Adjust it beforehand.")
-                        .padding(.vertical, 2)
-                }
                 AboutOptionsMenuLink()
-                Section { AboutAppLink() }
+                AboutAppLink()
                 if !self.preVersAnnounceIsClosed {
                     Self.PreVersAnnounce(self.$preVersAnnounceIsClosed)
                 }

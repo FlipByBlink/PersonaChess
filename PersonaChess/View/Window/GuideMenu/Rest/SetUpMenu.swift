@@ -36,9 +36,6 @@ struct SetUpMenu: View {
             }
             Section {
                 Text("If SharePlay doesn’t work properly, your app versions might be different. Please update the app to the latest version and try SharePlay again.")
-            }
-            Section {
-                Text("Once SharePlay has begun, it is not possible to change the window height. Adjust it beforehand.")
                     .onTapGesture(count: 3) { self.isDebugViewPresented.toggle() }
             }
         }
