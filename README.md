@@ -55,6 +55,8 @@ Notice
 
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w7.jpg" width="640">
 
+<img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w8.jpg" width="640">
+
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w2.jpg" width="640">
 
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w3.jpg" width="640">
