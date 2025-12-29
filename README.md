@@ -12,9 +12,9 @@ _Spatial SharePlay × Chess_
 
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w.jpg" width="640">
 
-<img src="PersonaChess/Supporting files/Rest/README assets/FaceTime_SharePlay_demo_640w.gif" width="640">
+<img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w7.jpg" width="640">
 
-<img src="PersonaChess/Supporting files/Rest/README assets/nearby_SharePlay_demo_640w.gif" width="640">
+<img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w8.jpg" width="640">
 
 
 Description
@@ -44,18 +44,9 @@ Chess board with Personas and people nearby.
 - Ground mode.
 
 
-Notice
+<img src="PersonaChess/Supporting files/Rest/README assets/FaceTime_SharePlay_demo_640w.gif" width="640">
 
-- To use SharePlay with Personas, a FaceTime call is required.
-
-- You must set up your persona on the OS beforehand.
-
-- The persona appears as part of FaceTime.
-
-
-<img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w7.jpg" width="640">
-
-<img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w8.jpg" width="640">
+<img src="PersonaChess/Supporting files/Rest/README assets/nearby_SharePlay_demo_640w.gif" width="640">
 
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w2.jpg" width="640">
 
@@ -66,6 +57,18 @@ Notice
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w5.jpg" width="640">
 
 <img src="PersonaChess/Supporting files/Rest/README assets/screenshot1280w4.jpg" width="640">
+
+
+<br>
+
+
+Notice
+
+- To use SharePlay with Personas, a FaceTime call is required.
+
+- You must set up your persona on the OS beforehand.
+
+- The persona appears as part of FaceTime.
 
 
 <br>
