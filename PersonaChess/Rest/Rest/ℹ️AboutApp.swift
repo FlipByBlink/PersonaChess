@@ -284,13 +284,8 @@ private struct 📓SourceCodeLink: View {
                     LabeledContent {
                         Image(systemName: "arrow.up.forward.app")
                     } label: {
-                        HStack {
-                            Label(String(localized: "Web Repository", table: "🌐AboutApp"),
-                                  systemImage: "link")
-                            Text("(Mirror)", tableName: "🌐AboutApp")
-                                .font(.subheadline.bold())
-                                .foregroundStyle(.secondary)
-                        }
+                        Label(String(localized: "Web Repository (Mirror)", table: "🌐AboutApp"),
+                              systemImage: "link")
                     }
                 }
             } footer: {

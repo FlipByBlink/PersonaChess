@@ -21,22 +21,6 @@
         }
       }
     },
-    "(Mirror)" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "(Mirror)"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "(ミラー)"
-          }
-        }
-      }
-    },
     "← Select file" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -556,6 +540,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Web リポジトリー"
+          }
+        }
+      }
+    },
+    "Web Repository (Mirror)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web リポジトリー(ミラー)"
           }
         }
       }
